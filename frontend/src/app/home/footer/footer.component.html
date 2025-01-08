@@ -1,5 +1,110 @@
-<div class="bg-footerBg px-20 py-16">
-  <div>
-    <img class="w-6 h-6" [src]="logoUrl">
+<div class="flex bg-footerBg justify-between px-[6rem] py-[5rem]">
+  <div class="flex flex-col gap-7">
+    <div class="flex items-center gap-2">
+      <img class="w-6 h-6" [src]="logoUrl" alt="Logo">
+
+      <h2 class="font-fugaz mt-1 text-lg text-textWhite">Eterna Travel Co.</h2>
+    </div>
+
+    <div>
+      <span class="block font-kaushan text-textWhite text-xs text-opacity-90 mb-1">Need any help?</span>
+      <span class="block font-workSans font-bold text-textWhite">
+        Call Us:
+        <span class="text-textRed">
+          +968 9123 4567
+        </span>
+      </span>
+    </div>
+
+    <div>
+      <span class="block font-inter text-textWhite text-sm font-thin">Love Street, Muscat, Oman</span>
+      <span class="block font-inter text-textWhite text-sm font-thin">info@eternatravelco.com</span>
+    </div>
+
+    <div>
+      <ul class="flex gap-4 text-textWhite text-opacity-80">
+        <li>
+          <a href="https://www.facebook.com" target="_blank">
+            <span class="iconify" data-icon="fa-brands:facebook"></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com" target="_blank">
+            <span class="iconify" data-icon="fa-brands:instagram"></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com" target="_blank">
+            <span class="iconify" data-icon="fa-brands:twitter"></span>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.linkedin.com" target="_blank">
+            <span class="iconify" data-icon="fa-brands:linkedin"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="flex gap-[5rem]">
+    <div>
+      <span class="font-kaushan text-xs text-textWhite">Company</span>
+
+      <ul class="flex flex-col gap-2 mt-3">
+        <li>
+          <a class="font-inter text-textWhite text-sm font-thin" routerLink="about-us">About Us</a>
+        </li>
+
+        <li>
+          <a class="font-inter text-textWhite text-sm font-thin" routerLink="contact-us">Contact Us</a>
+        </li>
+
+        <li>
+          <a class="font-inter text-textWhite text-sm font-thin" routerLink="travel-guides">Travel Guides</a>
+        </li>
+
+        <li>
+          <a class="font-inter text-textWhite text-sm font-thin" routerLink="data-policy">Data Policy</a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="font-kaushan text-xs text-textWhite">Top Destination</span>
+
+      <ul class="flex flex-col gap-3 mt-3">
+        <li>
+          <a class="font-inter text-textWhite text-sm font-thin" routerLink="about-us">Las Vegas</a>
+        </li>
+
+        <li>
+          <a class="font-inter text-textWhite text-sm font-thin" routerLink="contact-us">New York City</a>
+        </li>
+
+        <li>
+          <a class="font-inter text-textWhite text-sm font-thin" routerLink="travel-guides">San Francisco</a>
+        </li>
+
+        <li>
+          <a class="font-inter text-textWhite text-sm font-thin" routerLink="data-policy">Hawaii</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-4">
+    <span class="font-kaushan text-xs text-textWhite">Sign up Newsletter</span>
+
+    <div>
+      <div class="relative">
+        <input class="block bg-textWhite rounded placeholder:font-inter text-xs font-normal py-2 pl-6 mb-2" type="text" placeholder="Enter email...">
+        <img class="absolute top-1/2 left-2 transform -translate-y-1/2 w-3 h-3 text-black" [src]="newsletterIconUrl" alt="Newsletter icon">
+      </div>
+      <button class="bg-textRed text-textWhite font-inter text-xs rounded px-5 py-2">Submit</button>
+    </div>
+
+    <span class="font-inter text-textWhite text-xs font-thin mt-7">© 2023 Eterna Travel Co. All Right Reserved</span>
   </div>
 </div>

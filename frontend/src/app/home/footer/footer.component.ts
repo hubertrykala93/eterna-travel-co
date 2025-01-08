@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   logoUrl: string = environment.mediaUrl + 'logo/eterna-travel-co-logo.png';
+  newsletterIconUrl: string = environment.mediaUrl + 'icons/newsletter-icon.svg';
 
 }
