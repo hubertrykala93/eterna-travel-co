@@ -2,10 +2,11 @@ import { environment } from './../../environments';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css']
 })
-export class HeaderComponent {
+export class FooterComponent {
   logoUrl: string = environment.mediaUrl + 'logo/eterna-travel-co-logo.png';
+
 }
