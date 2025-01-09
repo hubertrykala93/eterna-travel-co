@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        'xxs': '0.7rem'
+      },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
         fugaz: ['Fugaz One', 'cursive'],
