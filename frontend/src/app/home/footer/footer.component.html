@@ -100,13 +100,31 @@
           <img class="absolute top-1/2 left-2 transform -translate-y-1/2 w-3 h-3 text-black" [src]="newsletterIconUrl" alt="Newsletter icon">
         </div>
 
-        <div class="mb-2 mt-2" *ngIf="newsletterForm.get('email')?.invalid && (newsletterForm.get('email')?.touched || newsletterForm.get('email')?.dirty)">
-          <div *ngIf="newsletterForm.get('email')?.errors as emailErrors">
+        <div class="mb-2 mt-1" *ngIf="newsletterForm.get('email')?.invalid && (newsletterForm.get('email')?.touched || newsletterForm.get('email')?.dirty)">
+          <ng-container *ngIf="newsletterForm.get('email')?.errors as emailErrors">
             <span class="block font-inter text-xxs text-textRed" *ngIf="emailErrors['required']">Email is required.</span>
-            <span class="block font-inter text-xxs text-textRed" *ngIf="emailErrors['minlength']">Ensure this value has at least 3 characters (it has {{ newsletterForm.get('email')?.value.length }} characters).</span>
-            <span class="block font-inter text-xxs text-textRed" *ngIf="emailErrors['maxlength']">Ensure this value has at most 255 characters (it has {{ newsletterForm.get('email')?.value.length }} characters).</span>
+            <span class="block font-inter text-xxs text-textRed" *ngIf="emailErrors['minlength']">Ensure this value has at least 3 characters.</span>
+            <span class="block font-inter text-xxs text-textRed" *ngIf="emailErrors['maxlength']">Ensure this value has at most 255 characters.</span>
             <span class="block font-inter text-xxs text-textRed" *ngIf="emailErrors['pattern']">Enter a valid email address.</span>
-          </div>
+            <span class="block font-inter text-xxs text-textRed" *ngIf="emailErrors['validationError']">{{ emailErrors['validationError'] }}</span>
+          </ng-container>
+        </div>
+
+        <div class="mb-2 mt-1">
+          <span class="block font-inter text-xxs text-textYellow" *ngIf="successMessage">{{ successMessage }}</span>
+        </div>
+
+      </div>
+      <div class="mt-2">
+        <div class="flex gap-2">
+          <input formControlName="dataProcessing" type="checkbox">
+          <span class="font-inter text-xxs text-textWhite">I consent to the processing of my personal data. *</span>
+        </div>
+
+        <div class="mb-2" *ngIf="newsletterForm.get('dataProcessing')?.invalid && (newsletterForm.get('dataProcessing')?.touched || newsletterForm.get('dataProcessing')?.dirty)">
+          <ng-container *ngIf="newsletterForm.get('dataProcessing')?.errors as dataProcessingErrors">
+            <span class="block font-inter text-xxs text-textRed" *ngIf="dataProcessingErrors['required']">Consent to the processing of personal data is required.</span>
+          </ng-container>
         </div>
 
       </div>
