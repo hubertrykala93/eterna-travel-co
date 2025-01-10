@@ -8,13 +8,21 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './home/header/header.component';
 import { NavbarComponent } from './home/navbar/navbar.component';
 import { FooterComponent } from './home/footer/footer.component';
+import { PageTitleComponent } from './home/page-title/page-title.component';
+import { AboutComponent } from './about/about.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    PageTitleComponent,
+    AboutComponent,
+    ContactUsComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,

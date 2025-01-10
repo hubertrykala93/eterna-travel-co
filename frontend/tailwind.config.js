@@ -20,7 +20,10 @@ module.exports = {
         textYellow: '#F8D448',
         headerBg: '#F7F8F9',
         headerTextColor: '#051036',
-        footerBg: '#111111'
+        footerBg: '#111111',
+        primaryPageTitleColor: '#051036',
+        secondaryPageTitleColor: '#C4C4C4',
+        iconsBg: '#F7F8F9'
       }
     },
   },
