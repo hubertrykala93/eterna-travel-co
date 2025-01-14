@@ -1,49 +1,53 @@
 <header>
-  <div class="flex justify-between items-center font-inter font-regular text-xs text-headerTextColor text-opacity-80 bg-headerBg px-10 py-2">
-    <div>
+  <div class="flex relative justify-between items-center px-12 py-[10px] h-9 bg-heading bg-opacity-5">
+    <div class="font-inter font-regular text-caption text-heading opacity-80">
       <span>+1 (555) 123-4567</span>
       <span class="px-3">|</span>
       <span>info@eternatravelco.com</span>
     </div>
 
-    <div class="flex">
-      <ul class="flex gap-3 items-center">
+    <div class="flex items-center">
+      <ul class="flex gap-3 text-heading opacity-60">
         <li>
           <a href="https://www.facebook.com" target="_blank">
-            <span class="iconify" data-icon="fa-brands:facebook"></span>
+            <span class="iconify w-[14px] h-[14px]" data-icon="fa-brands:facebook"></span>
           </a>
         </li>
         <li>
           <a href="https://www.instagram.com" target="_blank">
-            <span class="iconify" data-icon="fa-brands:instagram"></span>
+            <span class="iconify w-[14px] h-[14px]" data-icon="fa-brands:instagram"></span>
           </a>
         </li>
         <li>
           <a href="https://x.com" target="_blank">
-            <span class="iconify" data-icon="fa-brands:twitter"></span>
+            <span class="iconify w-[14px] h-[14px]" data-icon="fa-brands:twitter"></span>
           </a>
         </li>
 
         <li>
           <a href="https://www.linkedin.com" target="_blank">
-            <span class="iconify" data-icon="fa-brands:linkedin"></span>
+            <span class="iconify w-[14px] h-[14px]" data-icon="fa-brands:linkedin"></span>
           </a>
         </li>
       </ul>
 
-      <span class="px-3">|</span>
+      <div>
+        <span class="px-3 text-headerTextColor opacity-40">|</span>
+      </div>
 
       <div class="relative" (mouseenter)="showDropdown(true)" (mouseleave)="hideDropdown(false)">
         <div class="flex items-center gap-3">
-          <span>{{ selectedCurrency }}</span>
+          <span class="font-inter font-normal text-caption text-heading opacity-80 mt-[2px]">{{ selectedCurrency }}</span>
 
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
+          <div class="text-headerTextColor opacity-60">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
         </div>
 
-        <div class="absolute left-0 px-3 py-2 border text-headerTextColor bg-headerBg rounded shadow-lg z-10 cursor-pointer" [ngClass]="{ 'block': isDropdownVisible, 'hidden': !isDropdownVisible }">
-          <ul>
+        <div class="absolute left-0 px-3 py-2 border bg-white rounded shadow-lg z-10 cursor-pointer" [ngClass]="{ 'block': isDropdownVisible, 'hidden': !isDropdownVisible }">
+          <ul class="flex flex-col font-inter font-normal text-caption text-heading opacity-80 gap-1">
             <li (click)="selectCurrency('USD')">USD</li>
             <li (click)="selectCurrency('EUR')">EUR</li>
             <li (click)="selectCurrency('GBP')">GBP</li>
@@ -55,37 +59,37 @@
 
     </div>
   </div>
-  <div class="flex items-center bg-white px-10 py-4">
+  <div class="flex items-center bg-white px-12 py-4 h-[72px]">
     <div class="flex items-center gap-2">
-      <img class="w-6 h-6" [src]="logoUrl" alt="Logo">
+      <img class="w-8" [src]="logoUrl" alt="Logo">
 
-      <h2 class="font-fugaz mt-1 text-lg">Eterna Travel Co.</h2>
+      <h2 class="font-fugaz mt-1 text-2xl">Eterna Travel Co.</h2>
     </div>
 
     <app-navbar class="ml-20"></app-navbar>
 
-    <div class="flex justify-between items-center gap-2 ml-auto">
+    <div class="flex justify-between items-center gap-[6px] ml-auto">
       <div>
-        <ul class="flex font-workSans font-medium text-headerTextColor text-opacity-80 gap-5">
+        <ul class="flex font-workSans font-medium text-heading opacity-80 gap-4">
           <li>
-            <span class="iconify" data-icon="fa-solid:search"></span>
+            <span class="iconify w-5" data-icon="fa-solid:search"></span>
           </li>
           <li>
-            <span class="iconify" data-icon="fa-solid:user"></span>
+            <span class="iconify w-5" data-icon="fa-solid:user"></span>
           </li>
         </ul>
       </div>
 
       <div>
-        <ul class="flex font-workSans font-medium text-headerTextColor text-opacity-80">
+        <ul class="flex font-workSans text-subtitle font-semibold text-heading opacity-80">
           <li>
-            <a class="hover:text-textRed duration-300" routerLink="login">Login</a>
+            <a class="hover:text-brandPrimary duration-300" routerLink="login">Login</a>
           </li>
 
           <span class="px-1">/</span>
 
           <li>
-            <a class="hover:text-textRed duration-300" routerLink="register">Register</a>
+            <a class="hover:text-brandPrimary duration-300" routerLink="register">Register</a>
           </li>
         </ul>
       </div>

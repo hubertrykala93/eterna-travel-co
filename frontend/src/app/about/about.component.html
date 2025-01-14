@@ -1,41 +1,221 @@
 <app-page-title></app-page-title>
 
-<div class="block bg-textWhite px-[6rem]">
-  <div class="grid grid-cols-12 pt-[5rem] pb-[4rem]">
-    <div class="col-span-6">
-      <div class="relative">
-        <img class="transform rotate-[-15deg] w-1/3 h-auto" [src]="firstImageUrl">
-        <img class="absolute w-[338px] h-auto border-[3px] border-white top-[2rem] left-[8rem]" [src]="secondImageUrl">
-      </div>
+<div class="block">
+  <!--About Us-->
+  <div class="grid grid-cols-12 px-[135px] py-[86px]">
+    <div class="relative col-span-6">
+      <img class="absolute w-[306px] top-0 left-0 origin-top-right rotate-[-15deg]" [src]="firstImageUrl" alt="Two happy friends in silk suits, scarves, and sunglasses on vacation, traveling through Thailand on an Asian boat in Khao Sok National Park">
+      <img class="absolute w-[338px] bottom-0 right-0 border-[4px] border-white" [src]="secondImageUrl" alt="A beautiful portrait of a young woman on vacation on an Asian wooden boat">
+
+      <a routerLink="/contact-us">
+        <div class="flex absolute items-center w-[279px] left-1/4 bottom-5 h-[75px] bg-brandPrimary border-[1px] border-white">
+          <div class="flex gap-[9px] ml-8">
+            <img [src]="playIconUrl" alt="Play icon">
+            <span class="font-kaushan font-normal text-white text-xl leading-[32px]">Watch Now</span>
+          </div>
+        </div>
+      </a>
     </div>
 
-    <div class="col-start-8 col-span-3 w-[260px]">
-      <div class="flex items-center gap-3">
-        <span class="font-kaushan text-base text-textRed">About Us</span>
-        <div class="border-t-[1px] text-textRed w-[124px]"></div>
-      </div>
+    <div class="col-start-8 col-span-4">
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center gap-4">
+          <span class="font-kaushan font-normal text-2xl text-brandPrimary">About Us</span>
+          <div class="flex-grow border-t-[1px] border-heading opacity-10"></div>
+        </div>
 
-      <h1 class="font-workSans text-2xl text-headerTextColor font-bold my-2">Why Select Us for Your Vacation</h1>
+        <div>
+          <h3 class="font-workSans font-bold text-heading text-h3">Why Select Us for Your Vacation</h3>
+        </div>
 
-      <div>
-
-        <div class="flex flex-col gap-5">
-          <span class="font-inter text-xs font-thin text-headerTextColor">
-            Intrinsicly myocardinate standards compliant solutions rather than multidisciplinary solutions. Phosfluorescently re-engineer goal-oriented resources whereas distributed strategic theme areas. Authoritatively coordinate 24/365 process improvements after out-of-the-box mindshare.
-          </span>
-
-          <span class="font-inter text-xs font-thin text-headerTextColor">
-            Appropriately extend user-centric partnerships before interactive e-tailers. Efficiently plagiarize superior services after adaptive web-readiness.
-          </span>
-
-          <span class="font-inter text-xs font-thin text-headerTextColor">
-            Dynamically whiteboard team building processes rather than long-term high-impact infrastructures.
-          </span>
+        <div class="font-inter font-light text-body text-heading opacity-60">
+          <p>Intrinsicly myocardinate standards compliant solutions rather than multidisciplinary solutions. Phosfluorescently re-engineer goal-oriented resources whereas distributed strategic theme areas. Authoritatively coordinate 24/365 process improvements after out-of-the-box mindshare.</p>
+          <br>
+          <p>Appropriately extend user-centric partnerships before interactive e-tailers. Efficiently plagiarize superior services after adaptive web-readiness.</p>
+          <br>
+          <p>Dynamically whiteboard team building processes rather than long-term high-impact infrastructures.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div>
+  <div class="border-t-[1px] mx-[6rem]"></div>
+
+  <div class="flex justify-between pt-12 pb-20 px-[135px]">
+    <div class="flex items-center gap-3">
+      <span class="font-kaushan text-[40px] leading-[54px]">1200+</span>
+      <span class="font-workSans font-semibold text-subtitle text-heading opacity-60">Total Destination</span>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <span class="font-kaushan text-[40px] leading-[54px]">500+</span>
+      <span class="font-workSans font-semibold text-subtitle text-heading opacity-60">Travel Packages</span>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <span class="font-kaushan text-[40px] leading-[54px]">12k+</span>
+      <span class="font-workSans font-semibold text-subtitle text-heading opacity-60">Total Travelers</span>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <span class="font-kaushan text-[40px] leading-[54px]">7k+</span>
+      <span class="font-workSans font-semibold text-subtitle text-heading opacity-60">Positive Reviews</span>
+    </div>
+  </div>
+
+  <!--Features-->
+  <div class="flex flex-col items-center justify-center bg-surface px-[135px] py-[86px]">
+    <div class="flex flex-col gap-[6px] mb-12">
+      <div class="flex items-center max-w-xs">
+        <div class="flex-grow border-t-[1px] border-heading opacity-10"></div>
+        <span class="font-kaushan font-normal text-xl leading-[32px] text-brandPrimary px-4">Features</span>
+        <div class="flex-grow border-t-[1px] border-heading opacity-10"></div>
+      </div>
+
+      <div>
+        <h3 class="font-workSans font-bold text-h3 text-heading">Why Choose Us</h3>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 grid-rows-2 gap-x-[30px] gap-y-6">
+      <div class="bg-white p-[30px]">
+        <img class="w-10" [src]="cheapRatesIconUrl">
+
+        <div class="flex flex-col mt-5 text-heading gap-1">
+          <span class="font-workSans font-bold text-h6">Cheap Rates</span>
+          <span class="font-inter text-body font-light opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-[30px]">
+        <img class="w-10" [src]="bestTravelPlanIconUrl">
+
+        <div class="flex flex-col mt-5 text-heading gap-1">
+          <span class="font-workSans font-bold text-h6">Best Travel Plan</span>
+          <span class="font-inter text-body font-light opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-[30px]">
+        <img class="w-10" [src]="easyQuickBookingIconUrl">
+
+        <div class="flex flex-col mt-5 text-heading gap-1">
+          <span class="font-workSans font-bold text-h6">Easy & Quick Booking</span>
+          <span class="font-inter text-body font-light opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-[30px]">
+        <img class="w-10" [src]="handPickedTourIconUrl">
+
+        <div class="flex flex-col mt-5 text-heading gap-1">
+          <span class="font-workSans font-bold text-h6">Hand-picked Tour</span>
+          <span class="font-inter text-body font-light opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-[30px]">
+        <img class="w-10" [src]="privateGuideIconUrl">
+
+        <div class="flex flex-col mt-5 text-heading gap-1">
+          <span class="font-workSans font-bold text-h6">Private Guide</span>
+          <span class="font-inter text-body font-light opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-[30px]">
+        <img class="w-10" [src]="customerCareIconUrl">
+
+        <div class="flex flex-col mt-5 text-heading gap-1">
+          <span class="font-workSans font-bold text-h6">Customer Care 24/7</span>
+          <span class="font-inter text-body font-light opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Team-->
+  <div class="flex flex-col items-center px-[135px] py-[86px] bg-white gap-12">
+    <div class="flex flex-col items-center text-center gap-[6px]">
+      <div class="flex items-center w-full">
+        <div class="flex-grow border-t-[1px] border-heading opacity-10"></div>
+        <span class="font-kaushan font-normal text-2xl text-brandPrimary px-4">Team</span>
+        <div class="flex-grow border-t-[1px] border-heading opacity-10"></div>
+      </div>
+      <h3 class="font-workSans font-bold text-h3 text-heading">Our Amazing Team</h3>
+    </div>
+
+    <div class="grid grid-cols-1 w-full">
+      <ul class="flex gap-8 justify-between text-heading">
+        <li>
+          <img class="w-[206px] mb-6" [src]="travelerImageOneUrl" alt="Close-up of a smiling person in nature">
+          <h6 class="font-workSans font-bold text-h6 mb-1">Antoni Shkraba</h6>
+          <span class="font-inter font-light text-body opacity-60">Founder & Director</span>
+        </li>
+
+        <li>
+          <img class="w-[206px] mb-6" [src]="travelerImageTwoUrl" alt="A man with an old camera on the street">
+          <h6 class="font-workSans font-bold text-h6 mb-1">Andrew Davie</h6>
+          <span class="font-inter font-light text-body opacity-60">Chief Operating Officer</span>
+        </li>
+
+        <li>
+          <img class="w-[206px] mb-6" [src]="travelerImageThreeUrl" alt="A smiling tourist posing on a swing">
+          <h6 class="font-workSans font-bold text-h6 mb-1">Orlando Diggs</h6>
+          <span class="font-inter font-light text-body opacity-60">Director - Hotels</span>
+        </li>
+
+        <li>
+          <img class="w-[206px] mb-6" [src]="travelerImageFourUrl" alt="A trendy urban young woman in cool sunglasses, a warm winter sweater, and stylish jeans, traveling with a backpack around the city. Cheerful mood, talking on the phone, with a takeaway coffee on a sunny, cold day">
+          <h6 class="font-workSans font-bold text-h6 mb-1">Tamara Bellis</h6>
+          <span class="font-inter font-light text-body opacity-60">Customer Support</span>
+        </li>
+
+        <li>
+          <img class="w-[206px] mb-6" [src]="travelerImageFiveUrl" alt="World Photography Day celebrated by a middle-aged man taking pictures with a camera">
+          <h6 class="font-workSans font-bold text-h6 mb-1">Philip Martin</h6>
+          <span class="font-inter font-light text-body opacity-60">Chief Executive</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!--Testimonials-->
+  <div class="grid grid-cols-12 px-[135px] py-[86px] bg-surface">
+    <div class="flex items-center justify-center col-span-6 relative">
+      <img class="absolute w-[326px] left-5 origin-left rotate-[-10deg]" [src]="testimonialTwoImageUrl" alt="Young beautiful hipster girls having fun on the beach">
+      <img class="absolute w-[214px] bottom-0 left-20 border-[4px] rotate-[6deg] border-white" [src]="testimonialOneImageUrl" alt="Stylish, pretty women on vacation on a tropical beach, with slim legs, sitting on the sand and having fun">
+      <img class="absolute w-[200px] left-20 top-0 rotate-[8deg] border-[4px] border-white" [src]="testimonialThreeImageUrl" alt="Sexy women sitting on a railing on the street, communicating and discussing">
+    </div>
+
+    <div class="col-start-7 col-span-4">
+      <div class="flex flex-col items-center justify-center mx-auto gap-2 mb-10">
+        <div class="flex items-center justify-center w-full max-w-xs">
+          <div class="flex-grow border-t-[1px] border-heading opacity-10"></div>
+          <span class="font-kaushan font-normal text-xl leading-[32px] text-brandPrimary px-4">Testimonials</span>
+          <div class="flex-grow border-t-[1px] border-heading opacity-10"></div>
+        </div>
+
+        <h3 class="font-workSans font-bold text-h3 text-heading text-center">What Travelers Say</h3>
+      </div>
+
+      <div class="flex flex-col items-center text-center mb-10 gap-[18px] text-heading">
+        <img class="w-8" [src]="quoteIconUrl">
+
+        <span class="font-workSans font-bold text-h6">“The UI designs he crafted are top-notch, and the design system he integrated allows for straight forward fixes and bulk updates throughout almost every area of the app.”</span>
+
+        <span class="font-inter font-light text-body opacity-60">- By Molie Rosa, Photographer</span>
+      </div>
+
+      <div>
+        <ul class="flex justify-center gap-2">
+          <li class="w-2 h-2 rounded-full bg-heading opacity-10"></li>
+          <li class="w-2 h-2 rounded-full bg-heading opacity-10"></li>
+          <li class="w-2 h-2 rounded-full bg-heading opacity-10"></li>
+          <li class="w-2 h-2 rounded-full bg-heading opacity-10"></li>
+        </ul>
+      <div>
+    </div>
   </div>
 </div>
