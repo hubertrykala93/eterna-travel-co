@@ -12,35 +12,65 @@
   </div>
 
   <div class="absolute bottom-[-55px]">
-    <div class="flex bg-white rounded-xl p-6">
+    <div class="flex bg-white rounded-xl p-6 border-heading border-[1px] border-opacity-10">
       <form>
         <div class="flex justify-between gap-4">
           <div class="flex flex-col gap-1">
             <label class="font-kaushan font-normal text-sm leading-[16px] text-heading">Destination</label>
             <div class="relative">
               <input class="w-full pl-10 pr-[10px] py-[10px] border border-opacity-10 rounded-md border-heading placeholder:font-inter text-bodySmall font-light text-opacity-40" placeholder="Where to go?">
-              <img class="absolute w-4 left-2 top-1/2 transform -translate-y-1/2 ml-2" [src]="sendIconUrl" alt="Send icon">
+              <svg class="absolute w-4 left-2 top-1/2 transform -translate-y-1/2 ml-2" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_1452_804)">
+                  <path d="M14.6668 1.33325L7.3335 8.66659" stroke="#051036" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14.6668 1.33325L10.0002 14.6666L7.3335 8.66659L1.3335 5.99992L14.6668 1.33325Z" stroke="#051036" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_1452_804">
+                    <rect width="16" height="16" fill="white"/>
+                  </clipPath>
+                </defs>
+              </svg>
             </div>
           </div>
           <div class="flex flex-col gap-1">
             <label class="font-kaushan font-normal text-sm leading-[16px] text-heading">Type</label>
             <div class="relative">
               <input class="w-full pl-10 pr-[10px] py-[10px] border border-opacity-10 rounded-md border-heading placeholder:font-inter text-bodySmall font-light text-opacity-40" placeholder="Activity">
-              <img class="absolute w-4 left-2 top-1/2 transform -translate-y-1/2 ml-2" [src]="sendIconUrl" alt="Send icon">
+              <svg class="absolute w-4 left-2 top-1/2 transform -translate-y-1/2 ml-2" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.75 2.5C3.02614 2.5 3.25 2.72386 3.25 3V13.5C3.25 13.7761 3.02614 14 2.75 14C2.47386 14 2.25 13.7761 2.25 13.5V3C2.25 2.72386 2.47386 2.5 2.75 2.5Z" fill="#051036" fill-opacity="0.4"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.9577 3.34643C11.7416 3.42752 12.553 3.2728 13.45 2.60003C13.6015 2.48639 13.8042 2.46812 13.9736 2.55281C14.143 2.63751 14.25 2.81064 14.25 3.00003V10.5C14.25 10.6574 14.1759 10.8056 14.05 10.9C12.9471 11.7273 11.8835 11.9475 10.8548 11.8411C9.87258 11.7395 8.93829 11.339 8.08708 10.9742L8.05307 10.9596C7.16338 10.5783 6.35948 10.2382 5.54233 10.1536C4.75847 10.0725 3.94706 10.2273 3.05003 10.9C2.82912 11.0657 2.51571 11.0209 2.35003 10.8C2.18434 10.5791 2.22912 10.2657 2.45003 10.1C3.553 9.2728 4.61658 9.05252 5.64523 9.15893C6.62748 9.26054 7.56177 9.66102 8.41298 10.0259L8.44699 10.0405C9.33668 10.4217 10.1406 10.7619 10.9577 10.8464C11.6829 10.9214 12.4317 10.7946 13.25 10.2425V3.90102C12.4304 4.31527 11.6326 4.42158 10.8548 4.34112C9.87258 4.23951 8.93829 3.83904 8.08708 3.47417L8.05307 3.4596C7.16338 3.0783 6.35948 2.73815 5.54233 2.65362C4.75847 2.57253 3.94706 2.72725 3.05003 3.40003C2.82912 3.56571 2.51571 3.52094 2.35003 3.30003C2.18434 3.07911 2.22912 2.76571 2.45003 2.60003C3.553 1.7728 4.61658 1.55252 5.64523 1.65893C6.62748 1.76054 7.56177 2.16102 8.41298 2.52588L8.44699 2.54045C9.33668 2.92175 10.1406 3.2619 10.9577 3.34643Z" fill="#051036" fill-opacity="0.4"/>
+              </svg>
             </div>
           </div>
           <div class="flex flex-col gap-1">
             <label class="font-kaushan font-normal text-sm leading-[16px] text-heading">When</label>
             <div class="relative">
               <input class="w-full pl-10 pr-[10px] py-[10px] border border-opacity-10 rounded-md border-heading placeholder:font-inter text-bodySmall font-light text-opacity-40" placeholder="Date">
-              <img class="absolute w-4 left-2 top-1/2 transform -translate-y-1/2 ml-2" [src]="sendIconUrl" alt="Send icon">
+              <svg class="absolute w-4 left-2 top-1/2 transform -translate-y-1/2 ml-2" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.1667 2.66675H3.83333C3.09695 2.66675 2.5 3.2637 2.5 4.00008V13.3334C2.5 14.0698 3.09695 14.6667 3.83333 14.6667H13.1667C13.903 14.6667 14.5 14.0698 14.5 13.3334V4.00008C14.5 3.2637 13.903 2.66675 13.1667 2.66675Z" stroke="#051036" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11.1665 1.33325V3.99992" stroke="#051036" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5.8335 1.33325V3.99992" stroke="#051036" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.5 6.66675H14.5" stroke="#051036" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </div>
           </div>
           <div class="flex flex-col gap-1">
             <label class="font-kaushan font-normal text-sm leading-[16px] text-heading">Guests</label>
             <div class="relative">
               <input class="w-full pl-10 pr-[10px] py-[10px] border border-opacity-10 rounded-md border-heading placeholder:font-inter text-bodySmall font-light text-opacity-40" placeholder="0">
-              <img class="absolute w-4 left-2 top-1/2 transform -translate-y-1/2 ml-2" [src]="sendIconUrl" alt="Send icon">
+              <svg class="absolute w-4 left-2 top-1/2 transform -translate-y-1/2 ml-2" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_1452_859)">
+                  <path d="M12.0832 14V12.6667C12.0832 11.9594 11.8022 11.2811 11.3021 10.781C10.802 10.281 10.1237 10 9.4165 10H4.08317C3.37593 10 2.69765 10.281 2.19755 10.781C1.69746 11.2811 1.4165 11.9594 1.4165 12.6667V14" stroke="#051036" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6.75016 7.33333C8.22292 7.33333 9.41683 6.13943 9.41683 4.66667C9.41683 3.19391 8.22292 2 6.75016 2C5.2774 2 4.0835 3.19391 4.0835 4.66667C4.0835 6.13943 5.2774 7.33333 6.75016 7.33333Z" stroke="#051036" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16.0835 14V12.6667C16.0831 12.0758 15.8864 11.5019 15.5244 11.0349C15.1624 10.5679 14.6556 10.2344 14.0835 10.0867" stroke="#051036" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M11.4165 2.08667C11.9901 2.23354 12.4985 2.56714 12.8616 3.03488C13.2247 3.50262 13.4217 4.07789 13.4217 4.67C13.4217 5.26212 13.2247 5.83739 12.8616 6.30513C12.4985 6.77287 11.9901 7.10647 11.4165 7.25334" stroke="#051036" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_1452_859">
+                    <rect width="16" height="16" fill="white" transform="translate(0.75)"/>
+                  </clipPath>
+                </defs>
+              </svg>
             </div>
           </div>
 
@@ -54,6 +84,596 @@
   </div>
 </div>
 
-<div class="h-[255px] bg-brandYellow">
-  asd
+<!-- Tours -->
+<div class="bg-white px-[135px] pb-[86px] pt-[135px]">
+    <div>
+      <div class="flex flex-col items-center gap-[42px]">
+        <div class="flex flex-col items-center gap-[6px]">
+          <div class="flex items-center w-full">
+            <span class="flex-grow border-t-[1px] border-heading opacity-10"></span>
+            <span class="font-kaushan font-normal text-2xl text-brandPrimary px-4">Tours</span>
+            <span class="flex-grow border-t-[1px] border-heading opacity-10"></span>
+          </div>
+
+          <h3 class="font-workSans font-bold text-h3 text-heading">Most Popular Tours</h3>
+        </div>
+
+        <div class="grid grid-cols-4 gap-[30px]">
+          <div class="flex flex-col">
+            <div class="relative">
+              <img class="w-[270px]" [src]="budapestImageUrl">
+              <div class="absolute top-3 right-3">
+                <div class="flex items-center justify-center w-8 h-8 bg-white rounded-full">
+                  <svg class="w-3" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.4201 2.30494C10.1647 2.04944 9.86147 1.84676 9.52774 1.70848C9.19401 1.5702 8.8363 1.49902 8.47506 1.49902C8.11382 1.49902 7.75611 1.5702 7.42238 1.70848C7.08865 1.84676 6.78544 2.04944 6.53006 2.30494L6.00006 2.83494L5.47006 2.30494C4.95421 1.78909 4.25458 1.49929 3.52506 1.49929C2.79554 1.49929 2.09591 1.78909 1.58006 2.30494C1.06421 2.82078 0.774414 3.52042 0.774414 4.24994C0.774414 4.97945 1.06421 5.67909 1.58006 6.19494L2.11006 6.72494L6.00006 10.6149L9.89006 6.72494L10.4201 6.19494C10.6756 5.93956 10.8782 5.63634 11.0165 5.30261C11.1548 4.96888 11.226 4.61118 11.226 4.24994C11.226 3.88869 11.1548 3.53099 11.0165 3.19726C10.8782 2.86353 10.6756 2.56031 10.4201 2.30494V2.30494Z" stroke="#051036" stroke-opacity="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col p-4 bg-surface gap-[9px]">
+              <div class="flex flex-col gap-2">
+                <span class="font-inter font-light text-heading text-bodySmall opacity-60">Budapest, Hungary</span>
+                <h6 class="font-workSans font-bold text-h6 text-heading">Wonders of the West Coast & Kimberley</h6>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="relative flex bg-brandPrimary rounded-lg px-2 py-1 gap-1">
+                    <div class="relative w-[10px] flex items-center justify-center">
+                      <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 7.635L8.09 9.5L7.27 5.985L10 3.62L6.405 3.31L5 0L3.595 3.31L0 3.62L2.725 5.985L1.91 9.5L5 7.635Z" fill="white"/>
+                      </svg>
+                    </div>
+
+                    <span class="font-inter font-light text-caption text-white">4.8</span>
+
+                  </div>
+
+                  <span class="font-inter font-light text-bodySmall text-heading opacity-60">15 reviews</span>
+                </div>
+
+                <div class="flex items-center justify-center gap-1">
+                  <svg class="w-[14px] mt-[1px]" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1681_2619)">
+                      <path d="M6.99984 12.8334C10.2215 12.8334 12.8332 10.2217 12.8332 7.00008C12.8332 3.77842 10.2215 1.16675 6.99984 1.16675C3.77818 1.16675 1.1665 3.77842 1.1665 7.00008C1.1665 10.2217 3.77818 12.8334 6.99984 12.8334Z" stroke="#051036" stroke-opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M7 3.5V7L9.33333 8.16667" stroke="#051036" stroke-opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1681_2619">
+                        <rect width="14" height="14" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span class="font-inter font-light text-bodySmall text-heading opacity-60">7 days</span>
+                </div>
+              </div>
+
+              <div class="border-t-[1px] border-heading opacity-10"></div>
+
+              <div class="flex items-center justify-between">
+                <span class="font-inter font-light text-heading text-caption opacity-60">Starting From</span>
+                <span class="font-kaushan text-xl leading-[26px] font-normal text-heading">$520</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col">
+            <div class="relative">
+              <img class="w-[270px]" [src]="londonImageUrl">
+              <div class="absolute top-3 right-3">
+                <div class="flex items-center justify-center w-8 h-8 bg-white rounded-full">
+                  <svg class="w-3" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.4201 2.30494C10.1647 2.04944 9.86147 1.84676 9.52774 1.70848C9.19401 1.5702 8.8363 1.49902 8.47506 1.49902C8.11382 1.49902 7.75611 1.5702 7.42238 1.70848C7.08865 1.84676 6.78544 2.04944 6.53006 2.30494L6.00006 2.83494L5.47006 2.30494C4.95421 1.78909 4.25458 1.49929 3.52506 1.49929C2.79554 1.49929 2.09591 1.78909 1.58006 2.30494C1.06421 2.82078 0.774414 3.52042 0.774414 4.24994C0.774414 4.97945 1.06421 5.67909 1.58006 6.19494L2.11006 6.72494L6.00006 10.6149L9.89006 6.72494L10.4201 6.19494C10.6756 5.93956 10.8782 5.63634 11.0165 5.30261C11.1548 4.96888 11.226 4.61118 11.226 4.24994C11.226 3.88869 11.1548 3.53099 11.0165 3.19726C10.8782 2.86353 10.6756 2.56031 10.4201 2.30494V2.30494Z" stroke="#051036" stroke-opacity="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col p-4 bg-surface gap-[9px]">
+              <div class="flex flex-col gap-2">
+                <span class="font-inter font-light text-heading text-bodySmall opacity-60">London, United Kingdom</span>
+                <h6 class="font-workSans font-bold text-h6 text-heading">Windsor Castle, and Bath from London</h6>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="relative flex bg-brandPrimary rounded-lg px-2 py-1 gap-1">
+                    <div class="relative w-[10px] flex items-center justify-center">
+                      <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 7.635L8.09 9.5L7.27 5.985L10 3.62L6.405 3.31L5 0L3.595 3.31L0 3.62L2.725 5.985L1.91 9.5L5 7.635Z" fill="white"/>
+                      </svg>
+                    </div>
+
+                    <span class="font-inter font-light text-caption text-white">4.8</span>
+
+                  </div>
+
+                  <span class="font-inter font-light text-bodySmall text-heading opacity-60">15 reviews</span>
+                </div>
+
+                <div class="flex items-center justify-center gap-1">
+                  <svg class="w-[14px] mt-[1px]" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1681_2619)">
+                      <path d="M6.99984 12.8334C10.2215 12.8334 12.8332 10.2217 12.8332 7.00008C12.8332 3.77842 10.2215 1.16675 6.99984 1.16675C3.77818 1.16675 1.1665 3.77842 1.1665 7.00008C1.1665 10.2217 3.77818 12.8334 6.99984 12.8334Z" stroke="#051036" stroke-opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M7 3.5V7L9.33333 8.16667" stroke="#051036" stroke-opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1681_2619">
+                        <rect width="14" height="14" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span class="font-inter font-light text-bodySmall text-heading opacity-60">7 days</span>
+                </div>
+              </div>
+
+              <div class="border-t-[1px] border-heading opacity-10"></div>
+
+              <div class="flex items-center justify-between">
+                <span class="font-inter font-light text-heading text-caption opacity-60">Starting From</span>
+                <span class="font-kaushan text-xl leading-[26px] font-normal text-heading">$350</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col">
+            <div class="relative">
+              <img class="w-[270px]" [src]="sydneyImageUrl">
+              <div class="absolute top-3 right-3">
+                <div class="flex items-center justify-center w-8 h-8 bg-white rounded-full">
+                  <svg class="w-3" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.4201 2.30494C10.1647 2.04944 9.86147 1.84676 9.52774 1.70848C9.19401 1.5702 8.8363 1.49902 8.47506 1.49902C8.11382 1.49902 7.75611 1.5702 7.42238 1.70848C7.08865 1.84676 6.78544 2.04944 6.53006 2.30494L6.00006 2.83494L5.47006 2.30494C4.95421 1.78909 4.25458 1.49929 3.52506 1.49929C2.79554 1.49929 2.09591 1.78909 1.58006 2.30494C1.06421 2.82078 0.774414 3.52042 0.774414 4.24994C0.774414 4.97945 1.06421 5.67909 1.58006 6.19494L2.11006 6.72494L6.00006 10.6149L9.89006 6.72494L10.4201 6.19494C10.6756 5.93956 10.8782 5.63634 11.0165 5.30261C11.1548 4.96888 11.226 4.61118 11.226 4.24994C11.226 3.88869 11.1548 3.53099 11.0165 3.19726C10.8782 2.86353 10.6756 2.56031 10.4201 2.30494V2.30494Z" stroke="#051036" stroke-opacity="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col p-4 bg-surface gap-[9px]">
+              <div class="flex flex-col gap-2">
+                <span class="font-inter font-light text-heading text-bodySmall opacity-60">Sydney, Australia</span>
+                <h6 class="font-workSans font-bold text-h6 text-heading">Enchanting Great Barrier Reef, Aquatic Wonderland</h6>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="relative flex bg-brandPrimary rounded-lg px-2 py-1 gap-1">
+                    <div class="relative w-[10px] flex items-center justify-center">
+                      <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 7.635L8.09 9.5L7.27 5.985L10 3.62L6.405 3.31L5 0L3.595 3.31L0 3.62L2.725 5.985L1.91 9.5L5 7.635Z" fill="white"/>
+                      </svg>
+                    </div>
+
+                    <span class="font-inter font-light text-caption text-white">4.8</span>
+
+                  </div>
+
+                  <span class="font-inter font-light text-bodySmall text-heading opacity-60">15 reviews</span>
+                </div>
+
+                <div class="flex items-center justify-center gap-1">
+                  <svg class="w-[14px] mt-[1px]" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1681_2619)">
+                      <path d="M6.99984 12.8334C10.2215 12.8334 12.8332 10.2217 12.8332 7.00008C12.8332 3.77842 10.2215 1.16675 6.99984 1.16675C3.77818 1.16675 1.1665 3.77842 1.1665 7.00008C1.1665 10.2217 3.77818 12.8334 6.99984 12.8334Z" stroke="#051036" stroke-opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M7 3.5V7L9.33333 8.16667" stroke="#051036" stroke-opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1681_2619">
+                        <rect width="14" height="14" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span class="font-inter font-light text-bodySmall text-heading opacity-60">7 days</span>
+                </div>
+              </div>
+
+              <div class="border-t-[1px] border-heading opacity-10"></div>
+
+              <div class="flex items-center justify-between">
+                <span class="font-inter font-light text-heading text-caption opacity-60">Starting From</span>
+                <span class="font-kaushan text-xl leading-[26px] font-normal text-heading">$450</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col">
+            <div class="relative">
+              <img class="w-[270px]" [src]="muscatImageUrl">
+              <div class="absolute top-3 right-3">
+                <div class="flex items-center justify-center w-8 h-8 bg-white rounded-full">
+                  <svg class="w-3" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.4201 2.30494C10.1647 2.04944 9.86147 1.84676 9.52774 1.70848C9.19401 1.5702 8.8363 1.49902 8.47506 1.49902C8.11382 1.49902 7.75611 1.5702 7.42238 1.70848C7.08865 1.84676 6.78544 2.04944 6.53006 2.30494L6.00006 2.83494L5.47006 2.30494C4.95421 1.78909 4.25458 1.49929 3.52506 1.49929C2.79554 1.49929 2.09591 1.78909 1.58006 2.30494C1.06421 2.82078 0.774414 3.52042 0.774414 4.24994C0.774414 4.97945 1.06421 5.67909 1.58006 6.19494L2.11006 6.72494L6.00006 10.6149L9.89006 6.72494L10.4201 6.19494C10.6756 5.93956 10.8782 5.63634 11.0165 5.30261C11.1548 4.96888 11.226 4.61118 11.226 4.24994C11.226 3.88869 11.1548 3.53099 11.0165 3.19726C10.8782 2.86353 10.6756 2.56031 10.4201 2.30494V2.30494Z" stroke="#051036" stroke-opacity="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col p-4 bg-surface gap-[9px]">
+              <div class="flex flex-col gap-2">
+                <span class="font-inter font-light text-heading text-bodySmall opacity-60">Muscat, Oman</span>
+                <h6 class="font-workSans font-bold text-h6 text-heading">Ancient Heritage and Desert Adventures</h6>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="relative flex bg-brandPrimary rounded-lg px-2 py-1 gap-1">
+                    <div class="relative w-[10px] flex items-center justify-center">
+                      <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 7.635L8.09 9.5L7.27 5.985L10 3.62L6.405 3.31L5 0L3.595 3.31L0 3.62L2.725 5.985L1.91 9.5L5 7.635Z" fill="white"/>
+                      </svg>
+                    </div>
+
+                    <span class="font-inter font-light text-caption text-white">4.8</span>
+
+                  </div>
+
+                  <span class="font-inter font-light text-bodySmall text-heading opacity-60">15 reviews</span>
+                </div>
+
+                <div class="flex items-center justify-center gap-1">
+                  <svg class="w-[14px] mt-[1px]" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1681_2619)">
+                      <path d="M6.99984 12.8334C10.2215 12.8334 12.8332 10.2217 12.8332 7.00008C12.8332 3.77842 10.2215 1.16675 6.99984 1.16675C3.77818 1.16675 1.1665 3.77842 1.1665 7.00008C1.1665 10.2217 3.77818 12.8334 6.99984 12.8334Z" stroke="#051036" stroke-opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M7 3.5V7L9.33333 8.16667" stroke="#051036" stroke-opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1681_2619">
+                        <rect width="14" height="14" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span class="font-inter font-light text-bodySmall text-heading opacity-60">7 days</span>
+                </div>
+              </div>
+
+              <div class="border-t-[1px] border-heading opacity-10"></div>
+
+              <div class="flex items-center justify-between">
+                <span class="font-inter font-light text-heading text-caption opacity-60">Starting From</span>
+                <span class="font-kaushan text-xl leading-[26px] font-normal text-heading">$599</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <div class="w-2 h-2 bg-heading rounded-full opacity-10"></div>
+          <div class="w-2 h-2 bg-brandPrimary rounded-full"></div>
+          <div class="w-2 h-2 bg-heading rounded-full opacity-10"></div>
+          <div class="w-2 h-2 bg-heading rounded-full opacity-10"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full border-t-[1px] border-heading opacity-10 mt-[48px]"></div>
+
+    <div class="mt-12">
+      <div class="flex justify-between">
+        <div class="flex items-center gap-3">
+          <span class="font-kaushan font-normal text-4xl text-heading">120+</span>
+          <span class="font-workSans font-semibold text-subtitle text-heading opacity-60">Total Destination</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="font-kaushan font-normal text-4xl text-heading">500+</span>
+          <span class="font-workSans font-semibold text-subtitle text-heading opacity-60">Travel Packages</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="font-kaushan font-normal text-4xl text-heading">12k+</span>
+          <span class="font-workSans font-semibold text-subtitle text-heading opacity-60">Total Travelers</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="font-kaushan font-normal text-4xl text-heading">7k+</span>
+          <span class="font-workSans font-semibold text-subtitle text-heading opacity-60">Positive Reviews</span>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Destination -->
+<div class="flex flex-col px-[135px] py-[86px] gap-12 bg-surface">
+  <div class="flex flex-col items-center gap-[6px]">
+      <div class="flex">
+        <span class="border-t-2 border-black"></span>
+        <span class="font-kaushan font-normal text-2xl text-brandPrimary px-4">Destination</span>
+        <span class="border-t-2 border-black"></span>
+      </div>
+
+      <div>
+        <h3 class="font-workSans font-bold text-h3 text-heading">Top Attractions Destinations</h3>
+      </div>
+  </div>
+
+  <div class="grid grid-cols-4 gap-6">
+
+    <div class="relative flex flex-col">
+      <div class="absolute left-3 bottom-3 flex flex-col gap-2">
+        <span class="font-inter font-light text-bodySmall text-white ml-[3px]">174,688 Travelers</span>
+        <span class="font-kaushan font-normal text-xl text-white z-10">United Kingdom</span>
+      </div>
+      <img class="h-[200px] object-cover" [src]="unitedKingdomImageUrl">
+    </div>
+
+    <div class="relative flex flex-col">
+      <div class="absolute left-3 bottom-3 flex flex-col gap-2">
+        <span class="font-inter font-light text-bodySmall text-white ml-[3px]">174,688 Travelers</span>
+        <span class="font-kaushan font-normal text-xl text-white">Turkey</span>
+      </div>
+      <img class="h-[200px] object-cover" [src]="turkeyImageUrl">
+    </div>
+
+    <div class="relative flex flex-col">
+      <div class="absolute left-3 bottom-3 flex flex-col gap-2">
+        <span class="font-inter font-light text-bodySmall text-white ml-[3px]">174,688 Travelers</span>
+        <span class="font-kaushan font-normal text-xl text-white">Switzerland</span>
+      </div>
+      <img class="h-[200px] object-cover" [src]="switzerlandImageUrl">
+    </div>
+
+    <div class="relative flex flex-col row-span-2">
+      <div class="absolute left-3 bottom-3 flex flex-col gap-2">
+        <span class="font-inter font-light text-bodySmall text-white ml-[3px]">174,688 Travelers</span>
+        <span class="font-kaushan font-normal text-xl text-white">France</span>
+      </div>
+      <img class="h-[430px] object-cover" [src]="franceImageUrl">
+    </div>
+
+    <div class="col-span-3 grid grid-cols-2 gap-6">
+      <div class="relative flex flex-col">
+        <div class="absolute left-3 bottom-3 flex flex-col gap-2">
+          <span class="font-inter font-light text-bodySmall text-white ml-[3px]">174,688 Travelers</span>
+          <span class="font-kaushan font-normal text-xl text-white">Thailand</span>
+        </div>
+        <img class="h-[200px] object-cover" [src]="thailandImageUrl">
+      </div>
+
+      <div class="relative flex flex-col">
+        <div class="absolute left-3 bottom-3 flex flex-col gap-2">
+          <span class="font-inter font-light text-bodySmall text-white ml-[3px]">174,688 Travelers</span>
+          <span class="font-kaushan font-normal text-xl text-white">New Zealand</span>
+        </div>
+        <img class="h-[200px] object-cover" [src]="newZealandImageUrl">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Why Choose Us -->
+<div class="flex px-[135px] py-[86px] bg-white">
+  Why Choose Us
+</div>
+
+<!-- Browse By Category -->
+<div class="flex px-[135px] py-[86px] justify-center bg-white">
+  <div class="flex flex-col gap-12 w-full">
+    <div class="flex items-center flex-col gap-2">
+      <div class="flex items-center p-4">
+        <span class="font-kaushan font-normal text-2xl text-brandPrimary px-4 whitespace-nowrap">Browse By Category</span>
+      </div>
+      <h3 class="font-workSans font-bold text-h3 text-heading">Pick A Tour Type</h3>
+    </div>
+
+    <div class="grid grid-cols-6 gap-[30px]">
+      <div class="border border-heading border-opacity-10 px-4 py-6">
+        <div class="flex flex-col gap-4">
+          <img class="w-10" [src]="adventureIconUrl">
+
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-col">
+              <h6 class="font-workSans font-bold text-h6 text-heading">Adventure</h6>
+              <span class="font-inter font-light text-body text-heading opacity-60">10 Tours+</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="font-inter font-light text-body text-heading opacity-60">From</span>
+              <span class="font-kaushan font-normal text-xl leading-[26px] text-brandPrimary">$250</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border border-heading border-opacity-10 px-4 py-6">
+        <div class="flex flex-col gap-4">
+          <img class="w-10" [src]="beachesIconUrl">
+
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-col">
+              <h6 class="font-workSans font-bold text-h6 text-heading">Beaches</h6>
+              <span class="font-inter font-light text-body text-heading opacity-60">10 Tours+</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="font-inter font-light text-body text-heading opacity-60">From</span>
+              <span class="font-kaushan font-normal text-xl leading-[26px] text-brandPrimary">$250</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border border-heading border-opacity-10 px-4 py-6">
+        <div class="flex flex-col gap-4">
+          <img class="w-10" [src]="boatToursIconUrl">
+
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-col">
+              <h6 class="font-workSans font-bold text-h6 text-heading">Boat Tours</h6>
+              <span class="font-inter font-light text-body text-heading opacity-60">10 Tours+</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="font-inter font-light text-body text-heading opacity-60">From</span>
+              <span class="font-kaushan font-normal text-xl leading-[26px] text-brandPrimary">$250</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border border-heading border-opacity-10 px-4 py-6">
+        <div class="flex flex-col gap-4">
+          <img class="w-10" [src]="cityToursIconUrl">
+
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-col">
+              <h6 class="font-workSans font-bold text-h6 text-heading">City Tours</h6>
+              <span class="font-inter font-light text-body text-heading opacity-60">10 Tours+</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="font-inter font-light text-body text-heading opacity-60">From</span>
+              <span class="font-kaushan font-normal text-xl leading-[26px] text-brandPrimary">$250</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border border-heading border-opacity-10 px-4 py-6">
+        <div class="flex flex-col gap-4">
+          <img class="w-10" [src]="foodIconUrl">
+
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-col">
+              <h6 class="font-workSans font-bold text-h6 text-heading">Food</h6>
+              <span class="font-inter font-light text-body text-heading opacity-60">10 Tours+</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="font-inter font-light text-body text-heading opacity-60">From</span>
+              <span class="font-kaushan font-normal text-xl leading-[26px] text-brandPrimary">$250</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border border-heading border-opacity-10 px-4 py-6">
+        <div class="flex flex-col gap-4">
+          <img class="w-10" [src]="hikingIconUrl">
+
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-col">
+              <h6 class="font-workSans font-bold text-h6 text-heading">Hiking</h6>
+              <span class="font-inter font-light text-body text-heading opacity-60">10 Tours+</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="font-inter font-light text-body text-heading opacity-60">From</span>
+              <span class="font-kaushan font-normal text-xl leading-[26px] text-brandPrimary">$250</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flex justify-center gap-2">
+      <div class="bg-heading opacity-10 w-2 h-2 rounded-full"></div>
+      <div class="bg-brandPrimary w-2 h-2 rounded-full"></div>
+      <div class="bg-heading opacity-10 w-2 h-2 rounded-full"></div>
+      <div class="bg-heading opacity-10 w-2 h-2 rounded-full"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonials -->
+<div class="flex px-[135px] py-[86px] bg-surface">
+  Testimonials
+</div>
+
+<!-- Updates -->
+<div class="flex px-[135px] py-[86px] justify-center bg-white">
+  <div class="flex flex-col gap-12 w-full">
+    <div class="flex flex-col items-center gap-2">
+      <div class="flex">
+        <span></span>
+        <span class="font-kaushan font-normal text-2xl text-brandPrimary px-4">Updates</span>
+        <span></span>
+      </div>
+
+      <h3 class="font-workSans font-bold text-heading text-h3">Latest Travel Guide</h3>
+    </div>
+
+    <div class="grid grid-cols-2 grid-rows-2 gap-x-[30px] gap-y-10">
+      <div class="flex items-center gap-[20px]">
+        <img class="w-[170px]" [src]="updatesImageUrl1">
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center">
+            <span class="font-inter font-light text-body text-heading opacity-60 mr-[13px]">July, 13, 2023</span>
+            <div class="p-3">
+              <div class="bg-heading w-1 h-1 rounded-full opacity-60"></div>
+            </div>
+            <span class="font-inter font-light text-body text-heading opacity-60">Admin</span>
+          </div>
+          <h6 class="font-workSans font-bold text-h6 text-heading">The Impact of Covid-19 on travel & tourism industry</h6>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-[20px]">
+        <img class="w-[170px]" [src]="updatesImageUrl2">
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center">
+            <span class="font-inter font-light text-body text-heading opacity-60 mr-[13px]">July, 13, 2023</span>
+            <div class="p-3">
+              <div class="bg-heading w-1 h-1 rounded-full opacity-60"></div>
+            </div>
+            <span class="font-inter font-light text-body text-heading opacity-60">Admin</span>
+          </div>
+          <h6 class="font-workSans font-bold text-h6 text-heading">The Impact of Covid-19 on travel & tourism industry</h6>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-[20px]">
+        <img class="w-[170px]" [src]="updatesImageUrl3">
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center">
+            <span class="font-inter font-light text-body text-heading opacity-60 mr-[13px]">July, 13, 2023</span>
+            <div class="p-3">
+              <div class="bg-heading w-1 h-1 rounded-full opacity-60"></div>
+            </div>
+            <span class="font-inter font-light text-body text-heading opacity-60">Admin</span>
+          </div>
+          <h6 class="font-workSans font-bold text-h6 text-heading">The Impact of Covid-19 on travel & tourism industry</h6>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-[20px]">
+        <img class="w-[170px]" [src]="updatesImageUrl4">
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center">
+            <span class="font-inter font-light text-body text-heading opacity-60 mr-[13px]">July, 13, 2023</span>
+            <div class="p-3">
+              <div class="bg-heading w-1 h-1 rounded-full opacity-60"></div>
+            </div>
+            <span class="font-inter font-light text-body text-heading opacity-60">Admin</span>
+          </div>
+          <h6 class="font-workSans font-bold text-h6 text-heading">The Impact of Covid-19 on travel & tourism industry</h6>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Logos -->
+<div class="flex px-[135px] py-[60px] bg-surface">
+    <div class="flex w-full items-center text-heading opacity-60 justify-between">
+      <div>
+        <img [src]="letsGoIconUrl">
+      </div>
+
+      <div>
+        <img [src]="mountainsIconUrl">
+      </div>
+
+      <div>
+        <img [src]="sayYesIconUrl">
+      </div>
+
+      <div>
+        <img [src]="startTravelIconUrl">
+      </div>
+
+      <div>
+        <img [src]="summerIconUrl">
+      </div>
+    </div>
 </div>

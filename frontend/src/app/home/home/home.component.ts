@@ -7,5 +7,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  sendIconUrl: string = environment.mediaUrl + 'home/send-icon.svg';
+  budapestImageUrl: string = environment.mediaUrl + 'home/budapest.jpg';
+  londonImageUrl: string = environment.mediaUrl + 'home/london.jpg';
+  sydneyImageUrl: string = environment.mediaUrl + 'home/sydney.jpg';
+  muscatImageUrl: string = environment.mediaUrl + 'home/muscat.jpg';
+  unitedKingdomImageUrl: string = environment.mediaUrl + 'home/united-kingdom.jpg';
+  turkeyImageUrl: string = environment.mediaUrl + 'home/turkey.jpg';
+  switzerlandImageUrl: string = environment.mediaUrl + 'home/switzerland.jpg';
+  franceImageUrl: string = environment.mediaUrl + 'home/france.jpg';
+  thailandImageUrl: string = environment.mediaUrl + 'home/thailand.jpg';
+  newZealandImageUrl: string = environment.mediaUrl + 'home/new-zealand.jpg';
+  checkIconUrl: string = environment.mediaUrl + 'home/check-icon.svg';
+  whyChooseUsImage1: string = environment.mediaUrl + 'home/why-choose-us-image-1.jpg';
+  whyChooseUsImage2: string = environment.mediaUrl + 'home/why-choose-us-image-2.jpg';
+  adventureIconUrl: string = environment.mediaUrl + 'home/adventure-icon.svg';
+  beachesIconUrl: string = environment.mediaUrl + 'home/beaches-icon.svg';
+  boatToursIconUrl: string = environment.mediaUrl + 'home/boat-tours-icon.svg';
+  cityToursIconUrl: string = environment.mediaUrl + 'home/city-tours-icon.svg';
+  foodIconUrl: string = environment.mediaUrl + 'home/food-icon.svg';
+  hikingIconUrl: string = environment.mediaUrl + 'home/hiking-icon.svg';
+  updatesImageUrl1: string = environment.mediaUrl + 'home/updates-image-1.jpg';
+  updatesImageUrl2: string = environment.mediaUrl + 'home/updates-image-2.jpg';
+  updatesImageUrl3: string = environment.mediaUrl + 'home/updates-image-3.jpg';
+  updatesImageUrl4: string = environment.mediaUrl + 'home/updates-image-4.jpg';
+  letsGoIconUrl: string = environment.mediaUrl + 'home/lets-go-icon.svg';
+  mountainsIconUrl: string = environment.mediaUrl + 'home/mountains-icon.svg';
+  sayYesIconUrl: string = environment.mediaUrl + 'home/say-yes-icon.svg';
+  startTravelIconUrl: string = environment.mediaUrl + 'home/start-travel-icon.svg';
+  summerIconUrl: string = environment.mediaUrl + 'home/summer-icon.svg';
 }
