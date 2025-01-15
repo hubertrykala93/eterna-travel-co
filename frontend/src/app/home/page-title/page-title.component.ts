@@ -10,6 +10,7 @@ import { map } from 'rxjs';
 
 export class PageTitleComponent implements OnInit {
   pageName: string = '';
+  isHomePage: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -21,6 +22,10 @@ export class PageTitleComponent implements OnInit {
       this.pageName = formattedUrl;
     } else {
       this.pageName = url.charAt(0).toUpperCase() + url.slice(1);
+
+      if (this.pageName == '') {
+        this.isHomePage = true;
+      }
     }
   }
 

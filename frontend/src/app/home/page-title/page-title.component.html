@@ -1,3 +1,92 @@
+<ng-container *ngIf="isHomePage; else othersPage">
+  <div class="flex items-center justify-center relative h-[530px]">
+    <div class="absolute inset-0 bg-secondaryPageTitleColor"></div>
+    <div class="absolute inset-0 bg-primaryPageTitleColor opacity-70"></div>
+
+    <div class="flex flex-col items-center z-10">
+      <div class="flex flex-col items-center gap-2">
+        <span class="font-kaushan font-normal text-3xl text-brandPrimary">Save 15% off in Worldwide</span>
+        <h1 class="font-workSans text-h1 font-bold text-white">Travel & Adventures</h1>
+      </div>
+
+      <span class="font-workSans text-subtitle font-semibold text-white">Find awesome hotel, tour, car and activities in London</span>
+    </div>
+
+    <div class="absolute bottom-[-55px]">
+      <div class="flex bg-white rounded-xl p-6 border-heading border-[1px] border-opacity-10">
+        <form>
+          <div class="flex justify-between gap-4">
+            <div class="flex flex-col gap-1">
+              <label class="font-kaushan font-normal text-sm leading-[16px] text-heading">Destination</label>
+              <div class="relative">
+                <input class="w-full pl-10 pr-[10px] py-[10px] border border-opacity-10 rounded-md border-heading placeholder:font-inter text-bodySmall font-light text-opacity-40" placeholder="Where to go?">
+                <svg class="absolute w-4 left-2 top-1/2 transform -translate-y-1/2 ml-2" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_1452_804)">
+                    <path d="M14.6668 1.33325L7.3335 8.66659" stroke="#051036" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14.6668 1.33325L10.0002 14.6666L7.3335 8.66659L1.3335 5.99992L14.6668 1.33325Z" stroke="#051036" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1452_804">
+                      <rect width="16" height="16" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <label class="font-kaushan font-normal text-sm leading-[16px] text-heading">Type</label>
+              <div class="relative">
+                <input class="w-full pl-10 pr-[10px] py-[10px] border border-opacity-10 rounded-md border-heading placeholder:font-inter text-bodySmall font-light text-opacity-40" placeholder="Activity">
+                <svg class="absolute w-4 left-2 top-1/2 transform -translate-y-1/2 ml-2" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M2.75 2.5C3.02614 2.5 3.25 2.72386 3.25 3V13.5C3.25 13.7761 3.02614 14 2.75 14C2.47386 14 2.25 13.7761 2.25 13.5V3C2.25 2.72386 2.47386 2.5 2.75 2.5Z" fill="#051036" fill-opacity="0.4"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M10.9577 3.34643C11.7416 3.42752 12.553 3.2728 13.45 2.60003C13.6015 2.48639 13.8042 2.46812 13.9736 2.55281C14.143 2.63751 14.25 2.81064 14.25 3.00003V10.5C14.25 10.6574 14.1759 10.8056 14.05 10.9C12.9471 11.7273 11.8835 11.9475 10.8548 11.8411C9.87258 11.7395 8.93829 11.339 8.08708 10.9742L8.05307 10.9596C7.16338 10.5783 6.35948 10.2382 5.54233 10.1536C4.75847 10.0725 3.94706 10.2273 3.05003 10.9C2.82912 11.0657 2.51571 11.0209 2.35003 10.8C2.18434 10.5791 2.22912 10.2657 2.45003 10.1C3.553 9.2728 4.61658 9.05252 5.64523 9.15893C6.62748 9.26054 7.56177 9.66102 8.41298 10.0259L8.44699 10.0405C9.33668 10.4217 10.1406 10.7619 10.9577 10.8464C11.6829 10.9214 12.4317 10.7946 13.25 10.2425V3.90102C12.4304 4.31527 11.6326 4.42158 10.8548 4.34112C9.87258 4.23951 8.93829 3.83904 8.08708 3.47417L8.05307 3.4596C7.16338 3.0783 6.35948 2.73815 5.54233 2.65362C4.75847 2.57253 3.94706 2.72725 3.05003 3.40003C2.82912 3.56571 2.51571 3.52094 2.35003 3.30003C2.18434 3.07911 2.22912 2.76571 2.45003 2.60003C3.553 1.7728 4.61658 1.55252 5.64523 1.65893C6.62748 1.76054 7.56177 2.16102 8.41298 2.52588L8.44699 2.54045C9.33668 2.92175 10.1406 3.2619 10.9577 3.34643Z" fill="#051036" fill-opacity="0.4"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <label class="font-kaushan font-normal text-sm leading-[16px] text-heading">When</label>
+              <div class="relative">
+                <input class="w-full pl-10 pr-[10px] py-[10px] border border-opacity-10 rounded-md border-heading placeholder:font-inter text-bodySmall font-light text-opacity-40" placeholder="Date">
+                <svg class="absolute w-4 left-2 top-1/2 transform -translate-y-1/2 ml-2" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.1667 2.66675H3.83333C3.09695 2.66675 2.5 3.2637 2.5 4.00008V13.3334C2.5 14.0698 3.09695 14.6667 3.83333 14.6667H13.1667C13.903 14.6667 14.5 14.0698 14.5 13.3334V4.00008C14.5 3.2637 13.903 2.66675 13.1667 2.66675Z" stroke="#051036" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M11.1665 1.33325V3.99992" stroke="#051036" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M5.8335 1.33325V3.99992" stroke="#051036" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M2.5 6.66675H14.5" stroke="#051036" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <label class="font-kaushan font-normal text-sm leading-[16px] text-heading">Guests</label>
+              <div class="relative">
+                <input class="w-full pl-10 pr-[10px] py-[10px] border border-opacity-10 rounded-md border-heading placeholder:font-inter text-bodySmall font-light text-opacity-40" placeholder="0">
+                <svg class="absolute w-4 left-2 top-1/2 transform -translate-y-1/2 ml-2" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_1452_859)">
+                    <path d="M12.0832 14V12.6667C12.0832 11.9594 11.8022 11.2811 11.3021 10.781C10.802 10.281 10.1237 10 9.4165 10H4.08317C3.37593 10 2.69765 10.281 2.19755 10.781C1.69746 11.2811 1.4165 11.9594 1.4165 12.6667V14" stroke="#051036" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6.75016 7.33333C8.22292 7.33333 9.41683 6.13943 9.41683 4.66667C9.41683 3.19391 8.22292 2 6.75016 2C5.2774 2 4.0835 3.19391 4.0835 4.66667C4.0835 6.13943 5.2774 7.33333 6.75016 7.33333Z" stroke="#051036" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.0835 14V12.6667C16.0831 12.0758 15.8864 11.5019 15.5244 11.0349C15.1624 10.5679 14.6556 10.2344 14.0835 10.0867" stroke="#051036" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11.4165 2.08667C11.9901 2.23354 12.4985 2.56714 12.8616 3.03488C13.2247 3.50262 13.4217 4.07789 13.4217 4.67C13.4217 5.26212 13.2247 5.83739 12.8616 6.30513C12.4985 6.77287 11.9901 7.10647 11.4165 7.25334" stroke="#051036" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1452_859">
+                      <rect width="16" height="16" fill="white" transform="translate(0.75)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+
+            <div class="flex">
+              <button class="font-inter text-action font-light text-white bg-brandPrimary px-7 py-3 rounded-md">Search</button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #othersPage>
 <div class="flex items-center justify-center relative h-[280px]">
   <div class="absolute inset-0 bg-secondaryPageTitleColor"></div>
   <div class="absolute inset-0 bg-primaryPageTitleColor opacity-70"></div>
@@ -14,3 +103,4 @@
     </div>
   </div>
 </div>
+</ng-template>

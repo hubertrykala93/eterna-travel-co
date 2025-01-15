@@ -1,66 +1,62 @@
 <app-page-title></app-page-title>
 
-<div class="block px-[86px]">
-  <div class="grid grid-cols-3 pt-16 gap-8">
+<section class="block bg-white">
+  <div class="block px-[135px] py-[100px]">
+    <div class="flex flex-col gap-16">
+      <div class="grid grid-cols-3 gap-[30px]">
+        <div class="contact-card">
+          <img class="icon" [src]="mapPinIconUrl" alt="Location icon">
 
-    <div class="flex flex-col bg-surface p-10 gap-4">
-      <svg class="w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M35 16.6667C35 28.3334 20 38.3334 20 38.3334C20 38.3334 5 28.3334 5 16.6667C5 12.6885 6.58035 8.87319 9.3934 6.06015C12.2064 3.2471 16.0218 1.66675 20 1.66675C23.9782 1.66675 27.7936 3.2471 30.6066 6.06015C33.4196 8.87319 35 12.6885 35 16.6667Z" stroke="#FC5056" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M20 21.6667C22.7614 21.6667 25 19.4282 25 16.6667C25 13.9053 22.7614 11.6667 20 11.6667C17.2386 11.6667 15 13.9053 15 16.6667C15 19.4282 17.2386 21.6667 20 21.6667Z" stroke="#FC5056" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-
-      <div class="flex flex-col gap-1 text-base text-heading">
-        <span class="font-workSans font-semibold text-subtitle">Location</span>
-        <span class="font-inter font-light text-body opacity-60">350 Fifth Avenue, NY 10118, USA</span>
-      </div>
-    </div>
-
-    <div class="flex flex-col bg-surface p-10 gap-4">
-      <svg class="w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M25.0835 8.33341C26.7114 8.65102 28.2075 9.44718 29.3803 10.62C30.5531 11.7928 31.3493 13.2889 31.6669 14.9167M25.0835 1.66675C28.4657 2.04248 31.6195 3.55704 34.0273 5.96176C36.435 8.36648 37.9536 11.5184 38.3335 14.9001M36.6669 28.2001V33.2001C36.6688 33.6642 36.5737 34.1237 36.3877 34.549C36.2018 34.9743 35.929 35.3561 35.587 35.6699C35.245 35.9837 34.8412 36.2226 34.4015 36.3713C33.9618 36.52 33.4958 36.5752 33.0335 36.5334C27.9049 35.9761 22.9785 34.2237 18.6502 31.4167C14.6233 28.8579 11.2091 25.4437 8.65021 21.4167C5.83351 17.0688 4.08062 12.1184 3.53355 6.96675C3.4919 6.50586 3.54667 6.04135 3.69438 5.60279C3.84209 5.16423 4.0795 4.76123 4.39149 4.41945C4.70348 4.07767 5.08322 3.8046 5.50653 3.61762C5.92984 3.43064 6.38745 3.33385 6.85021 3.33341H11.8502C12.6591 3.32545 13.4432 3.61188 14.0565 4.1393C14.6698 4.66673 15.0703 5.39916 15.1835 6.20008C15.3946 7.80019 15.786 9.37129 16.3502 10.8834C16.5745 11.48 16.623 12.1283 16.4901 12.7515C16.3571 13.3748 16.0483 13.9469 15.6002 14.4001L13.4835 16.5167C15.8561 20.6893 19.311 24.1442 23.4835 26.5167L25.6002 24.4001C26.0534 23.952 26.6255 23.6432 27.2487 23.5102C27.872 23.3773 28.5203 23.4258 29.1169 23.6501C30.629 24.2143 32.2001 24.6057 33.8002 24.8167C34.6098 24.931 35.3492 25.3388 35.8778 25.9626C36.4063 26.5864 36.6872 27.3827 36.6669 28.2001Z" stroke="#FC5056" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-
-      <div class="flex flex-col gap-1 text-base text-heading">
-        <span class="font-workSans font-semibold text-subtitle">Phone</span>
-        <span class="font-inter font-light text-body opacity-60">+1 (555) 123-4567</span>
-      </div>
-    </div>
-
-    <div class="flex flex-col bg-surface p-10 gap-4">
-      <svg class="w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6.66683 6.66675H33.3335C35.1668 6.66675 36.6668 8.16675 36.6668 10.0001V30.0001C36.6668 31.8334 35.1668 33.3334 33.3335 33.3334H6.66683C4.8335 33.3334 3.3335 31.8334 3.3335 30.0001V10.0001C3.3335 8.16675 4.8335 6.66675 6.66683 6.66675Z" stroke="#FC5056" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M36.6668 10L20.0002 21.6667L3.3335 10" stroke="#FC5056" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-
-      <div class="flex flex-col gap-1 text-base text-heading">
-        <span class="font-workSans font-semibold text-subtitle">Email</span>
-        <span class="font-inter font-light text-body opacity-60">info@eternatravelco.com</span>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="grid grid-cols-2 items-center pt-12 pb-20 gap-6">
-    <form>
-      <div class="mb-5">
-        <h4 class="font-kaushan font-normal text-brandPrimary text-2xl mb-1">Have any questions?</h4>
-        <h3 class="font-workSans font-bold text-heading text-h3">Get in Touch</h3>
-      </div>
-
-      <div>
-        <div class="flex mb-3 gap-[18px]">
-          <input class="flex-1 border rounded py-3 px-3 font-inter font-light text-body placeholder:text-heading placeholder:opacity-40" type="text" placeholder="Your name">
-          <input class="flex-1 border rounded py-3 px-3 font-inter font-light text-body placeholder:text-heading placeholder:opacity-40" type="text" placeholder="Email address">
-        </div>
-        <div>
-          <textarea class="border rounded py-3 px-3 resize-none w-full h-40 font-inter font-light text-body placeholder:text-heading placeholder:opacity-40" type="text" placeholder="Write something..."></textarea>
+          <div class="flex flex-col">
+            <span class="card-title">Location</span>
+            <span class="card-text">350 Fifth Avenue, NY 10118, USA</span>
+          </div>
         </div>
 
-        <button class="bg-brandPrimary text-white font-inter text-action rounded-lg px-10 py-5 mt-2">Submit</button>
+        <div class="contact-card">
+          <img class="icon" [src]="phoneCallIconUrl">
+
+          <div class="flex flex-col">
+            <span class="card-title">Phone</span>
+            <span class="card-text">+1 (555) 123-4567</span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <img class="icon" [src]="emailIconUrl">
+
+          <div class="flex flex-col">
+            <span class="card-title">Email</span>
+            <span class="card-text">info@eternatravelco.com</span>
+          </div>
+        </div>
       </div>
-    </form>
-    <div>
-      <iframe class="w-full h-[412px]" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.626227360765!2d-73.9876492238752!3d40.748249371388084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b30eac9f%3A0xaca05ca48ab5ac2c!2s350%205th%20Ave%2C%20New%20York%2C%20NY%2010118%2C%20Stany%20Zjednoczone!5e0!3m2!1spl!2spl!4v1736514094441!5m2!1spl!2spl" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      <div class="grid grid-cols-2 gap-[30px]">
+        <form class="flex flex-col gap-6 h-full">
+
+          <div class="flex flex-col gap-1">
+            <span class="font-kaushan font-normal text-2xl text-brandPrimary">Have any question?</span>
+            <h3 class="font-workSans font-bold text-h3 text-heading">Get in Touch</h3>
+          </div>
+
+          <div class="flex flex-col flex-grow gap-[14px]">
+            <div class="grid grid-cols-2 gap-[18px]">
+              <input type="text" class="input-field" placeholder="Your name">
+              <input type="text" class="input-field" placeholder="Email address">
+            </div>
+
+            <textarea class="input-field h-full" placeholder="Write something..."></textarea>
+
+            <div>
+              <button class="bg-brandPrimary px-10 py-5 rounded-lg font-inter font-normal text-action text-white">Submit</button>
+            </div>
+          </div>
+
+        </form>
+
+        <iframe class="w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6262273607617!2d-73.98764922386655!3d40.74824937138816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b30eac9f%3A0xaca05ca48ab5ac2c!2s350%205th%20Ave%2C%20New%20York%2C%20NY%2010118%2C%20Stany%20Zjednoczone!5e0!3m2!1spl!2spl!4v1736976874532!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
   </div>
-</div>
+</section>

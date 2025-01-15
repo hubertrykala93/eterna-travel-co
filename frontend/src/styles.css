@@ -3,3 +3,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Contact Us */
+.contact-card {
+  @apply flex flex-col bg-surface gap-3 px-10 py-10;
+}
+
+.icon {
+  @apply w-10 h-10;
+}
+
+.card-title {
+  @apply font-workSans font-semibold text-subtitle text-heading;
+}
+
+.card-text {
+  @apply font-inter font-light text-body text-heading opacity-60;
+}
+
+.input-field {
+  @apply border border-heading border-opacity-20 rounded-lg px-4 py-4 placeholder:font-inter font-light text-heading text-body opacity-60;
+}
