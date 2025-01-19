@@ -13,6 +13,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { BlogComponent } from './blog/blog.component';
 import { HomeComponent } from './home/home/home.component';
+import { PageTitleFormComponent } from './home/page-title-form/page-title-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeComponent } from './home/home/home.component';
     AboutComponent,
     ContactUsComponent,
     BlogComponent,
-    HomeComponent
+    HomeComponent,
+    PageTitleFormComponent
   ],
   imports: [
     BrowserModule,

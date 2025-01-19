@@ -13,47 +13,8 @@
       </div>
     </div>
 
-    <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-      <div class="bg-white rounded-xl border border-heading border-1 border-opacity-10 h-[108px] mb-[-54px]">
-        <form class="flex px-5 py-5 gap-5">
-          <div>
-            <span class="font-kaushan font-normal text-sm text-heading leading-4">Destination</span>
-            <div class="relative">
-              <input class="font-light text-heading text-bodySmall border border-heading border-opacity-10 rounded-md mt-1 pl-9 pr-[10px] py-[10px]" type="text" placeholder="Where to go?">
-              <svg class="absolute top-4 left-3 fill-heading opacity-40 w-4 h-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376l0 103.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"/></svg>
-            </div>
-          </div>
+    <app-page-title-form></app-page-title-form>
 
-          <div>
-            <span class="font-kaushan font-normal text-heading text-sm leading-4">Type</span>
-            <div class="relative">
-              <input class="font-light text-heading text-bodySmall border border-heading border-opacity-10 rounded-md mt-1 pl-9 pr-[10px] py-[10px]" type="text" placeholder="Activity">
-              <svg class="absolute top-4 left-3 fill-heading opacity-40 w-4 h-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M48 24C48 10.7 37.3 0 24 0S0 10.7 0 24L0 64 0 350.5 0 400l0 88c0 13.3 10.7 24 24 24s24-10.7 24-24l0-100 80.3-20.1c41.1-10.3 84.6-5.5 122.5 13.4c44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30l0-279.7c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0c-35.1-17.6-75.4-22-113.5-12.5L48 52l0-28zm0 77.5l96.6-24.2c27-6.7 55.5-3.6 80.4 8.8c54.9 27.4 118.7 29.7 175 6.8l0 241.8-24.4 9.1c-33.7 12.6-71.2 10.7-103.4-5.4c-48.2-24.1-103.3-30.1-155.6-17.1L48 338.5l0-237z"/></svg>
-            </div>
-          </div>
-
-          <div>
-            <span class="font-kaushan font-normal text-sm text-heading leading-4">When</span>
-            <div class="relative">
-              <input class="font-light text-heading text-bodySmall border border-heading border-opacity-10 rounded-md mt-1 pl-9 pr-[10px] py-[10px]" type="text" placeholder="Date">
-              <svg class="absolute top-4 left-3 fill-heading opacity-40 w-4 h-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L64 64C28.7 64 0 92.7 0 128l0 16 0 48L0 448c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-256 0-48 0-16c0-35.3-28.7-64-64-64l-40 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L152 64l0-40zM48 192l352 0 0 256c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256z"/></svg>
-            </div>
-          </div>
-
-          <div>
-            <span class="font-kaushan font-normal text-sm text-heading leading-4">Guests</span>
-            <div class="relative">
-              <input class="font-light text-heading text-bodySmall border border-heading border-opacity-10 rounded-md mt-1 pl-9 pr-[10px] py-[10px]" type="text" placeholder="0">
-              <svg class="absolute top-4 left-3 fill-heading opacity-40 w-4 h-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464l349.5 0c-8.9-63.3-63.3-112-129-112l-91.4 0c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3z"/></svg>
-            </div>
-          </div>
-
-          <div class="flex items-end">
-            <button class="font-normal text-action text-white bg-brandPrimary rounded-xl px-7 py-3">Search</button>
-          </div>
-        </form>
-      </div>
-    </div>
   </div>
 </section>
 </ng-container>
