@@ -9,7 +9,6 @@ class AdminNewsletter(admin.ModelAdmin):
         "formatted_subscribed_at",
         "email",
         "token",
-        "data_processing",
         "active",
     ]
 

@@ -1,61 +1,66 @@
 <app-page-title></app-page-title>
 
-<section class="block bg-white">
-  <div class="block px-[135px] py-[100px]">
-    <div class="flex flex-col gap-16">
-      <div class="grid grid-cols-3 gap-[30px]">
-        <div class="contact-card">
-          <img class="icon" [src]="mapPinIconUrl" alt="Location icon">
+<section class="section-block-spacing-top">
+  <div class="custom-container">
+    <div class="grid grid-cols-3 gap-[30px]">
+      <div class="contact-card">
+        <img class="icon" [src]="mapPinIconUrl" alt="Location icon">
 
-          <div class="flex flex-col">
-            <span class="card-title">Location</span>
-            <span class="card-text">350 Fifth Avenue, NY 10118, USA</span>
-          </div>
-        </div>
-
-        <div class="contact-card">
-          <img class="icon" [src]="phoneCallIconUrl">
-
-          <div class="flex flex-col">
-            <span class="card-title">Phone</span>
-            <span class="card-text">+1 (555) 123-4567</span>
-          </div>
-        </div>
-
-        <div class="contact-card">
-          <img class="icon" [src]="emailIconUrl">
-
-          <div class="flex flex-col">
-            <span class="card-title">Email</span>
-            <span class="card-text">info@eternatravelco.com</span>
-          </div>
+        <div class="flex flex-col">
+          <span class="card-title">Location</span>
+          <span class="card-text">350 Fifth Avenue, NY 10118, USA</span>
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-[30px]">
-        <form class="flex flex-col gap-6 h-full">
+      <div class="contact-card">
+        <img class="icon" [src]="phoneCallIconUrl">
 
-          <div class="flex flex-col gap-1">
-            <span class="font-kaushan font-normal text-2xl text-brandPrimary">Have any question?</span>
-            <h3 class="font-workSans font-bold text-h3 text-heading">Get in Touch</h3>
+        <div class="flex flex-col">
+          <span class="card-title">Phone</span>
+          <span class="card-text">+1 (555) 123-4567</span>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <img class="icon" [src]="emailIconUrl">
+
+        <div class="flex flex-col">
+          <span class="card-title">Email</span>
+          <span class="card-text">info@eternatravelco.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-block-spacing-bottom section-block-spacing-top">
+  <div class="custom-container">
+    <div class="grid grid-cols-2 gap-[30px]">
+      <div>
+        <div class="mb-6">
+          <span class="font-kaushan font-normal text-2xl text-brandPrimary">Have any question?</span>
+          <h3 class="font-workSans font-bold text-h3 text-heading">Get in Touch</h3>
+        </div>
+
+        <div>
+          <div class="grid grid-cols-2 gap-[18px] mb-[14px]">
+            <input type="text" class="input-field" placeholder="Your name">
+            <input type="text" class="input-field" placeholder="Email address">
           </div>
 
-          <div class="flex flex-col flex-grow gap-[14px]">
-            <div class="grid grid-cols-2 gap-[18px]">
-              <input type="text" class="input-field" placeholder="Your name">
-              <input type="text" class="input-field" placeholder="Email address">
-            </div>
-
-            <textarea class="input-field h-full" placeholder="Write something..."></textarea>
-
-            <div>
-              <button class="bg-brandPrimary px-10 py-5 rounded-lg font-inter font-normal text-action text-white">Submit</button>
-            </div>
+          <div class="mb-[14px]">
+            <textarea class="block input-field h-[160px] w-full" placeholder="Write something..."></textarea>
           </div>
 
-        </form>
+          <div>
+            <button class="bg-brandPrimary px-10 py-5 rounded-lg font-inter font-normal text-action text-white">Submit</button>
+          </div>
+        </div>
 
-        <iframe class="w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6262273607617!2d-73.98764922386655!3d40.74824937138816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b30eac9f%3A0xaca05ca48ab5ac2c!2s350%205th%20Ave%2C%20New%20York%2C%20NY%2010118%2C%20Stany%20Zjednoczone!5e0!3m2!1spl!2spl!4v1736976874532!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div>
+        <iframe class="w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6262273607617!2d-73.98764922386655!3d40.74824937138816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b30eac9f%3A0xaca05ca48ab5ac2c!2s350%205th%20Ave%2C%20New%20York%2C%20NY%2010118%2C%20Stany%20Zjednoczone!5e0!3m2!1spl!2spl!4v1736976874532!5m2!1spl!2spl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>

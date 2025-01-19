@@ -5,9 +5,27 @@
 @tailwind utilities;
 
 
+.custom-container {
+  @apply w-full max-w-[1270px] mx-auto px-[50px];
+}
+
+.home-logo-section-block-spacing-top-bottom {
+  @apply py-12;
+}
+
+.home-section-block-spacing-top {
+  @apply pt-[144px];
+}
+.section-block-spacing-top {
+  @apply pt-[100px];
+}
+
+.section-block-spacing-bottom {
+  @apply pb-[100px]
+}
 /* Contact Us */
 .contact-card {
-  @apply flex flex-col bg-surface gap-3 px-10 py-10;
+  @apply flex flex-col bg-surface gap-3 p-10;
 }
 
 .icon {

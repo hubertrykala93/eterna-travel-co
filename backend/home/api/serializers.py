@@ -12,7 +12,7 @@ class NewsletterSerializer(serializers.ModelSerializer):
         trim_whitespace=True,
         validators=[
             RegexValidator(
-                regex=r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+                regex=r'^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$',
                 message="Enter a valid email address.",
             ),
             UniqueValidator(
@@ -27,9 +27,6 @@ class NewsletterSerializer(serializers.ModelSerializer):
             "max_length": "Ensure this value has at most 255 characters.",
         }
     )
-    data_processing = serializers.BooleanField(
-        required=True,
-    )
 
     class Meta:
         model = Newsletter
@@ -38,11 +35,3 @@ class NewsletterSerializer(serializers.ModelSerializer):
             "token",
             "active",
         ]
-
-    def validate_data_processing(self, data_processing):
-        if data_processing is False:
-            raise serializers.ValidationError(
-                detail="Consent to the processing of personal data is required.",
-            )
-
-        return data_processing

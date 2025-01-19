@@ -8,20 +8,5 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   logoUrl: string = environment.mediaUrl + 'logo/eterna-travel-co-logo.png';
-  selectedCurrency: string = 'USD';
-  isDropdownVisible: boolean = false;
-
-  showDropdown(isVisible: boolean): void {
-    this.isDropdownVisible = true;
-  }
-
-  hideDropdown(isVisible: boolean): void {
-    this.isDropdownVisible = false;
-  }
-
-  selectCurrency(currency: string): void {
-    this.selectedCurrency = currency;
-    this.isDropdownVisible = false;
-  }
 
 }

@@ -1,7 +1,8 @@
+import { ErrorHandlingService } from './../../services/error-handling.service';
 import { HomeService } from './../../services/home/home.service';
 import { environment } from './../../environments';
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-footer',
@@ -10,20 +11,33 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class FooterComponent {
   logoUrl: string = environment.mediaUrl + 'logo/eterna-travel-co-logo.png';
-  newsletterIconUrl: string = environment.mediaUrl + 'icons/newsletter-icon.svg';
   newsletterForm: FormGroup;
   successMessage: string = '';
 
-  constructor(private homeService: HomeService) {
+  constructor(private homeService: HomeService, private errorHandlingService: ErrorHandlingService) {
     this.newsletterForm = new FormGroup({
       email: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(255),
-        Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
       ]),
-      dataProcessing: new FormControl(false, [Validators.requiredTrue])
     })
+  }
+
+  emailErrorMessages(): string[] {
+    const errors = this.errorHandlingService.getErrorMessages(
+      this.newsletterForm.get('email'),
+      {
+        required: 'Email is required.',
+        minlength: 'Ensure this value has at least 3 characters.',
+        maxlength: 'Ensure this value has at most 255 characters.',
+        pattern: 'Enter a valid email address.',
+        emailExists: 'Email already registered.',
+      }
+    )
+
+    return errors
   }
 
   onSubmit(): void {
@@ -35,20 +49,16 @@ export class FooterComponent {
           if (response.success) {
             this.newsletterForm.reset();
             this.successMessage = response.message;
+
+            setTimeout(() => {
+              this.successMessage = '';
+            }, 2000);
           }
         },
         error: (error) => {
-          this.setFormErrors(error.error.errors);
+
         }
       });
-    }
-  }
-
-  setFormErrors(errors: any): void {
-    for (let key in errors) {
-      if (this.newsletterForm.get(key)) {
-        this.newsletterForm.get(key)?.setErrors({ validationError: errors[key] });
-      }
     }
   }
 }

@@ -1,3 +1,5 @@
+const { repeat } = require('rxjs');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -35,6 +37,7 @@ module.exports = {
         surface: '#F7F8F9',
         primaryPageTitleColor: '#051036',
         secondaryPageTitleColor: '#C4C4C4',
+        successColor: '#AFE1AF'
       }
     },
   },
