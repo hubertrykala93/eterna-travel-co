@@ -20,11 +20,9 @@ export class PageTitleComponent implements OnInit {
 
     if (url.includes('-')) {
       const formattedUrl = url.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-      console.log(formattedUrl);
       this.pageName = formattedUrl;
     } else {
       const formattedUrl = url.charAt(0).toUpperCase() + url.slice(1);
-      console.log(formattedUrl);
       this.pageName = formattedUrl
 
       if (formAllowedPages.includes(this.pageName)) {

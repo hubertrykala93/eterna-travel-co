@@ -2,34 +2,7 @@
 
 <section class="section-block-spacing-top">
   <div class="custom-container">
-    <div class="grid grid-cols-3 gap-[30px]">
-      <div class="contact-card">
-        <img class="icon" [src]="mapPinIconUrl" alt="Location icon">
-
-        <div class="flex flex-col">
-          <span class="card-title">Location</span>
-          <span class="card-text">350 Fifth Avenue, NY 10118, USA</span>
-        </div>
-      </div>
-
-      <div class="contact-card">
-        <img class="icon" [src]="phoneCallIconUrl">
-
-        <div class="flex flex-col">
-          <span class="card-title">Phone</span>
-          <span class="card-text">+1 (555) 123-4567</span>
-        </div>
-      </div>
-
-      <div class="contact-card">
-        <img class="icon" [src]="emailIconUrl">
-
-        <div class="flex flex-col">
-          <span class="card-title">Email</span>
-          <span class="card-text">info@eternatravelco.com</span>
-        </div>
-      </div>
-    </div>
+    <app-contact-info></app-contact-info>
   </div>
 </section>
 
@@ -42,20 +15,7 @@
           <h3 class="font-workSans font-bold text-h3 text-heading">Get in Touch</h3>
         </div>
 
-        <div>
-          <div class="grid grid-cols-2 gap-[18px] mb-[14px]">
-            <input type="text" class="input-field" placeholder="Your name">
-            <input type="text" class="input-field" placeholder="Email address">
-          </div>
-
-          <div class="mb-[14px]">
-            <textarea class="block input-field h-[160px] w-full" placeholder="Write something..."></textarea>
-          </div>
-
-          <div>
-            <button class="bg-brandPrimary px-10 py-5 rounded-lg font-inter font-normal text-action text-white">Submit</button>
-          </div>
-        </div>
+        <app-contact-us-form></app-contact-us-form>
 
       </div>
 

@@ -13,7 +13,7 @@ import { PageTitleComponent } from './page-title/page-title.component';
 import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { BlogComponent } from './blog/blog.component';
-import { PageTitleFormComponent } from './home/page-title-form/page-title-form.component';
+import { PageTitleFormComponent } from './forms/page-title/page-title-form/page-title-form.component';
 import { DestinationComponent } from './destination/destination.component';
 import { ToursComponent } from './tours/tours.component';
 import { ToursSearchFormComponent } from './forms/tours/tours-search-form/tours-search-form.component';
@@ -21,6 +21,9 @@ import { ToursFilterFormComponent } from './forms/tours/tours-filter-form/tours-
 import { PaginationComponent } from './pagination/pagination.component';
 import { ToursListingComponent } from './tours/tours-listing/tours-listing.component';
 import { ToursSortFormComponent } from './forms/tours/tours-sort-form/tours-sort-form.component';
+import { NewsletterFormComponent } from './forms/footer/newsletter-form/newsletter-form.component';
+import { ContactInfoComponent } from './contact-us/contact-info/contact-info.component';
+import { ContactUsFormComponent } from './forms/contact-us/contact-us-form/contact-us-form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { ToursSortFormComponent } from './forms/tours/tours-sort-form/tours-sort
     ToursFilterFormComponent,
     PaginationComponent,
     ToursListingComponent,
-    ToursSortFormComponent
+    ToursSortFormComponent,
+    NewsletterFormComponent,
+    ContactInfoComponent,
+    ContactUsFormComponent
   ],
   imports: [
     BrowserModule,
