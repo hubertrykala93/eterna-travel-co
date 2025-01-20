@@ -1,3 +1,4 @@
+import { environment } from './../environments';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./tours.component.css']
 })
 export class ToursComponent {
-
+  budapestImageUrl: string = environment.mediaUrl + 'home/budapest.jpg';
 }

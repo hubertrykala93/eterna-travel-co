@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home/home.component';
 import { PageTitleFormComponent } from './home/page-title-form/page-title-form.component';
 import { DestinationComponent } from './destination/destination.component';
 import { ToursComponent } from './tours/tours.component';
+import { ToursFormComponent } from './tours/tours-form/tours-form.component';
+import { PaginationComponent } from './home/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ToursComponent } from './tours/tours.component';
     HomeComponent,
     PageTitleFormComponent,
     DestinationComponent,
-    ToursComponent
+    ToursComponent,
+    ToursFormComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
