@@ -14,6 +14,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { BlogComponent } from './blog/blog.component';
 import { HomeComponent } from './home/home/home.component';
 import { PageTitleFormComponent } from './home/page-title-form/page-title-form.component';
+import { DestinationComponent } from './destination/destination.component';
+import { ToursComponent } from './tours/tours.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { PageTitleFormComponent } from './home/page-title-form/page-title-form.c
     ContactUsComponent,
     BlogComponent,
     HomeComponent,
-    PageTitleFormComponent
+    PageTitleFormComponent,
+    DestinationComponent,
+    ToursComponent
   ],
   imports: [
     BrowserModule,
