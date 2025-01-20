@@ -1,6 +1,6 @@
+import { HomeComponent } from './home/home.component';
 import { ToursComponent } from './tours/tours.component';
 import { DestinationComponent } from './destination/destination.component';
-import { HomeComponent } from './home/home/home.component';
 import { BlogComponent } from './blog/blog.component';
 import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';

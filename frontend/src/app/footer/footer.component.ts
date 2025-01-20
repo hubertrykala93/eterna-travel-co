@@ -1,6 +1,6 @@
-import { ErrorHandlingService } from './../../services/error-handling.service';
-import { HomeService } from './../../services/home/home.service';
-import { environment } from './../../environments';
+import { ErrorHandlingService } from '../services/error-handling.service';
+import { HomeService } from '../services/home/home.service';
+import { environment } from '../environments';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
 
@@ -41,24 +41,24 @@ export class FooterComponent {
   }
 
   onSubmit(): void {
-    if (this.newsletterForm.valid) {
-      const data = this.newsletterForm.value;
+    // if (this.newsletterForm.valid) {
+    //   const data = this.newsletterForm.value;
 
-      this.homeService.createNewsletter(data).subscribe({
-        next: (response) => {
-          if (response.success) {
-            this.newsletterForm.reset();
-            this.successMessage = response.message;
+    //   this.homeService.createNewsletter(data).subscribe({
+    //     next: (response) => {
+    //       if (response.success) {
+    //         this.newsletterForm.reset();
+    //         this.successMessage = response.message;
 
-            setTimeout(() => {
-              this.successMessage = '';
-            }, 2000);
-          }
-        },
-        error: (error) => {
+    //         setTimeout(() => {
+    //           this.successMessage = '';
+    //         }, 2000);
+    //       }
+    //     },
+    //     error: (error) => {
 
-        }
-      });
-    }
+    //     }
+    //   });
+    // }
   }
 }
