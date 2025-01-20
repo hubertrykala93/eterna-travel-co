@@ -16,8 +16,11 @@ import { BlogComponent } from './blog/blog.component';
 import { PageTitleFormComponent } from './home/page-title-form/page-title-form.component';
 import { DestinationComponent } from './destination/destination.component';
 import { ToursComponent } from './tours/tours.component';
-import { ToursFormComponent } from './tours/tours-form/tours-form.component';
+import { ToursSearchFormComponent } from './forms/tours/tours-search-form/tours-search-form.component';
+import { ToursFilterFormComponent } from './forms/tours/tours-filter-form/tours-filter-form.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { ToursListingComponent } from './tours/tours-listing/tours-listing.component';
+import { ToursSortFormComponent } from './forms/tours/tours-sort-form/tours-sort-form.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +36,11 @@ import { PaginationComponent } from './pagination/pagination.component';
     PageTitleFormComponent,
     DestinationComponent,
     ToursComponent,
-    ToursFormComponent,
-    PaginationComponent
+    ToursSearchFormComponent,
+    ToursFilterFormComponent,
+    PaginationComponent,
+    ToursListingComponent,
+    ToursSortFormComponent
   ],
   imports: [
     BrowserModule,
