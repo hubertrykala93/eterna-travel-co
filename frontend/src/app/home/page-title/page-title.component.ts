@@ -16,7 +16,7 @@ export class PageTitleComponent implements OnInit {
 
   ngOnInit(): void {
     const url: string = this.router.url.slice(1);
-    const formAllowedPages: string[] = ['Destination']
+    const formAllowedPages: string[] = ['Destination', 'Tours']
 
     if (url.includes('-')) {
       const formattedUrl = url.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
