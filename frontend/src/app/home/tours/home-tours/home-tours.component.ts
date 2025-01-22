@@ -18,11 +18,6 @@ export interface Tour {
   styleUrls: ['./home-tours.component.css']
 })
 export class HomeToursComponent {
-  // budapestImageUrl: string = environment.mediaUrl + 'home/budapest.jpg';
-  // londonImageUrl: string = environment.mediaUrl + 'home/london.jpg';
-  // sydneyImageUrl: string = environment.mediaUrl + 'home/sydney.jpg';
-  // muscatImageUrl: string = environment.mediaUrl + 'home/muscat.jpg';
-
   tours: Tour[] = [
     {
       imageUrl: environment.mediaUrl + 'home/budapest.jpg',

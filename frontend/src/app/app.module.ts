@@ -26,9 +26,27 @@ import { ContactInfoComponent } from './contact-us/contact-info/contact-info.com
 import { ContactUsFormComponent } from './forms/contact-us/contact-us-form/contact-us-form.component';
 import { HomeToursComponent } from './home/tours/home-tours/home-tours.component';
 import { HomeToursCardComponent } from './home/tours/home-tours-card/home-tours-card.component';
-import { SliderPaginationComponent } from './home/others/slider-pagination/slider-pagination.component';
-import { StatisticsOverviewComponent } from './home/others/statistics-overview/statistics-overview.component';
-import { HomeHeaderSectionComponent } from './home/others/home-header-section/home-header-section.component';
+import { SliderPaginationComponent } from './others/slider-pagination/slider-pagination.component';
+import { StatisticsOverviewComponent } from './others/statistics-overview/statistics-overview.component';
+import { HomeHeaderSectionComponent } from './others/home-header-section/home-header-section.component';
+import { SectionDividerComponent } from './others/section-divider/section-divider.component';
+import { HomeDestinationsComponent } from './home/destinations/home-destinations/home-destinations.component';
+import { HomeDestinationsCardComponent } from './home/destinations/home-destinations-card/home-destinations-card.component';
+import { HomeWhyChooseUsComponent } from './home/why-choose-us/home-why-choose-us/home-why-choose-us.component';
+import { WhyChooseUsImageSectionComponent } from './home/why-choose-us/why-choose-us-image-section/why-choose-us-image-section.component';
+import { HomeBrowseByCategoryComponent } from './home/why-choose-us/home-browse-by-category/home-browse-by-category.component';
+import { HomeBrowseByCategoryCardComponent } from './home/why-choose-us/home-browse-by-category-card/home-browse-by-category-card.component';
+import { HomeTestimonialsComponent } from './home/testimonials/home-testimonials/home-testimonials.component';
+import { TestimonialsImageSectionComponent } from './home/testimonials/testimonials-image-section/testimonials-image-section.component';
+import { HomeTestimonialsQuoteComponent } from './home/testimonials/home-testimonials-quote/home-testimonials-quote.component';
+import { HomeUpdatesComponent } from './home/updates/home-updates/home-updates.component';
+import { HomeUpdatesCardComponent } from './home/updates/home-updates-card/home-updates-card.component';
+import { HomeLogosComponent } from './home/logos/home-logos/home-logos.component';
+import { AboutUsComponent } from './about/about-us/about-us.component';
+import { AboutFeaturesComponent } from './about/features/about-features/about-features.component';
+import { AboutFeaturesCardComponent } from './about/features/about-features-card/about-features-card.component';
+import { AboutTeamComponent } from './about/team/about-team/about-team.component';
+import { AboutTeamCardComponent } from './about/team/about-team-card/about-team-card.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +74,25 @@ import { HomeHeaderSectionComponent } from './home/others/home-header-section/ho
     HomeToursCardComponent,
     SliderPaginationComponent,
     StatisticsOverviewComponent,
-    HomeHeaderSectionComponent
+    HomeHeaderSectionComponent,
+    SectionDividerComponent,
+    HomeDestinationsComponent,
+    HomeDestinationsCardComponent,
+    HomeWhyChooseUsComponent,
+    WhyChooseUsImageSectionComponent,
+    HomeBrowseByCategoryComponent,
+    HomeBrowseByCategoryCardComponent,
+    HomeTestimonialsComponent,
+    TestimonialsImageSectionComponent,
+    HomeTestimonialsQuoteComponent,
+    HomeUpdatesComponent,
+    HomeUpdatesCardComponent,
+    HomeLogosComponent,
+    AboutUsComponent,
+    AboutFeaturesComponent,
+    AboutFeaturesCardComponent,
+    AboutTeamComponent,
+    AboutTeamCardComponent
   ],
   imports: [
     BrowserModule,

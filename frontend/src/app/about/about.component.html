@@ -1,175 +1,20 @@
 <app-page-title></app-page-title>
 
 <!-- About Us -->
-<section class="section-block-spacing-top section-block-spacing-bottom">
-  <div class="custom-container">
-    <div class="grid grid-cols-12">
-      <div class="relative col-start-1 col-span-6">
-        <img class="absolute bottom-0 left-0 rotate-[-15deg] w-[306px] h-[368px] transform origin-top-left object-cover" [src]="secondImageUrl">
-        <img class="absolute bottom-0 right-0 w-[338px] h-[426px] border-[5px] border-white object-cover" [src]="firstImageUrl">
-        <button routerLink="/contact-us" class="absolute w-[279px] h-[75px] bottom-8 left-1/2 transform -translate-x-1/2 bg-brandPrimary border-[1px] border-white">
-          <div class="flex ml-10 gap-[9px]">
-            <svg class="w-8 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9l0-176c0-8.7 4.7-16.7 12.3-20.9z"/></svg>
-            <span class="font-kaushan font-normal text-xl leading-8 text-white">Watch Now</span>
-          </div>
-        </button>
-        <!--
-        <div class="absolute w-[279px] bottom-0 left-1/2 transform -translate-x-1/2 mb-10 pl-[37px] h-[75px] bg-brandPrimary border-[1px] border-white">
-          <svg class="absolute fill-white w-8 top-1/2 transform -translate-y-1/2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9l0-176c0-8.7 4.7-16.7 12.3-20.9z"/></svg>
-          <span class="absolute top-1/2 transform -translate-y-1/2 pl-[49px] font-kaushan font-normal text-xl leading-8 text-white">Watch Now</span>
-        </div>
-        -->
-      </div>
-
-      <div class="col-start-8 col-span-4">
-        <div>
-          <div class="mb-3">
-            <span class="font-kaushan font-normal text-brandPrimary text-2xl">About Us</span>
-          </div>
-          <h3 class="font-workSans font-bold text-h3 text-heading mb-3">Why Select Us for Your Vacation</h3>
-
-          <p class="font-light text-body text-heading opacity-60">Intrinsicly myocardinate standards compliant solutions rather than multidisciplinary solutions. Phosfluorescently re-engineer goal-oriented resources whereas distributed strategic theme areas. Authoritatively coordinate 24/365 process improvements after out-of-the-box mindshare.</p>
-          <br>
-          <p class="font-light text-body text-heading opacity-60">Appropriately extend user-centric partnerships before interactive e-tailers. Efficiently plagiarize superior services after adaptive web-readiness.</p>
-          <br>
-          <p class="font-light text-body text-heading opacity-60">Dynamically whiteboard team building processes rather than long-term high-impact infrastructures.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="border-t-[1px] border-heading mt-14 mb-12 border-opacity-10"></div>
-
-    <div class="flex justify-between">
-      <div class="flex items-center gap-3">
-        <span class="font-kaushan font-normal text-4xl text-heading">120+</span>
-        <span class="font-workSans font-semibold text-subtitle text-heading opacity-60">Total Destination</span>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <span class="font-kaushan font-normal text-4xl text-heading">500+</span>
-        <span class="font-workSans font-semibold text-subtitle text-heading opacity-60">Travel Packages</span>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <span class="font-kaushan font-normal text-4xl text-heading">12k+</span>
-        <span class="font-workSans font-semibold text-subtitle text-heading opacity-60">Total Travelers</span>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <span class="font-kaushan font-normal text-4xl text-heading">7k+</span>
-        <span class="font-workSans font-semibold text-subtitle text-heading opacity-60">Positive Reviews</span>
-      </div>
-    </div>
-  </div>
-</section>
+<app-about-us></app-about-us>
 
 <!-- Features -->
-<section class="section-block-spacing-top section-block-spacing-bottom bg-surface">
-  <div class="custom-container">
-    <div class="text-center mb-12">
-      <span class="font-kaushan font-normal text-2xl text-brandPrimary">Features</span>
-      <h3 class="font-workSans font-bold text-h3 text-heading mt-[6px]">Why Choose Us</h3>
-    </div>
-
-    <div class="grid grid-cols-3 grid-rows-2 gap-x-[30px] gap-y-6">
-      <div class="bg-white p-[30px]">
-        <img class="mb-5" [src]="cheapRatesIconUrl">
-        <h6 class="font-workSans font-bold text h6 text-heading mb-1">Cheap Rates</h6>
-        <span class="font-light text-body text-heading opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
-      </div>
-
-      <div class="bg-white p-[30px]">
-        <img class="mb-5" [src]="bestTravelPlanIconUrl">
-        <h6 class="font-workSans font-bold text h6 text-heading mb-1">Best Travel Plan</h6>
-        <span class="font-light text-body text-heading opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
-      </div>
-
-      <div class="bg-white p-[30px]">
-        <img class="mb-5" [src]="easyQuickBookingIconUrl">
-        <h6 class="font-workSans font-bold text h6 text-heading mb-1">Easy & Quick Booking</h6>
-        <span class="font-light text-body text-heading opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
-      </div>
-
-      <div class="bg-white p-[30px]">
-        <img class="mb-5" [src]="handPickedTourIconUrl">
-        <h6 class="font-workSans font-bold text h6 text-heading mb-1">Hand-picked Tour</h6>
-        <span class="font-light text-body text-heading opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
-      </div>
-
-      <div class="bg-white p-[30px]">
-        <img class="mb-5" [src]="privateGuideIconUrl">
-        <h6 class="font-workSans font-bold text h6 text-heading mb-1">Private Guide</h6>
-        <span class="font-light text-body text-heading opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
-      </div>
-
-      <div class="bg-white p-[30px]">
-        <img class="mb-5" [src]="customerCareIconUrl">
-        <h6 class="font-workSans font-bold text h6 text-heading mb-1">Customer Care 24/7</h6>
-        <span class="font-light text-body text-heading opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
-      </div>
-    </div>
-  </div>
-</section>
+<app-about-features></app-about-features>
 
 <!-- Team -->
-<section class="section-block-spacing-top section-block-spacing-bottom">
-  <div class="custom-container">
-    <div class="text-center mb-12">
-      <span class="font-kaushan font-normal text-2xl text-brandPrimary">Team</span>
-      <h3 class="font-workSans font-bold text-h3 text-heading mt-[6px]">Our Amazing Team</h3>
-    </div>
-
-    <div class="flex justify-between gap-8">
-      <div>
-        <img class="mb-6" [src]="travelerImageOneUrl">
-        <h6 class="font-workSans font-bold text-h6 text-heading mb-1">Antoni Shkraba</h6>
-        <span class="font-light text-body text-heading opacity-60">Founder & Director</span>
-      </div>
-
-      <div>
-        <img class="mb-6" [src]="travelerImageTwoUrl">
-        <h6 class="font-workSans font-bold text-h6 text-heading mb-1">Andrew Davie</h6>
-        <span class="font-light text-body text-heading opacity-60">Chief Operating Officer</span>
-      </div>
-
-      <div>
-        <img class="mb-6" [src]="travelerImageThreeUrl">
-        <h6 class="font-workSans font-bold text-h6 text-heading mb-1">Orlando Diggs</h6>
-        <span class="font-light text-body text-heading opacity-60">Director - Hotels</span>
-      </div>
-
-      <div>
-        <img class="mb-6" [src]="travelerImageFourUrl">
-        <h6 class="font-workSans font-bold text-h6 text-heading mb-1">Tamara Bellis</h6>
-        <span class="font-light text-body text-heading opacity-60">Customer Support</span>
-      </div>
-
-      <div>
-        <img class="mb-6" [src]="travelerImageFiveUrl">
-        <h6 class="font-workSans font-bold text-h6 text-heading mb-1">Philip Martin</h6>
-        <span class="font-light text-body text-heading opacity-60">Chief Executive</span>
-      </div>
-
-    </div>
-
-    <div class="flex justify-center gap-2 mt-12">
-      <div class="w-2 h-2 bg-heading rounded-full opacity-10"></div>
-      <div class="w-2 h-2 bg-brandPrimary rounded-full"></div>
-      <div class="w-2 h-2 bg-heading rounded-full opacity-10"></div>
-      <div class="w-2 h-2 bg-heading rounded-full opacity-10"></div>
-    </div>
-
-  </div>
-</section>
+<app-about-team></app-about-team>
 
 <!-- Testimonials -->
 <section class="bg-surface section-block-spacing-top section-block-spacing-bottom">
   <div class="custom-container">
-    <div class="grid grid-cols-12 items-center">
-      <div class="flex flex-col items-center col-start-1 col-span-4">
-        <img class="w-[214px] rotate-[8deg] border-white border-2 z-10" [src]="testimonialOneImageUrl">
-        <img class="rotate-[-10deg] mt-[-29px]" [src]="testimonialTwoImageUrl">
-        <img class="w-[200px] mt-[-29px] rotate-[7deg] border-white border-2" [src]="testimonialThreeImageUrl">
+    <div class="grid grid-cols-12">
+      <div class="col-start-1 col-span-4">
+        <app-testimonials-image-section [sectionType]="'about'"></app-testimonials-image-section>
       </div>
 
       <div class="col-start-7 col-span-5 text-center">
@@ -178,15 +23,7 @@
           <h3 class="font-workSans font-bold text-h3 text-heading mt-2">What Travelers Say</h3>
         </div>
 
-        <img class="mx-auto mb-[18px]" [src]="quoteIconUrl">
-
-        <div class="mb-[18px]">
-          <span class="font-workSans font-bold text-h6 text-heading">“The UI designs he crafted are top-notch, and the design system he integrated allows for straight forward fixes and bulk updates throughout almost every area of the app.”</span>
-        </div>
-
-        <div class="mb-[56px]">
-          <span class="text-heading font-light text-body opacity-60">- By Molie Rosa, Photographer</span>
-        </div>
+        <app-home-testimonials-quote></app-home-testimonials-quote>
 
         <div class="flex gap-2 mt-10 justify-center">
           <span class="bg-heading opacity-10 rounded-full w-2 h-2"></span>

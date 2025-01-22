@@ -1,0 +1,19 @@
+<section class="section-block-spacing-top section-block-spacing-bottom bg-surface">
+  <div class="custom-container">
+    <div class="grid grid-cols-12">
+
+      <div class="col-start-1 col-span-4">
+        <app-testimonials-image-section [sectionType]="'home'"></app-testimonials-image-section>
+      </div>
+
+      <div class="col-start-7 col-span-5">
+
+        <app-home-header-section [alignment]="'center'" [headerTitle]="'Testimonials'" [headerSubtitle]="'What Travelers Say'"></app-home-header-section>
+
+        <app-home-testimonials-quote></app-home-testimonials-quote>
+
+        <app-slider-pagination></app-slider-pagination>
+      </div>
+    </div>
+  </div>
+</section>

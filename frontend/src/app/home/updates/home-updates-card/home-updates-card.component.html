@@ -1,0 +1,13 @@
+<div class="flex gap-5">
+  <img class="w-[170px] object-cover" [src]="update.imageUrl">
+
+  <div class="pl-5 py-[27px]">
+    <div class="flex items-center">
+      <span class="font-light text-heading text-body opacity-60 mr-7">{{ update.date | date: 'MMMM d, y' }}</span>
+      <span class="w-1 h-1 bg-heading opacity-60 rounded-full mr-2"></span>
+      <span class="font-light text-body text-heading opacity-60">{{ update.user }}</span>
+    </div>
+
+    <h6 class="font-workSans font-bold text-h6 text-heading mt-2">{{ update.title }}</h6>
+  </div>
+</div>

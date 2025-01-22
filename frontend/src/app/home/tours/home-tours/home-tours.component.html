@@ -1,6 +1,7 @@
 <section class="home-section-block-spacing-top section-block-spacing-bottom">
   <div class="custom-container">
-    <app-home-header-section [headerTitle]="'Tours'" [headerSubtitle]="'Most Popular Tours'"></app-home-header-section>
+
+    <app-home-header-section [alignment]="'center'" [headerTitle]="'Tours'" [headerSubtitle]="'Most Popular Tours'"></app-home-header-section>
 
     <div class="grid grid-cols-4 gap-[30px]">
       <app-home-tours-card *ngFor="let tour of tours" [tour]="tour"></app-home-tours-card>
@@ -8,7 +9,7 @@
 
     <app-slider-pagination></app-slider-pagination>
 
-    <div class="border-t-[1px] border-heading mt-14 mb-12 border-opacity-10"></div>
+    <app-section-divider></app-section-divider>
 
     <app-statistics-overview></app-statistics-overview>
 

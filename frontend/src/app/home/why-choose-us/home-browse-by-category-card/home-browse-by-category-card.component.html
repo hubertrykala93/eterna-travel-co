@@ -1,0 +1,13 @@
+<div class="border-[1px] border-heading border-opacity-10 px-4 py-6">
+  <img class="w-10 h-10" [src]="tourType.imageUrl">
+
+  <div class="my-4">
+    <h6 class="font-workSans font-bold text-h6 text-heading">{{ tourType.title }}</h6>
+    <span class="font-light text-body text-heading text-opacity-60">{{ tourType.tourCount }} Tours+</span>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <span class="font-light text-body text-heading opacity-60">From</span>
+    <span class="font-kaushan font-normal text-xl leading-[26px] text-brandPrimary">${{ tourType.startingPrice }}</span>
+  </div>
+</div>

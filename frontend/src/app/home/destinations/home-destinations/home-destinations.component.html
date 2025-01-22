@@ -1,0 +1,11 @@
+
+<section class="section-block-spacing-top section-block-spacing-bottom bg-surface">
+  <div class="custom-container">
+
+    <app-home-header-section [alignment]="'center'" [headerTitle]="'Destination'" [headerSubtitle]="'Top Attractions Destinations'"></app-home-header-section>
+
+    <div class="grid grid-cols-4 grid-rows-2 gap-x-[30px] gap-y-[30px] mt-12">
+      <app-home-destinations-card *ngFor="let destination of destinations" [destination]="destination"></app-home-destinations-card>
+    </div>
+  </div>
+</section>

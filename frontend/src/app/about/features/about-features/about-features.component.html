@@ -1,0 +1,46 @@
+<section class="section-block-spacing-top section-block-spacing-bottom bg-surface">
+  <div class="custom-container">
+    <app-home-header-section [headerTitle]="'Features'" [headerSubtitle]="'Why Choose Us'"></app-home-header-section>
+
+    <div class="grid grid-cols-3 grid-rows-2 gap-x-[30px] gap-y-6">
+      <app-about-features-card *ngFor="let feature of features" [feature]="feature"></app-about-features-card>
+      <!--
+      <div class="bg-white p-[30px]">
+        <img class="mb-5" [src]="cheapRatesIconUrl">
+        <h6 class="font-workSans font-bold text h6 text-heading mb-1">Cheap Rates</h6>
+        <span class="font-light text-body text-heading opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
+      </div>
+
+      <div class="bg-white p-[30px]">
+        <img class="mb-5" [src]="bestTravelPlanIconUrl">
+        <h6 class="font-workSans font-bold text h6 text-heading mb-1">Best Travel Plan</h6>
+        <span class="font-light text-body text-heading opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
+      </div>
+
+      <div class="bg-white p-[30px]">
+        <img class="mb-5" [src]="easyQuickBookingIconUrl">
+        <h6 class="font-workSans font-bold text h6 text-heading mb-1">Easy & Quick Booking</h6>
+        <span class="font-light text-body text-heading opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
+      </div>
+
+      <div class="bg-white p-[30px]">
+        <img class="mb-5" [src]="handPickedTourIconUrl">
+        <h6 class="font-workSans font-bold text h6 text-heading mb-1">Hand-picked Tour</h6>
+        <span class="font-light text-body text-heading opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
+      </div>
+
+      <div class="bg-white p-[30px]">
+        <img class="mb-5" [src]="privateGuideIconUrl">
+        <h6 class="font-workSans font-bold text h6 text-heading mb-1">Private Guide</h6>
+        <span class="font-light text-body text-heading opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
+      </div>
+
+      <div class="bg-white p-[30px]">
+        <img class="mb-5" [src]="customerCareIconUrl">
+        <h6 class="font-workSans font-bold text h6 text-heading mb-1">Customer Care 24/7</h6>
+        <span class="font-light text-body text-heading opacity-60">Credibly target visionary portals rather than prospective human capital.</span>
+      </div>
+      -->
+    </div>
+  </div>
+</section>

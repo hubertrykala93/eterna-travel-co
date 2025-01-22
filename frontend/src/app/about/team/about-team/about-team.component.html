@@ -1,0 +1,43 @@
+<section class="section-block-spacing-top section-block-spacing-bottom">
+  <div class="custom-container">
+    <app-home-header-section [headerTitle]="'Team'" [headerSubtitle]="'Our Amazing Team'"></app-home-header-section>
+
+    <div class="flex justify-between gap-8">
+      <app-about-team-card *ngFor="let member of team" [member]="member"></app-about-team-card>
+      <!--
+      <div>
+        <img class="mb-6" [src]="travelerImageOneUrl">
+        <h6 class="font-workSans font-bold text-h6 text-heading mb-1">Antoni Shkraba</h6>
+        <span class="font-light text-body text-heading opacity-60">Founder & Director</span>
+      </div>
+
+      <div>
+        <img class="mb-6" [src]="travelerImageTwoUrl">
+        <h6 class="font-workSans font-bold text-h6 text-heading mb-1">Andrew Davie</h6>
+        <span class="font-light text-body text-heading opacity-60">Chief Operating Officer</span>
+      </div>
+
+      <div>
+        <img class="mb-6" [src]="travelerImageThreeUrl">
+        <h6 class="font-workSans font-bold text-h6 text-heading mb-1">Orlando Diggs</h6>
+        <span class="font-light text-body text-heading opacity-60">Director - Hotels</span>
+      </div>
+
+      <div>
+        <img class="mb-6" [src]="travelerImageFourUrl">
+        <h6 class="font-workSans font-bold text-h6 text-heading mb-1">Tamara Bellis</h6>
+        <span class="font-light text-body text-heading opacity-60">Customer Support</span>
+      </div>
+
+      <div>
+        <img class="mb-6" [src]="travelerImageFiveUrl">
+        <h6 class="font-workSans font-bold text-h6 text-heading mb-1">Philip Martin</h6>
+        <span class="font-light text-body text-heading opacity-60">Chief Executive</span>
+      </div>
+      -->
+
+    </div>
+
+    <app-slider-pagination></app-slider-pagination>
+  </div>
+</section>

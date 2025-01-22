@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class HomeHeaderSectionComponent {
   @Input() headerTitle!: string;
   @Input() headerSubtitle!: string;
+  @Input() alignment: 'left' | 'center' | 'right' = 'center';
 }
