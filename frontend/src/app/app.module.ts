@@ -19,7 +19,6 @@ import { ToursComponent } from './tours/tours.component';
 import { ToursSearchFormComponent } from './forms/tours/tours-search-form/tours-search-form.component';
 import { ToursFilterFormComponent } from './forms/tours/tours-filter-form/tours-filter-form.component';
 import { PaginationComponent } from './pagination/pagination.component';
-import { ToursListingComponent } from './tours/tours-listing/tours-listing.component';
 import { ToursSortFormComponent } from './forms/tours/tours-sort-form/tours-sort-form.component';
 import { NewsletterFormComponent } from './forms/footer/newsletter-form/newsletter-form.component';
 import { ContactInfoComponent } from './contact-us/contact-info/contact-info.component';
@@ -47,6 +46,10 @@ import { AboutFeaturesComponent } from './about/features/about-features/about-fe
 import { AboutFeaturesCardComponent } from './about/features/about-features-card/about-features-card.component';
 import { AboutTeamComponent } from './about/team/about-team/about-team.component';
 import { AboutTeamCardComponent } from './about/team/about-team-card/about-team-card.component';
+import { AboutTestimonialsComponent } from './about/testimonials/about-testimonials/about-testimonials.component';
+import { ToursListingComponent } from './tours/tours-listing/tours-listing.component';
+import { ToursHeaderComponent } from './tours/tours-header/tours-header.component';
+import { ToursCardComponent } from './tours/tours-card/tours-card.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +68,6 @@ import { AboutTeamCardComponent } from './about/team/about-team-card/about-team-
     ToursSearchFormComponent,
     ToursFilterFormComponent,
     PaginationComponent,
-    ToursListingComponent,
     ToursSortFormComponent,
     NewsletterFormComponent,
     ContactInfoComponent,
@@ -92,7 +94,11 @@ import { AboutTeamCardComponent } from './about/team/about-team-card/about-team-
     AboutFeaturesComponent,
     AboutFeaturesCardComponent,
     AboutTeamComponent,
-    AboutTeamCardComponent
+    AboutTeamCardComponent,
+    AboutTestimonialsComponent,
+    ToursListingComponent,
+    ToursHeaderComponent,
+    ToursCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -43,7 +43,7 @@ export class HomeToursComponent {
       imageUrl: environment.mediaUrl + 'home/sydney.jpg',
       city: 'Sydney',
       country: 'Australia',
-      title: 'Enchanting Great Barrier Reef, Aquatic Wonderland',
+      title: 'Great Barrier Reef, Aquatic Wonderland',
       rate: 4.8,
       reviews: 15,
       duration: 7,
@@ -58,6 +58,6 @@ export class HomeToursComponent {
       reviews: 15,
       duration: 7,
       startingPrice: 599
-    },
+    }
   ]
 }
