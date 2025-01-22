@@ -15,13 +15,13 @@ export class TestimonialsImageSectionComponent {
 
   ngOnInit(): void {
     if (this.sectionType === 'home') {
-      this.testimonialsImageUrl1 = environment.mediaUrl + 'home/testimonials1.jpg';
-      this.testimonialsImageUrl2 = environment.mediaUrl + 'home/testimonials2.jpg';
-      this.testimonialsImageUrl3 = environment.mediaUrl + 'home/testimonials3.jpg';
+      this.testimonialsImageUrl1 = environment.mediaUrl + 'home/testimonials-1.jpg';
+      this.testimonialsImageUrl2 = environment.mediaUrl + 'home/testimonials-2.jpg';
+      this.testimonialsImageUrl3 = environment.mediaUrl + 'home/testimonials-3.jpg';
     } else if (this.sectionType === 'about') {
-      this.testimonialsImageUrl1 = environment.mediaUrl + 'about/testimonial_1.jpg';
-      this.testimonialsImageUrl2 = environment.mediaUrl + 'about/testimonial_2.jpg';
-      this.testimonialsImageUrl3 = environment.mediaUrl + 'about/testimonial_3.jpg';
+      this.testimonialsImageUrl1 = environment.mediaUrl + 'about/testimonials-1.jpg';
+      this.testimonialsImageUrl2 = environment.mediaUrl + 'about/testimonials-2.jpg';
+      this.testimonialsImageUrl3 = environment.mediaUrl + 'about/testimonials-3.jpg';
     }
   }
 }

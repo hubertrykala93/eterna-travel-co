@@ -50,6 +50,12 @@ import { AboutTestimonialsComponent } from './about/testimonials/about-testimoni
 import { ToursListingComponent } from './tours/tours-listing/tours-listing.component';
 import { ToursHeaderComponent } from './tours/tours-header/tours-header.component';
 import { ToursCardComponent } from './tours/tours-card/tours-card.component';
+import { BlogCardComponent } from './blog/blog-card/blog-card.component';
+import { BlogSearchFormComponent } from './forms/blog/blog-search-form/blog-search-form.component';
+import { BlogCategoriesComponent } from './blog/blog-categories/blog-categories.component';
+import { BlogRecentPostsComponent } from './blog/blog-recent-posts/blog-recent-posts.component';
+import { BlogTagsComponent } from './blog/blog-tags/blog-tags.component';
+import { BlogGalleryComponent } from './blog/blog-gallery/blog-gallery.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +105,12 @@ import { ToursCardComponent } from './tours/tours-card/tours-card.component';
     ToursListingComponent,
     ToursHeaderComponent,
     ToursCardComponent,
+    BlogCardComponent,
+    BlogSearchFormComponent,
+    BlogCategoriesComponent,
+    BlogRecentPostsComponent,
+    BlogTagsComponent,
+    BlogGalleryComponent
   ],
   imports: [
     BrowserModule,

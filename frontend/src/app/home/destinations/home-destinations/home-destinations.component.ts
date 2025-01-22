@@ -15,42 +15,42 @@ export interface Destination {
 export class HomeDestinationsComponent {
   destinations: Destination[] = [
     {
-      imageUrl: environment.mediaUrl + 'home/united-kingdom.jpg',
+      imageUrl: environment.mediaUrl + 'home/destinations-1.jpg',
       travelersCount: 174.688,
       country: 'United Kingdom'
     },
     {
-      imageUrl: environment.mediaUrl + 'home/turkey.jpg',
+      imageUrl: environment.mediaUrl + 'home/destinations-2.jpg',
       travelersCount: 174.688,
       country: 'Turkey'
     },
     {
-      imageUrl: environment.mediaUrl + 'home/switzerland.jpg',
+      imageUrl: environment.mediaUrl + 'home/destinations-3.jpg',
       travelersCount: 174.688,
       country: 'Switzerland'
     },
     {
-      imageUrl: environment.mediaUrl + 'home/france.jpg',
+      imageUrl: environment.mediaUrl + 'home/destinations-4.jpg',
       travelersCount: 174.688,
       country: 'France'
     },
     {
-      imageUrl: environment.mediaUrl + 'home/thailand.jpg',
+      imageUrl: environment.mediaUrl + 'home/destinations-5.jpg',
       travelersCount: 174.688,
       country: 'Thailand'
     },
     {
-      imageUrl: environment.mediaUrl + 'home/new-zealand.jpg',
+      imageUrl: environment.mediaUrl + 'home/destinations-6.jpg',
       travelersCount: 174.688,
       country: 'New Zealand'
     },
     {
-      imageUrl: environment.mediaUrl + 'home/brasil.jpg',
+      imageUrl: environment.mediaUrl + 'home/destinations-7.jpg',
       travelersCount: 174.688,
       country: 'Brasil'
     },
     {
-      imageUrl: environment.mediaUrl + 'home/south-africa.jpg',
+      imageUrl: environment.mediaUrl + 'home/destinations-8.jpg',
       travelersCount: 174.688,
       country: 'South Africa'
     }

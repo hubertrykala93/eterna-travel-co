@@ -7,9 +7,9 @@ import { environment } from 'src/app/environments';
   styleUrls: ['./home-logos.component.css']
 })
 export class HomeLogosComponent {
-  letsGoIconUrl: string = environment.mediaUrl + 'home/lets-go-icon.svg';
-  mountainsIconUrl: string = environment.mediaUrl + 'home/mountains-icon.svg';
-  sayYesIconUrl: string = environment.mediaUrl + 'home/say-yes-icon.svg';
-  startTravelIconUrl: string = environment.mediaUrl + 'home/start-travel-icon.svg';
-  summerIconUrl: string = environment.mediaUrl + 'home/summer-icon.svg';
+  letsGoImageUrl: string = environment.mediaUrl + 'home/logos/lets-go-logo.svg';
+  mountainsImageUrl: string = environment.mediaUrl + 'home/logos/mountains-logo.svg';
+  sayYesImageUrl: string = environment.mediaUrl + 'home/logos/say-yes-logo.svg';
+  startTravelImageUrl: string = environment.mediaUrl + 'home/logos/start-travel-logo.svg';
+  summerImageUrl: string = environment.mediaUrl + 'home/logos/summer-logo.svg';
 }

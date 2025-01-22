@@ -16,25 +16,25 @@ export interface Update {
 export class HomeUpdatesComponent {
   updates: Update[] = [
     {
-      imageUrl: environment.mediaUrl + 'home/updates-image-1.jpg',
+      imageUrl: environment.mediaUrl + 'home/updates-1.jpg',
       date: new Date('Jul, 13, 2025'),
       user: 'Admin',
       title: 'The Impact of Covid-19 on travel & tourism industry'
     },
     {
-      imageUrl: environment.mediaUrl + 'home/updates-image-2.jpg',
+      imageUrl: environment.mediaUrl + 'home/updates-2.jpg',
       date: new Date('Jul, 13, 2025'),
       user: 'Admin',
       title: 'The Impact of Covid-19 on travel & tourism industry'
     },
     {
-      imageUrl: environment.mediaUrl + 'home/updates-image-3.jpg',
+      imageUrl: environment.mediaUrl + 'home/updates-3.jpg',
       date: new Date('Jul, 13, 2025'),
       user: 'Admin',
       title: 'The Impact of Covid-19 on travel & tourism industry'
     },
     {
-      imageUrl: environment.mediaUrl + 'home/updates-image-4.jpg',
+      imageUrl: environment.mediaUrl + 'home/updates-4.jpg',
       date: new Date('Jul, 13, 2025'),
       user: 'Admin',
       title: 'The Impact of Covid-19 on travel & tourism industry'

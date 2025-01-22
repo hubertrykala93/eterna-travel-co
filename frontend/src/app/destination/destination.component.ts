@@ -8,16 +8,16 @@ import { Component } from '@angular/core';
 })
 
 export class DestinationComponent {
-  unitedKingdomImageUrl: string = environment.mediaUrl + 'home/united-kingdom.jpg';
-  turkeyImageUrl: string = environment.mediaUrl + 'home/turkey.jpg';
-  switzerlandImageUrl: string = environment.mediaUrl + 'home/switzerland.jpg';
-  franceImageUrl: string = environment.mediaUrl + 'home/france.jpg';
-  thailandImageUrl: string = environment.mediaUrl + 'home/thailand.jpg';
-  newZealandImageUrl: string = environment.mediaUrl + 'home/new-zealand.jpg';
-  unitedArabEmiratesImageUrl: string = environment.mediaUrl + 'destination/united-arab-emirates.jpg';
-  italyImageUrl: string = environment.mediaUrl + 'destination/italy.jpg';
-  bangladeshImageUrl: string = environment.mediaUrl + 'destination/bangladesh.jpg';
-  egyptImageUrl: string = environment.mediaUrl + 'destination/egypt.jpg';
-  indiaImageUrl: string = environment.mediaUrl + 'destination/india.jpg';
-  argentinaImageUrl: string = environment.mediaUrl + 'destination/argentina.jpg';
+  unitedKingdomImageUrl: string = environment.mediaUrl + 'destination/destinations-1.jpg';
+  turkeyImageUrl: string = environment.mediaUrl + 'destination/destinations-2.jpg';
+  switzerlandImageUrl: string = environment.mediaUrl + 'destination/destinations-3.jpg';
+  franceImageUrl: string = environment.mediaUrl + 'destination/destinations-4.jpg';
+  thailandImageUrl: string = environment.mediaUrl + 'destination/destinations-5.jpg';
+  newZealandImageUrl: string = environment.mediaUrl + 'destination/destinations-6.jpg';
+  unitedArabEmiratesImageUrl: string = environment.mediaUrl + 'destination/destinations-7.jpg';
+  italyImageUrl: string = environment.mediaUrl + 'destination/destinations-8.jpg';
+  bangladeshImageUrl: string = environment.mediaUrl + 'destination/destinations-9.jpg';
+  egyptImageUrl: string = environment.mediaUrl + 'destination/destinations-10.jpg';
+  indiaImageUrl: string = environment.mediaUrl + 'destination/destinations-11.jpg';
+  argentinaImageUrl: string = environment.mediaUrl + 'destination/destinations-12.jpg';
 }

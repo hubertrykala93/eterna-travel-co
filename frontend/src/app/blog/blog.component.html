@@ -1,1 +1,29 @@
 <app-page-title></app-page-title>
+
+<section class="section-block-spacing-top section-block-spacing-bottom">
+  <div class="custom-container">
+    <div class="flex gap-[130px]">
+      <div class="w-[670px]">
+
+        <app-blog-card *ngFor="let article of articles" [article]="article"></app-blog-card>
+
+        <app-pagination></app-pagination>
+
+      </div>
+
+      <div class="w-[370px]">
+
+        <app-blog-search-form></app-blog-search-form>
+
+        <app-blog-categories></app-blog-categories>
+
+        <app-blog-recent-posts></app-blog-recent-posts>
+
+        <app-blog-tags></app-blog-tags>
+
+        <app-blog-gallery></app-blog-gallery>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -15,11 +15,11 @@ export class WhyChooseUsImageSectionComponent {
 
   ngOnInit() {
     if (this.sectionType === 'home') {
-      this.whyChooseUsImageUrl1 = environment.mediaUrl + 'home/why-choose-us-image-1.jpg';
-      this.whyChooseUsImageUrl2 = environment.mediaUrl + 'home/why-choose-us-image-2.jpg';
+      this.whyChooseUsImageUrl1 = environment.mediaUrl + 'home/why-choose-us-1.jpg';
+      this.whyChooseUsImageUrl2 = environment.mediaUrl + 'home/why-choose-us-2.jpg';
     } else if (this.sectionType === 'about') {
-      this.whyChooseUsImageUrl1 = environment.mediaUrl + 'about/why-choose-us-image-2.jpg';
-      this.whyChooseUsImageUrl2 = environment.mediaUrl + 'about/why-choose-us-image-1.jpg';
+      this.whyChooseUsImageUrl1 = environment.mediaUrl + 'about/about-us-1.jpg';
+      this.whyChooseUsImageUrl2 = environment.mediaUrl + 'about/about-us-2.jpg';
     }
   }
 }

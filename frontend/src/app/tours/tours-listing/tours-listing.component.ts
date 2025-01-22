@@ -11,7 +11,7 @@ import { environment } from 'src/app/environments';
 export class ToursListingComponent {
   tours: Tour[] = [
     {
-      imageUrl: environment.mediaUrl + 'home/budapest.jpg',
+      imageUrl: environment.mediaUrl + 'home/tours-1.jpg',
       city: 'Budapest',
       country: 'Hungary',
       title: 'Wonders of the West Coast & Kimberley',
@@ -21,7 +21,7 @@ export class ToursListingComponent {
       startingPrice: 520
     },
     {
-      imageUrl: environment.mediaUrl + 'home/london.jpg',
+      imageUrl: environment.mediaUrl + 'home/tours-2.jpg',
       city: 'London',
       country: 'United Kingdom',
       title: 'Windsor Castle, and Bath from London',
@@ -31,7 +31,7 @@ export class ToursListingComponent {
       startingPrice: 350
     },
     {
-      imageUrl: environment.mediaUrl + 'home/sydney.jpg',
+      imageUrl: environment.mediaUrl + 'home/tours-3.jpg',
       city: 'Sydney',
       country: 'Australia',
       title: 'Great Barrier Reef, Aquatic Wonderland',
@@ -41,7 +41,7 @@ export class ToursListingComponent {
       startingPrice: 450
     },
     {
-      imageUrl: environment.mediaUrl + 'home/muscat.jpg',
+      imageUrl: environment.mediaUrl + 'home/tours-4.jpg',
       city: 'Muscat',
       country: 'Oman',
       title: 'Ancient Heritage and Desert Adventures',
@@ -51,7 +51,7 @@ export class ToursListingComponent {
       startingPrice: 599
     },
     {
-      imageUrl: environment.mediaUrl + 'tours/kyoto.jpg',
+      imageUrl: environment.mediaUrl + 'tours/tours-5.jpg',
       city: 'Kyoto',
       country: 'Japan',
       title: 'Discover Zen Gardens and Ancient Temples',
@@ -61,7 +61,7 @@ export class ToursListingComponent {
       startingPrice: 480
     },
     {
-      imageUrl: environment.mediaUrl + 'tours/nyc.jpg',
+      imageUrl: environment.mediaUrl + 'tours/tours-6.jpg',
       city: 'New York City',
       country: 'United States',
       title: 'Iconic Landmarks and Broadway Nights',
@@ -71,7 +71,7 @@ export class ToursListingComponent {
       startingPrice: 700
     },
     {
-      imageUrl: environment.mediaUrl + 'tours/reykjavik.jpg',
+      imageUrl: environment.mediaUrl + 'tours/tours-7.jpg',
       city: 'Reykjavik',
       country: 'Iceland',
       title: 'Northern Lights and Icelandic Wonders',
@@ -81,7 +81,7 @@ export class ToursListingComponent {
       startingPrice: 550
     },
     {
-      imageUrl: environment.mediaUrl + 'tours/bangkok.jpg',
+      imageUrl: environment.mediaUrl + 'tours/tours-8.jpg',
       city: 'Bangkok',
       country: 'Thailand',
       title: 'Floating Markets and Golden Temples',
@@ -91,7 +91,7 @@ export class ToursListingComponent {
       startingPrice: 350
     },
     {
-      imageUrl: environment.mediaUrl + 'tours/cancun.jpg',
+      imageUrl: environment.mediaUrl + 'tours/tours-9.jpg',
       city: 'Cancun',
       country: 'Mexico',
       title: 'Caribbean Beaches and Mayan Ruins',

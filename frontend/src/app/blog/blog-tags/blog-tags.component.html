@@ -1,0 +1,9 @@
+<div *ngIf="blogTags" class="p-[30px] bg-surface mb-[30px]">
+  <h6 class="font-workSans font-bold text-h6 text-heading mb-3">Tags</h6>
+
+  <ul class="flex flex-wrap gap-2">
+    <li *ngFor="let tag of blogTags" class="px-3 py-2 border-[1px] border-opacity-10 rounded-md">
+      <span class="font-normal text-action text-heading">{{ tag.name }}</span>
+    </li>
+  </ul>
+</div>

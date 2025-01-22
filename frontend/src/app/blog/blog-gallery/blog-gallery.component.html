@@ -1,0 +1,9 @@
+<div *ngIf="blogGallery.length > 0" class="p-[30px] bg-surface mb-[30px]">
+  <h6 class="font-workSans font-bold text-h6 text-heading mb-3">Gallery</h6>
+
+  <ul class="grid grid-cols-4 grid-rows-3 gap-3">
+    <li *ngFor="let image of blogGallery">
+      <img class="w-[72px] h-[72px] object-cover" [src]="image.imageUrl">
+    </li>
+  </ul>
+</div>

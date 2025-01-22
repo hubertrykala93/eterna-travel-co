@@ -7,5 +7,5 @@ import { environment } from 'src/app/environments';
   styleUrls: ['./home-testimonials-quote.component.css']
 })
 export class HomeTestimonialsQuoteComponent {
-  quoteIconUrl: string = environment.mediaUrl + 'about/quote-icon.svg';
+  quoteIconImageUrl: string = environment.mediaUrl + 'icons/quote-icon.svg';
 }

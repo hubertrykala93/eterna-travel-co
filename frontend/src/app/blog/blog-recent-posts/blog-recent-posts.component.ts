@@ -1,21 +1,16 @@
+import { Article } from './../blog.component';
 import { Component } from '@angular/core';
-import { environment } from '../environments';
-
-export interface Article {
-  imageUrl: string;
-  date: Date;
-  user: string;
-  title: string;
-  content: string;
-}
+import { environment } from 'src/app/environments';
 
 @Component({
-  selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  selector: 'app-blog-recent-posts',
+  templateUrl: './blog-recent-posts.component.html',
+  styleUrls: ['./blog-recent-posts.component.css']
 })
-export class BlogComponent {
-  articles: Article[] = [
+export class BlogRecentPostsComponent {
+  blog1: string = environment.mediaUrl + 'blog/blog1.jpg';
+
+  recentPosts: Article[] = [
     {
       imageUrl: environment.mediaUrl + 'blog/article-1.jpg',
       date: new Date('Jul, 13, 2025'),
@@ -36,20 +31,6 @@ export class BlogComponent {
       user: 'Admin',
       title: 'The Ultimate Guide to the Big Apple',
       content: 'New York City, the city that never sleeps, is a hub of culture, cuisine, and iconic landmarks like Times Square, Central Park, and the Statue of Liberty...'
-    },
-    {
-      imageUrl: environment.mediaUrl + 'blog/article-4.jpg',
-      date: new Date('Jul, 13, 2025'),
-      user: 'Admin',
-      title: 'Top 10 Tropical Beaches to Visit in Thailand',
-      content: 'Thailand is famous for its tropical beaches, with turquoise waters, white sand, and lush surroundings. From Phuket to Koh Samui, discover paradise on earth...'
-    },
-    {
-      imageUrl: environment.mediaUrl + 'blog/article-5.jpg',
-      date: new Date('Jul, 13, 2025'),
-      user: 'Admin',
-      title: 'A Blend of Tradition and Modernity',
-      content: 'Japan offers an unforgettable experience, from the serene beauty of Kyoto’s temples to the bustling neon lights of Tokyo. Explore its rich culture and cuisine...'
     }
   ]
 }

@@ -1,0 +1,19 @@
+<div *ngIf="recentPosts.length > 0" class="p-[30px] bg-surface mb-[30px]">
+  <h6 class="font-workSans font-bold text-h6 text-heading mb-3">Recent Posts</h6>
+
+  <ul>
+    <li *ngFor="let post of recentPosts; let last = last" [ngClass]="{ 'mb-4' : !last}" class="flex gap-[14px] mb-4">
+      <img class="w-[88px] h-[72px] object-cover" [src]="post.imageUrl">
+
+      <div>
+        <div class="flex items-center">
+          <span class="font-light text-heading text-xs opacity-60 mr-3">{{ post.date | date:'MMMM d, y' }}</span>
+          <span class="w-1 h-1 bg-heading opacity-60 rounded-full mr-1"></span>
+          <span class="font-light text-xs text-heading opacity-60">{{ post.user }}</span>
+        </div>
+
+        <span class="font-workSans font-semibold text-subtitle text-heading">{{ post.title }}</span>
+      </div>
+    </li>
+  </ul>
+</div>
