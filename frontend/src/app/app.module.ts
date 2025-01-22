@@ -24,6 +24,11 @@ import { ToursSortFormComponent } from './forms/tours/tours-sort-form/tours-sort
 import { NewsletterFormComponent } from './forms/footer/newsletter-form/newsletter-form.component';
 import { ContactInfoComponent } from './contact-us/contact-info/contact-info.component';
 import { ContactUsFormComponent } from './forms/contact-us/contact-us-form/contact-us-form.component';
+import { HomeToursComponent } from './home/tours/home-tours/home-tours.component';
+import { HomeToursCardComponent } from './home/tours/home-tours-card/home-tours-card.component';
+import { SliderPaginationComponent } from './home/others/slider-pagination/slider-pagination.component';
+import { StatisticsOverviewComponent } from './home/others/statistics-overview/statistics-overview.component';
+import { HomeHeaderSectionComponent } from './home/others/home-header-section/home-header-section.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,12 @@ import { ContactUsFormComponent } from './forms/contact-us/contact-us-form/conta
     ToursSortFormComponent,
     NewsletterFormComponent,
     ContactInfoComponent,
-    ContactUsFormComponent
+    ContactUsFormComponent,
+    HomeToursComponent,
+    HomeToursCardComponent,
+    SliderPaginationComponent,
+    StatisticsOverviewComponent,
+    HomeHeaderSectionComponent
   ],
   imports: [
     BrowserModule,

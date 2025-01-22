@@ -7,10 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  budapestImageUrl: string = environment.mediaUrl + 'home/budapest.jpg';
-  londonImageUrl: string = environment.mediaUrl + 'home/london.jpg';
-  sydneyImageUrl: string = environment.mediaUrl + 'home/sydney.jpg';
-  muscatImageUrl: string = environment.mediaUrl + 'home/muscat.jpg';
   unitedKingdomImageUrl: string = environment.mediaUrl + 'home/united-kingdom.jpg';
   turkeyImageUrl: string = environment.mediaUrl + 'home/turkey.jpg';
   switzerlandImageUrl: string = environment.mediaUrl + 'home/switzerland.jpg';
