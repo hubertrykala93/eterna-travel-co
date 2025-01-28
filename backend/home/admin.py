@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Newsletter
+from .forms import AdminNewsletterForm
 
 
 @admin.register(Newsletter)
@@ -11,6 +12,7 @@ class AdminNewsletter(admin.ModelAdmin):
         "token",
         "active",
     ]
+    form = AdminNewsletterForm
 
     def formatted_subscribed_at(self, obj):
         if obj.subscribed_at:

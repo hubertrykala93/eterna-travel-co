@@ -86,7 +86,7 @@ class ProfileImage(models.Model):
         verbose_name_plural = "Profile Images"
 
     def __str__(self):
-        return str(self.alt)
+        return str(self.image)
 
     def save(self, *args, **kwargs):
         if self.pk:
@@ -94,7 +94,7 @@ class ProfileImage(models.Model):
 
         img = Image.open(fp=self.image.path)
 
-        image = resize_image(image=img, max_size=200)
+        image = resize_image(image=img, max_size=400)
 
         if image is not None:
             output_path = self.image.path

@@ -69,7 +69,7 @@ class AdminArticle(SummernoteModelAdmin):
         "user",
         "title",
         "slug",
-        "content",
+        # "content",
         "category",
         "display_tags",
         # "comments",

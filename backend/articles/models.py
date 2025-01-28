@@ -2,6 +2,9 @@ from django.db import models
 from django.utils.timezone import now
 from accounts.models import User
 from django.utils.text import slugify
+import os
+from PIL import Image
+from accounts.models import resize_image
 
 
 class ArticleCategory(models.Model):
@@ -76,6 +79,32 @@ class ArticleImage(models.Model):
 
     def __str__(self):
         return str(self.image)
+
+    def save(self, *args, **kwargs):
+        super(ArticleImage, self).save(*args, **kwargs)
+
+        if self.pk:
+            super(ArticleImage, self).save(*args, **kwargs)
+
+        img = Image.open(fp=self.image.path)
+
+        image = resize_image(image=img, max_size=1920)
+
+        if image is not None:
+            output_path = self.image.path
+            image.save(fp=output_path, format="JPEG", quality=80, optimize=True)
+
+            self.size = round(os.path.getsize(filename=self.image.path) / 1024, 2)
+            self.width, self.height = image.size
+
+        else:
+            self.size = round(os.path.getsize(filename=self.image.path) / 1024, 2)
+            self.width, self.height = img.size
+
+        self.format = img.format
+        self.mode = img.mode
+
+        super(ArticleImage, self).save(*args, **kwargs)
 
 
 class Article(models.Model):

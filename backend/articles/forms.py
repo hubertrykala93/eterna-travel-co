@@ -2,6 +2,8 @@ from django import forms
 from .models import ArticleCategory, ArticleTag, ArticleComment, ArticleImage, Article
 from accounts.models import User
 from django_summernote.widgets import SummernoteWidget
+from django.core.exceptions import ValidationError
+from PIL import Image
 
 
 class AdminArticleCategoryForm(forms.ModelForm):
@@ -65,6 +67,21 @@ class AdminArticleImageForm(forms.ModelForm):
             "image",
             "alt",
         ]
+
+    def clean_image(self):
+        image = self.cleaned_data.get("image")
+
+        try:
+            img = Image.open(fp=image)
+            width, height = img.size
+
+            if width < height:
+                raise ValidationError("The orientation of the photo must be horizontal.")
+
+        except Exception as e:
+            raise ValidationError(message=e)
+
+        return image
 
 
 class AdminArticleCommentForm(forms.ModelForm):
