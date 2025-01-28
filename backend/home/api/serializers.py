@@ -15,10 +15,6 @@ class NewsletterSerializer(serializers.ModelSerializer):
                 regex=r'^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$',
                 message="Enter a valid email address.",
             ),
-            UniqueValidator(
-                queryset=Newsletter.objects.all(),
-                message="This email is already registered.",
-            )
         ],
         error_messages={
             "required": "Email is required.",

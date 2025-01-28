@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'hero-image': "url('/media/home/hero-image.jpg')"
+      },
       fontSize: {
         'xxs': '0.7rem'
       },
@@ -37,7 +40,10 @@ module.exports = {
         surface: '#F7F8F9',
         primaryPageTitleColor: '#051036',
         secondaryPageTitleColor: '#C4C4C4',
-        successColor: '#AFE1AF'
+        successColor: '#AFE1AF',
+        errorColor: '#ff6e6e',
+        warningColor: '#ffca6a',
+        infoColor: '#97dcff'
       }
     },
   },

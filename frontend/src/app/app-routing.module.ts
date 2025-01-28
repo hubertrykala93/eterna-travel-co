@@ -1,3 +1,4 @@
+import { NewsletterActivationComponent } from './forms/footer/newsletter-activation/newsletter-activation.component';
 import { HomeComponent } from './home/home.component';
 import { ToursComponent } from './tours/tours.component';
 import { DestinationComponent } from './destination/destination.component';
@@ -9,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
+  { path: 'newsletter-activation', component: NewsletterActivationComponent},
   { path: 'about-us', component: AboutComponent },
   { path: 'contact-us', component: ContactUsComponent},
   { path: 'blog', component: BlogComponent},

@@ -1,42 +1,32 @@
 <ng-container *ngIf="isHomePage; else othersPage">
-<section class="relative h-[530px]">
-  <div>
+<section class="relative flex items-center justify-center text-center h-[530px] bg-cover bg-no-repeat bg-center before:absolute before:w-full before:h-full before:bg-heading before:bg-opacity-70" [ngStyle]="{ 'background-image': 'url(' + heroImageUrl + ')' }">
+  <div class="relative">
+    <h3 class="font-kaushan font-normal text-3xl leading-10 text-brandPrimary mb-2">Save 15% off in Worldwide</h3>
+    <h1 class="font-bold text-white text-h1">Travel & Adventures</h1>
+    <p class="font-workSans font-semibold text-base text-white">Find awesome hotel, tour, car and activities in London</p>
+  </div>
+
+  <app-page-title-form></app-page-title-form>
+</section>
+</ng-container>
+
+<ng-template #othersPage>
+  <section class="relative h-[280px]">
     <div class="absolute inset-0 bg-secondaryPageTitleColor">
       <div class="absolute inset-0 bg-primaryPageTitleColor bg-opacity-70">
-        <div class="flex text-center items-center justify-center h-full">
-          <div>
-            <span class="font-kaushan font-normal text-2xl text-brandPrimary">Save 15% off in Worldwide</span>
-            <h1 class="font-workSans font-bold text-h1 text-white mt-2">Travel & Adventures</h1>
-            <span class="font-workSans font-semibold text-subtitle text-white">Find awesome hotel, tour, car and activities in London</span>
+        <div class="flex items-center justify-center h-full">
+          <div class="font-workSans text-white text-center mb-6">
+            <h3 class="font-bold text-h1">{{ pageName }}</h3>
+            <span class="font-semibold text-subtitle">
+              <a class="hover:text-brandPrimary duration-300" routerLink="/">Home</a>
+            </span>
+            <span class="font-semibold text-subtitle mr-2 ml-2">/</span>
+            <span class="font-semibold text-subtitle text-brandPrimary">{{ pageName }}</span>
           </div>
         </div>
       </div>
     </div>
 
-    <app-page-title-form></app-page-title-form>
-
-  </div>
-</section>
-</ng-container>
-
-
-<ng-template #othersPage>
-<section class="relative h-[280px]">
-  <div class="absolute inset-0 bg-secondaryPageTitleColor">
-    <div class="absolute inset-0 bg-primaryPageTitleColor bg-opacity-70">
-      <div class="flex items-center justify-center h-full">
-        <div class="font-workSans text-white text-center mb-6">
-          <h3 class="font-bold text-h1">{{ pageName }}</h3>
-          <span class="font-semibold text-subtitle">
-            <a class="hover:text-brandPrimary duration-300" routerLink="/">Home</a>
-          </span>
-          <span class="font-semibold text-subtitle mr-2 ml-2">/</span>
-          <span class="font-semibold text-subtitle text-brandPrimary">{{ pageName }}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <app-page-title-form *ngIf="isFormVisible"></app-page-title-form>
-</section>
+    <app-page-title-form *ngIf="isFormVisible"></app-page-title-form>
+  </section>
 </ng-template>

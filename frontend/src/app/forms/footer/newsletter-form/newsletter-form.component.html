@@ -5,7 +5,7 @@
   </div>
 
   <ng-container *ngIf="(newsletterForm.get('email')?.touched || newsletterForm.get('email')?.dirty) && emailErrorMessages().length">
-    <div class="font-light text-xs text-brandPrimary mt-1">
+    <div class="font-light text-xs text-brandPrimary mt-2">
       <span class="block" *ngFor="let error of emailErrorMessages()">{{ error }}</span>
     </div>
   </ng-container>

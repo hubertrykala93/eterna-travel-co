@@ -1,0 +1,8 @@
+<div *ngIf="message" class="text-center font-light text-heading text-sm p-2" [ngClass]="{
+  'success bg-successColor': message.type === 'success',
+  'error bg-errorColor': message.type === 'error',
+  'info bg-infoColor': message.type === 'info',
+  'warning bg-warningColor': message.type === 'warning'
+  }">
+  {{ message.message }}
+</div>

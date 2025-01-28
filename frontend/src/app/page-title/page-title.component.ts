@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '../environments';
 
 @Component({
   selector: 'app-page-title',
@@ -11,6 +12,7 @@ export class PageTitleComponent implements OnInit {
   pageName: string = '';
   isHomePage: boolean = false;
   isFormVisible: boolean = false;
+  heroImageUrl: string = environment.mediaUrl + 'home/hero-image.jpg';
 
   constructor(private router: Router) { }
 

@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   logoUrl: string = environment.mediaUrl + 'logo/eterna-travel-co-logo.png';
-
 }

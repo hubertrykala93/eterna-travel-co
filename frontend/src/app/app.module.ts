@@ -56,6 +56,8 @@ import { BlogCategoriesComponent } from './blog/blog-categories/blog-categories.
 import { BlogRecentPostsComponent } from './blog/blog-recent-posts/blog-recent-posts.component';
 import { BlogTagsComponent } from './blog/blog-tags/blog-tags.component';
 import { BlogGalleryComponent } from './blog/blog-gallery/blog-gallery.component';
+import { NewsletterActivationComponent } from './forms/footer/newsletter-activation/newsletter-activation.component';
+import { MessageComponent } from './others/message/message.component';
 
 @NgModule({
   declarations: [
@@ -110,7 +112,9 @@ import { BlogGalleryComponent } from './blog/blog-gallery/blog-gallery.component
     BlogCategoriesComponent,
     BlogRecentPostsComponent,
     BlogTagsComponent,
-    BlogGalleryComponent
+    BlogGalleryComponent,
+    NewsletterActivationComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
