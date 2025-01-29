@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ErrorHandlingService } from './../../../services/error-handling.service';
-import { HomeService } from './../../../services/home/home.service';
+import { HomeService } from '../../../services/home.service';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 
 

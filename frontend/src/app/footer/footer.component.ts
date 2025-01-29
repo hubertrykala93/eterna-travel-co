@@ -1,8 +1,5 @@
-import { ErrorHandlingService } from '../services/error-handling.service';
-import { HomeService } from '../services/home/home.service';
 import { environment } from '../environments';
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-footer',

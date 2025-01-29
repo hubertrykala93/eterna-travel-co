@@ -1,5 +1,5 @@
 import { MessagesService } from './../../../services/messages.service';
-import { HomeService } from './../../../services/home/home.service';
+import { HomeService } from '../../../services/home.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
