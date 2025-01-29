@@ -32,7 +32,8 @@ class NewsletterActivationAPIView(APIView):
             if newsletter.active:
                 return Response(
                     data={
-                        "message": "Newsletter has been already activated.",
+                        "detail": "Newsletter has been already activated.",
+                        "code": "already_activated",
                     },
                     status=status.HTTP_200_OK,
                 )
@@ -51,6 +52,7 @@ class NewsletterActivationAPIView(APIView):
             return Response(
                 data={
                     "detail": "Newsletter has been activated successfully.",
+                    "code": "activation_success",
                     "success": True,
                 },
                 status=status.HTTP_200_OK,

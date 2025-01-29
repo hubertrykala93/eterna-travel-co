@@ -12,6 +12,15 @@ export class MessagesService {
 
   showMessage(message: string, type: MessageType): void {
     this.messageSource.next({ message, type })
+
+    setTimeout(() => {
+      this.clearMessage();
+    }, 3000)
+
+  }
+
+  clearMessage(): void {
+    this.messageSource.next(null);
   }
 
 }
