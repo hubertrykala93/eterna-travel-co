@@ -8,7 +8,7 @@
   </div>
 
   <ng-container *ngIf="(newsletterForm.get('email')?.touched || newsletterForm.get('email')?.dirty) && emailErrorMessages().length">
-    <div class="font-light text-xs text-brandPrimary mt-2">
+    <div class="font-light text-xs text-errorColor mt-2">
       <span class="block" *ngFor="let error of emailErrorMessages()">{{ error }}</span>
     </div>
   </ng-container>
@@ -20,4 +20,10 @@
   </ng-container>
 
   <button class="bg-brandPrimary rounded-md text-action font-normal text-white px-7 py-3 w-[107px] h-[40px] mt-2" [disabled]="!newsletterForm.valid" [ngClass]="{ 'opacity-50': !newsletterForm.valid }">Submit</button>
+
+  <ng-container *ngIf="newsletterForm.errors?.['serverError']">
+    <div class="text-xs text-errorColor mt-2">
+      <span class="block">{{ newsletterForm.errors?.['serverError'] }}</span>
+    </div>
+  </ng-container>
 </form>

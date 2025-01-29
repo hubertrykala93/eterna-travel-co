@@ -14,36 +14,10 @@ export interface Member {
   styleUrls: ['./about-team.component.css']
 })
 export class AboutTeamComponent {
-  team: Member[] = [
-    {
-      imageUrl: environment.mediaUrl + 'about/team-1.jpg',
-      firstname: 'Antoni',
-      lastname: 'Shkraba',
-      role: 'Founder & Director'
-    },
-    {
-      imageUrl: environment.mediaUrl + 'about/team-2.jpg',
-      firstname: 'Andrew',
-      lastname: 'Davie',
-      role: 'Chief Operating Officer'
-    },
-    {
-      imageUrl: environment.mediaUrl + 'about/team-3.jpg',
-      firstname: 'Orlando',
-      lastname: 'Diggs',
-      role: 'Director - Hotels'
-    },
-    {
-      imageUrl: environment.mediaUrl + 'about/team-4.jpg',
-      firstname: 'Tamara',
-      lastname: 'Bellis',
-      role: 'Customer Support'
-    },
-    {
-      imageUrl: environment.mediaUrl + 'about/team-5.jpg',
-      firstname: 'Philip',
-      lastname: 'Martin',
-      role: 'Chief Executive'
-    }
-  ]
+  travelerImageUrl1: string = environment.mediaUrl + 'about/team-1.jpg';
+  travelerImageUrl2: string = environment.mediaUrl + 'about/team-2.jpg';
+  travelerImageUrl3: string = environment.mediaUrl + 'about/team-3.jpg';
+  travelerImageUrl4: string = environment.mediaUrl + 'about/team-4.jpg';
+  travelerImageUrl5: string = environment.mediaUrl + 'about/team-5.jpg';
+
 }

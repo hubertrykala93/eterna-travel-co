@@ -30,7 +30,7 @@ export class NewsletterFormComponent {
     const errors = this.errorHandlingService.getErrorMessages(
       this.newsletterForm.get('email'),
       {
-        required: 'This field is required.',
+        required: 'Email is required.',
         minlength: 'Ensure this value has at least 3 characters.',
         maxlength: 'Ensure this value has at most 255 characters.',
         pattern: 'Enter a valid email address.',
@@ -57,10 +57,13 @@ export class NewsletterFormComponent {
           }
         },
         error: (error) => {
-          console.log(error);
-
           if (error.status === 409) {
             this.newsletterForm.get('email')?.setErrors({ emailExists: 'Email already registered.' })
+          }
+
+          if (error.status === 500) {
+            this.newsletterForm.reset();
+            this.newsletterForm.setErrors({ serverError: 'Something went wrong. Please try again later.' })
           }
         }
       });

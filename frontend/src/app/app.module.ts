@@ -43,9 +43,7 @@ import { HomeUpdatesCardComponent } from './home/updates/home-updates-card/home-
 import { HomeLogosComponent } from './home/logos/home-logos/home-logos.component';
 import { AboutUsComponent } from './about/about-us/about-us.component';
 import { AboutFeaturesComponent } from './about/features/about-features/about-features.component';
-import { AboutFeaturesCardComponent } from './about/features/about-features-card/about-features-card.component';
 import { AboutTeamComponent } from './about/team/about-team/about-team.component';
-import { AboutTeamCardComponent } from './about/team/about-team-card/about-team-card.component';
 import { AboutTestimonialsComponent } from './about/testimonials/about-testimonials/about-testimonials.component';
 import { ToursListingComponent } from './tours/tours-listing/tours-listing.component';
 import { ToursHeaderComponent } from './tours/tours-header/tours-header.component';
@@ -100,9 +98,7 @@ import { MessageComponent } from './others/message/message.component';
     HomeLogosComponent,
     AboutUsComponent,
     AboutFeaturesComponent,
-    AboutFeaturesCardComponent,
     AboutTeamComponent,
-    AboutTeamCardComponent,
     AboutTestimonialsComponent,
     ToursListingComponent,
     ToursHeaderComponent,
