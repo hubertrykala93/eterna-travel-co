@@ -11,26 +11,5 @@ export interface BlogCategory {
   styleUrls: ['./blog-categories.component.css']
 })
 export class BlogCategoriesComponent {
-  blogCategories: BlogCategory[] = [
-    {
-      name: 'Company News',
-      count: 1
-    },
-    {
-      name: 'Lifestyle',
-      count: 3
-    },
-    {
-      name: 'Social Media',
-      count: 4
-    },
-    {
-      name: 'Travel Guide',
-      count: 1
-    },
-    {
-      name: 'Tips & Tricks',
-      count: 5
-    },
-  ]
+
 }

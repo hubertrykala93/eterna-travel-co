@@ -1,10 +1,10 @@
-<div *ngIf="blogCategories.length > 0" class="p-[30px] bg-surface mb-[30px]">
+<div class="p-[30px] bg-surface mb-[30px]">
   <h6 class="font-workSans font-bold text-h6 text-heading mb-3">Categories</h6>
 
   <ul>
-    <li *ngFor="let category of blogCategories; let last = last" [ngClass]="{ 'mb-2': !last }" class="mb-2">
-      <span class="font-light text-body text-heading mr-[6px]">{{ category.name }}</span>
-      <span class="font-kaushan font-normal text-base leading-[26px] text-heading opacity-60">({{ category.count }})</span>
+    <li class="mb-2">
+      <span class="font-light text-body text-heading mr-[6px]"></span>
+      <span class="font-kaushan font-normal text-base leading-[26px] text-heading opacity-60"></span>
     </li>
   </ul>
 </div>

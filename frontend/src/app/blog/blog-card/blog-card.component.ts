@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { Article } from '../blog.component';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-blog-card',
@@ -7,5 +6,5 @@ import { Article } from '../blog.component';
   styleUrls: ['./blog-card.component.css']
 })
 export class BlogCardComponent {
-  @Input() article!: Article
+
 }

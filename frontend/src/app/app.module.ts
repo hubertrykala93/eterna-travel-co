@@ -49,7 +49,7 @@ import { ToursListingComponent } from './tours/tours-listing/tours-listing.compo
 import { ToursHeaderComponent } from './tours/tours-header/tours-header.component';
 import { ToursCardComponent } from './tours/tours-card/tours-card.component';
 import { BlogCardComponent } from './blog/blog-card/blog-card.component';
-import { BlogSearchFormComponent } from './forms/blog/blog-search-form/blog-search-form.component';
+import { BlogSearchFormComponent } from './blog/blog-search-form/blog-search-form.component';
 import { BlogCategoriesComponent } from './blog/blog-categories/blog-categories.component';
 import { BlogRecentPostsComponent } from './blog/blog-recent-posts/blog-recent-posts.component';
 import { BlogTagsComponent } from './blog/blog-tags/blog-tags.component';
