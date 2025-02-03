@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { RecentArticle } from 'src/app/services/blog.service';
 
 @Component({
   selector: 'app-blog-recent-posts',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./blog-recent-posts.component.css']
 })
 export class BlogRecentPostsComponent {
-
+  @Input() recentArticles: RecentArticle[] = [];
 }

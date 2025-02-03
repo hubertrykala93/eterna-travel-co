@@ -26,6 +26,15 @@ export interface Category {
   slug: string
 }
 
+export interface RecentArticle {
+  datePosted: Date,
+  user: string,
+  title: string,
+  slug: string,
+  image: Image,
+  category: Category
+}
+
 export interface Article {
   datePosted: Date,
   image: Image,
@@ -39,9 +48,11 @@ export interface Article {
 @Injectable({
   providedIn: 'root'
 })
+
 export class BlogService {
   articlesApiUrl: string = environment.apiBaseUrl + 'api/v1/articles';
   categoryCountApiUrl: string = environment.apiBaseUrl + 'api/v1/category-count';
+  recentArticlesApiUrl: string = environment.apiBaseUrl + 'api/v1/recent-articles';
 
   constructor(private http: HttpClient) { }
 
@@ -55,5 +66,9 @@ export class BlogService {
 
   getCategories(): Observable<CategoryCount[]> {
     return this.http.get<CategoryCount[]>(this.categoryCountApiUrl);
+  }
+
+  getRecentArticles(): Observable<RecentArticle[]> {
+    return this.http.get<RecentArticle[]>(this.recentArticlesApiUrl);
   }
 }

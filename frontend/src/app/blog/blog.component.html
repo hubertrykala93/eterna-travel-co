@@ -22,7 +22,7 @@
 
         <app-blog-categories *ngIf="categories && categories.length > 0" [categories]="categories"></app-blog-categories>
 
-        <app-blog-recent-posts></app-blog-recent-posts>
+        <app-blog-recent-posts *ngIf="recentArticles && recentArticles.length > 0" [recentArticles]="recentArticles"></app-blog-recent-posts>
 
         <app-blog-tags></app-blog-tags>
 

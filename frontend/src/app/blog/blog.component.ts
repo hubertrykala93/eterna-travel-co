@@ -1,4 +1,5 @@
-import { BlogService, Article, CategoryCount } from './../services/blog.service';
+import { PageTitleComponent } from './../page-title/page-title.component';
+import { BlogService, Article, CategoryCount, RecentArticle } from './../services/blog.service';
 import { Component, OnInit } from '@angular/core';
 import { PaginationService } from '../services/pagination.service';
 
@@ -17,6 +18,7 @@ export class BlogComponent implements OnInit {
   keywordReceived: string = '';
 
   categories: CategoryCount[] = [];
+  recentArticles: RecentArticle[] = [];
 
   constructor(private blogService: BlogService, private paginationService: PaginationService) { }
 
@@ -28,6 +30,7 @@ export class BlogComponent implements OnInit {
 
     this.displayArticles();
     this.displayCategories();
+    this.displayRecentArticles();
   }
 
   displayArticles(): void {
@@ -51,6 +54,14 @@ export class BlogComponent implements OnInit {
     this.blogService.getCategories().subscribe({
       next: response => {
         this.categories = response;
+      }
+    })
+  }
+
+  displayRecentArticles(): void {
+    this.blogService.getRecentArticles().subscribe({
+      next: response => {
+        this.recentArticles = response;
       }
     })
   }

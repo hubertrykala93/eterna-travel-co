@@ -1,10 +1,26 @@
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import ArticleSerializer, CategoryCountSerializer
+from .serializers import ArticleSerializer, CategoryCountSerializer, RecentArticlesSerializer
 from rest_framework.views import APIView
 from django.db.models import Q
 from articles.models import Article, ArticleCategory
 from rest_framework.pagination import PageNumberPagination
+
+
+class RecentArticlesAPIView(APIView):
+    def get(self, request, *args, **kwargs):
+        serializer = RecentArticlesSerializer(
+            Article.objects.all().order_by("-date_posted")[:3],
+            many=True,
+            context={
+                "request": request,
+            },
+        )
+
+        return Response(
+            data=serializer.data,
+            status=status.HTTP_200_OK,
+        )
 
 
 class CategoryCountAPIView(APIView):

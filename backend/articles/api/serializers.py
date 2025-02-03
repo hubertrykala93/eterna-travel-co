@@ -46,6 +46,36 @@ class ArticleImageSerializer(serializers.ModelSerializer):
         ]
 
 
+class RecentArticlesSerializer(serializers.ModelSerializer):
+    date_posted = serializers.DateTimeField(format="%b %d, %Y")
+    image = ArticleImageSerializer()
+    user = serializers.SlugRelatedField(queryset=User.objects.all(), slug_field="username")
+    category = ArticleCategorySerializer()
+
+    class Meta:
+        model = Article
+        fields = [
+            "date_posted",
+            "user",
+            "title",
+            "slug",
+            "image",
+            "category",
+        ]
+
+    def to_representation(self, instance):
+        representation = super(RecentArticlesSerializer, self).to_representation(instance=instance)
+
+        if representation.get("date_posted"):
+            representation["datePosted"] = representation.pop("date_posted")
+
+        if representation.get("image"):
+            if representation["image"].get("created_at"):
+                representation["image"].pop("created_at")
+
+        return representation
+
+
 class ArticleSerializer(serializers.ModelSerializer):
     date_posted = serializers.DateTimeField(format="%b %d, %Y")
     image = ArticleImageSerializer()
