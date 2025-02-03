@@ -4,6 +4,29 @@ from accounts.models import User
 from django.utils.html import strip_tags
 
 
+class CategoryCountSerializer(serializers.ModelSerializer):
+    articles_count = serializers.SerializerMethodField()
+
+    class Meta:
+        model = ArticleCategory
+        fields = [
+            "name",
+            "slug",
+            "articles_count",
+        ]
+
+    def get_articles_count(self, obj):
+        return obj.articles.count()
+
+    def to_representation(self, instance):
+        representation = super(CategoryCountSerializer, self).to_representation(instance=instance)
+
+        if representation.get("articles_count"):
+            representation["articlesCount"] = representation.pop("articles_count")
+
+        return representation
+
+
 class ArticleCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = ArticleCategory

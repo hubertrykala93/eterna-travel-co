@@ -3,6 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments';
 
+export interface CategoryCount {
+  name: string,
+  slug: string,
+  articlesCount: number
+}
+
 export interface PaginatedResponse {
   count: number,
   next: string | null,
@@ -35,6 +41,7 @@ export interface Article {
 })
 export class BlogService {
   articlesApiUrl: string = environment.apiBaseUrl + 'api/v1/articles';
+  categoryCountApiUrl: string = environment.apiBaseUrl + 'api/v1/category-count';
 
   constructor(private http: HttpClient) { }
 
@@ -44,5 +51,9 @@ export class BlogService {
     } else {
       return this.http.get<PaginatedResponse>(this.articlesApiUrl + `?page=${page}`);
     }
+  }
+
+  getCategories(): Observable<CategoryCount[]> {
+    return this.http.get<CategoryCount[]>(this.categoryCountApiUrl);
   }
 }

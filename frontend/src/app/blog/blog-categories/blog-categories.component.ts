@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CategoryCount } from 'src/app/services/blog.service';
 
 export interface BlogCategory {
   name: string;
@@ -11,5 +12,6 @@ export interface BlogCategory {
   styleUrls: ['./blog-categories.component.css']
 })
 export class BlogCategoriesComponent {
+  @Input() categories: CategoryCount[] = [];
 
 }

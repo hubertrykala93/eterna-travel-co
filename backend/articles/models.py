@@ -115,7 +115,7 @@ class Article(models.Model):
     title = models.CharField(max_length=255,unique=True)
     slug = models.SlugField(max_length=255,unique=True)
     content = models.TextField(max_length=2000, unique=True)
-    category = models.ForeignKey(to=ArticleCategory, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(to=ArticleCategory, on_delete=models.CASCADE, null=True, related_name="articles")
     tags = models.ManyToManyField(to=ArticleTag)
     comments = models.ManyToManyField(to=ArticleComment)
 

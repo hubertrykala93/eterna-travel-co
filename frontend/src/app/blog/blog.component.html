@@ -20,7 +20,7 @@
 
         <app-blog-search-form (emittedKeyword)="handleEmittedKeyword($event)"></app-blog-search-form>
 
-        <app-blog-categories></app-blog-categories>
+        <app-blog-categories *ngIf="categories && categories.length > 0" [categories]="categories"></app-blog-categories>
 
         <app-blog-recent-posts></app-blog-recent-posts>
 
