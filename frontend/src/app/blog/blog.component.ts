@@ -22,12 +22,17 @@ export class BlogComponent implements OnInit {
   }
 
   displayArticles(): void {
-    this.blogService.getArticles(this.page).subscribe({
+    this.blogService.getArticles(this.page, this.keywordReceived || undefined).subscribe({
       next: response => {
         this.articles = response.results;
         this.totalArticles = response.count;
         this.totalPages = Math.ceil(response.count / 4);
       }
     })
+  }
+
+  handleEmittedKeyword(keyword: string): void {
+    this.keywordReceived = keyword;
+    this.displayArticles();
   }
 }

@@ -1,4 +1,3 @@
-import { PageTitleComponent } from './../../page-title/page-title.component';
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
@@ -7,5 +6,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./blog-search-form.component.css']
 })
 export class BlogSearchFormComponent {
+  keyword: string = '';
+  @Output() emittedKeyword: EventEmitter<string> = new EventEmitter<string>();
 
+  emitKeyword(): void {
+    this.emittedKeyword.emit(this.keyword);
+  }
 }

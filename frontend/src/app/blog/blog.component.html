@@ -5,14 +5,20 @@
     <div class="flex gap-[130px]">
       <div class="w-[670px]">
 
-        <app-blog-card *ngIf="articles && articles.length > 0" [articles]="articles"></app-blog-card>
-        <app-pagination *ngIf="totalPages > 1" [totalPages]="totalPages" [page]="page"></app-pagination>
+        <ng-container *ngIf="articles && articles.length > 0; else noArticlesFound">
+          <app-blog-card [articles]="articles"></app-blog-card>
+          <app-pagination *ngIf="totalPages > 1" [totalPages]="totalPages" [page]="page"></app-pagination>
+        </ng-container>
+
+        <ng-template #noArticlesFound>
+          <div class="font-light text-heading text-body text-opacity-70">No articles found.</div>
+        </ng-template>
 
       </div>
 
       <div class="w-[370px]">
 
-        <app-blog-search-form></app-blog-search-form>
+        <app-blog-search-form (emittedKeyword)="handleEmittedKeyword($event)"></app-blog-search-form>
 
         <app-blog-categories></app-blog-categories>
 
