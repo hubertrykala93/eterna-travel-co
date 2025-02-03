@@ -1,18 +1,18 @@
-<div class="mb-[46px]">
-  <img class="w-[670px] h-[320px]" [src]="">
+<article *ngFor="let article of articles" class="mb-[46px]">
+  <img class="w-[670px] h-[320px] object-cover" [src]="article.image.image" [alt]="article.image.alt">
 
-  <div class="flex items-center mt-6 mb-1">
-    <span class="font-light text-heading text-body opacity-60 mr-7"></span>
-    <span class="w-1 h-1 bg-heading opacity-60 rounded-full mr-2"></span>
-    <span class="font-light text-body text-heading opacity-60"></span>
+  <div class="flex items-center mt-6 mb-1 font-light text-body text-heading opacity-60">
+    <span>{{ article.datePosted }}</span>
+    <span class="w-1 h-1 bg-heading rounded-full ml-7 mr-2"></span>
+    <span>{{ article.user }}</span>
   </div>
 
-  <h5 class="font-workSans font-bold text-h5 text-heading mb-3"></h5>
+  <a routerLink="{{ article.category.slug }}/{{ article.slug }}" class="font-workSans font-bold text-h5 text-heading mb-3 hover:text-brandPrimary duration-300">{{ article.title }}</a>
 
-  <p class="font-light text-body text-heading opacity-60 mb-4"></p>
+  <p class="font-light text-body text-heading opacity-60 mb-4">{{ article.content }}</p>
 
-  <div class="flex gap-4 items-center">
-    <span class="font-normal text-brandPrimary">Read more</span>
-    <i class="fa-solid fa-arrow-right w-[13px] h-4 text-brandPrimary"></i>
-  </div>
-</div>
+  <a routerLink="{{ article.category.slug }}/{{ article.slug }}" class="inline-flex gap-4 items-center text-brandPrimary hover:text-heading duration-300">
+    <span>Read more</span>
+    <i class="fa-solid fa-arrow-right w-[13px] h-4"></i>
+  </a>
+</article>

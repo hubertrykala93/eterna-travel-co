@@ -1,5 +1,5 @@
-import { BlogService } from './../services/blog.service';
-import { Component } from '@angular/core';
+import { BlogService, Article } from './../services/blog.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-blog',
@@ -7,6 +7,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./blog.component.css']
 })
 
-export class BlogComponent {
+export class BlogComponent implements OnInit {
+  articles: Article[] = [];
+  totalArticles: number = 0;
+  totalPages: number = 0;
+  page: number = 1;
 
+  constructor(private blogService: BlogService) { }
+
+  ngOnInit(): void {
+    this.displayArticles();
+  }
+
+  displayArticles(): void {
+    this.blogService.getArticles(this.page).subscribe({
+      next: response => {
+        this.articles = response.results;
+        this.totalArticles = response.count;
+        this.totalPages = Math.ceil(response.count / 4);
+      }
+    })
+  }
 }

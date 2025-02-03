@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Article } from './../../services/blog.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-blog-card',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./blog-card.component.css']
 })
 export class BlogCardComponent {
-
+  @Input() articles: Article[] = [];
 }
