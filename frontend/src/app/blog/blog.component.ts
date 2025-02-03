@@ -13,6 +13,8 @@ export class BlogComponent implements OnInit {
   totalPages: number = 0;
   page: number = 1;
 
+  keywordReceived: string = '';
+
   constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {

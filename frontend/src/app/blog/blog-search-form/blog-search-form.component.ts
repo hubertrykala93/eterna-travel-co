@@ -1,3 +1,4 @@
+import { PageTitleComponent } from './../../page-title/page-title.component';
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
