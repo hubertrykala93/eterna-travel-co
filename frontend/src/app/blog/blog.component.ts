@@ -1,5 +1,6 @@
 import { BlogService, Article } from './../services/blog.service';
 import { Component, OnInit } from '@angular/core';
+import { PaginationService } from '../services/pagination.service';
 
 @Component({
   selector: 'app-blog',
@@ -15,9 +16,14 @@ export class BlogComponent implements OnInit {
 
   keywordReceived: string = '';
 
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogService, private paginationService: PaginationService) { }
 
   ngOnInit(): void {
+    this.paginationService.currentPage$.subscribe(page => {
+      this.page = page;
+      this.displayArticles();
+    })
+
     this.displayArticles();
   }
 
@@ -27,12 +33,14 @@ export class BlogComponent implements OnInit {
         this.articles = response.results;
         this.totalArticles = response.count;
         this.totalPages = Math.ceil(response.count / 4);
+        this.paginationService.setTotalPages(Math.ceil(response.count / 4));
       }
     })
   }
 
   handleEmittedKeyword(keyword: string): void {
     this.keywordReceived = keyword;
+    this.paginationService.setCurrentPage(1);
     this.displayArticles();
   }
 }

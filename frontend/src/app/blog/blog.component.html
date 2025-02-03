@@ -7,7 +7,7 @@
 
         <ng-container *ngIf="articles && articles.length > 0; else noArticlesFound">
           <app-blog-card [articles]="articles"></app-blog-card>
-          <app-pagination *ngIf="totalPages > 1" [totalPages]="totalPages" [page]="page"></app-pagination>
+          <app-pagination *ngIf="totalPages > 1"></app-pagination>
         </ng-container>
 
         <ng-template #noArticlesFound>
