@@ -1,10 +1,40 @@
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import ArticleSerializer, CategoryCountSerializer, RecentArticlesSerializer
+from .serializers import ArticleSerializer, CategoryCountSerializer, RecentArticlesSerializer, ArticleTagSerializer, \
+    ArticleImageSerializer
 from rest_framework.views import APIView
 from django.db.models import Q
-from articles.models import Article, ArticleCategory
+from articles.models import Article, ArticleCategory, ArticleTag, ArticleImage
 from rest_framework.pagination import PageNumberPagination
+
+
+class ArticleGalleryAPIView(APIView):
+    def get(self, request, *args, **kwargs):
+        serializer = ArticleImageSerializer(
+            ArticleImage.objects.all().order_by("-created_at"),
+            many=True,
+            context={
+                "request": request,
+            },
+        )
+
+        return Response(
+            data=serializer.data,
+            status=status.HTTP_200_OK,
+        )
+
+
+class ArticleTagAPIView(APIView):
+    def get(self, request, *args, **kwargs):
+        serializer = ArticleTagSerializer(
+            ArticleTag.objects.all().order_by("name"),
+            many=True,
+        )
+
+        return Response(
+            data=serializer.data,
+            status=status.HTTP_200_OK,
+        )
 
 
 class RecentArticlesAPIView(APIView):

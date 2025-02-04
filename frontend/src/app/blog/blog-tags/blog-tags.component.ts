@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Tag } from './../../services/blog.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-blog-tags',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./blog-tags.component.css']
 })
 export class BlogTagsComponent {
-
+  @Input() tags: Tag[] = [];
 }

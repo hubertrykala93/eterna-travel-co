@@ -3,7 +3,7 @@
 
   <ul>
     <li *ngFor="let category of categories" class="mb-2">
-      <a routerLink="{{ category.slug }}" class="font-light text-body text-heading mr-[6px] hover:text-brandPrimary duration-300 cursor-pointer">{{ category.name }}</a>
+      <a routerLink="category/{{ category.slug }}" class="font-light text-body text-heading mr-[6px] hover:text-brandPrimary duration-300 cursor-pointer">{{ category.name }}</a>
       <span class="font-kaushan font-normal text-base leading-[26px] text-heading opacity-60">({{ category.articlesCount }})</span>
     </li>
   </ul>

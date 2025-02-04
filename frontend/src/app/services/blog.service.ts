@@ -3,6 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments';
 
+export interface Tag {
+  name: string,
+  slug: string
+}
+
 export interface CategoryCount {
   name: string,
   slug: string,
@@ -51,8 +56,10 @@ export interface Article {
 
 export class BlogService {
   articlesApiUrl: string = environment.apiBaseUrl + 'api/v1/articles';
-  categoryCountApiUrl: string = environment.apiBaseUrl + 'api/v1/category-count';
-  recentArticlesApiUrl: string = environment.apiBaseUrl + 'api/v1/recent-articles';
+  categoryCountApiUrl: string = environment.apiBaseUrl + 'api/v1/articles/category-count';
+  recentArticlesApiUrl: string = environment.apiBaseUrl + 'api/v1/articles/recent-articles';
+  tagsApiUrl: string = environment.apiBaseUrl + 'api/v1/articles/tags';
+  galleryApiUrl: string = environment.apiBaseUrl + 'api/v1/articles/gallery';
 
   constructor(private http: HttpClient) { }
 
@@ -70,5 +77,13 @@ export class BlogService {
 
   getRecentArticles(): Observable<RecentArticle[]> {
     return this.http.get<RecentArticle[]>(this.recentArticlesApiUrl);
+  }
+
+  getTags(): Observable<Tag[]> {
+    return this.http.get<Tag[]>(this.tagsApiUrl);
+  }
+
+  getGallery(): Observable<Image[]> {
+    return this.http.get<Image[]>(this.galleryApiUrl);
   }
 }

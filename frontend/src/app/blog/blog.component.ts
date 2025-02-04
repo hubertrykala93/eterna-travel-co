@@ -1,5 +1,5 @@
 import { PageTitleComponent } from './../page-title/page-title.component';
-import { BlogService, Article, CategoryCount, RecentArticle } from './../services/blog.service';
+import { BlogService, Article, CategoryCount, RecentArticle, Tag, Image } from './../services/blog.service';
 import { Component, OnInit } from '@angular/core';
 import { PaginationService } from '../services/pagination.service';
 
@@ -19,6 +19,8 @@ export class BlogComponent implements OnInit {
 
   categories: CategoryCount[] = [];
   recentArticles: RecentArticle[] = [];
+  tags: Tag[] = [];
+  gallery: Image[] = [];
 
   constructor(private blogService: BlogService, private paginationService: PaginationService) { }
 
@@ -31,6 +33,8 @@ export class BlogComponent implements OnInit {
     this.displayArticles();
     this.displayCategories();
     this.displayRecentArticles();
+    this.displayTags();
+    this.displayGallery();
   }
 
   displayArticles(): void {
@@ -62,6 +66,22 @@ export class BlogComponent implements OnInit {
     this.blogService.getRecentArticles().subscribe({
       next: response => {
         this.recentArticles = response;
+      }
+    })
+  }
+
+  displayTags(): void {
+    this.blogService.getTags().subscribe({
+      next: response => {
+        this.tags = response;
+      }
+    })
+  }
+
+  displayGallery(): void {
+    this.blogService.getGallery().subscribe({
+      next: response => {
+        this.gallery = response;
       }
     })
   }

@@ -2,8 +2,8 @@
   <h6 class="font-workSans font-bold text-h6 text-heading mb-3">Tags</h6>
 
   <ul class="flex flex-wrap gap-2">
-    <li class="px-3 py-2 border-[1px] border-opacity-10 rounded-md">
-      <span class="font-normal text-action text-heading"></span>
+    <li *ngFor="let tag of tags" class="px-3 py-2 border-[1px] border-opacity-10 rounded-md">
+      <a routerLink="tag/{{ tag.slug }}" class="font-normal text-action text-heading hover:text-brandPrimary duration-300">{{ tag.name }}</a>
     </li>
   </ul>
 </div>

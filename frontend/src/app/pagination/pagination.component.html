@@ -1,34 +1,27 @@
 <ul class="pagination-container">
 
-  <li *ngIf="currentPage > 2" class="pagination-element" (click)="goToPage(1)">
-    <span class="hover:text-brandPrimary duration-300 cursor-pointer">
-      <i class="fa-solid fa-angles-left"></i>
-    </span>
+  <li class="pagination-element"
+    (click)="goToPreviousPage()"
+    [ngClass]="{ 'cursor-pointer hover:text-brandPrimary duration-300' : currentPage != 1 }">
+    <i class="fa-solid fa-angle-left"></i>
   </li>
 
-  <li *ngIf="currentPage > 1" class="pagination-element" (click)="goToPreviousPage()">
-    <span class="hover:text-brandPrimary duration-300 cursor-pointer">
-      <i class="fa-solid fa-angle-left"></i>
-    </span>
+  <li
+    *ngFor="let page of pages"
+    class="pagination-element"
+    (click)="goToPage(page)"
+    [ngClass]="{
+      'text-white bg-brandPrimary' : currentPage == page,
+      'cursor-pointer hover:text-brandPrimary duration-300' : currentPage != page
+    }">
+    {{ page }}
   </li>
 
-  <li [ngClass]="{
-    'text-white bg-brandPrimary' : page == currentPage,
-    'hover:text-brandPrimary duration-300 cursor-pointer' : page != currentPage
-    }" *ngFor="let page of pages" class="pagination-element" (click)="goToPage(page)">
-    <span>{{ page }}</span>
-  </li>
-
-  <li *ngIf="currentPage < totalPages" class="pagination-element" (click)="goToNextPage()">
-    <span class="hover:text-brandPrimary duration-300 cursor-pointer">
-      <i class="fa-solid fa-angle-right"></i>
-    </span>
-  </li>
-
-  <li *ngIf="currentPage < totalPages - 1" class="pagination-element" (click)="goToPage(totalPages)">
-    <span class="hover:text-brandPrimary duration-300 cursor-pointer">
-      <i class="fa-solid fa-angles-right"></i>
-    </span>
+  <li
+    class="pagination-element"
+    [ngClass]="{ 'cursor-pointer hover:text-brandPrimary duration-300' : currentPage < totalPages }"
+    (click)="goToNextPage()">
+    <i class="fa-solid fa-angle-right"></i>
   </li>
 
 </ul>

@@ -1,7 +1,16 @@
 from rest_framework import serializers
-from articles.models import Article, ArticleImage, ArticleCategory
+from articles.models import Article, ArticleImage, ArticleCategory, ArticleTag
 from accounts.models import User
 from django.utils.html import strip_tags
+
+
+class ArticleTagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ArticleTag
+        fields = [
+            "name",
+            "slug",
+        ]
 
 
 class CategoryCountSerializer(serializers.ModelSerializer):
@@ -40,7 +49,6 @@ class ArticleImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ArticleImage
         fields = [
-            "created_at",
             "image",
             "alt",
         ]
