@@ -22,6 +22,8 @@ export class BlogComponent implements OnInit {
   tags: Tag[] = [];
   gallery: Image[] = [];
 
+  selectedImage: Image | null = null;
+
   constructor(private blogService: BlogService, private paginationService: PaginationService) { }
 
   ngOnInit(): void {
@@ -84,5 +86,15 @@ export class BlogComponent implements OnInit {
         this.gallery = response;
       }
     })
+  }
+
+  handleSelectedImage(img: Image): void {
+    this.selectedImage = img;
+  }
+
+  closeImage(event: any): void {
+    if (event) {
+      this.selectedImage = null;
+    }
   }
 }

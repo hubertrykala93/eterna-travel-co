@@ -16,6 +16,10 @@
 
       </div>
 
+      <div *ngIf="selectedImage" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+        <img class="max-w-[60%] max-h-[60%]" [src]="selectedImage.image" [alt]="selectedImage.alt" (mouseleave)="closeImage($event)">
+      </div>
+
       <div class="w-[370px]">
 
         <app-blog-search-form (emittedKeyword)="handleEmittedKeyword($event)"></app-blog-search-form>
@@ -26,7 +30,7 @@
 
         <app-blog-tags *ngIf="tags && tags.length > 0" [tags]="tags"></app-blog-tags>
 
-        <app-blog-gallery *ngIf="gallery && gallery.length > 0" [gallery]="gallery"></app-blog-gallery>
+        <app-blog-gallery *ngIf="gallery && gallery.length > 0" [gallery]="gallery" (selectedImage)="handleSelectedImage($event)"></app-blog-gallery>
 
       </div>
     </div>
