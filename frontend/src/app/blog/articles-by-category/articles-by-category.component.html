@@ -1,0 +1,9 @@
+<app-page-title></app-page-title>
+
+<section class="section-block-spacing-top section-block-spacing-bottom">
+  <div class="custom-container">
+    <div class="grid grid-cols-4 gap-5">
+      <app-blog-card *ngFor="let article of articles" [article]="article"></app-blog-card>
+    </div>
+  </div>
+</section>

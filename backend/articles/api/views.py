@@ -73,20 +73,35 @@ class ArticlePagination(PageNumberPagination):
 class ArticleListAPIView(APIView):
     pagination_class = ArticlePagination
 
-    def get_queryset(self, keyword=None):
+    def get_queryset(self, keyword=None, category=None):
+        queryset = Article.objects.all().order_by("-date_posted")
+
         if keyword:
-            queryset = Article.objects.filter(
+            queryset = queryset.filter(
                 Q(title__icontains=keyword) | Q(content__icontains=keyword)
             ).order_by("-date_posted")
 
-        else:
-            queryset = Article.objects.all().order_by("-date_posted")
+        if category:
+            try:
+                c = ArticleCategory.objects.get(slug=category)
+
+            except ArticleCategory.DoesNotExist:
+                return Response(
+                    data={
+                        "detail": "Category does not exists.",
+                    },
+                    status=status.HTTP_404_NOT_FOUND,
+                )
+
+            queryset = queryset.filter(category=c)
 
         return queryset
 
     def get(self, request, *args, **kwargs):
         keyword = request.query_params.get("keyword", None)
-        queryset = self.get_queryset(keyword=keyword)
+        category = request.query_params.get("category", None)
+
+        queryset = self.get_queryset(keyword=keyword, category=category)
 
         if not queryset:
             return Response(

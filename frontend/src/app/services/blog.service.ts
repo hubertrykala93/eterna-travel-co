@@ -63,7 +63,11 @@ export class BlogService {
 
   constructor(private http: HttpClient) { }
 
-  getArticles(page: number, keyword?: string): Observable<PaginatedResponse> {
+  getArticles(page: number, keyword?: string, category?: string): Observable<PaginatedResponse> {
+    if (category) {
+      return this.http.get<PaginatedResponse>(this.articlesApiUrl + `?page=${page}&category=${category}`)
+    }
+
     if (keyword) {
       return this.http.get<PaginatedResponse>(this.articlesApiUrl + `?page=${page}&keyword=${keyword}`)
     } else {

@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./blog-card.component.css']
 })
 export class BlogCardComponent {
-  @Input() articles: Article[] = [];
+  @Input() article!: Article;
 }

@@ -2,11 +2,11 @@
 
 <section class="section-block-spacing-top section-block-spacing-bottom">
   <div class="custom-container">
-    <div class="flex gap-[130px]">
-      <div class="w-[65%]">
+    <div class="flex">
+      <div class="w-[70%]">
 
         <ng-container *ngIf="articles && articles.length > 0; else noArticlesFound">
-          <app-blog-card [articles]="articles"></app-blog-card>
+          <app-blog-card *ngFor="let article of articles" [article]="article"></app-blog-card>
           <app-pagination *ngIf="totalPages > 1"></app-pagination>
         </ng-container>
 
@@ -22,7 +22,7 @@
         </div>
       </ng-container>
 
-      <div class="w-[35%]">
+      <div class="w-[30%] ml-5">
 
         <app-blog-sidebar></app-blog-sidebar>
 

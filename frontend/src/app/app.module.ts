@@ -52,6 +52,8 @@ import { BlogCardComponent } from './blog/blog-card/blog-card.component';
 import { NewsletterActivationComponent } from './forms/footer/newsletter-activation/newsletter-activation.component';
 import { MessageComponent } from './others/message/message.component';
 import { BlogSidebarComponent } from './blog/blog-sidebar/blog-sidebar.component';
+import { ArticlesByCategoryComponent } from './blog/articles-by-category/articles-by-category.component';
+import { ArticlesByTagComponent } from './blog/articles-by-tag/articles-by-tag.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +104,9 @@ import { BlogSidebarComponent } from './blog/blog-sidebar/blog-sidebar.component
     BlogCardComponent,
     NewsletterActivationComponent,
     MessageComponent,
-    BlogSidebarComponent
+    BlogSidebarComponent,
+    ArticlesByCategoryComponent,
+    ArticlesByTagComponent
   ],
   imports: [
     BrowserModule,
