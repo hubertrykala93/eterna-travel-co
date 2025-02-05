@@ -1,8 +1,8 @@
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { BlogService, Article, CategoryCount, RecentArticle, Tag, Image } from './../services/blog.service';
 import { Component, OnInit } from '@angular/core';
 import { PaginationService } from '../services/pagination.service';
 import { SharedBlogDataService } from '../services/shared-blog-data.service';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-blog',
@@ -16,14 +16,14 @@ export class BlogComponent implements OnInit {
   totalPages: number = 0;
   page: number = 1;
 
-  keywordReceived: string = '';
+  keywordReceived: string | null = '';
 
   categories: CategoryCount[] = [];
   recentArticles: RecentArticle[] = [];
   tags: Tag[] = [];
   gallery: Image[] = [];
 
-  selectedImage: Image | null = null
+  selectedImage: Image | null = null;
 
   constructor(
     private blogService: BlogService,
@@ -32,6 +32,9 @@ export class BlogComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.showSelectedImage();
+    this.searchedKeyword();
+
     this.paginationService.currentPage$.subscribe(page => {
       this.page = page;
       this.displayArticles();
@@ -57,7 +60,27 @@ export class BlogComponent implements OnInit {
 
     this.sharedBlogDataService.gallery$.subscribe(gallery => {
       this.gallery = gallery;
-    })
+    });
+
+    this.displayArticles();
+  }
+
+  private initializeData(): void {
+    combineLatest([
+      this.sharedBlogDataService.categories$,
+      this.sharedBlogDataService.recentArticles$,
+      this.sharedBlogDataService.tags$,
+      this.sharedBlogDataService.gallery$,
+    ]).subscribe(([categories, recentArticles, tags, gallery]) => {
+      this.categories = categories;
+      this.recentArticles = recentArticles;
+      this.tags = tags;
+      this.gallery = gallery;
+
+      this.displayArticles();
+    });
+
+    this.displayArticles();
   }
 
   displayArticles(): void {
@@ -69,12 +92,6 @@ export class BlogComponent implements OnInit {
         this.paginationService.setTotalPages(Math.ceil(response.count / 4));
       }
     })
-  }
-
-  handleKeyword(keyword: string): void {
-    this.keywordReceived = keyword;
-    this.paginationService.setCurrentPage(1);
-    this.displayArticles();
   }
 
   displayCategories(): void {
@@ -109,9 +126,24 @@ export class BlogComponent implements OnInit {
     })
   }
 
-  resetAndFetchArticles(): void {
-    this.keywordReceived = '';
-    this.page = 1;
-    this.displayArticles();
+  showSelectedImage(): void {
+    this.sharedBlogDataService.selectedImage$.subscribe(img => {
+      this.selectedImage = img;
+    })
   }
+
+  closeSelectedImage(event: any): void {
+    if (event) {
+      this.sharedBlogDataService.setSelectedImage(null);
+    }
+  }
+
+  searchedKeyword(): void {
+    this.sharedBlogDataService.searchKeyword$.subscribe(keyword => {
+      this.keywordReceived = keyword;
+      this.paginationService.setCurrentPage(1)
+      this.displayArticles();
+    })
+  }
+
 }

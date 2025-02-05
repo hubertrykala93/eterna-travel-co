@@ -22,6 +22,9 @@ export class SharedBlogDataService {
   selectedImageSubject: BehaviorSubject<Image | null> = new BehaviorSubject<Image | null>(null);
   selectedImage$ = this.selectedImageSubject.asObservable();
 
+  searchKeywordSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
+  searchKeyword$ = this.searchKeywordSubject.asObservable();
+
   setCategories(categories: CategoryCount[]): void {
     this.categoriesSubject.next(categories);
   }
@@ -38,7 +41,11 @@ export class SharedBlogDataService {
     this.gallerySubject.next(gallery);
   }
 
-  setSelectedImage(selectedImage: Image): void {
+  setSelectedImage(selectedImage: Image | null): void {
     this.selectedImageSubject.next(selectedImage);
+  }
+
+  setSearchKeyword(searchKeyword: string | null): void {
+    this.searchKeywordSubject.next(searchKeyword);
   }
 }

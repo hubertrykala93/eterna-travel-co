@@ -1,6 +1,6 @@
 import { SharedBlogDataService } from './../../services/shared-blog-data.service';
 import { CategoryCount, RecentArticle, Tag, Image } from 'src/app/services/blog.service';
-import { Component, OnInit, Output, EventEmitter, ValueProvider } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-blog-sidebar',
@@ -8,13 +8,12 @@ import { Component, OnInit, Output, EventEmitter, ValueProvider } from '@angular
   styleUrls: ['./blog-sidebar.component.css']
 })
 export class BlogSidebarComponent implements OnInit {
+  keyword: string | null = null;
+
   categories: CategoryCount[] = [];
   recentArticles: RecentArticle[] = [];
   tags: Tag[] = [];
   gallery: Image[] = [];
-
-  @Output() imageSelected: EventEmitter<Image> = new EventEmitter<Image>();
-  @Output() keywordEmitted: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(
     private sharedBlogDataService: SharedBlogDataService
@@ -36,5 +35,13 @@ export class BlogSidebarComponent implements OnInit {
     this.sharedBlogDataService.gallery$.subscribe(gallery => {
       this.gallery = gallery;
     })
+  }
+
+  selectedImage(img: Image): void {
+    this.sharedBlogDataService.selectedImageSubject.next(img);
+  }
+
+  onChangeKeyword(): void {
+    this.sharedBlogDataService.setSearchKeyword(this.keyword);
   }
 }
