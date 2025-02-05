@@ -1,7 +1,8 @@
-import { PageTitleComponent } from './../page-title/page-title.component';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { BlogService, Article, CategoryCount, RecentArticle, Tag, Image } from './../services/blog.service';
 import { Component, OnInit } from '@angular/core';
 import { PaginationService } from '../services/pagination.service';
+import { SharedBlogDataService } from '../services/shared-blog-data.service';
 
 @Component({
   selector: 'app-blog',
@@ -22,9 +23,13 @@ export class BlogComponent implements OnInit {
   tags: Tag[] = [];
   gallery: Image[] = [];
 
-  selectedImage: Image | null = null;
+  selectedImage: Image | null = null
 
-  constructor(private blogService: BlogService, private paginationService: PaginationService) { }
+  constructor(
+    private blogService: BlogService,
+    private paginationService: PaginationService,
+    private sharedBlogDataService: SharedBlogDataService
+    ) { }
 
   ngOnInit(): void {
     this.paginationService.currentPage$.subscribe(page => {
@@ -37,6 +42,22 @@ export class BlogComponent implements OnInit {
     this.displayRecentArticles();
     this.displayTags();
     this.displayGallery();
+
+    this.sharedBlogDataService.categories$.subscribe(categories => {
+      this.categories = categories;
+    })
+
+    this.sharedBlogDataService.recentArticles$.subscribe(recentArticles => {
+      this.recentArticles = recentArticles;
+    })
+
+    this.sharedBlogDataService.tags$.subscribe(tags => {
+      this.tags = tags;
+    })
+
+    this.sharedBlogDataService.gallery$.subscribe(gallery => {
+      this.gallery = gallery;
+    })
   }
 
   displayArticles(): void {
@@ -50,7 +71,7 @@ export class BlogComponent implements OnInit {
     })
   }
 
-  handleEmittedKeyword(keyword: string): void {
+  handleKeyword(keyword: string): void {
     this.keywordReceived = keyword;
     this.paginationService.setCurrentPage(1);
     this.displayArticles();
@@ -59,7 +80,7 @@ export class BlogComponent implements OnInit {
   displayCategories(): void {
     this.blogService.getCategories().subscribe({
       next: response => {
-        this.categories = response;
+        this.sharedBlogDataService.setCategories(response);
       }
     })
   }
@@ -67,7 +88,7 @@ export class BlogComponent implements OnInit {
   displayRecentArticles(): void {
     this.blogService.getRecentArticles().subscribe({
       next: response => {
-        this.recentArticles = response;
+        this.sharedBlogDataService.setRecentArticles(response);
       }
     })
   }
@@ -75,7 +96,7 @@ export class BlogComponent implements OnInit {
   displayTags(): void {
     this.blogService.getTags().subscribe({
       next: response => {
-        this.tags = response;
+        this.sharedBlogDataService.setTags(response);
       }
     })
   }
@@ -83,18 +104,14 @@ export class BlogComponent implements OnInit {
   displayGallery(): void {
     this.blogService.getGallery().subscribe({
       next: response => {
-        this.gallery = response;
+        this.sharedBlogDataService.setGallery(response);
       }
     })
   }
 
-  handleSelectedImage(img: Image): void {
-    this.selectedImage = img;
-  }
-
-  closeImage(event: any): void {
-    if (event) {
-      this.selectedImage = null;
-    }
+  resetAndFetchArticles(): void {
+    this.keywordReceived = '';
+    this.page = 1;
+    this.displayArticles();
   }
 }

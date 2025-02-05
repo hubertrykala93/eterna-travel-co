@@ -3,7 +3,7 @@
 <section class="section-block-spacing-top section-block-spacing-bottom">
   <div class="custom-container">
     <div class="flex gap-[130px]">
-      <div class="w-[670px]">
+      <div class="w-[65%]">
 
         <ng-container *ngIf="articles && articles.length > 0; else noArticlesFound">
           <app-blog-card [articles]="articles"></app-blog-card>
@@ -16,21 +16,9 @@
 
       </div>
 
-      <div *ngIf="selectedImage" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center">
-        <img class="max-w-[60%] max-h-[60%]" [src]="selectedImage.image" [alt]="selectedImage.alt" (mouseleave)="closeImage($event)">
-      </div>
+      <div class="w-[35%]">
 
-      <div class="w-[370px]">
-
-        <app-blog-search-form (emittedKeyword)="handleEmittedKeyword($event)"></app-blog-search-form>
-
-        <app-blog-categories *ngIf="categories && categories.length > 0" [categories]="categories"></app-blog-categories>
-
-        <app-blog-recent-posts *ngIf="recentArticles && recentArticles.length > 0" [recentArticles]="recentArticles"></app-blog-recent-posts>
-
-        <app-blog-tags *ngIf="tags && tags.length > 0" [tags]="tags"></app-blog-tags>
-
-        <app-blog-gallery *ngIf="gallery && gallery.length > 0" [gallery]="gallery" (selectedImage)="handleSelectedImage($event)"></app-blog-gallery>
+        <app-blog-sidebar (keywordEmitted)="handleKeyword($event)"></app-blog-sidebar>
 
       </div>
     </div>

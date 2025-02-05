@@ -2,7 +2,7 @@
   <h6 class="font-workSans font-bold text-h6 text-heading mb-3">Gallery</h6>
 
   <ul class="grid grid-cols-4 grid-rows-3 gap-3">
-    <li *ngFor="let img of gallery" (click)="emitSelectedImage(img)">
+    <li class="cursor-pointer" *ngFor="let img of gallery">
       <img class="w-[72px] h-[72px] object-cover" [src]="img.image" [alt]="img.alt">
     </li>
   </ul>

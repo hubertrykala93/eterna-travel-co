@@ -12,11 +12,7 @@ export interface BlogGallery {
 })
 export class BlogGalleryComponent {
   @Input() gallery: Image[] = [];
-  @Output() selectedImage: EventEmitter<Image> = new EventEmitter();
 
-  emitSelectedImage(img: Image): void {
-    this.selectedImage.emit(img);
-  }
 }
 
 

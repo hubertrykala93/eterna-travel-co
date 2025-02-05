@@ -1,0 +1,9 @@
+<app-blog-search-form (emittedKeyword)="handleKeyword($event)"></app-blog-search-form>
+
+<app-blog-categories *ngIf="categories && categories.length > 0" [categories]="categories"></app-blog-categories>
+
+<app-blog-recent-posts *ngIf="recentArticles && recentArticles.length > 0" [recentArticles]="recentArticles"></app-blog-recent-posts>
+
+<app-blog-tags *ngIf="tags && tags.length > 0" [tags]="tags"></app-blog-tags>
+
+<app-blog-gallery *ngIf="gallery && gallery.length > 0" [gallery]="gallery"></app-blog-gallery>

@@ -56,6 +56,8 @@ import { BlogTagsComponent } from './blog/blog-tags/blog-tags.component';
 import { BlogGalleryComponent } from './blog/blog-gallery/blog-gallery.component';
 import { NewsletterActivationComponent } from './forms/footer/newsletter-activation/newsletter-activation.component';
 import { MessageComponent } from './others/message/message.component';
+import { ArticlesByCategoryComponent } from './blog/articles-by-category/articles-by-category.component';
+import { BlogSidebarComponent } from './blog/blog-sidebar/blog-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -110,7 +112,9 @@ import { MessageComponent } from './others/message/message.component';
     BlogTagsComponent,
     BlogGalleryComponent,
     NewsletterActivationComponent,
-    MessageComponent
+    MessageComponent,
+    ArticlesByCategoryComponent,
+    BlogSidebarComponent
   ],
   imports: [
     BrowserModule,
