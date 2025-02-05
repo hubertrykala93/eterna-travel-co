@@ -49,14 +49,8 @@ import { ToursListingComponent } from './tours/tours-listing/tours-listing.compo
 import { ToursHeaderComponent } from './tours/tours-header/tours-header.component';
 import { ToursCardComponent } from './tours/tours-card/tours-card.component';
 import { BlogCardComponent } from './blog/blog-card/blog-card.component';
-import { BlogSearchFormComponent } from './blog/blog-search-form/blog-search-form.component';
-import { BlogCategoriesComponent } from './blog/blog-categories/blog-categories.component';
-import { BlogRecentPostsComponent } from './blog/blog-recent-posts/blog-recent-posts.component';
-import { BlogTagsComponent } from './blog/blog-tags/blog-tags.component';
-import { BlogGalleryComponent } from './blog/blog-gallery/blog-gallery.component';
 import { NewsletterActivationComponent } from './forms/footer/newsletter-activation/newsletter-activation.component';
 import { MessageComponent } from './others/message/message.component';
-import { ArticlesByCategoryComponent } from './blog/articles-by-category/articles-by-category.component';
 import { BlogSidebarComponent } from './blog/blog-sidebar/blog-sidebar.component';
 
 @NgModule({
@@ -106,14 +100,8 @@ import { BlogSidebarComponent } from './blog/blog-sidebar/blog-sidebar.component
     ToursHeaderComponent,
     ToursCardComponent,
     BlogCardComponent,
-    BlogSearchFormComponent,
-    BlogCategoriesComponent,
-    BlogRecentPostsComponent,
-    BlogTagsComponent,
-    BlogGalleryComponent,
     NewsletterActivationComponent,
     MessageComponent,
-    ArticlesByCategoryComponent,
     BlogSidebarComponent
   ],
   imports: [

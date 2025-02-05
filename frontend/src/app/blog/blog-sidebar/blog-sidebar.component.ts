@@ -37,12 +37,4 @@ export class BlogSidebarComponent implements OnInit {
       this.gallery = gallery;
     })
   }
-
-  handleSelectedImage(img: Image): void {
-    this.imageSelected.emit(img);
-  }
-
-  handleKeyword(keyword: string): void {
-    this.keywordEmitted.emit(keyword);
-  }
 }

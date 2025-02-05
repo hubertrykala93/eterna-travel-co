@@ -1,9 +1,71 @@
-<app-blog-search-form (emittedKeyword)="handleKeyword($event)"></app-blog-search-form>
+<!-- Search Form -->
+<form class="p-[30px] bg-surface mb-[30px]">
+  <h6 class="font-workSans font-bold text-h6 text-heading mb-2">Search</h6>
 
-<app-blog-categories *ngIf="categories && categories.length > 0" [categories]="categories"></app-blog-categories>
+  <div class="relative">
+    <input name="keyword" class="w-full px-4 py-3 rounded-lg placeholder:font-light" type="text" placeholder="Type anything...">
 
-<app-blog-recent-posts *ngIf="recentArticles && recentArticles.length > 0" [recentArticles]="recentArticles"></app-blog-recent-posts>
+    <button class="group">
+      <svg class="absolute bottom-0 right-4 transform -translate-y-1/2 fill-heading w-6 h-6 opacity-60 group-hover:opacity-100 hover:fill-brandPrimary duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <title>Search icon</title>
+        <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+      </svg>
+    </button>
+  </div>
+</form>
 
-<app-blog-tags *ngIf="tags && tags.length > 0" [tags]="tags"></app-blog-tags>
+<!-- Categories Section -->
+<div class="p-[30px] bg-surface mb-[30px]">
+  <h6 class="font-workSans font-bold text-h6 text-heading mb-3">Categories</h6>
 
-<app-blog-gallery *ngIf="gallery && gallery.length > 0" [gallery]="gallery"></app-blog-gallery>
+  <ul>
+    <li *ngFor="let category of categories" class="mb-2">
+      <a [routerLink]="['/blog', 'category', category.slug]" class="font-light text-body text-heading mr-[6px] hover:text-brandPrimary duration-300 cursor-pointer">{{ category.name }}</a>
+      <span class="font-kaushan font-normal text-base leading-[26px] text-heading opacity-60">({{ category.articlesCount }})</span>
+    </li>
+  </ul>
+</div>
+
+<!-- Recent Articles Section -->
+<div class="p-[30px] bg-surface mb-[30px]">
+  <h6 class="font-workSans font-bold text-h6 text-heading mb-3">Recent Articles</h6>
+
+  <article *ngFor="let article of recentArticles" class="flex gap-[14px] mb-4">
+    <img class="w-[88px] h-[72px] object-cover" [src]="article.image.image" [alt]="article.image.alt">
+
+    <div>
+      <div class="flex items-center font-light text-heading text-xs text-opacity-60">
+        <span>{{ article.datePosted }}</span>
+        <span class="w-1 h-1 rounded-full ml-3 mr-1"></span>
+        <span>{{ article.user }}</span>
+      </div>
+
+      <a routerLink="{{ article.category.slug }}/{{ article.slug }}" class="font-workSans font-semibold text-subtitle text-heading hover:text-brandPrimary duration-300">{{ article.title }}</a>
+    </div>
+  </article>
+</div>
+
+
+<!-- Tags Section -->
+<div class="p-[30px] bg-surface mb-[30px]">
+  <h6 class="font-workSans font-bold text-h6 text-heading mb-3">Tags</h6>
+
+  <ul class="flex flex-wrap gap-2">
+    <li *ngFor="let tag of tags" class="px-3 py-2 border-[1px] border-opacity-10 rounded-md">
+      <a routerLink="tag/{{ tag.slug }}" class="font-normal text-action text-heading hover:text-brandPrimary duration-300">{{ tag.name }}</a>
+    </li>
+  </ul>
+</div>
+
+
+<!-- Gallery Section -->
+<div class="p-[30px] bg-surface mb-[30px]">
+  <h6 class="font-workSans font-bold text-h6 text-heading mb-3">Gallery</h6>
+
+  <ul class="grid grid-cols-4 grid-rows-3 gap-3">
+    <li class="cursor-pointer" *ngFor="let img of gallery">
+      <img class="w-[72px] h-[72px] object-cover" [src]="img.image" [alt]="img.alt">
+    </li>
+  </ul>
+</div>
+
