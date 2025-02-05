@@ -18,11 +18,6 @@ export class BlogComponent implements OnInit {
 
   keywordReceived: string | null = '';
 
-  categories: CategoryCount[] = [];
-  recentArticles: RecentArticle[] = [];
-  tags: Tag[] = [];
-  gallery: Image[] = [];
-
   selectedImage: Image | null = null;
 
   constructor(
@@ -39,48 +34,6 @@ export class BlogComponent implements OnInit {
       this.page = page;
       this.displayArticles();
     })
-
-    this.displayArticles();
-    this.displayCategories();
-    this.displayRecentArticles();
-    this.displayTags();
-    this.displayGallery();
-
-    this.sharedBlogDataService.categories$.subscribe(categories => {
-      this.categories = categories;
-    })
-
-    this.sharedBlogDataService.recentArticles$.subscribe(recentArticles => {
-      this.recentArticles = recentArticles;
-    })
-
-    this.sharedBlogDataService.tags$.subscribe(tags => {
-      this.tags = tags;
-    })
-
-    this.sharedBlogDataService.gallery$.subscribe(gallery => {
-      this.gallery = gallery;
-    });
-
-    this.displayArticles();
-  }
-
-  private initializeData(): void {
-    combineLatest([
-      this.sharedBlogDataService.categories$,
-      this.sharedBlogDataService.recentArticles$,
-      this.sharedBlogDataService.tags$,
-      this.sharedBlogDataService.gallery$,
-    ]).subscribe(([categories, recentArticles, tags, gallery]) => {
-      this.categories = categories;
-      this.recentArticles = recentArticles;
-      this.tags = tags;
-      this.gallery = gallery;
-
-      this.displayArticles();
-    });
-
-    this.displayArticles();
   }
 
   displayArticles(): void {
@@ -90,38 +43,6 @@ export class BlogComponent implements OnInit {
         this.totalArticles = response.count;
         this.totalPages = Math.ceil(response.count / 4);
         this.paginationService.setTotalPages(Math.ceil(response.count / 4));
-      }
-    })
-  }
-
-  displayCategories(): void {
-    this.blogService.getCategories().subscribe({
-      next: response => {
-        this.sharedBlogDataService.setCategories(response);
-      }
-    })
-  }
-
-  displayRecentArticles(): void {
-    this.blogService.getRecentArticles().subscribe({
-      next: response => {
-        this.sharedBlogDataService.setRecentArticles(response);
-      }
-    })
-  }
-
-  displayTags(): void {
-    this.blogService.getTags().subscribe({
-      next: response => {
-        this.sharedBlogDataService.setTags(response);
-      }
-    })
-  }
-
-  displayGallery(): void {
-    this.blogService.getGallery().subscribe({
-      next: response => {
-        this.sharedBlogDataService.setGallery(response);
       }
     })
   }

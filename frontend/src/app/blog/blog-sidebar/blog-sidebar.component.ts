@@ -1,6 +1,7 @@
 import { SharedBlogDataService } from './../../services/shared-blog-data.service';
-import { CategoryCount, RecentArticle, Tag, Image } from 'src/app/services/blog.service';
+import { CategoryCount, RecentArticle, Tag, Image, BlogService } from 'src/app/services/blog.service';
 import { Component, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-blog-sidebar',
@@ -16,24 +17,58 @@ export class BlogSidebarComponent implements OnInit {
   gallery: Image[] = [];
 
   constructor(
-    private sharedBlogDataService: SharedBlogDataService
+    private sharedBlogDataService: SharedBlogDataService,
+    private blogService: BlogService
   ) { }
 
   ngOnInit(): void {
-    this.sharedBlogDataService.categories$.subscribe(categories => {
-      this.categories = categories;
-    })
+    this.displayCategories();
+    this.displayRecentArticles();
+    this.displayTags();
+    this.displayGallery();
+  }
 
-    this.sharedBlogDataService.recentArticles$.subscribe(recentArticles => {
-      this.recentArticles = recentArticles;
+  displayCategories(): void {
+    this.blogService.getCategories().subscribe({
+      next: response => {
+        this.sharedBlogDataService.setCategories(response);
+        this.sharedBlogDataService.categories$.subscribe(categories => {
+          this.categories = categories;
+        })
+      }
     })
+  }
 
-    this.sharedBlogDataService.tags$.subscribe(tags => {
-      this.tags = tags;
+  displayRecentArticles(): void {
+    this.blogService.getRecentArticles().subscribe({
+      next: response => {
+        this.sharedBlogDataService.setRecentArticles(response);
+        this.sharedBlogDataService.recentArticles$.subscribe(recentArticles => {
+          this.recentArticles = recentArticles;
+        })
+      }
     })
+  }
 
-    this.sharedBlogDataService.gallery$.subscribe(gallery => {
-      this.gallery = gallery;
+  displayTags(): void {
+    this.blogService.getTags().subscribe({
+      next: response => {
+        this.sharedBlogDataService.setTags(response);
+        this.sharedBlogDataService.tags$.subscribe(tags => {
+          this.tags = tags;
+        })
+      }
+    })
+  }
+
+  displayGallery(): void {
+    this.blogService.getGallery().subscribe({
+      next: response => {
+        this.sharedBlogDataService.setGallery(response);
+        this.sharedBlogDataService.gallery$.subscribe(gallery => {
+          this.gallery = gallery;
+        })
+      }
     })
   }
 
