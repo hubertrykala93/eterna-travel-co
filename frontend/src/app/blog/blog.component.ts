@@ -42,7 +42,7 @@ export class BlogComponent implements OnInit {
         this.articles = response.results;
         this.totalArticles = response.count;
         this.totalPages = Math.ceil(response.count / 4);
-        this.paginationService.setTotalPages(Math.ceil(response.count / 4));
+        this.paginationService.setTotalPages(this.totalPages);
       }
     })
   }

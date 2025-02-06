@@ -47,7 +47,7 @@
 
 /* Pagination */
 .pagination-container {
-  @apply flex text-center justify-center gap-2 font-workSans font-semibold text-subtitle text-heading text-opacity-60
+  @apply flex text-center gap-2 font-workSans font-semibold text-subtitle text-heading text-opacity-60
 }
 
 .pagination-element {

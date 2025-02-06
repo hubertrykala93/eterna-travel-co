@@ -1,3 +1,4 @@
+import { ArticlesByTagComponent } from './blog/articles-by-tag/articles-by-tag.component';
 import { ArticlesByCategoryComponent } from './blog/articles-by-category/articles-by-category.component';
 import { NewsletterActivationComponent } from './forms/footer/newsletter-activation/newsletter-activation.component';
 import { HomeComponent } from './home/home.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'contact-us', component: ContactUsComponent},
   { path: 'blog', component: BlogComponent},
   { path: 'blog/category/:slug', component: ArticlesByCategoryComponent},
+  { path: 'blog/tag/:slug', component: ArticlesByTagComponent},
   { path: 'destination', component: DestinationComponent},
   { path: 'tours', component: ToursComponent}
 ];

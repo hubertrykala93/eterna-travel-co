@@ -7,11 +7,11 @@
     <span>{{ article.user }}</span>
   </div>
 
-  <a routerLink="{{ article.category.slug }}/{{ article.slug }}" class="font-workSans font-bold text-h5 text-heading mb-3 hover:text-brandPrimary duration-300">{{ article.title }}</a>
+  <a [routerLink]="['/blog', article.category.slug, article.slug ]" class="font-workSans font-bold text-h5 text-heading mb-3 hover:text-brandPrimary duration-300">{{ article.title }}</a>
 
   <p class="font-light text-body text-heading opacity-60 mb-4">{{ article.content }}</p>
 
-  <a routerLink="{{ article.category.slug }}/{{ article.slug }}" class="inline-flex gap-4 items-center text-brandPrimary hover:text-heading duration-300">
+  <a [routerLink]="['/blog', article.category.slug, article.slug]" class="inline-flex gap-4 items-center text-brandPrimary hover:text-heading duration-300">
     <span>Read more</span>
     <i class="fa-solid fa-arrow-right w-[13px] h-4"></i>
   </a>
