@@ -20,6 +20,11 @@ export class PageTitleComponent implements OnInit {
   ngOnInit(): void {
     const url: string = this.router.url.slice(1);
 
+    if (url.includes('authenticate')) {
+      this.pageName = 'Authenticate';
+      this.pageUrl = 'Authenticate';
+    }
+
     if (url == '') {
       this.isHomePage = true;
     }

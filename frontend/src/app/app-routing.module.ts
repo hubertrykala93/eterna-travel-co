@@ -1,3 +1,4 @@
+import { AuthenticateComponent } from './authentication/authenticate/authenticate.component';
 import { ArticleDetailsComponent } from './blog/article-details/article-details.component';
 import { ArticlesByTagComponent } from './blog/articles-by-tag/articles-by-tag.component';
 import { ArticlesByCategoryComponent } from './blog/articles-by-category/articles-by-category.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'newsletter-activation', component: NewsletterActivationComponent},
   { path: 'about-us', component: AboutComponent },
   { path: 'contact-us', component: ContactUsComponent},
+  { path: 'authenticate/:mode', component: AuthenticateComponent},
   { path: 'blog', component: BlogComponent},
   { path: 'blog/category/:slug', component: ArticlesByCategoryComponent},
   { path: 'blog/tag/:slug', component: ArticlesByTagComponent},
@@ -26,7 +28,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    scrollPositionRestoration: 'enabled'
+    // scrollPositionRestoration: 'enabled'
   })],
   exports: [RouterModule]
 })

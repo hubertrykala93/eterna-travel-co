@@ -53,6 +53,7 @@ import { BlogSidebarComponent } from './blog/blog-sidebar/blog-sidebar.component
 import { ArticlesByCategoryComponent } from './blog/articles-by-category/articles-by-category.component';
 import { ArticlesByTagComponent } from './blog/articles-by-tag/articles-by-tag.component';
 import { ArticleDetailsComponent } from './blog/article-details/article-details.component';
+import { AuthenticateComponent } from './authentication/authenticate/authenticate.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { ArticleDetailsComponent } from './blog/article-details/article-details.
     BlogSidebarComponent,
     ArticlesByCategoryComponent,
     ArticlesByTagComponent,
-    ArticleDetailsComponent
+    ArticleDetailsComponent,
+    AuthenticateComponent,
   ],
   imports: [
     BrowserModule,

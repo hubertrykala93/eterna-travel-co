@@ -1,0 +1,119 @@
+<app-page-title></app-page-title>
+
+<section class="section-block-spacing-top section-block-spacing-bottom">
+  <div class="authentication-container">
+    <div class="grid grid-cols-2 gap-3 mb-12">
+      <a [routerLink]="['/authenticate', 'register']" [ngClass]="{
+        'bg-brandPrimary text-white' : activeButton === 'signUp',
+        'text-heading' : activeButton !== 'signUp'
+      }" class="text-center border-[1px] border-brandPrimary rounded-md px-4 py-3 active:bg-brandPrimary text-white" (click)="setActive('signUp')">
+        <span class="font-workSans text-subtitle font-semibold">Sign Up</span>
+      </a>
+
+      <a [routerLink]="['/authenticate', 'login']" [ngClass]="{
+        'bg-brandPrimary text-white' : activeButton === 'signIn',
+        'text-heading' : activeButton !== 'signIn'
+      }" class="text-center border-[1px] border-brandPrimary rounded-md px-4 py-3" (click)="setActive('signIn')">
+        <span class="font-workSans text-subtitle font-semibold">Sign In</span>
+      </a>
+    </div>
+
+    <ng-container *ngIf="activeButton === 'signUp'; else signIn">
+      <form class="border-[1px] rounded-lg border-heading border-opacity-10 px-6 py-12" [formGroup]="registerForm" (ngSubmit)="registerOnSubmit()">
+        <div class="mb-4">
+          <label class="block font-semibold text-bodySmall text-heading text-opacity-60 mb-2" for="username">Username *</label>
+          <input formControlName="username" class="font-light text-body border-[1px] border-opacity-10 px-3 py-2 w-full" id="username" type="text" placeholder="Username">
+
+          <ng-container *ngIf="registerForm.get('username')?.touched || registerForm.get('username')?.dirty">
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('username')?.errors?.['required']">Username is required.</span>
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('username')?.errors?.['minlength']">The username should be at least 3 characters long.</span>
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('username')?.errors?.['maxlength']">The username should not exceed 255 characters.</span>
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('username')?.hasError('pattern')">Username can only contain letters, numbers, hyphens (-), underscores (_), and dots (.)</span>
+          </ng-container>
+        </div>
+
+        <div class="mb-4">
+          <label class="block font-semibold text-bodySmall text-heading text-opacity-60 mb-2" for="email">Email *</label>
+          <input formControlName="email" class="font-light text-body border-[1px] border-opacity-10 px-3 py-2 w-full" id="email" type="text" placeholder="Email">
+
+          <ng-container *ngIf="registerForm.get('email')?.touched || registerForm.get('email')?.dirty">
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</span>
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('email')?.errors?.['minlength']">The email should be at least 3 characters long.</span>
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('email')?.errors?.['maxlength']">The email should not exceed 255 characters.</span>
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('email')?.hasError('pattern')">Enter a valid email address.</span>
+          </ng-container>
+        </div>
+
+        <div class="mb-4">
+          <label class="block font-semibold text-bodySmall text-heading text-opacity-60 mb-2" for="password">Password *</label>
+
+          <div class="relative">
+            <input formControlName="password" class="font-light text-body border-[1px] border-opacity-10 px-3 py-2 w-full" id="password" [type]="passwordVisible ? 'text' : 'password'" placeholder="Password">
+            <i *ngIf="!passwordVisible" class="absolute top-1/2 right-4 transform -translate-y-1/2 fa-solid fa-eye cursor-pointer text-heading opacity-60" (click)="setPasswordVisibility()"></i>
+            <i *ngIf="passwordVisible" class="absolute top-1/2 right-4 transform -translate-y-1/2 fa-solid fa-eye-slash cursor-pointer text-heading opacity-60" (click)="setPasswordVisibility()"></i>
+          </div>
+
+          <ng-container *ngIf="registerForm.get('password')?.touched || registerForm.get('password')?.dirty">
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</span>
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('password')?.errors?.['minlength']">The password should be at least 8 characters long.</span>
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('password')?.errors?.['maxlength']">The password should not exceed 255 characters.</span>
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('password')?.hasError('pattern')">Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.</span>
+          </ng-container>
+        </div>
+
+        <div class="mb-8">
+          <label class="block font-semibold text-bodySmall text-heading text-opacity-60 mb-2" for="repassword">Confirm Password *</label>
+          <input formControlName="repassword" class="font-light text-body border-[1px] border-opacity-10 px-3 py-2 w-full" id="repassword" type="text" placeholder="Confirm Password">
+
+          <ng-container *ngIf="registerForm.get('repassword')?.touched || registerForm.get('repassword')?.dirty">
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('repassword')?.errors?.['required']">Confirm Password is required.</span>
+          </ng-container>
+        </div>
+
+        <button class="bg-brandPrimary rounded-md text-action font-normal text-white py-3 text-center w-full" [disabled]="registerForm.invalid" [ngClass]="{ 'hover:bg-heading duration-300' : registerForm.valid }">Register</button>
+      </form>
+
+      <div class="text-center my-6">
+        <span class="font-workSans font-medium text-h6 text-heading">Or sign up with:</span>
+      </div>
+    </ng-container>
+
+    <ng-template #signIn>
+      <form class="border-[1px] rounded-lg border-heading border-opacity-10 px-6 py-12">
+
+        <div class="mb-4">
+          <label class="block font-semibold text-bodySmall text-heading text-opacity-60 mb-2" for="email">Email *</label>
+          <input class="font-light text-body border-[1px] border-opacity-10 px-3 py-2 w-full" id="email" type="text" placeholder="Email">
+        </div>
+
+        <div class="mb-8">
+          <label class="block font-semibold text-bodySmall text-heading text-opacity-60 mb-2" for="password">Password *</label>
+          <input class="font-light text-body border-[1px] border-opacity-10 px-3 py-2 w-full" id="password" type="text" placeholder="Password">
+        </div>
+
+        <button class="bg-brandPrimary rounded-md text-action font-normal text-white py-3 text-center w-full hover:bg-heading duration-300">Submit</button>
+      </form>
+
+      <div class="text-center my-6">
+        <span class="font-workSans font-medium text-h6 text-heading">Or sign in with:</span>
+      </div>
+    </ng-template>
+
+    <div class="flex justify-center text-white gap-2">
+      <a href="https://www.facebook.com" target="_blank" class="flex items-center justify-center bg-brandPrimary hover:bg-heading duration-300 px-5 py-2 gap-2 w-30">
+        <i class="fa-brands fa-facebook"></i>
+        <span class="font-kaushan">Facebook</span>
+      </a>
+
+      <a href="https://www.google.com" target="_blank" class="bg-brandPrimary hover:bg-heading duration-300 flex items-center justify-center px-5 py-2 gap-2 w-30">
+        <i class="fa-brands fa-google"></i>
+        <span class="font-kaushan">Google</span>
+      </a>
+
+      <a href="https://www.x.com" target="_blank" class="bg-brandPrimary hover:bg-heading duration-300 flex items-center justify-center px-5 py-2 gap-2 w-30">
+        <i class="fa-brands fa-twitter"></i>
+        <span class="font-kaushan">Twitter</span>
+      </a>
+    </div>
+  </div>
+</section>

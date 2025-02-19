@@ -9,6 +9,10 @@
   @apply w-full max-w-[1270px] mx-auto px-[50px];
 }
 
+.authentication-container {
+  @apply w-full max-w-[1270px] mx-auto px-[200px];
+}
+
 .home-logo-section-block-spacing-top-bottom {
   @apply py-12;
 }

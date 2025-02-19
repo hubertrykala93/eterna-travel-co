@@ -91,9 +91,9 @@
         </div>
 
         <div class="font-workSans font-semibold text-heading text-subtitle opacity-80">
-          <a class="hover:text-brandPrimary duration-300">Login</a>
+          <a [routerLink]="['/authenticate', 'login']" class="hover:text-brandPrimary duration-300">Login</a>
           <span class="mx-3">/</span>
-          <a class="hover:text-brandPrimary duration-300">Signup</a>
+          <a [routerLink]="['/authenticate', 'register']" class="hover:text-brandPrimary duration-300">Signup</a>
         </div>
       </div>
     </div>

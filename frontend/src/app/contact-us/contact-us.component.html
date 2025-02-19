@@ -50,7 +50,7 @@
             </ng-container>
           </div>
 
-          <button class="bg-brandPrimary px-10 py-5 rounded-lg font-inter font-normal text-action text-white" [disabled]="contactForm.invalid">Submit</button>
+          <button class="bg-brandPrimary px-10 py-5 rounded-lg font-inter font-normal text-action text-white" [disabled]="contactForm.invalid" [ngClass]="{ 'hover:bg-heading duration-300' : contactForm.valid }">Submit</button>
 
           <ng-container *ngIf="successMessage">
             <span class="block font-light text-xs text-secondarySuccessColor mt-2">{{ successMessage }}</span>
