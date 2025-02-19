@@ -1,8 +1,7 @@
-import { BlogService, Article, CategoryCount, RecentArticle, Tag, Image } from './../services/blog.service';
+import { BlogService, Article, Image } from './../services/blog.service';
 import { Component, OnInit } from '@angular/core';
 import { PaginationService } from '../services/pagination.service';
 import { SharedBlogDataService } from '../services/shared-blog-data.service';
-import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-blog',
@@ -27,6 +26,7 @@ export class BlogComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.sharedBlogDataService.searchKeywordSubject.next(null);
     this.showSelectedImage();
     this.searchedKeyword();
 

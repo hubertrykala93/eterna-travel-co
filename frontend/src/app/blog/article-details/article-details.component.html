@@ -1,0 +1,159 @@
+<section class="section-block-spacing-bottom mt-11">
+  <div class="custom-container">
+    <!-- Page Title Section -->
+    <div class="text-center font-workSans font-semibold text-subtitle text-heading">
+      <a [routerLink]="'/'" class="hover:text-brandPrimary duration-300">Home</a>
+      <span class="mx-2">/</span>
+      <a class="hover:text-brandPrimary duration-300" [routerLink]="['/blog']">Blog</a>
+      <span class="mx-2">/</span>
+      <a class="hover:text-brandPrimary duration-300" [routerLink]="['/blog/category', categorySlug]">{{ categoryName }}</a>
+      <span class="mx-2">/</span>
+      <span class="text-brandPrimary">Blog Details</span>
+    </div>
+
+    <div class="grid grid-cols-12">
+      <article class="col-start-2 col-span-10">
+
+        <!-- Article Content Section -->
+        <img class="w-[970px] h-[460px] object-cover mt-[26px] mb-8" [src]="article?.image?.image" [alt]="article?.image?.alt">
+
+        <div class="flex items-center mb-2 font-workSans font-semibold text-subtitle text-heading text-opacity-60">
+          <span>{{ article?.datePosted }}</span>
+          <div class="w-1 h-1 bg-heading bg-opacity-60 rounded-full ml-7 mr-3"></div>
+          <span>{{ article?.user | titlecase}}</span>
+        </div>
+
+        <h4 class="font-workSans font-bold text-heading text-h4 mb-3">{{ article?.title }}</h4>
+
+        <p [innerHTML]="article?.content"></p>
+
+        <!-- Share Section-->
+        <div class="flex justify-between items-center my-8">
+          <div class="flex items-center justify-center">
+            <span class="font-workSans font-semibold text-heading textt-subtitle mr-6">Share</span>
+
+            <div class="flex gap-2 text-heading">
+              <a class="hover:text-brandPrimary duration-300" href="https://www.facebook.com" target="_blank">
+                <i class="fa-brands fa-facebook-f w-5"></i>
+              </a>
+              <a class="hover:text-brandPrimary duration-300" href="https://www.instagram.com" target="_blank">
+                <i class="fa-brands fa-instagram w-5"></i>
+              </a>
+              <a class="hover:text-brandPrimary duration-300" href="https://www.linkedin.com" target="_blank">
+                <i class="fa-brands fa-linkedin-in w-5"></i>
+              </a>
+              <a class="hover:text-brandPrimary duration-300" href="" target="_blank">
+                <i class="fa-solid fa-share w-5"></i>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="flex gap-2">
+            <li class="list-none border-[1px] border-heading border-opacity-10 rounded-md px-3 py-2" *ngFor="let tag of article?.tags">
+              <a class="font-normal text-action text-heading" [routerLink]="['/blog', 'tag', tag.slug]">{{ tag.name }}</a>
+            </li>
+          </div>
+        </div>
+
+        <!-- Quote Section-->
+        <div class="bg-surface p-[30px] mb-12">
+          <div class="flex gap-4">
+            <img class="w-[100px] h-[100px] min-w-[100px] rounded-full object-contain bg-black">
+
+            <div class="text-left">
+              <h6 class="font-workSans font-bold text-h6 text-heading mb-[2px]">Sindy Simmons</h6>
+              <span class="font-light text-bodySmall text-heading text-opacity-60">Author</span>
+
+              <p class="font-light text-body text-heading text-opacity-60 mt-4">Objectively productivate just in time information with dynamic channels. Energistically exploit seamless growth strategies after 24/7 experiences.</p>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Article Navigation Section -->
+        <div class="flex items-center justify-between font-normal text-action text-heading mb-4">
+          <a *ngIf="previousArticle" [routerLink]="['/blog', previousArticle.category.slug, previousArticle.slug]" class="hover:text-brandPrimary duration-300">
+            <i class="fa-solid fa-arrow-left mr-4"></i>
+            Prev
+          </a>
+
+          <a *ngIf="nextArticle" [routerLink]="['/blog', nextArticle.category.slug, nextArticle.slug]" class="hover:text-brandPrimary duration-300">Next
+            <i class="fa-solid fa-arrow-right ml-4"></i>
+          </a>
+        </div>
+
+        <!-- Next & Previous Article Section -->
+        <div class="grid grid-cols-2 border-b-[1px] border-heading border-opacity-10 pb-5">
+          <div *ngIf="previousArticle" class="flex items-center gap-[14px]">
+            <img class="w-[88px] h-[72px] min-w-[88px] object-cover" [src]="previousArticle.image.image" [alt]="previousArticle.image.alt">
+
+            <div>
+              <div class="flex items-center font-light text-xs text-heading text-opacity-60 mb-[6px]">
+                <span>{{ previousArticle.datePosted }}</span>
+                <div class="w-[2px] h-[2px] rounded-full bg-heading bg-opacity-60 ml-3 mr-1"></div>
+                <span>{{ previousArticle.user }}</span>
+
+              </div>
+
+              <h4 class="font-workSans font-bold text-subtitle text-heading">
+                <a class="hover:text-brandPrimary duration-300" [routerLink]="['/blog', previousArticle.category.slug, previousArticle.slug]">{{ previousArticle.title }}</a>
+              </h4>
+            </div>
+          </div>
+
+          <div *ngIf="nextArticle" class="flex items-center gap-[14px]">
+            <img class="w-[88px] h-[72px] min-w-[88px] object-cover" [src]="nextArticle.image.image" [alt]="nextArticle.image.alt">
+
+            <div>
+              <div class="flex items-center font-light text-xs text-heading text-opacity-60 mb-[6px]">
+                <span>{{ nextArticle.datePosted }}</span>
+                <div class="w-[2px] h-[2px] rounded-full bg-heading bg-opacity-60 ml-3 mr-1"></div>
+                <span>{{ nextArticle.user }}</span>
+
+              </div>
+
+              <h4 class="font-workSans font-bold text-subtitle text-heading">
+                <a [routerLink]="['/blog', nextArticle.category.slug, nextArticle.slug]" class="hover:text-brandPrimary duration-300">{{ nextArticle.title }}</a>
+              </h4>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="my-12">
+          <h5 class="font-workSans font-bold text-h5 text-heading mb-4">1 Comment</h5>
+
+          <div class="flex gap-5">
+            <img class="w-20 h-20 min-w-20 object-cover bg-black rounded-full">
+
+            <div>
+              <span class="font-light text-bodySmall text-heading text-opacity-60">April 22, 2023</span>
+              <h6 class="font-workSans font-semibold text-subtitle text-heading mt-[2px] mb-4">Jonathan Doe</h6>
+
+              <p class="font-light text-body text-heading text-opacity-60">Objectively productivate just in time information with dynamic channels. Energistically exploit seamless growth strategies after 24/7 experiences.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comment Form -->
+        <div class="bg-surface p-12">
+          <h5 class="font-workSans font-bold text-h5 text-heading mb-4">Leave Reply</h5>
+
+          <form>
+            <div class="flex gap-[25px] font-light text-body text-heading mb-5">
+              <input class="flex-1 rounded-lg p-4" type="text" placeholder="Your name">
+              <input class="flex-1 rounded-lg p-4" type="text" placeholder="Email address">
+            </div>
+
+            <textarea class="w-full h-[200px] rounded-lg font-light text-body text-heading p-4 mb-6" placeholder="Write your comment"></textarea>
+
+            <button class="bg-brandPrimary rounded-lg px-10 py-5 font-normal text-action text-white">Post Comment</button>
+          </form>
+        </div>
+
+      </article>
+    </div>
+  </div>
+</section>

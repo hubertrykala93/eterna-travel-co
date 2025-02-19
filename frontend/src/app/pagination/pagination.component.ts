@@ -16,6 +16,7 @@ export class PaginationComponent implements OnInit {
   ngOnInit(): void {
     this.paginationService.currentPage$.subscribe(page => {
       this.currentPage = page;
+      window.scrollTo({ top: 0, behavior: 'smooth'})
       this.updatePages();
     });
 

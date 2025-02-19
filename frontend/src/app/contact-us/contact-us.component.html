@@ -15,7 +15,47 @@
           <h3 class="font-workSans font-bold text-h3 text-heading">Get in Touch</h3>
         </div>
 
-        <app-contact-us-form></app-contact-us-form>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="grid grid-flow-row auto-rows-min">
+            <div class="mb-[14px]">
+              <input formControlName="name" type="text" class="input-field w-full" placeholder="Your name">
+
+              <ng-container *ngIf="contactForm.get('name')?.touched || contactForm.get('name')?.dirty">
+                <span class="block font-light text-xs text-errorColor mt-1" *ngIf="contactForm.get('name')?.errors?.['required']">Name is required.</span>
+                <span class="block font-light text-xs text-errorColor mt-1" *ngIf="contactForm.get('name')?.errors?.['minlength']">The name should be at least 3 characters long.</span>
+                <span class="block font-light text-xs text-errorColor mt-1" *ngIf="contactForm.get('name')?.errors?.['maxlength']">The name should not exceed 255 characters.</span>
+                <span class="block font-light text-xs text-errorColor mt-1" *ngIf="contactForm.get('name')?.hasError('pattern')">The name should consist of uppercase and lowercase letters and may contain spaces, e.g., 'John Smith'.</span>
+              </ng-container>
+            </div>
+
+            <div class="mb-[14px]">
+              <input formControlName="email" type="text" class="input-field w-full" placeholder="Email address">
+
+              <ng-container *ngIf="contactForm.get('email')?.touched || contactForm.get('email')?.dirty">
+                <span class="block font-light text-xs text-errorColor mt-1" *ngIf="contactForm.get('email')?.errors?.['required']">Email is required.</span>
+                <span class="block font-light text-xs text-errorColor mt-1" *ngIf="contactForm.get('email')?.errors?.['minlength']">The email should be at least 3 characters long.</span>
+                <span class="block font-light text-xs text-errorColor mt-1" *ngIf="contactForm.get('email')?.errors?.['maxlength']">The email should not exceed 255 characters.</span>
+                <span class="block font-light text-xs text-errorColor mt-1" *ngIf="contactForm.get('email')?.hasError('pattern')">Enter a valid email address.</span>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="mb-[14px]">
+            <textarea formControlName="content" class="input-field h-[160px] w-full" placeholder="Write something..."></textarea>
+
+            <ng-container *ngIf="contactForm.get('content')?.touched || contactForm.get('content')?.dirty">
+              <span class="block font-light text-xs text-errorColor mt-1" *ngIf="contactForm.get('content')?.errors?.['required']">Content is required.</span>
+              <span class="block font-light text-xs text-errorColor mt-1" *ngIf="contactForm.get('content')?.errors?.['minlength']">The content should be at least 10 characters long.</span>
+              <span class="block font-light text-xs text-errorColor mt-1" *ngIf="contactForm.get('content')?.errors?.['maxlength']">The content should not exceed 255 characters.</span>
+            </ng-container>
+          </div>
+
+          <button class="bg-brandPrimary px-10 py-5 rounded-lg font-inter font-normal text-action text-white" [disabled]="contactForm.invalid">Submit</button>
+
+          <ng-container *ngIf="successMessage">
+            <span class="block text-xs text-secondarySuccessColor mt-2">{{ successMessage }}</span>
+          </ng-container>
+        </form>
 
       </div>
 

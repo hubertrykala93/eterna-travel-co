@@ -24,6 +24,8 @@ export class ArticlesByTagComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.paginationService.setCurrentPage(this.page);
+
     this.paginationService.currentPage$.subscribe(page => {
       this.page = page;
 

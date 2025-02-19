@@ -41,6 +41,7 @@ module.exports = {
         primaryPageTitleColor: '#051036',
         secondaryPageTitleColor: '#C4C4C4',
         successColor: '#AFE1AF',
+        secondarySuccessColor: '#097969',
         errorColor: '#FC5056',
         warningColor: '#ffca6a',
         infoColor: '#97dcff'

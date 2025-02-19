@@ -140,6 +140,7 @@ class ArticleListAPIView(APIView):
                 many=True,
                 context={
                     "request": request,
+                    "view": self.__class__.__name__,
                 },
             )
 
@@ -149,6 +150,72 @@ class ArticleListAPIView(APIView):
 
         serializer = ArticleSerializer(
             queryset,
+            many=True,
+            context={
+                "request": request,
+                "view": self.__class__.__name__,
+            },
+        )
+
+        return Response(
+            data=serializer.data,
+            status=status.HTTP_200_OK,
+        )
+
+
+class ArticleDetailAPIView(APIView):
+    def get(self, request, *args, **kwargs):
+        article_slug = kwargs.get("article_slug")
+
+        try:
+            article = Article.objects.get(slug=article_slug)
+
+        except Article.DoesNotExist:
+            return Response(
+                data={
+                    "detail": "This article does not exist.",
+                },
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        previous_article = Article.objects.filter(date_posted__lt=article.date_posted).order_by("-date_posted").first()
+        next_article = Article.objects.filter(date_posted__gt=article.date_posted).order_by("date_posted").first()
+
+        serializer = ArticleSerializer(
+            instance=article,
+            context={
+                "request": request,
+            },
+        )
+
+        serialized_previous_article = ArticleSerializer(
+            instance=previous_article,
+            context={
+                "request": request,
+            },
+        ).data if previous_article else None
+
+        serialized_next_article = ArticleSerializer(
+            instance=next_article,
+            context={
+                "request": request,
+            },
+        ).data if next_article else None
+
+        return Response(
+            data={
+                "article": serializer.data,
+                "previousArticle": serialized_previous_article,
+                "nextArticle": serialized_next_article,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+
+class LatestTravelArticlesAPIView(APIView):
+    def get(self, request, *args, **kwargs):
+        serializer = RecentArticlesSerializer(
+            Article.objects.all().order_by("-date_posted")[:4],
             many=True,
             context={
                 "request": request,

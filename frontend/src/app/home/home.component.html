@@ -13,7 +13,17 @@
 <app-home-testimonials></app-home-testimonials>
 
 <!-- Updates -->
-<app-home-updates></app-home-updates>
+<section *ngIf="latestArticles && latestArticles.length > 0" class="section-block-spacing-top section-block-spacing-bottom">
+  <div class="custom-container">
+
+    <app-home-header-section [headerTitle]="'Updates'" [headerSubtitle]="'Latest Travel Guide'"></app-home-header-section>
+
+    <div class="grid grid-cols-2 grid-rows-2 gap-x-[30px] gap-y-10">
+      <app-updates-card *ngFor="let article of latestArticles" [article]="article"></app-updates-card>
+    </div>
+  </div>
+</section>
+
 
 <!-- Logos -->
 <app-home-logos></app-home-logos>

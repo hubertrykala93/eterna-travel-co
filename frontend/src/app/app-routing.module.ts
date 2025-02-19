@@ -1,3 +1,4 @@
+import { ArticleDetailsComponent } from './blog/article-details/article-details.component';
 import { ArticlesByTagComponent } from './blog/articles-by-tag/articles-by-tag.component';
 import { ArticlesByCategoryComponent } from './blog/articles-by-category/articles-by-category.component';
 import { NewsletterActivationComponent } from './forms/footer/newsletter-activation/newsletter-activation.component';
@@ -18,12 +19,15 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent},
   { path: 'blog/category/:slug', component: ArticlesByCategoryComponent},
   { path: 'blog/tag/:slug', component: ArticlesByTagComponent},
+  { path: 'blog/:categorySlug/:articleSlug', component: ArticleDetailsComponent},
   { path: 'destination', component: DestinationComponent},
   { path: 'tours', component: ToursComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

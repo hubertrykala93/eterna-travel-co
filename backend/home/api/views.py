@@ -13,6 +13,17 @@ from smtplib import SMTPException, SMTPAuthenticationError
 from django.contrib.sites.shortcuts import get_current_site
 
 
+class ContactUsAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        return Response(
+            data={
+                "detail": "Message has been sent successfully.",
+                "success": True,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+
 class NewsletterActivationAPIView(APIView):
     def get(self, request, *args, **kwargs):
         email = request.GET.get("email", None)

@@ -50,18 +50,50 @@ export interface Article {
   category: Category
 }
 
+export interface ArticleDetail {
+  datePosted: Date,
+  image: Image,
+  user: string,
+  title: string,
+  slug: string,
+  content: string,
+  tags: Tag[],
+  comments: Comment[],
+  category: Category
+}
+
+export interface ArticleDetailResponse {
+  article: ArticleDetail,
+  previousArticle: ArticleDetail | null,
+  nextArticle: ArticleDetail | null
+}
+
+export interface Comment {
+  datePosted: Date,
+  user: string,
+  fullname: string,
+  email: string,
+  content: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class BlogService {
   articlesApiUrl: string = environment.apiBaseUrl + 'api/v1/articles';
+  articleDetailApiUrl: string = environment.apiBaseUrl + 'api/v1/articles'
   categoryCountApiUrl: string = environment.apiBaseUrl + 'api/v1/articles/category-count';
   recentArticlesApiUrl: string = environment.apiBaseUrl + 'api/v1/articles/recent-articles';
   tagsApiUrl: string = environment.apiBaseUrl + 'api/v1/articles/tags';
   galleryApiUrl: string = environment.apiBaseUrl + 'api/v1/articles/gallery';
+  latestTravelGuideArticles: string = environment.apiBaseUrl + 'api/v1/articles/latest-travel-guide';
 
   constructor(private http: HttpClient) { }
+
+  getArticle(categorySlug: string, articleSlug: string): Observable<ArticleDetailResponse> {
+    return this.http.get<ArticleDetailResponse>(this.articlesApiUrl + `/${categorySlug}` + `/${articleSlug}`);
+  }
 
   getArticles(page: number, keyword?: string, category?: string, tag?: string): Observable<PaginatedResponse> {
     if (tag) {
@@ -92,5 +124,9 @@ export class BlogService {
 
   getGallery(): Observable<Image[]> {
     return this.http.get<Image[]>(this.galleryApiUrl);
+  }
+
+  getLatestTravelGuideArticles(): Observable<RecentArticle[]> {
+    return this.http.get<RecentArticle[]>(this.latestTravelGuideArticles);
   }
 }

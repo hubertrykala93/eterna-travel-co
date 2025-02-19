@@ -47,13 +47,23 @@
         </ul>
 
         <span class="font-normal text-caption text-heading opacity-40 mx-4">|</span>
-        <span class="font-normal text-caption text-heading mr-1">EUR</span>
+        <span class="font-normal text-caption text-heading mr-1 w-7">{{ selectedCurrency }}</span>
 
-        <div class="opacity-60">
+        <div class="relative" (click)="changeCurrency()">
           <svg class="w-[14px] h-[14px]" xmlns="http://www.w3.org/2000/svg" class="w-[14px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <title>Arrow down icon</title>
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
+
+          <div *ngIf="currencyChanged" class="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded-md p-2 z-50" (mouseleave)="selectedCurrencyOnMouseLeave($event)">
+            <ul class="font-normal text-caption text-heading">
+              <li class="px-4 py-2 hover:bg-surface cursor-pointer" (click)="selectCurrency('USD')">USD</li>
+              <li class="px-4 py-2 hover:bg-surface cursor-pointer" (click)="selectCurrency('EUR')">EUR</li>
+              <li class="px-4 py-2 hover:bg-surface cursor-pointer" (click)="selectCurrency('GBP')">GBP</li>
+              <li class="px-4 py-2 hover:bg-surface cursor-pointer" (click)="selectCurrency('PLN')">PLN</li>
+            </ul>
+          </div>
+
         </div>
       </div>
     </div>

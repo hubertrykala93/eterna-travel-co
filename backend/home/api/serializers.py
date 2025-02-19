@@ -4,6 +4,28 @@ from django.core.validators import RegexValidator
 from rest_framework.validators import UniqueValidator
 
 
+class ContactUsSerializer(serializers.Serializer):
+    name = serializers.CharField(
+        min_length=3,
+        max_length=255,
+        required=True,
+        trim_whitespace=True,
+        validators=[
+            RegexValidator(
+                regex=""
+            )
+        ],
+        error_messages={
+            "required": "Name is required.",
+            "blank": "Name is required.",
+            "min_length": "",
+            "max_length": "",
+        },
+    )
+    email = serializers.CharField()
+    content = serializers.CharField()
+
+
 class NewsletterSerializer(serializers.ModelSerializer):
     email = serializers.CharField(
         min_length=3,

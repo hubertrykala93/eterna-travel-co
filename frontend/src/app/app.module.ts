@@ -22,7 +22,6 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { ToursSortFormComponent } from './forms/tours/tours-sort-form/tours-sort-form.component';
 import { NewsletterFormComponent } from './forms/footer/newsletter-form/newsletter-form.component';
 import { ContactInfoComponent } from './contact-us/contact-info/contact-info.component';
-import { ContactUsFormComponent } from './forms/contact-us/contact-us-form/contact-us-form.component';
 import { HomeToursComponent } from './home/tours/home-tours/home-tours.component';
 import { HomeToursCardComponent } from './home/tours/home-tours-card/home-tours-card.component';
 import { SliderPaginationComponent } from './others/slider-pagination/slider-pagination.component';
@@ -38,8 +37,7 @@ import { HomeBrowseByCategoryCardComponent } from './home/why-choose-us/home-bro
 import { HomeTestimonialsComponent } from './home/testimonials/home-testimonials/home-testimonials.component';
 import { TestimonialsImageSectionComponent } from './home/testimonials/testimonials-image-section/testimonials-image-section.component';
 import { HomeTestimonialsQuoteComponent } from './home/testimonials/home-testimonials-quote/home-testimonials-quote.component';
-import { HomeUpdatesComponent } from './home/updates/home-updates/home-updates.component';
-import { HomeUpdatesCardComponent } from './home/updates/home-updates-card/home-updates-card.component';
+import { HomeUpdatesCardComponent } from './home/updates-card/updates-card.component';
 import { HomeLogosComponent } from './home/logos/home-logos/home-logos.component';
 import { AboutUsComponent } from './about/about-us/about-us.component';
 import { AboutFeaturesComponent } from './about/features/about-features/about-features.component';
@@ -54,6 +52,7 @@ import { MessageComponent } from './others/message/message.component';
 import { BlogSidebarComponent } from './blog/blog-sidebar/blog-sidebar.component';
 import { ArticlesByCategoryComponent } from './blog/articles-by-category/articles-by-category.component';
 import { ArticlesByTagComponent } from './blog/articles-by-tag/articles-by-tag.component';
+import { ArticleDetailsComponent } from './blog/article-details/article-details.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +74,6 @@ import { ArticlesByTagComponent } from './blog/articles-by-tag/articles-by-tag.c
     ToursSortFormComponent,
     NewsletterFormComponent,
     ContactInfoComponent,
-    ContactUsFormComponent,
     HomeToursComponent,
     HomeToursCardComponent,
     SliderPaginationComponent,
@@ -91,7 +89,6 @@ import { ArticlesByTagComponent } from './blog/articles-by-tag/articles-by-tag.c
     HomeTestimonialsComponent,
     TestimonialsImageSectionComponent,
     HomeTestimonialsQuoteComponent,
-    HomeUpdatesComponent,
     HomeUpdatesCardComponent,
     HomeLogosComponent,
     AboutUsComponent,
@@ -106,7 +103,8 @@ import { ArticlesByTagComponent } from './blog/articles-by-tag/articles-by-tag.c
     MessageComponent,
     BlogSidebarComponent,
     ArticlesByCategoryComponent,
-    ArticlesByTagComponent
+    ArticlesByTagComponent,
+    ArticleDetailsComponent
   ],
   imports: [
     BrowserModule,

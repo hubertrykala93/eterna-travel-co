@@ -89,6 +89,7 @@ class ArticleSerializer(serializers.ModelSerializer):
     image = ArticleImageSerializer()
     user = serializers.SlugRelatedField(queryset=User.objects.all(), slug_field="username")
     category = ArticleCategorySerializer()
+    tags = ArticleTagSerializer(many=True)
 
     class Meta:
         model = Article
@@ -100,18 +101,32 @@ class ArticleSerializer(serializers.ModelSerializer):
             "slug",
             "content",
             "category",
+
+            "tags",
+            "comments"
         ]
 
     def to_representation(self, instance):
         representation = super(ArticleSerializer, self).to_representation(instance=instance)
 
-        if representation.get("date_posted"):
-            representation["datePosted"] = representation.pop("date_posted")
+        if self.context.get("view") == "ArticleListAPIView":
+            if representation.get("date_posted"):
+                representation["datePosted"] = representation.pop("date_posted")
 
-        if representation.get("image").get("created_at"):
-            representation.get("image").pop("created_at")
+            if representation.get("image").get("created_at"):
+                representation.get("image").pop("created_at")
 
-        if representation.get("content"):
-            representation["content"] = strip_tags(' '.join(representation["content"].split(" ")[:19])) + "..."
+            if representation.get("content"):
+                representation["content"] = strip_tags(' '.join(representation["content"].split(" ")[:19])) + "..."
+
+            if representation.get("comments"):
+                representation.pop("comments")
+
+            if representation.get("tags"):
+                representation.pop("tags")
+
+        else:
+            if representation.get("date_posted"):
+                representation["datePosted"] = representation.pop("date_posted")
 
         return representation
