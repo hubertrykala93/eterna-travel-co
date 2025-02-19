@@ -51,7 +51,7 @@ export class ContactUsComponent {
         validators: [
           Validators.required,
           Validators.minLength(10),
-          Validators.maxLength(255)
+          Validators.maxLength(1000)
         ]
       })
     })
@@ -79,7 +79,12 @@ export class ContactUsComponent {
         }
       },
       error: error => {
-        console.log(error)
+        this.contactForm.hasError
+        if (error.status === 500) {
+          this.contactForm.setErrors({
+            SMTPError : 'Something went wrong. Please try again later...'
+          })
+        }
       }
     })
   }

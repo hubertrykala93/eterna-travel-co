@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
-from .serializers import NewsletterSerializer
+from .serializers import NewsletterSerializer, ContactUsSerializer
 from home.models import Newsletter
 from django.db import transaction
 from django.db import IntegrityError, DatabaseError
@@ -15,13 +15,111 @@ from django.contrib.sites.shortcuts import get_current_site
 
 class ContactUsAPIView(APIView):
     def post(self, request, *args, **kwargs):
-        return Response(
-            data={
-                "detail": "Message has been sent successfully.",
-                "success": True,
-            },
-            status=status.HTTP_200_OK,
-        )
+        serializer = ContactUsSerializer(data=request.data)
+
+        if serializer.is_valid():
+            try:
+                html_message = render_to_string(
+                    template_name="home/contact-email.html",
+                    context={
+                        "data": request.data,
+                    },
+                    request=request,
+                )
+
+                plain_message = strip_tags(html_message)
+
+                message = EmailMultiAlternatives(
+                    subject="Request from Eterna Travel Co.",
+                    body=plain_message,
+                    from_email=os.environ.get("EMAIL_HOST_USER"),
+                    to=[os.environ.get("EMAIL_HOST_USER")],
+                )
+                message.attach_alternative(
+                    content=html_message,
+                    mimetype="text/html"
+                )
+                message.send()
+
+                return Response(
+                    data={
+                        "detail": "Message has been sent successfully.",
+                        "success": True,
+                    },
+                    status=status.HTTP_200_OK,
+                )
+
+            except SMTPException as e:
+                return Response(
+                    data={
+                        "detail": "Failed to send the email due to SMTP configuration issues.",
+                    },
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                )
+
+            except SMTPAuthenticationError:
+                return Response(
+                    data={
+                        "detail": "Authentication with the email server failed.",
+                    },
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                )
+
+            except ConnectionRefusedError:
+                return Response(
+                    data={
+                        "detail": "Unable to connect to the email server.",
+                    },
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                )
+
+            except TimeoutError:
+                return Response(
+                    data={
+                        "detail": "Connection to the email server timed out.",
+                    },
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                )
+
+
+            except IntegrityError:
+                return Response(
+                    data={
+                        "detail": "Integrity error occured.",
+                    },
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                )
+
+            except DatabaseError:
+                return Response(
+                    data={
+                        "detail": "Database integrity error.",
+                    },
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                )
+
+            except Exception:
+                return Response(
+                    data={
+                        "detail": "An unexpected error occured.",
+                    },
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                )
+
+        else:
+            errors = {
+                key: str(value[0])
+                for key, value
+                in serializer.errors.items()
+            }
+
+            return Response(
+                data={
+                    "detail": "Validation failed.",
+                    "errors": errors,
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
 
 class NewsletterActivationAPIView(APIView):
