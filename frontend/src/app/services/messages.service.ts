@@ -6,21 +6,20 @@ export type MessageType = 'success' | 'error' | 'info' | 'warning';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MessagesService {
-  messageSource = new BehaviorSubject<{ message: string, type: MessageType} | null>(null)
-  message = this.messageSource.asObservable()
+    messageSubject = new BehaviorSubject<{ message: string, type: MessageType} | null>(null)
+    message = this.messageSubject.asObservable()
 
-  showMessage(message: string, type: MessageType): void {
-    this.messageSource.next({ message, type })
+    showMessage(message: string, type: MessageType): void {
+      this.messageSubject.next({ message, type })
 
-    setTimeout(() => {
-      this.clearMessage();
-    }, 3000)
+      setTimeout(() => {
+        this.clearMessage();
+      }, 3000)
+    }
 
+    clearMessage(): void {
+      this.messageSubject.next(null);
+    }
   }
-
-  clearMessage(): void {
-    this.messageSource.next(null);
-  }
-
-}

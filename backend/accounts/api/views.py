@@ -11,9 +11,13 @@ from django.utils.html import strip_tags
 from django.core.mail import EmailMultiAlternatives
 from smtplib import SMTPException, SMTPAuthenticationError
 from django.db import IntegrityError, DatabaseError
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 class RegisterAPIView(APIView):
+    permission_classes = [AllowAny]
+
     def post(self, request, *args, **kwargs):
         if User.objects.filter(username=request.data.get("username")).exists():
             return Response(
@@ -48,10 +52,11 @@ class RegisterAPIView(APIView):
             try:
                 with transaction.atomic():
                     user = User(
-                        username=serializer.data.get("username"),
-                        email=serializer.data.get("email"),
+                        username=serializer.validated_data.get("username"),
+                        email=serializer.validated_data.get("email"),
                     )
-                    user.set_password(serializer.data.get("password"))
+                    user.set_password(serializer.validated_data.get("password"))
+
                     user.save()
 
                     token = token_generator.make_token(user=user)
@@ -164,4 +169,139 @@ class RegisterAPIView(APIView):
 
 
 class AccountActivationAPIView(APIView):
-    pass
+    permission_classes = [AllowAny]
+
+    def get(self, request, *args, **kwargs):
+        email = request.query_params.get("email", None)
+        token = request.query_params.get("token", None)
+
+        if not email:
+            return Response(
+                data={
+                    "error": "There is not email in query params.",
+                    "code": "invalid_data",
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if not token:
+            return Response(
+                data={
+                    "error": "There is not token in query params.",
+                    "code": "invalid_data",
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        try:
+            user = User.objects.get(email=email)
+
+            if user.is_verified:
+                return Response(
+                    data={
+                        "detail": "User has been already verified.",
+                        "code": "already_verified",
+                    },
+                    status=status.HTTP_200_OK,
+                )
+
+            if not token_generator.check_token(user=user, token=token):
+                return Response(
+                    data={
+                        "error": "Activation token is incorrect.",
+                        "code": "invalid_data",
+                    },
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+            user.is_verified = True
+            user.save()
+
+            return Response(
+                data={
+                    "detail": "Account has been successfully verified.",
+                    "success": True,
+                },
+                status=status.HTTP_200_OK,
+            )
+
+        except User.DoesNotExist:
+            return Response(
+                data={
+                    "error": "User does not exists.",
+                    "code": "user_does_not_exists",
+                },
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        except Exception as e:
+            return Response(
+                data={
+                    "errors": "An unexpected error occurred.",
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+
+class LoginAPIView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        email = request.data.get("email", None)
+        password = request.data.get("password", None)
+
+        if not email or not password:
+            return Response(
+                data={
+                    "error": "Invalid data.",
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        try:
+            user = User.objects.get(email=email)
+
+            if user.check_password(raw_password=password.strip()):
+                refresh = RefreshToken.for_user(user=user)
+
+                return Response(
+                    data={
+                        "detail": "Login successful.",
+                        "refresh_token": str(refresh),
+                        "access_token": str(refresh.access_token),
+                        "data": {
+                            "id": user.id,
+                            "username": user.username,
+                            "email": user.email,
+                        },
+                        "success": True,
+                    },
+                    status=status.HTTP_200_OK,
+                )
+
+            else:
+                return Response(
+                    data={
+                        "error": "Incorrect email or password.",
+                        "code": "incorrect_data",
+                    },
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+        except User.DoesNotExist:
+            return Response(
+                data={
+                    "error": "Incorrect email or password.",
+                    "code": "incorrect_data",
+                },
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        except Exception as e:
+            return Response(
+                data={
+                    "error": "An unexpected error occured.",
+                    "code": "unknown_error",
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )

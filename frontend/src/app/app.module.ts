@@ -54,6 +54,7 @@ import { ArticlesByCategoryComponent } from './blog/articles-by-category/article
 import { ArticlesByTagComponent } from './blog/articles-by-tag/articles-by-tag.component';
 import { ArticleDetailsComponent } from './blog/article-details/article-details.component';
 import { AuthenticateComponent } from './authentication/authenticate/authenticate.component';
+import { AccountActivationComponent } from './authentication/account-activation/account-activation.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +108,7 @@ import { AuthenticateComponent } from './authentication/authenticate/authenticat
     ArticlesByTagComponent,
     ArticleDetailsComponent,
     AuthenticateComponent,
+    AccountActivationComponent,
   ],
   imports: [
     BrowserModule,

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "accounts",
     "articles",
     "django_summernote",
+    "rest_framework_simplejwt",
 ]
 
 MIDDLEWARE = [
@@ -158,3 +159,13 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # Password Reset
 PASSWORD_RESET_TIMEOUT = int(os.environ.get("PASSWORD_RESET_TIMEOUT"))
+
+# Rest Framework
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ]
+}

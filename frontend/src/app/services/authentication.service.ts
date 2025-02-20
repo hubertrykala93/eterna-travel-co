@@ -15,11 +15,30 @@ export interface RegisterUserData {
   repassword: string
 }
 
+export interface AccountActivationData {
+  email: string,
+  token: string
+}
+
+export interface LoginData {
+  email: string,
+  password: string
+}
+
 export interface RegisterResponse {
   detail?: string,
   errors?: Errors[] | string,
   success?: boolean,
   code?: string,
+}
+
+export interface LoginResponse {
+  detail?: string,
+  success?: boolean,
+  error?: string,
+  code?: string,
+  access_token: string,
+  refresh_token: string
 }
 
 @Injectable({
@@ -28,6 +47,7 @@ export interface RegisterResponse {
 export class AuthenticationService {
   registerUserApiUrl: string = environment.apiBaseUrl + 'api/v1/register';
   accountActivationApiUrl: string = environment.apiBaseUrl + 'api/v1/account-activate';
+  loginApiUrl: string = environment.apiBaseUrl + 'api/v1/login';
 
   constructor(private http: HttpClient) { }
 
@@ -35,7 +55,11 @@ export class AuthenticationService {
     return this.http.post<RegisterResponse>(this.registerUserApiUrl, data);
   }
 
-  accountActivation(): Observable<any> {
-    return this.http.get(this.accountActivationApiUrl);
+  accountActivation(params: AccountActivationData): Observable<RegisterResponse> {
+    return this.http.get<RegisterResponse>(this.accountActivationApiUrl + '?email=' + params['email'] + '&token=' + params['token']);
+  }
+
+  loginUser(data: LoginData): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(this.loginApiUrl, data)
   }
 }

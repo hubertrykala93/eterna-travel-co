@@ -13,6 +13,7 @@ class AdminUser(admin.ModelAdmin):
         "formatted_date_joined",
         "username",
         "email",
+        "password",
         "formatted_last_login",
         "is_active",
         "is_verified",

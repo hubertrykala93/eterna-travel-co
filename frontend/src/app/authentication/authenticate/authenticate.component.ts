@@ -1,7 +1,8 @@
 import { AuthenticationService } from './../../services/authentication.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Component } from '@angular/core';
+import { MessagesService } from 'src/app/services/messages.service';
 
 export function passwordMissmatchValidator(formControlName: string): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -29,9 +30,15 @@ export class AuthenticateComponent {
   activeButton: string = 'signUp';
   passwordVisible: boolean = false;
   registerForm: FormGroup;
+  loginForm: FormGroup;
   registerSuccessMessage: string = '';
 
-  constructor(private route: ActivatedRoute, private authService: AuthenticationService) {
+  constructor(
+    private route: ActivatedRoute,
+    private authService: AuthenticationService,
+    private router: Router,
+    private messageService: MessagesService
+    ) {
     this.registerForm = new FormGroup({
       username: new FormControl('' , {
         validators: [
@@ -65,6 +72,15 @@ export class AuthenticateComponent {
           Validators.required,
           passwordMissmatchValidator('password')
         ]
+      })
+    })
+
+    this.loginForm = new FormGroup({
+      email: new FormControl('', {
+        validators: Validators.required
+      }),
+      password: new FormControl('', {
+        validators: Validators.required
       })
     })
   }
@@ -124,6 +140,37 @@ export class AuthenticateComponent {
 
         if (error.status === 500) {
           this.registerForm.setErrors({ serverError : 'Something went wrong. Please try again later...'})
+        }
+      }
+    })
+  }
+
+  loginFormOnSubmit(): void {
+    const data = {
+      email: this.loginForm.get('email')?.value,
+      password: this.loginForm.get('password')?.value
+    }
+
+    this.authService.loginUser(data).subscribe({
+      next: response => {
+        if (response.success) {
+          this.loginForm.reset();
+
+          this.messageService.showMessage('You have been successfully logged in.', 'success');
+
+          sessionStorage.setItem('accessToken', response.access_token);
+          sessionStorage.setItem('refreshToken', response.refresh_token);
+
+          this.router.navigate(['/'])
+        }
+      },
+      error: error => {
+        if (error.error.code === 'incorrect_data') {
+          this.loginForm.setErrors({ incorrectDataError : 'Incorrect email or password.' })
+        }
+
+        if (error.error.code === 'unknown_error') {
+          this.loginForm.setErrors({ unknownError : 'Something went wrong. Please try again.'})
         }
       }
     })

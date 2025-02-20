@@ -1,3 +1,4 @@
+import { AccountActivationComponent } from './authentication/account-activation/account-activation.component';
 import { AuthenticateComponent } from './authentication/authenticate/authenticate.component';
 import { ArticleDetailsComponent } from './blog/article-details/article-details.component';
 import { ArticlesByTagComponent } from './blog/articles-by-tag/articles-by-tag.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'about-us', component: AboutComponent },
   { path: 'contact-us', component: ContactUsComponent},
   { path: 'authenticate/:mode', component: AuthenticateComponent},
+  { path: 'account-activate', component: AccountActivationComponent},
   { path: 'blog', component: BlogComponent},
   { path: 'blog/category/:slug', component: ArticlesByCategoryComponent},
   { path: 'blog/tag/:slug', component: ArticlesByTagComponent},

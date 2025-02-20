@@ -90,19 +90,37 @@
     </ng-container>
 
     <ng-template #signIn>
-      <form class="border-[1px] rounded-lg border-heading border-opacity-10 px-6 py-12">
+      <form class="border-[1px] rounded-lg border-heading border-opacity-10 px-6 py-12" [formGroup]="loginForm" (ngSubmit)="loginFormOnSubmit()">
 
         <div class="mb-4">
           <label class="block font-semibold text-bodySmall text-heading text-opacity-60 mb-2" for="email">Email *</label>
-          <input class="font-light text-body border-[1px] border-opacity-10 px-3 py-2 w-full" id="email" type="text" placeholder="Email">
+          <input formControlName="email" class="font-light text-body border-[1px] border-opacity-10 px-3 py-2 w-full" id="email" type="text" placeholder="Email">
+
+          <ng-container *ngIf="loginForm.get('email')?.touched || loginForm.get('email')?.dirty">
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</span>
+          </ng-container>
         </div>
 
         <div class="mb-8">
           <label class="block font-semibold text-bodySmall text-heading text-opacity-60 mb-2" for="password">Password *</label>
-          <input class="font-light text-body border-[1px] border-opacity-10 px-3 py-2 w-full" id="password" type="text" placeholder="Password">
+
+          <div class="relative">
+            <input formControlName="password" class="font-light text-body border-[1px] border-opacity-10 px-3 py-2 w-full" id="password" [type]="passwordVisible ? 'text' : 'password' " placeholder="Password">
+
+            <i *ngIf="!passwordVisible" class="absolute top-1/2 right-4 transform -translate-y-1/2 fa-solid fa-eye cursor-pointer text-heading opacity-60" (click)="setPasswordVisibility()"></i>
+            <i *ngIf="passwordVisible" class="absolute top-1/2 right-4 transform -translate-y-1/2 fa-solid fa-eye-slash cursor-pointer text-heading opacity-60" (click)="setPasswordVisibility()"></i>
+          </div>
+
+          <ng-container *ngIf="loginForm.get('password')?.touched || loginForm.get('password')?.dirty">
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</span>
+          </ng-container>
         </div>
 
-        <button class="bg-brandPrimary rounded-md text-action font-normal text-white py-3 text-center w-full hover:bg-heading duration-300">Submit</button>
+        <button class="bg-brandPrimary rounded-md text-action font-normal text-white py-3 text-center w-full" [disabled]="loginForm.invalid" [ngClass]="{ 'hover:bg-heading duration-300' : loginForm.valid }">Submit</button>
+
+        <ng-container *ngFor="let errorKey of ['incorrectDataError', 'unknownError']">
+          <span class="block text-xs font-light text-errorColor mt-2" *ngIf="loginForm.hasError(errorKey)">{{ loginForm.getError(errorKey) }}</span>
+        </ng-container>
       </form>
 
       <div class="text-center my-6">
