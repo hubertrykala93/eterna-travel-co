@@ -15,6 +15,7 @@ class AdminUser(admin.ModelAdmin):
         "email",
         "formatted_last_login",
         "is_active",
+        "is_verified",
         "is_staff",
         "is_superuser",
     ]
@@ -33,6 +34,7 @@ class AdminUser(admin.ModelAdmin):
             "Permissions", {
                 "fields": [
                     "is_active",
+                    "is_verified",
                     "is_staff",
                     "is_superuser",
                 ]

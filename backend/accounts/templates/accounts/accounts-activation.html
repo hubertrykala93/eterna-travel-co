@@ -1,0 +1,13 @@
+<h3>Congratulations on registering on the Eterna Travel Co. platform.</h3>
+
+<p>Click on the link below to activate your account:</p>
+
+<a target="_blank" href="{% if request.is_secure %}https{% else %}http{% endif %}://{{ domain }}/account-activate?email={{ email }}&token={{ token }}">Activation link</a>
+<p>Please note that the activation link is valid for 5 minutes. If you do not activate your account within this time, you will need to register again.</p>
+
+<p>
+  <strong>
+    Sincerely, <br>
+    The Eterna Travel Co. Team.
+  </strong>
+</p>

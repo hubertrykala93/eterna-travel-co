@@ -25,6 +25,7 @@ urlpatterns = [
     path("", include("home.api.urls"), name="home-views"),
     path("summernote/", include(arg=summernote_urls)),
     path("", include("articles.api.urls"), name="articles-views"),
+    path("", include("accounts.api.urls"), name="accounts-views")
 ]
 
 if settings.DEBUG:

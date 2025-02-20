@@ -23,6 +23,10 @@ class AdminUserForm(forms.ModelForm):
         help_text="Mark if this user should be active.",
         initial=True,
     )
+    is_verified = forms.BooleanField(
+        required=False,
+        help_text="Mark if this user should be verified.",
+    )
     is_staff = forms.BooleanField(
         required=False,
         help_text="Mark if this user should be staff.",
@@ -39,6 +43,7 @@ class AdminUserForm(forms.ModelForm):
             "email",
             "password",
             "is_active",
+            "is_verified",
             "is_staff",
             "is_superuser",
         ]

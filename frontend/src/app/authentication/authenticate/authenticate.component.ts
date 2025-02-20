@@ -1,6 +1,24 @@
+import { AuthenticationService } from './../../services/authentication.service';
 import { ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Component } from '@angular/core';
+
+export function passwordMissmatchValidator(formControlName: string): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    if (!control.parent) {
+      return null;
+    } else {
+      const password = control.parent.value['password'];
+
+      if (control.value != password) {
+        return { passwordMissmatchError : 'The confirmation password does not match the entered password.' };
+      } else {
+        return null;
+      }
+    }
+
+  }
+}
 
 @Component({
   selector: 'app-authenticate',
@@ -11,8 +29,9 @@ export class AuthenticateComponent {
   activeButton: string = 'signUp';
   passwordVisible: boolean = false;
   registerForm: FormGroup;
+  registerSuccessMessage: string = '';
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private authService: AuthenticationService) {
     this.registerForm = new FormGroup({
       username: new FormControl('' , {
         validators: [
@@ -44,6 +63,7 @@ export class AuthenticateComponent {
       repassword: new FormControl('', {
         validators: [
           Validators.required,
+          passwordMissmatchValidator('password')
         ]
       })
     })
@@ -77,6 +97,35 @@ export class AuthenticateComponent {
       email: this.registerForm.get('email')?.value,
       password: this.registerForm.get('password')?.value,
       repassword: this.registerForm.get('repassword')?.value
-    }
+    };
+
+    this.authService.registerUser(data).subscribe({
+      next: response => {
+        this.registerForm.reset();
+
+        if (response.success) {
+          this.registerSuccessMessage = 'The account has been successfully created. Check your email to activate your account.';
+
+          setTimeout(() => {
+            this.registerSuccessMessage = ''
+          }, 3000)
+        }
+      },
+      error: error => {
+        this.registerForm.reset();
+
+        if (error.error.code === 'username_exists') {
+          this.registerForm.get('username')?.setErrors({ usernameUniqueError : 'The username already exists, please choose a different one.' })
+        }
+
+        if (error.error.code === 'email_exists') {
+          this.registerForm.get('email')?.setErrors({ emailUniqueError : 'The email already exists, please choose a different one.' })
+        }
+
+        if (error.status === 500) {
+          this.registerForm.setErrors({ serverError : 'Something went wrong. Please try again later...'})
+        }
+      }
+    })
   }
 }
