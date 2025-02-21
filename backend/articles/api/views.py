@@ -6,9 +6,11 @@ from rest_framework.views import APIView
 from django.db.models import Q
 from articles.models import Article, ArticleCategory, ArticleTag, ArticleImage
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import AllowAny
 
 
 class ArticleGalleryAPIView(APIView):
+    permission_classes = [AllowAny]
     def get(self, request, *args, **kwargs):
         serializer = ArticleImageSerializer(
             ArticleImage.objects.all().order_by("-created_at"),
@@ -25,6 +27,8 @@ class ArticleGalleryAPIView(APIView):
 
 
 class ArticleTagAPIView(APIView):
+    permission_classes = [AllowAny]
+
     def get(self, request, *args, **kwargs):
         serializer = ArticleTagSerializer(
             ArticleTag.objects.all().order_by("name"),
@@ -38,6 +42,8 @@ class ArticleTagAPIView(APIView):
 
 
 class RecentArticlesAPIView(APIView):
+    permission_classes = [AllowAny]
+
     def get(self, request, *args, **kwargs):
         serializer = RecentArticlesSerializer(
             Article.objects.all().order_by("-date_posted")[:3],
@@ -54,6 +60,8 @@ class RecentArticlesAPIView(APIView):
 
 
 class CategoryCountAPIView(APIView):
+    permission_classes = [AllowAny]
+
     def get(self, request, *args, **kwargs):
         serializer = CategoryCountSerializer(
             ArticleCategory.objects.all().order_by("name"),
@@ -71,6 +79,7 @@ class ArticlePagination(PageNumberPagination):
 
 
 class ArticleListAPIView(APIView):
+    permission_classes = [AllowAny]
     pagination_class = ArticlePagination
 
     def get_queryset(self, keyword=None, category=None, tag=None):
@@ -164,6 +173,8 @@ class ArticleListAPIView(APIView):
 
 
 class ArticleDetailAPIView(APIView):
+    permission_classes = [AllowAny]
+
     def get(self, request, *args, **kwargs):
         article_slug = kwargs.get("article_slug")
 
@@ -213,6 +224,8 @@ class ArticleDetailAPIView(APIView):
 
 
 class LatestTravelArticlesAPIView(APIView):
+    permission_classes = [AllowAny]
+
     def get(self, request, *args, **kwargs):
         serializer = RecentArticlesSerializer(
             Article.objects.all().order_by("-date_posted")[:4],

@@ -1,5 +1,6 @@
+import { AuthenticationService } from './../services/authentication.service';
 import { BlogService } from 'src/app/services/blog.service';
-import { Component, ValueProvider, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RecentArticle } from '../services/blog.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { RecentArticle } from '../services/blog.service';
 export class HomeComponent implements OnInit {
   latestArticles: RecentArticle[] = [];
 
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogService, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.blogService.getLatestTravelGuideArticles().subscribe({

@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments';
@@ -32,20 +32,30 @@ export interface RegisterResponse {
   code?: string,
 }
 
+export interface LoginResponseData {
+  id: number,
+  username: string,
+  email: string
+}
+
 export interface LoginResponse {
   detail?: string,
   success?: boolean,
   error?: string,
   code?: string,
   access_token: string,
-  refresh_token: string
+  refresh_token: string,
+  data?: LoginResponseData
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  registerUserApiUrl: string = environment.apiBaseUrl + 'api/v1/register';
+  authStatusSubject = new BehaviorSubject<true | false>(this.isAuthenticated());
+  authStatus$ = this.authStatusSubject.asObservable();
+
+  registerUserApiUrl: string = environment.apiBaseUrl + 'api/v1/accounts';
   accountActivationApiUrl: string = environment.apiBaseUrl + 'api/v1/account-activate';
   loginApiUrl: string = environment.apiBaseUrl + 'api/v1/login';
 
@@ -61,5 +71,31 @@ export class AuthenticationService {
 
   loginUser(data: LoginData): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(this.loginApiUrl, data)
+  }
+
+  setAuthenticationSession(refresh: string, access: string, id: number): void {
+    sessionStorage.setItem('refreshToken', refresh)
+    sessionStorage.setItem('accessToken', access)
+    sessionStorage.setItem('id', id.toString());
+
+    this.authStatusSubject.next(true);
+  };
+
+  isAuthenticated(): boolean {
+    if (sessionStorage.getItem('accessToken')) {
+      return true;
+    } else {
+      return false;
+    };
+  }
+
+  logout(): void {
+    if (sessionStorage.getItem('accessToken') && sessionStorage.getItem('refreshToken') && sessionStorage.getItem('id')) {
+      sessionStorage.removeItem('accessToken');
+      sessionStorage.removeItem('refreshToken');
+      sessionStorage.removeItem('id');
+
+      this.authStatusSubject.next(false);
+    }
   }
 }

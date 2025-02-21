@@ -158,8 +158,13 @@ export class AuthenticateComponent {
 
           this.messageService.showMessage('You have been successfully logged in.', 'success');
 
-          sessionStorage.setItem('accessToken', response.access_token);
-          sessionStorage.setItem('refreshToken', response.refresh_token);
+          if (response.data?.id) {
+            this.authService.setAuthenticationSession(
+              response.refresh_token,
+              response.access_token,
+              response.data?.['id']
+            )
+          }
 
           this.router.navigate(['/'])
         }
@@ -167,11 +172,11 @@ export class AuthenticateComponent {
       error: error => {
         if (error.error.code === 'incorrect_data') {
           this.loginForm.setErrors({ incorrectDataError : 'Incorrect email or password.' })
-        }
+        };
 
         if (error.error.code === 'unknown_error') {
           this.loginForm.setErrors({ unknownError : 'Something went wrong. Please try again.'})
-        }
+        };
       }
     })
   }

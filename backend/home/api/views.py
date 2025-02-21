@@ -11,9 +11,12 @@ from django.core.mail import EmailMultiAlternatives
 import os
 from smtplib import SMTPException, SMTPAuthenticationError
 from django.contrib.sites.shortcuts import get_current_site
+from rest_framework.permissions import AllowAny
 
 
 class ContactUsAPIView(APIView):
+    permission_classes = [AllowAny]
+
     def post(self, request, *args, **kwargs):
         serializer = ContactUsSerializer(data=request.data)
 
@@ -123,6 +126,8 @@ class ContactUsAPIView(APIView):
 
 
 class NewsletterActivationAPIView(APIView):
+    permission_classes = [AllowAny]
+
     def get(self, request, *args, **kwargs):
         email = request.GET.get("email", None)
         token = request.GET.get("token", None)
@@ -185,6 +190,8 @@ class NewsletterActivationAPIView(APIView):
 
 
 class CreateNewsletterAPIView(APIView):
+    permission_classes = [AllowAny]
+    
     def post(self, request, *args, **kwargs):
         serializer = NewsletterSerializer(data=request.data)
 

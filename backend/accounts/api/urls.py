@@ -3,9 +3,9 @@ from . import views as accounts_views
 
 urlpatterns = [
     path(
-        "api/v1/register",
+        "api/v1/accounts",
         accounts_views.RegisterAPIView.as_view(),
-        name="register",
+        name="accounts",
     ),
     path(
         "api/v1/account-activate",

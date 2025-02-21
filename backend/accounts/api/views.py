@@ -11,8 +11,8 @@ from django.utils.html import strip_tags
 from django.core.mail import EmailMultiAlternatives
 from smtplib import SMTPException, SMTPAuthenticationError
 from django.db import IntegrityError, DatabaseError
-from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
 
 class RegisterAPIView(APIView):

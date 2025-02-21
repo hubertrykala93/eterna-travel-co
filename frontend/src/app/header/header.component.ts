@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../services/authentication.service';
 import { environment } from '../environments';
 import { Component } from '@angular/core';
 
@@ -7,9 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  isLoggedIn: boolean = false;
   logoUrl: string = environment.mediaUrl + 'logo/eterna-travel-co-logo.png';
   currencyChanged: boolean = false;
   selectedCurrency: string = 'USD';
+
+  constructor(private authService: AuthenticationService) {
+    this.authService.authStatus$.subscribe(status => {
+      this.isLoggedIn = status;
+    });
+  }
 
   changeCurrency(): void {
     this.currencyChanged = true;
@@ -27,5 +35,9 @@ export class HeaderComponent {
     if (event) {
       this.currencyChanged = false;
     }
+  }
+
+  logoutUser(): void {
+    this.authService.logout();
   }
 }
