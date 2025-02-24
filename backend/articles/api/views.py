@@ -11,6 +11,7 @@ from rest_framework.permissions import AllowAny
 
 class ArticleGalleryAPIView(APIView):
     permission_classes = [AllowAny]
+
     def get(self, request, *args, **kwargs):
         serializer = ArticleImageSerializer(
             ArticleImage.objects.all().order_by("-created_at"),

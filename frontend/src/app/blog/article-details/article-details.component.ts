@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../services/authentication.service';
 import { ArticleDetail, ArticleDetailResponse } from './../../services/blog.service';
 import { BlogService } from 'src/app/services/blog.service';
 import { ActivatedRoute } from '@angular/router';
@@ -10,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ArticleDetailsComponent implements OnInit {
+  isLoggedIn: boolean = false;
+
   article?: ArticleDetail;
   nextArticle?: ArticleDetail | null;
   previousArticle?: ArticleDetail | null;
@@ -19,8 +22,13 @@ export class ArticleDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private blogService: BlogService
-    ) { }
+    private blogService: BlogService,
+    private authService: AuthenticationService
+    ) {
+      this.authService.authStatus$.subscribe(status => {
+        this.isLoggedIn = status;
+      })
+    }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {

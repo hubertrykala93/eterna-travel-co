@@ -29,7 +29,7 @@
             <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('username')?.errors?.['minlength']">The username should be at least 3 characters long.</span>
             <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('username')?.errors?.['maxlength']">The username should not exceed 255 characters.</span>
             <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('username')?.hasError('pattern')">Username can only contain letters, numbers, hyphens (-), underscores (_), and dots (.)</span>
-            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('username')?.hasError('usernameUniqueError')">{{ registerForm.get('username')?.errors?.['usernameUniqueError'] }}</span>
+            <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('username')?.hasError('usernameUniqueError')">{{ registerForm.get('username')?.getError('usernameUniqueError') }}</span>
           </ng-container>
         </div>
 
@@ -70,6 +70,7 @@
           <ng-container *ngIf="registerForm.get('repassword')?.touched || registerForm.get('repassword')?.dirty">
             <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('repassword')?.errors?.['required']">Confirm Password is required.</span>
             <span class="block text-xs font-light text-errorColor mt-1" *ngIf="registerForm.get('repassword')?.hasError('passwordMissmatchError')">{{ registerForm.get('repassword')?.getError('passwordMissmatchError') }}</span>
+            <span class="block text-xs-font-light text-errorColor mt-1" *ngIf="registerForm.get('repassword')?.hasError('passwordNotSameError')">{{ registerForm.get('repassword')?.getError('passwordNotSameError') }}</span>
           </ng-container>
         </div>
 

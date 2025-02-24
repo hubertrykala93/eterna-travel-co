@@ -1,6 +1,7 @@
 import { AuthenticationService } from './../services/authentication.service';
 import { environment } from '../environments';
 import { Component } from '@angular/core';
+import { MessagesService } from '../services/messages.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,10 @@ export class HeaderComponent {
   currencyChanged: boolean = false;
   selectedCurrency: string = 'USD';
 
-  constructor(private authService: AuthenticationService) {
+  constructor(
+    private authService: AuthenticationService,
+    private messageService: MessagesService
+    ) {
     this.authService.authStatus$.subscribe(status => {
       this.isLoggedIn = status;
     });
@@ -39,5 +43,7 @@ export class HeaderComponent {
 
   logoutUser(): void {
     this.authService.logout();
+
+    this.messageService.showMessage('You have been successfully logged out.', 'success')
   }
 }

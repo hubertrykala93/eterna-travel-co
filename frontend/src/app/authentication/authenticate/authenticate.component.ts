@@ -117,6 +117,7 @@ export class AuthenticateComponent {
 
     this.authService.registerUser(data).subscribe({
       next: response => {
+        console.log(response)
         this.registerForm.reset();
 
         if (response.success) {
@@ -128,14 +129,20 @@ export class AuthenticateComponent {
         }
       },
       error: error => {
-        this.registerForm.reset();
+        console.log(error)
 
         if (error.error.code === 'username_exists') {
+          console.log('Username Exists')
           this.registerForm.get('username')?.setErrors({ usernameUniqueError : 'The username already exists, please choose a different one.' })
+          console.log(this.registerForm.get('username')?.errors)
         }
 
         if (error.error.code === 'email_exists') {
           this.registerForm.get('email')?.setErrors({ emailUniqueError : 'The email already exists, please choose a different one.' })
+        }
+
+        if (error.error.code === 'password_not_same') {
+          this.registerForm.get('repassword')?.setErrors({ passwordNotSameError : 'The confirmation password does not match the entered password.' })
         }
 
         if (error.status === 500) {

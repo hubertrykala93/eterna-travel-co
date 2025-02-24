@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     "articles",
     "django_summernote",
     "rest_framework_simplejwt",
+    "destinations",
+    "tours",
 ]
 
 MIDDLEWARE = [
