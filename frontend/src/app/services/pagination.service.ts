@@ -1,12 +1,14 @@
-import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PaginationService {
-  private currentPageSubject: BehaviorSubject<number> = new BehaviorSubject<number>(1);
-  private totalPagesSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  private currentPageSubject: BehaviorSubject<number> =
+    new BehaviorSubject<number>(1);
+  private totalPagesSubject: BehaviorSubject<number> =
+    new BehaviorSubject<number>(0);
 
   currentPage$ = this.currentPageSubject.asObservable();
   totalPages$ = this.totalPagesSubject.asObservable();
