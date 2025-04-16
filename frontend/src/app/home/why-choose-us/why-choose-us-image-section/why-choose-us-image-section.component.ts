@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { environment } from './../../../environments';
 
 @Component({
-  selector: 'app-why-choose-us-image-section',
-  templateUrl: './why-choose-us-image-section.component.html',
-  styleUrls: ['./why-choose-us-image-section.component.css']
+    selector: 'app-why-choose-us-image-section',
+    templateUrl: './why-choose-us-image-section.component.html',
+    styleUrls: ['./why-choose-us-image-section.component.css'],
+    standalone: false
 })
 
 export class WhyChooseUsImageSectionComponent {

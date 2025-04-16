@@ -2,9 +2,10 @@ import { environment } from './../../environments';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-contact-info',
-  templateUrl: './contact-info.component.html',
-  styleUrls: ['./contact-info.component.css']
+    selector: 'app-contact-info',
+    templateUrl: './contact-info.component.html',
+    styleUrls: ['./contact-info.component.css'],
+    standalone: false
 })
 export class ContactInfoComponent {
   emailIconUrl: string = environment.mediaUrl + 'icons/mail-icon.svg';

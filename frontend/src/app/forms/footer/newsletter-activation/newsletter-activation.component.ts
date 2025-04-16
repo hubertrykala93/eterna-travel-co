@@ -4,9 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-newsletter-activation',
-  templateUrl: './newsletter-activation.component.html',
-  styleUrls: ['./newsletter-activation.component.css']
+    selector: 'app-newsletter-activation',
+    templateUrl: './newsletter-activation.component.html',
+    styleUrls: ['./newsletter-activation.component.css'],
+    standalone: false
 })
 export class NewsletterActivationComponent {
   constructor(

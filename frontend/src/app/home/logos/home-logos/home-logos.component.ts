@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { environment } from 'src/app/environments';
 
 @Component({
-  selector: 'app-home-logos',
-  templateUrl: './home-logos.component.html',
-  styleUrls: ['./home-logos.component.css']
+    selector: 'app-home-logos',
+    templateUrl: './home-logos.component.html',
+    styleUrls: ['./home-logos.component.css'],
+    standalone: false
 })
 export class HomeLogosComponent {
   letsGoImageUrl: string = environment.mediaUrl + 'home/logos/lets-go-logo.svg';

@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 import { environment } from 'src/app/environments';
 
 @Component({
-  selector: 'app-tours-listing',
-  templateUrl: './tours-listing.component.html',
-  styleUrls: ['./tours-listing.component.css']
+    selector: 'app-tours-listing',
+    templateUrl: './tours-listing.component.html',
+    styleUrls: ['./tours-listing.component.css'],
+    standalone: false
 })
 
 export class ToursListingComponent {

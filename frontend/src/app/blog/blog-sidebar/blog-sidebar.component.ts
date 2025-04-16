@@ -4,9 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { forkJoin } from 'rxjs';
 
 @Component({
-  selector: 'app-blog-sidebar',
-  templateUrl: './blog-sidebar.component.html',
-  styleUrls: ['./blog-sidebar.component.css']
+    selector: 'app-blog-sidebar',
+    templateUrl: './blog-sidebar.component.html',
+    styleUrls: ['./blog-sidebar.component.css'],
+    standalone: false
 })
 export class BlogSidebarComponent implements OnInit {
   keyword: string | null = null;

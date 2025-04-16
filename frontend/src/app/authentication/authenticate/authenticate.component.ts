@@ -22,9 +22,10 @@ export function passwordMissmatchValidator(formControlName: string): ValidatorFn
 }
 
 @Component({
-  selector: 'app-authenticate',
-  templateUrl: './authenticate.component.html',
-  styleUrls: ['./authenticate.component.css']
+    selector: 'app-authenticate',
+    templateUrl: './authenticate.component.html',
+    styleUrls: ['./authenticate.component.css'],
+    standalone: false
 })
 export class AuthenticateComponent {
   activeButton: string = 'signUp';

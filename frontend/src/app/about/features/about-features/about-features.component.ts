@@ -8,9 +8,10 @@ export interface Feature {
 }
 
 @Component({
-  selector: 'app-about-features',
-  templateUrl: './about-features.component.html',
-  styleUrls: ['./about-features.component.css']
+    selector: 'app-about-features',
+    templateUrl: './about-features.component.html',
+    styleUrls: ['./about-features.component.css'],
+    standalone: false
 })
 
 export class AboutFeaturesComponent {

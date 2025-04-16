@@ -4,9 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { MessagesService } from 'src/app/services/messages.service';
 
 @Component({
-  selector: 'app-account-activation',
-  templateUrl: './account-activation.component.html',
-  styleUrls: ['./account-activation.component.css']
+    selector: 'app-account-activation',
+    templateUrl: './account-activation.component.html',
+    styleUrls: ['./account-activation.component.css'],
+    standalone: false
 })
 export class AccountActivationComponent {
 

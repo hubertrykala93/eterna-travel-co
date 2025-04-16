@@ -5,9 +5,10 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
-  selector: 'app-newsletter-form',
-  templateUrl: './newsletter-form.component.html',
-  styleUrls: ['./newsletter-form.component.css']
+    selector: 'app-newsletter-form',
+    templateUrl: './newsletter-form.component.html',
+    styleUrls: ['./newsletter-form.component.css'],
+    standalone: false
 })
 export class NewsletterFormComponent {
   newsletterForm: FormGroup;

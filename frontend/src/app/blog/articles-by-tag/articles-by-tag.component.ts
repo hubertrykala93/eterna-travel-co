@@ -4,9 +4,10 @@ import { Article, BlogService } from 'src/app/services/blog.service';
 import { PaginationService } from 'src/app/services/pagination.service';
 
 @Component({
-  selector: 'app-articles-by-tag',
-  templateUrl: './articles-by-tag.component.html',
-  styleUrls: ['./articles-by-tag.component.css']
+    selector: 'app-articles-by-tag',
+    templateUrl: './articles-by-tag.component.html',
+    styleUrls: ['./articles-by-tag.component.css'],
+    standalone: false
 })
 export class ArticlesByTagComponent implements OnInit {
   articles: Article[] = [];

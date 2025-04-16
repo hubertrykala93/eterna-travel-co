@@ -9,9 +9,10 @@ export interface TourType {
 }
 
 @Component({
-  selector: 'app-home-browse-by-category',
-  templateUrl: './home-browse-by-category.component.html',
-  styleUrls: ['./home-browse-by-category.component.css']
+    selector: 'app-home-browse-by-category',
+    templateUrl: './home-browse-by-category.component.html',
+    styleUrls: ['./home-browse-by-category.component.css'],
+    standalone: false
 })
 
 export class HomeBrowseByCategoryComponent {

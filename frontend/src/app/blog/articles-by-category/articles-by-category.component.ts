@@ -4,9 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-articles-by-category',
-  templateUrl: './articles-by-category.component.html',
-  styleUrls: ['./articles-by-category.component.css']
+    selector: 'app-articles-by-category',
+    templateUrl: './articles-by-category.component.html',
+    styleUrls: ['./articles-by-category.component.css'],
+    standalone: false
 })
 export class ArticlesByCategoryComponent implements OnInit {
   articles: Article[] = [];

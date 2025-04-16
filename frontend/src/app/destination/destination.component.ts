@@ -2,9 +2,10 @@ import { environment } from './../environments';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-destination',
-  templateUrl: './destination.component.html',
-  styleUrls: ['./destination.component.css']
+    selector: 'app-destination',
+    templateUrl: './destination.component.html',
+    styleUrls: ['./destination.component.css'],
+    standalone: false
 })
 
 export class DestinationComponent {

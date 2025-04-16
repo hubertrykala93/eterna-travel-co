@@ -5,9 +5,10 @@ import { PaginationService } from '../services/pagination.service';
 import { SharedBlogDataService } from '../services/shared-blog-data.service';
 
 @Component({
-  selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+    selector: 'app-blog',
+    templateUrl: './blog.component.html',
+    styleUrls: ['./blog.component.css'],
+    standalone: false
 })
 
 export class BlogComponent implements OnInit {

@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { environment } from './../../../environments';
 
 @Component({
-  selector: 'app-home-why-choose-us',
-  templateUrl: './home-why-choose-us.component.html',
-  styleUrls: ['./home-why-choose-us.component.css']
+    selector: 'app-home-why-choose-us',
+    templateUrl: './home-why-choose-us.component.html',
+    styleUrls: ['./home-why-choose-us.component.css'],
+    standalone: false
 })
 export class HomeWhyChooseUsComponent {
   checkIconUrl: string = environment.mediaUrl + 'home/check-icon.svg';

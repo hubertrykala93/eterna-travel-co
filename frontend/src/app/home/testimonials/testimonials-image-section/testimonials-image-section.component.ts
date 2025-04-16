@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { environment } from 'src/app/environments';
 
 @Component({
-  selector: 'app-testimonials-image-section',
-  templateUrl: './testimonials-image-section.component.html',
-  styleUrls: ['./testimonials-image-section.component.css']
+    selector: 'app-testimonials-image-section',
+    templateUrl: './testimonials-image-section.component.html',
+    styleUrls: ['./testimonials-image-section.component.css'],
+    standalone: false
 })
 export class TestimonialsImageSectionComponent {
   @Input() sectionType!: string;

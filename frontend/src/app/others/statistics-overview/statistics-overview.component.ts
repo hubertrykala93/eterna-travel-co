@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-statistics-overview',
-  templateUrl: './statistics-overview.component.html',
-  styleUrls: ['./statistics-overview.component.css']
+    selector: 'app-statistics-overview',
+    templateUrl: './statistics-overview.component.html',
+    styleUrls: ['./statistics-overview.component.css'],
+    standalone: false
 })
 export class StatisticsOverviewComponent {
 

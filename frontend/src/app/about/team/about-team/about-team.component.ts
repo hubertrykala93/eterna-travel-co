@@ -9,9 +9,10 @@ export interface Member {
 }
 
 @Component({
-  selector: 'app-about-team',
-  templateUrl: './about-team.component.html',
-  styleUrls: ['./about-team.component.css']
+    selector: 'app-about-team',
+    templateUrl: './about-team.component.html',
+    styleUrls: ['./about-team.component.css'],
+    standalone: false
 })
 export class AboutTeamComponent {
   travelerImageUrl1: string = environment.mediaUrl + 'about/team-1.jpg';

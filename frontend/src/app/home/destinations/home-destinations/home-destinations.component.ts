@@ -8,9 +8,10 @@ export interface Destination {
 }
 
 @Component({
-  selector: 'app-home-destinations',
-  templateUrl: './home-destinations.component.html',
-  styleUrls: ['./home-destinations.component.css']
+    selector: 'app-home-destinations',
+    templateUrl: './home-destinations.component.html',
+    styleUrls: ['./home-destinations.component.css'],
+    standalone: false
 })
 export class HomeDestinationsComponent {
   destinations: Destination[] = [

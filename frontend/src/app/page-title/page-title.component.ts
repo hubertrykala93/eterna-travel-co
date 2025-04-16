@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { environment } from '../environments';
 
 @Component({
-  selector: 'app-page-title',
-  templateUrl: './page-title.component.html',
-  styleUrls: ['./page-title.component.css']
+    selector: 'app-page-title',
+    templateUrl: './page-title.component.html',
+    styleUrls: ['./page-title.component.css'],
+    standalone: false
 })
 
 export class PageTitleComponent implements OnInit {

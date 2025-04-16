@@ -13,9 +13,10 @@ export interface Tour {
 }
 
 @Component({
-  selector: 'app-home-tours',
-  templateUrl: './home-tours.component.html',
-  styleUrls: ['./home-tours.component.css']
+    selector: 'app-home-tours',
+    templateUrl: './home-tours.component.html',
+    styleUrls: ['./home-tours.component.css'],
+    standalone: false
 })
 export class HomeToursComponent {
   tours: Tour[] = [

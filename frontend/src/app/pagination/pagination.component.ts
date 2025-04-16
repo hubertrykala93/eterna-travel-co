@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { PaginationService } from '../services/pagination.service';
 
 @Component({
-  selector: 'app-pagination',
-  templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.css']
+    selector: 'app-pagination',
+    templateUrl: './pagination.component.html',
+    styleUrls: ['./pagination.component.css'],
+    standalone: false
 })
 export class PaginationComponent implements OnInit {
   currentPage: number = 1;

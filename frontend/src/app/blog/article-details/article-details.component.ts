@@ -5,9 +5,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-article-details',
-  templateUrl: './article-details.component.html',
-  styleUrls: ['./article-details.component.css']
+    selector: 'app-article-details',
+    templateUrl: './article-details.component.html',
+    styleUrls: ['./article-details.component.css'],
+    standalone: false
 })
 
 export class ArticleDetailsComponent implements OnInit {
