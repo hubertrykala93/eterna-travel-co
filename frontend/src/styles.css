@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kaushan+Script&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.custom-container {
+  @apply w-full max-w-[1270px] mx-auto px-[50px];
+}
+
+.authentication-container {
+  @apply w-full max-w-[1270px] mx-auto px-[200px];
+}
+
+.home-logo-section-block-spacing-top-bottom {
+  @apply py-12;
+}
+
+.home-section-block-spacing-top {
+  @apply pt-[144px];
+}
+.section-block-spacing-top {
+  @apply pt-[100px];
+}
+
+.section-block-spacing-bottom {
+  @apply pb-[100px]
+}
+
+/* Contact Us */
+.contact-card {
+  @apply flex flex-col bg-surface gap-3 p-10;
+}
+
+.icon {
+  @apply w-10 h-10;
+}
+
+.card-title {
+  @apply font-workSans font-semibold text-subtitle text-heading;
+}
+
+.card-text {
+  @apply font-inter font-light text-body text-heading opacity-60;
+}
+
+.input-field {
+  @apply border border-heading border-opacity-20 rounded-lg px-4 py-4 placeholder:font-inter font-light text-heading text-body;
+}
+
+/* Pagination */
+.pagination-container {
+  @apply flex text-center gap-2 font-workSans font-semibold text-subtitle text-heading text-opacity-60
+}
+
+.pagination-element {
+  @apply border-[1px] border-heading border-opacity-10 w-12 h-12 rounded-full p-3
+}
