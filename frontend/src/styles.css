@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kaushan+Script&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kaushan+Script&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 .custom-container {
   @apply w-full max-w-[1270px] mx-auto px-[50px];
@@ -25,35 +24,59 @@
 }
 
 .section-block-spacing-bottom {
-  @apply pb-[100px]
+  @apply pb-[100px];
 }
 
-/* Contact Us */
-.contact-card {
-  @apply flex flex-col bg-surface gap-3 p-10;
+/* Header */
+.header-container-info {
+  @apply flex justify-between items-center w-full max-w-[1440px] mx-auto px-[48px] py-[5px] bg-heading bg-opacity-5 text-caption font-inter text-heading text-opacity-80;
 }
 
-.icon {
-  @apply w-10 h-10;
+.header-container-menu {
+  @apply flex justify-between w-full max-w-[1440px] mx-auto px-[48px] py-[20px];
 }
 
-.card-title {
-  @apply font-workSans font-semibold text-subtitle text-heading;
+.header-content-container {
+  @apply flex justify-between items-center;
 }
 
-.card-text {
-  @apply font-inter font-light text-body text-heading opacity-60;
+.header-right-content {
+  @apply flex items-center;
 }
 
-.input-field {
-  @apply border border-heading border-opacity-20 rounded-lg px-4 py-4 placeholder:font-inter font-light text-heading text-body;
+.header-icons-content {
+  @apply flex;
 }
 
-/* Pagination */
-.pagination-container {
-  @apply flex text-center gap-2 font-workSans font-semibold text-subtitle text-heading text-opacity-60
+.header-icon {
+  @apply text-lg ml-3 opacity-60 hover:text-brandPrimary hover:opacity-100 duration-300;
 }
 
-.pagination-element {
-  @apply border-[1px] border-heading border-opacity-10 w-12 h-12 rounded-full p-3
+.header-right-divider {
+  @apply ml-4 mr-3 opacity-60;
+}
+
+.header-currency {
+  @apply mr-1;
+}
+
+.header-logo {
+  @apply font-fugaz text-h5;
+}
+
+.header-menu-right-content {
+  @apply flex items-center gap-4 text-heading text-opacity-80;
+}
+
+.header-icon-list {
+  @apply flex items-center gap-4;
+}
+
+.header-auth {
+  @apply font-workSans text-subtitle font-semibold;
+}
+
+/* Navbar */
+.menu-item {
+  @apply font-inter text-body text-heading font-normal text-opacity-80 hover:text-brandPrimary hover:opacity-100 duration-300;
 }
