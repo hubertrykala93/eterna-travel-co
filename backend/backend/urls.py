@@ -22,8 +22,8 @@ from django_summernote import urls as summernote_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("home.api.urls"), name="home-views"),
     path("summernote/", include(arg=summernote_urls)),
+    path("", include(arg="newsletter.api.urls"), name="newsletter-urls")
 ]
 
 if settings.DEBUG:

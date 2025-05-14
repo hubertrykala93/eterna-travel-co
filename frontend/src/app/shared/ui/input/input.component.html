@@ -1,0 +1,26 @@
+@if (type === 'text') { @if (icon) {
+<div class="relative">
+  <i [ngClass]="[icon, iconCssClass, iconStyleClass]"></i>
+
+  <input
+    [ngClass]="[cssClass, styleClass]"
+    [placeholder]="placeholder"
+    [type]="type"
+    [value]="value"
+    [disabled]="disabled"
+    (input)="handleInput($event)"
+    (blur)="onTouched()"
+  />
+</div>
+
+} @else {
+<input
+  [ngClass]="[cssClass, styleClass]"
+  [placeholder]="placeholder"
+  [type]="type"
+  [value]="value"
+  [disabled]="disabled"
+  (input)="handleInput($event)"
+  (blur)="onTouched()"
+/>
+} }

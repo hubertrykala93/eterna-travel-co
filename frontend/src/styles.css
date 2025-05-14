@@ -76,7 +76,63 @@
   @apply font-workSans text-subtitle font-semibold;
 }
 
+.header-auth-item {
+  @apply hover:text-brandPrimary duration-300;
+}
+
 /* Navbar */
+.navbar-menu {
+  @apply flex gap-6;
+}
 .menu-item {
   @apply font-inter text-body text-heading font-normal text-opacity-80 hover:text-brandPrimary hover:opacity-100 duration-300;
+}
+
+/* Footer */
+.footer-section {
+  @apply bg-black;
+}
+
+.footer-spacing {
+  @apply py-20;
+}
+
+.footer-flex-container {
+  @apply flex justify-between;
+}
+
+.footer-logo-header {
+  @apply font-kaushan font-bold text-h5 text-white;
+}
+
+.footer-help-label {
+  @apply block font-kaushan text-white mt-[35px] my-[6px];
+}
+
+.footer-contact-flex {
+  @apply flex items-center;
+}
+
+.footer-call-us-label {
+  @apply font-workSans text-h6 font-bold text-white;
+}
+
+.footer-contact-label {
+  @apply font-workSans text-h6 font-bold text-brandPrimary;
+}
+
+.footer-location-container {
+  @apply mt-[20px] mb-[26px];
+}
+
+.footer-location-label {
+  @apply block font-inter text-body font-light text-white;
+}
+
+.footer-icons-container {
+  @apply flex gap-3 text-white text-opacity-80;
+}
+
+.footer-icon {
+  @apply text-2xl;
 }
