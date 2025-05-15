@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   forwardRef,
+  inject,
   Input,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -22,6 +24,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent implements ControlValueAccessor {
+  private readonly cdr = inject(ChangeDetectorRef);
+
   @Input() cssClass: string = '';
 
   @Input() placeholder: string = '';
@@ -41,6 +45,8 @@ export class InputComponent implements ControlValueAccessor {
 
   public writeValue(value: string): void {
     this.value = value;
+
+    this.cdr.markForCheck();
   }
 
   public registerOnChange(fn: any): void {
