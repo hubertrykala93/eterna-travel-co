@@ -7,6 +7,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from newsletter.models import Newsletter
 from .serializers import NewsletterSerializer
 
 
@@ -14,6 +15,17 @@ class CreateNewsletter(APIView):
     def post(self, request, *args, **kwargs):
         data = request.data
         serializer = NewsletterSerializer(data=data)
+
+        if Newsletter.objects.filter(email=request.data.get("email")).exists():
+            return Response(
+                data={
+                    "status": False,
+                    "error": {
+                        "uniqueError": "Newsletter with this email already exists."
+                    },
+                },
+                status=status.HTTP_409_CONFLICT,
+            )
 
         if serializer.is_valid():
             serializer.save()

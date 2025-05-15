@@ -1,21 +1,23 @@
-@if (control?.hasError('required') && control?.touched && control?.dirty) {
+@if (control) { @if (control.hasError('required') && control.touched &&
+control.dirty) {
 <span class="block font-light text-xs text-brandPrimary mt-2"
   >This field is required.</span
 >
-} @else if (control?.hasError('minlength')) {
+} @else if (control.hasError('minlength')) {
 <span class="block font-light text-xs text-brandPrimary mt-2"
   >Minimum length is 3 characters.</span
 >
-} @else if (control?.hasError('pattern')) {
+} @else if (control.hasError('pattern')) {
 <span class="block font-light text-xs text-brandPrimary mt-2"
   >Please enter a valid {{ label }}.</span
 >
-} @else if (control?.hasError('maxlength')) {
+} @else if (control.hasError('maxlength')) {
 <span class="block font-light text-xs text-brandPrimary mt-2"
   >Maximum length is 255 characters.</span
 >
-} @else if (control?.hasError('uniqueError')) {
-<span class="block font-light text-xs text-brandPrimary mt-2"
-  >This {{ label }} already exists.</span
->
-}
+} @else if (control.hasError('uniqueError')) {
+<span class="block font-light text-xs text-brandPrimary mt-2">{{
+  control.getError("uniqueError")
+}}</span>
+
+} }

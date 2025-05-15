@@ -109,11 +109,17 @@
               [icon]="'fa-regular fa-paper-plane'"
             ></ui-input>
 
-            <ui-errors
+            <ui-input-status
               [control]="form.controls.email"
-              [label]="'e-mail address'"
-            ></ui-errors>
+              [label]="'email'"
+            ></ui-input-status>
           </div>
+
+          <ui-form-status
+            [success]="isSuccess"
+            [successMessage]="'Your email has been saved.'"
+          >
+          </ui-form-status>
 
           <ui-button
             [cssClass]="'px-7 py-3 mt-2'"
