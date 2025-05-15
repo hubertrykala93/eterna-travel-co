@@ -46,6 +46,7 @@ export class FooterComponent {
         .pipe(
           tap(() => {
             this.isSuccess = true;
+            this.form.reset();
 
             this.cdr.markForCheck();
 
