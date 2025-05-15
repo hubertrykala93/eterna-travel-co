@@ -1,9 +1,17 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  inject,
+} from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { NewsletterControls } from 'src/app/core/newsletter/newsletter.model';
+import { catchError, EMPTY, tap } from 'rxjs';
+import { FormErrorsService } from '../../core/form-errors/form-errors.service';
+import { InputStatusComponent } from '../../shared/ui/input-status/input-status.component';
+import { NewsletterControls } from './../../core/newsletter/newsletter.model';
 import { NewsletterService } from './../../core/newsletter/newsletter.service';
 import { ButtonComponent } from './../../shared/ui/button/button.component';
-import { ErrorsComponent } from './../../shared/ui/errors/errors.component';
+import { FormStatusComponent } from './../../shared/ui/form-status/form-status.component';
 import { InputComponent } from './../../shared/ui/input/input.component';
 
 @Component({
@@ -11,7 +19,8 @@ import { InputComponent } from './../../shared/ui/input/input.component';
   imports: [
     InputComponent,
     ButtonComponent,
-    ErrorsComponent,
+    InputStatusComponent,
+    FormStatusComponent,
     ReactiveFormsModule,
   ],
   templateUrl: './footer.component.html',
@@ -20,9 +29,13 @@ import { InputComponent } from './../../shared/ui/input/input.component';
 })
 export class FooterComponent {
   private readonly newsletterService = inject(NewsletterService);
+  private readonly formErrorsService = inject(FormErrorsService);
+  private readonly cdr = inject(ChangeDetectorRef);
 
   public form: FormGroup<NewsletterControls> =
     this.newsletterService.getNewsletterForm();
+
+  public isSuccess: boolean = false;
 
   public add(): void {
     const data = this.form.value;
@@ -30,7 +43,24 @@ export class FooterComponent {
     if (data && data.email !== undefined) {
       this.newsletterService
         .createNewsletter({ email: data.email })
-        .pipe()
+        .pipe(
+          tap(() => {
+            this.isSuccess = true;
+
+            this.cdr.markForCheck();
+
+            setTimeout(() => {
+              this.isSuccess = false;
+
+              this.cdr.markForCheck();
+            }, 3000);
+          }),
+          catchError((error) => {
+            this.formErrorsService.setControlError(this.form, 'email', error);
+
+            return EMPTY;
+          })
+        )
         .subscribe();
     }
   }

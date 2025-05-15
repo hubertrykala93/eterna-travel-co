@@ -20,6 +20,7 @@ export class NewsletterService {
   public createNewsletter(
     data: NewsletterRequest
   ): Observable<NewsletterResponse> {
+    console.log(environment.backendUrl);
     return this.http.post<NewsletterResponse>(
       `${environment.backendUrl}/newsletter`,
       data

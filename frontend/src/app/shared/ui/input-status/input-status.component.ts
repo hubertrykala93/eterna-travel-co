@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -11,16 +12,16 @@ import { FormControl } from '@angular/forms';
 import { Subscription, tap } from 'rxjs';
 
 @Component({
-  selector: 'ui-errors',
-  imports: [],
+  selector: 'ui-input-status',
+  imports: [CommonModule],
   standalone: true,
-  templateUrl: './errors.component.html',
+  templateUrl: './input-status.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ErrorsComponent implements OnInit, OnDestroy {
+export class InputStatusComponent implements OnInit, OnDestroy {
   private readonly cdr = inject(ChangeDetectorRef);
 
-  @Input({ required: true }) control?: FormControl;
+  @Input({ required: true }) control!: FormControl;
   @Input({ required: true }) label!: string;
 
   private subscription?: Subscription;
