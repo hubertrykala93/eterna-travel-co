@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django_summernote",
     "rest_framework_simplejwt",
     "newsletter",
+    "contact_us",
 ]
 
 MIDDLEWARE = [

@@ -8,13 +8,17 @@
 
         <div class="footer-contact-flex">
           <h6 class="footer-call-us-label">Call Us:</h6>
-          <h6 class="footer-contact-label">&nbsp;(888)1234 5678</h6>
+          <h6 class="footer-contact-label">&nbsp;+1(212)5559876</h6>
         </div>
 
         <div class="footer-location-container">
-          <span class="footer-location-label"> Love Street, Muscat, Oman </span>
+          <span class="footer-location-label mb-2"
+            >123 Madison Ave, New York</span
+          >
 
-          <span class="footer-location-label"> example&commat;trisog.com </span>
+          <span class="footer-location-label">
+            example&commat;eternatravelco.com
+          </span>
         </div>
 
         <ul class="footer-icons-container">
@@ -101,25 +105,12 @@
         </h4>
 
         <form [formGroup]="form">
-          <div>
-            <ui-input
-              formControlName="email"
-              [cssClass]="'w-[205px] h-[40px] px-[36px]'"
-              [placeholder]="'Enter email...'"
-              [icon]="'fa-regular fa-paper-plane'"
-            ></ui-input>
-
-            <ui-input-status
-              [control]="form.controls.email"
-              [label]="'email'"
-            ></ui-input-status>
-          </div>
-
-          <ui-form-status
-            [success]="isSuccess"
-            [successMessage]="'Your email has been saved.'"
-          >
-          </ui-form-status>
+          <ui-input
+            formControlName="email"
+            [cssClass]="'w-[205px] h-[40px] px-[36px]'"
+            [placeholder]="'Enter email...'"
+            [icon]="'fa-regular fa-paper-plane'"
+          ></ui-input>
 
           <ui-button
             [cssClass]="'px-7 py-3 mt-2'"
