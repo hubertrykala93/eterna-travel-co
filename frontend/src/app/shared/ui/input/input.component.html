@@ -23,4 +23,14 @@
   (input)="handleInput($event)"
   (blur)="onTouched()"
 />
-} }
+} } @if (type === 'textarea') {
+<textarea
+  [ngClass]="[cssClass, styleClass]"
+  [placeholder]="placeholder"
+  [value]="value"
+  [disabled]="disabled"
+  (input)="handleInput($event)"
+  (blur)="onTouched()"
+></textarea>
+
+}

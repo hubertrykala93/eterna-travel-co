@@ -21,7 +21,7 @@ export class NewsletterService {
     data: NewsletterRequest
   ): Observable<NewsletterResponse> {
     return this.http.post<NewsletterResponse>(
-      `${environment.backendUrl}/newsletter`,
+      `${environment.backendUrl}/api/v1/newsletter`,
       data
     );
   }

@@ -38,7 +38,7 @@ module.exports = {
         surface: "#F7F8F9",
         primaryPageTitleColor: "#051036",
         secondaryPageTitleColor: "#C4C4C4",
-        successColor: "#AFE1AF",
+        successColor: "#28a745",
         secondarySuccessColor: "#097969",
         errorColor: "#FC5056",
         warningColor: "#ffca6a",

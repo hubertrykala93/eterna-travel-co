@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { PageTitleComponent } from './layout/page-title/page-title.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
     AppRoutingModule,
     HeaderComponent,
     NavbarComponent,
+    PageTitleComponent,
     FooterComponent,
     HttpClientModule,
   ],

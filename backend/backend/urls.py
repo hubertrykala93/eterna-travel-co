@@ -23,7 +23,8 @@ from django_summernote import urls as summernote_urls
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("summernote/", include(arg=summernote_urls)),
-    path("", include(arg="newsletter.api.urls"), name="newsletter-urls")
+    path("", include(arg="newsletter.api.urls"), name="newsletter-urls"),
+    path("", include(arg="contact_us.api.urls"), name="contact-urls"),
 ]
 
 if settings.DEBUG:

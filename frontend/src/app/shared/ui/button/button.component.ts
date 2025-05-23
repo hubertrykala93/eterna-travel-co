@@ -29,7 +29,7 @@ export class ButtonComponent implements OnChanges {
       'font-inter font-normal text-action text-white rounded-md bg-brandPrimary';
 
     const hoverClass = this.disabled
-      ? ''
+      ? 'opacity-50'
       : 'hover:bg-brandYellow hover:text-heading duration-300';
 
     this.styleClass = `${baseClass} ${hoverClass}`.trim();
