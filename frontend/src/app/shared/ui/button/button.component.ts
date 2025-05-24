@@ -26,7 +26,7 @@ export class ButtonComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const baseClass =
-      'font-inter font-normal text-action text-white rounded-md bg-brandPrimary';
+      'font-inter font-normal text-action text-white rounded-md bg-brandPrimary w-full';
 
     const hoverClass = this.disabled
       ? 'opacity-50'

@@ -51,9 +51,19 @@
     </ul>
 
     <div class="header-auth">
-      <a class="header-auth-item" href="">Login</a>
+      <a
+        class="header-auth-item"
+        [routerLink]="['/auth/login']"
+        routerLinkActive="router-link-active"
+        >Login</a
+      >
       <span> / </span>
-      <a class="header-auth-item" href="">Signup</a>
+      <a
+        class="header-auth-item"
+        [routerLink]="['/auth/register']"
+        routerLinkActive="router-link-active"
+        >Signup</a
+      >
     </div>
   </div>
 </section>

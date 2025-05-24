@@ -22,8 +22,6 @@ export class FooterComponent {
   public form: FormGroup<NewsletterControls> =
     this.newsletterService.getNewsletterForm();
 
-  public isSuccess: boolean = false;
-
   public add(): void {
     const data = this.form.value as NewsletterRequest;
 

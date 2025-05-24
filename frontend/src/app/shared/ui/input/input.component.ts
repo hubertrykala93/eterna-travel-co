@@ -27,6 +27,7 @@ export class InputComponent implements ControlValueAccessor {
   private readonly cdr = inject(ChangeDetectorRef);
 
   @Input() cssClass: string = '';
+  @Input() id?: string = '';
 
   @Input() placeholder: string = '';
   @Input() type: string = 'text';
@@ -36,7 +37,8 @@ export class InputComponent implements ControlValueAccessor {
   @Input() icon?: string = '';
   @Input() iconCssClass: string = '';
 
-  public styleClass: string = 'font-inter font-light text-bodySmall rounded-md';
+  public styleClass: string =
+    'block font-inter font-light text-bodySmall rounded-md w-full';
   public iconStyleClass: string =
     'absolute left-3 top-1/2 -translate-y-1/2 text-black text-opacity-30';
 

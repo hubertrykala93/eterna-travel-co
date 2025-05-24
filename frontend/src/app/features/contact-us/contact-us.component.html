@@ -50,7 +50,7 @@
         <ui-input
           formControlName="name"
           [cssClass]="
-            'w-full h-[58px] p-4 mb-4 border border-text-heading border-opacity-10'
+            'h-[58px] p-4 mb-4 border border-text-heading border-opacity-10'
           "
           [placeholder]="'Your name...'"
         ></ui-input>
@@ -58,22 +58,20 @@
         <ui-input
           formControlName="email"
           [cssClass]="
-            'w-full h-[58px] p-4 mb-4 border border-heading border-opacity-10'
+            'h-[58px] p-4 mb-4 border border-heading border-opacity-10'
           "
           [placeholder]="'Email address...'"
         ></ui-input>
 
         <ui-input
           formControlName="message"
-          [cssClass]="
-            'w-full h-[160px] p-4 border border-heading border-opacity-10'
-          "
+          [cssClass]="'h-[160px] p-4 border border-heading border-opacity-10'"
           [type]="'textarea'"
           [placeholder]="'Write something...'"
         />
 
         <ui-button
-          [cssClass]="'align-left px-10 py-5 mt-4'"
+          [cssClass]="'w-[131px] align-left px-10 py-5 mt-4'"
           [type]="'submit'"
           (click)="add()"
         ></ui-button>

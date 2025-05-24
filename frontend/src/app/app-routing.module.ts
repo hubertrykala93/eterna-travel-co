@@ -9,6 +9,13 @@ const routes: Routes = [
         (m) => m.ContactUsModule
       ),
   },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./features/authentication/authentication.module').then(
+        (m) => m.AuthenticationModule
+      ),
+  },
 ];
 
 @NgModule({

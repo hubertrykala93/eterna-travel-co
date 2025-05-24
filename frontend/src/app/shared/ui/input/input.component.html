@@ -4,6 +4,7 @@
 
   <input
     [ngClass]="[cssClass, styleClass]"
+    [id]="id"
     [placeholder]="placeholder"
     [type]="type"
     [value]="value"
@@ -16,6 +17,7 @@
 } @else {
 <input
   [ngClass]="[cssClass, styleClass]"
+  [id]="id"
   [placeholder]="placeholder"
   [type]="type"
   [value]="value"
@@ -26,6 +28,7 @@
 } } @if (type === 'textarea') {
 <textarea
   [ngClass]="[cssClass, styleClass]"
+  [id]="id"
   [placeholder]="placeholder"
   [value]="value"
   [disabled]="disabled"

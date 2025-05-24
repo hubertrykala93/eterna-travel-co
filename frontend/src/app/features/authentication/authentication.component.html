@@ -1,0 +1,146 @@
+<section
+  class="authentication-container section-block-spacing-top section-block-spacing-bottom"
+>
+  <div class="grid grid-cols-2 gap-3 mb-6">
+    <ui-button
+      [cssClass]="
+        router.url.includes(AuthenticationTabs.REGISTER)
+          ? 'py-4 bg-brandYellow !text-heading cursor-default'
+          : 'py-4'
+      "
+      [label]="'Register'"
+      [routerLink]="['/auth/register']"
+      routerLinkActive="router-link-active"
+    ></ui-button>
+
+    <ui-button
+      [cssClass]="
+        router.url.includes(AuthenticationTabs.LOGIN)
+          ? 'py-4 bg-brandYellow !text-heading cursor-default'
+          : 'py-4'
+      "
+      [label]="'Login'"
+      [routerLink]="['/auth/login']"
+      routerLinkActive="router-link-active"
+    ></ui-button>
+  </div>
+
+  @if (router.url.includes(AuthenticationTabs.REGISTER)) {
+  <form class="border px-5 py-8 rounded-md">
+    <div class="mb-3">
+      <label
+        for="email"
+        class="font-inter font-normal text-heading text-opacity-60"
+        >Email Address</label
+      >
+
+      <ui-input
+        [cssClass]="
+          'font-normal text-subtitle py-2 px-5 mt-2 rounded-none border focus:border-red-500 outline-none'
+        "
+        [placeholder]="'Enter your email...'"
+      ></ui-input>
+    </div>
+
+    <div class="mb-3">
+      <label
+        for="username"
+        class="font-inter font-normal text-heading text-opacity-60"
+        >Username</label
+      >
+
+      <ui-input
+        [cssClass]="
+          'font-normal text-subtitle py-2 px-5 mt-2 rounded-none border focus:border-red-500 outline-none'
+        "
+        [placeholder]="'Enter your username...'"
+      ></ui-input>
+    </div>
+
+    <div class="mb-3">
+      <label
+        for="password"
+        class="font-inter font-normal text-heading text-opacity-60"
+        >Password</label
+      >
+
+      <ui-input
+        [cssClass]="
+          'font-normal text-subtitle py-2 px-5 mt-2 rounded-none border focus:border-red-500 outline-none'
+        "
+        [placeholder]="'Enter your password...'"
+      ></ui-input>
+    </div>
+
+    <div class="mb-8">
+      <label
+        for="repassword"
+        class="font-inter font-normal text-heading text-opacity-60"
+        >Confirm Password</label
+      >
+
+      <ui-input
+        [cssClass]="
+          'font-normal text-subtitle py-2 px-5 mt-1 rounded-none border focus:border-red-500 outline-none'
+        "
+        [placeholder]="'Confirm your password...'"
+      ></ui-input>
+    </div>
+
+    <ui-button [cssClass]="'py-3'" [label]="'Sign Up'"></ui-button>
+  </form>
+  } @else {
+  <form class="border px-5 py-8 rounded-md">
+    <div class="mb-3">
+      <label
+        for="username"
+        class="font-inter font-normal text-heading text-opacity-60"
+        >Username</label
+      >
+
+      <ui-input
+        [cssClass]="
+          'font-normal text-subtitle py-2 px-5 mt-2 rounded-none border focus:border-red-500 outline-none'
+        "
+        [placeholder]="'Enter your username...'"
+      ></ui-input>
+    </div>
+
+    <div class="mb-8">
+      <label
+        for="password"
+        class="font-inter font-normal text-heading text-opacity-60"
+        >Password</label
+      >
+
+      <ui-input
+        [cssClass]="
+          'font-normal text-subtitle py-2 px-5 mt-2 rounded-none border focus:border-red-500 outline-none'
+        "
+        [placeholder]="'Enter your password...'"
+      ></ui-input>
+    </div>
+
+    <ui-button [cssClass]="'py-3'" [label]="'Sign In'"></ui-button>
+  </form>
+  } @if (router.url.includes(AuthenticationTabs.REGISTER)) {
+  <h4 class="font-medium text-center text-heading my-6">Or sign up with:</h4>
+  } @else {
+  <h4 class="font-medium text-center text-heading my-6">Or sign in with:</h4>
+  }
+
+  <div class="flex justify-center gap-3">
+    <ui-button
+      [cssClass]="'font-kaushan px-6 py-3'"
+      [label]="'Google'"
+    ></ui-button>
+    <ui-button
+      [cssClass]="'font-kaushan px-6 py-3'"
+      [label]="'Facebook'"
+    ></ui-button>
+    <ui-button
+      [cssClass]="'font-kaushan px-6 py-3'"
+      [label]="'Twitter'"
+    ></ui-button>
+  </div>
+</section>

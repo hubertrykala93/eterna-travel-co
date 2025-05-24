@@ -107,13 +107,13 @@
         <form [formGroup]="form">
           <ui-input
             formControlName="email"
-            [cssClass]="'w-[205px] h-[40px] px-[36px]'"
+            [cssClass]="'h-[40px] px-[36px]'"
             [placeholder]="'Enter email...'"
             [icon]="'fa-regular fa-paper-plane'"
           ></ui-input>
 
           <ui-button
-            [cssClass]="'px-7 py-3 mt-2'"
+            [cssClass]="'w-[107px] px-7 py-3 mt-2'"
             [type]="'submit'"
             [disabled]="form.invalid"
             (click)="add()"
