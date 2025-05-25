@@ -26,21 +26,21 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class InputComponent implements ControlValueAccessor {
   private readonly cdr = inject(ChangeDetectorRef);
 
-  @Input() cssClass: string = '';
+  @Input() cssClass = '';
   @Input() id?: string = '';
 
-  @Input() placeholder: string = '';
-  @Input() type: string = 'text';
-  @Input() value: string = '';
-  @Input() disabled: boolean = false;
+  @Input() placeholder = '';
+  @Input() type = 'text';
+  @Input() value = '';
+  @Input() disabled = false;
 
   @Input() icon?: string = '';
-  @Input() iconCssClass: string = '';
+  @Input() iconCssClass = '';
 
-  public styleClass: string =
+  public styleClass =
     'block font-inter font-light text-bodySmall rounded-md w-full';
-  public iconStyleClass: string =
-    'absolute left-3 top-1/2 -translate-y-1/2 text-black text-opacity-30';
+  public iconStyleClass =
+    'absolute left-3 top-1/2 -translate-y-1/2 text-black text-opacity-30 pointer-events-none';
 
   public onChange = (value: string) => {};
   public onTouched = () => {};

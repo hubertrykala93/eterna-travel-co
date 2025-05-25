@@ -1,9 +1,11 @@
-from django.db import models
 from uuid import uuid4
+
+from django.db import models
 from django.utils.timezone import now
 
+
 class ContactMessage(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid4, editable=False, unique=True)
     created_at = models.DateTimeField(default=now, editable=False)
     name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)

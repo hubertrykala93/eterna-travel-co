@@ -14,10 +14,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import path, include
 from django_summernote import urls as summernote_urls
 
 urlpatterns = [
@@ -25,6 +25,7 @@ urlpatterns = [
     path("summernote/", include(arg=summernote_urls)),
     path("", include(arg="newsletter.api.urls"), name="newsletter-urls"),
     path("", include(arg="contact_us.api.urls"), name="contact-urls"),
+    path("", include(arg="users.api.urls"), name="users-urls"),
 ]
 
 if settings.DEBUG:

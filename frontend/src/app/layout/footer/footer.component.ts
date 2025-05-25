@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { tap } from 'rxjs';
 import {
   NewsletterControls,
@@ -11,7 +12,7 @@ import { InputComponent } from './../../shared/ui/input/input.component';
 
 @Component({
   selector: 'app-footer',
-  imports: [InputComponent, ButtonComponent, ReactiveFormsModule],
+  imports: [InputComponent, ButtonComponent, ReactiveFormsModule, RouterModule],
   templateUrl: './footer.component.html',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,

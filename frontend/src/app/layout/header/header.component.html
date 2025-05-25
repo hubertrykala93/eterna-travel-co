@@ -1,69 +1,61 @@
-<section class="header-container-info">
-  <div>
-    <span>+1 (212) 555-9876</span>
-    <span> | </span>
-    <span>info&commat;eternatravelco.com</span>
-  </div>
-
-  <div class="header-right-content">
-    <ul class="header-icons-content">
-      <li>
-        <a href="https://www.facebook.com/" target="_blank"
-          ><i class="fa-brands fa-facebook header-icon"></i
-        ></a>
-      </li>
-      <li>
-        <a href="https://www.pinterest.com/" target="_blank"
-          ><i class="fa-brands fa-pinterest header-icon"></i
-        ></a>
-      </li>
-      <li>
-        <a href="https://www.pl.linkedin.com/" target="_blank"
-          ><i class="fa-brands fa-linkedin header-icon"></i
-        ></a>
-      </li>
-    </ul>
-
+<header>
+  <div class="header-container-info">
     <div>
-      <span class="header-right-divider"> | </span>
-      <span class="header-currency">EUR</span>
+      <span>+1 (212) 555-9876</span>
+      <span> | </span>
+      <span>info&commat;eternatravelco.com</span>
+    </div>
 
-      <i class="fa-solid fa-chevron-down"></i>
+    <div class="header-right-content">
+      <ul class="header-icons-content">
+        <li>
+          <a href="https://www.facebook.com/" target="_blank"
+            ><i class="fa-brands fa-facebook header-icon"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.pinterest.com/" target="_blank"
+            ><i class="fa-brands fa-pinterest header-icon"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.pl.linkedin.com/" target="_blank"
+            ><i class="fa-brands fa-linkedin header-icon"></i
+          ></a>
+        </li>
+      </ul>
+
+      <div>
+        <span class="header-right-divider"> | </span>
+        <span class="header-currency">EUR</span>
+
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
     </div>
   </div>
-</section>
 
-<section class="header-container-menu">
-  <div>
-    <h3 class="header-logo">Eterna Travel Co.</h3>
-  </div>
+  <div class="header-container-menu">
+    <a [routerLink]="'/'">
+      <h1 class="header-logo">Eterna Travel Co.</h1>
+    </a>
 
-  <app-navbar></app-navbar>
+    <app-navbar></app-navbar>
 
-  <div class="header-menu-right-content">
-    <ul class="header-icon-list">
-      <li>
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </li>
-      <li>
-        <i class="fa-solid fa-user"></i>
-      </li>
-    </ul>
+    <div class="header-menu-right-content">
+      <ul class="header-icon-list">
+        <li>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </li>
+        <li>
+          <i class="fa-solid fa-user"></i>
+        </li>
+      </ul>
 
-    <div class="header-auth">
-      <a
-        class="header-auth-item"
-        [routerLink]="['/auth/login']"
-        routerLinkActive="router-link-active"
-        >Login</a
-      >
-      <span> / </span>
-      <a
-        class="header-auth-item"
-        [routerLink]="['/auth/register']"
-        routerLinkActive="router-link-active"
-        >Signup</a
-      >
+      <div class="header-auth">
+        <a class="header-auth-item" [routerLink]="['/auth/login']">Login</a>
+        <span> / </span>
+        <a class="header-auth-item" [routerLink]="['/auth/register']">Signup</a>
+      </div>
     </div>
   </div>
-</section>
+</header>

@@ -15,18 +15,18 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent implements OnChanges {
-  @Input() cssClass: string = '';
-  @Input() type: string = 'submit';
+  @Input() cssClass = '';
+  @Input() type = 'submit';
 
-  @Input() label: string = 'Submit';
+  @Input() label = 'Submit';
 
-  @Input() disabled: boolean = false;
+  @Input() disabled = false;
 
-  public styleClass: string = '';
+  public styleClass = '';
 
   ngOnChanges(changes: SimpleChanges): void {
     const baseClass =
-      'font-inter font-normal text-action text-white rounded-md bg-brandPrimary w-full';
+      'font-inter font-normal text-action text-white rounded-md bg-brandPrimary';
 
     const hoverClass = this.disabled
       ? 'opacity-50'
