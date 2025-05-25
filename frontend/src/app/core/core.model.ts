@@ -5,7 +5,8 @@ export interface AuditableDto {
 }
 
 export interface FormOptions {
-  control: string;
+  name: string;
   label: string;
-  placeholder: string;
+  placeholder?: string | undefined;
+  type?: string | undefined;
 }

@@ -1,49 +1,55 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {
   AuthenticationControls,
   AuthenticationFormControlNames,
   AuthenticationTabs,
 } from './../../../core/authentication/authentication.model';
+import { AuthenticationService } from './../../../core/authentication/authentication.service';
 import { FormOptions } from './../../../core/core.model';
+import { FormErrorsComponent } from './../../../shared/ui/form-errors/form-errors.component';
 import { InputComponent } from './../../../shared/ui/input/input.component';
 
 @Component({
   selector: 'app-authentication-form',
-  imports: [InputComponent, CommonModule, ReactiveFormsModule],
+  imports: [
+    InputComponent,
+    CommonModule,
+    ReactiveFormsModule,
+    FormErrorsComponent,
+  ],
   standalone: true,
   templateUrl: './authentication-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AuthenticationFormComponent {
+export class AuthenticationFormComponent implements OnInit {
+  private readonly authenticationService = inject(AuthenticationService);
+
   @Input({ required: true }) activeTab = 'register';
   @Input({ required: true }) form!: FormGroup<AuthenticationControls>;
 
-  public formOptions: FormOptions[] = [
-    {
-      control: AuthenticationFormControlNames.EMAIL,
-      label: 'Email Address',
-      placeholder: 'Enter your email...',
-    },
-    {
-      control: AuthenticationFormControlNames.USERNAME,
-      label: 'Username',
-      placeholder: 'Enter your username...',
-    },
-    {
-      control: AuthenticationFormControlNames.PASSWORD,
-      label: 'Password',
-      placeholder: 'Enter your password...',
-    },
-    {
-      control: AuthenticationFormControlNames.REPASSWORD,
-      label: 'Confirm Password',
-      placeholder: 'Confirm your password...',
-    },
-  ];
+  public formOptions: FormOptions[] =
+    this.authenticationService.getFormOptions();
 
   public readonly AuthenticationTabs = AuthenticationTabs;
   public readonly AuthenticationFormControlNames =
     AuthenticationFormControlNames;
+
+  public ngOnInit(): void {
+    if (this.activeTab === AuthenticationTabs.LOGIN) {
+      this.formOptions = this.formOptions.filter((option) => {
+        return (
+          option.name !== AuthenticationFormControlNames.EMAIL &&
+          option.name !== AuthenticationFormControlNames.REPASSWORD
+        );
+      });
+    }
+  }
 }

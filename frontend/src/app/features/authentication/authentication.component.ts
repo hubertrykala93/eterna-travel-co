@@ -28,16 +28,15 @@ export class AuthenticationComponent {
   public form: FormGroup<AuthenticationControls> =
     this.authenticationService.getFormGroup();
 
-  isRegister: boolean = this.router.url.includes(AuthenticationTabs.REGISTER);
-  isLogin: boolean = this.router.url.includes(AuthenticationTabs.LOGIN);
+  public readonly isRegister: boolean = this.router.url.includes(
+    AuthenticationTabs.REGISTER
+  );
 
   public readonly AuthenticationTabs = AuthenticationTabs;
   public readonly socialMediaOptions = ['Facebbok', 'Google', 'Twitter'];
 
   public add(): void {
-    console.log(this.form.invalid);
     const data = this.form.value as UserRequest;
-    console.log(data);
 
     this.authenticationService.register(data).pipe().subscribe();
   }

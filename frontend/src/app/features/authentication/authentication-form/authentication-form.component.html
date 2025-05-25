@@ -4,57 +4,30 @@
   <div
     [ngClass]="
       (activeTab === AuthenticationTabs.REGISTER &&
-        option.control === AuthenticationFormControlNames.REPASSWORD) ||
+        option.name === AuthenticationFormControlNames.REPASSWORD) ||
       (activeTab === AuthenticationTabs.LOGIN &&
-        option.control === AuthenticationFormControlNames.PASSWORD)
+        option.name === AuthenticationFormControlNames.PASSWORD)
         ? 'mb-8'
         : 'mb-3'
     "
   >
     <label
-      [for]="option.control"
+      [for]="option.name"
       class="font-inter font-normal text-heading text-opacity-60"
       >{{ option.label }}</label
     >
 
     <ui-input
-      [formControlName]="option.control"
+      [formControlName]="option.name"
       [cssClass]="
         'font-normal text-subtitle py-2 px-5 mt-2 rounded-none border focus:border-red-500 outline-none'
       "
-      [id]="option.control"
-      [placeholder]="option.placeholder"
-      [type]="
-        option.control === AuthenticationFormControlNames.PASSWORD ||
-        option.control === AuthenticationFormControlNames.REPASSWORD
-          ? 'password'
-          : 'text'
-      "
+      [id]="option.name"
+      [placeholder]="option.placeholder || ''"
+      [type]="option.type || 'text'"
     ></ui-input>
 
-    @if (form.get(option.control)?.hasError('required') &&
-    form.get(option.control)?.touched) {
-    <span class="font-light text-xs text-brandPrimary">
-      This field is required.
-    </span>
-    } @else if(form.get(option.control)?.hasError('minlength')) {
-    <span class="font-light text-xs text-brandPrimary">
-      This field is too short. Please enter at least 3 characters.
-    </span>
-    } @else if (form.get(option.control)?.hasError('maxlength')) {
-    <span class="font-light text-xs text-brandPrimary">
-      This field is too long. Maximum allowed is 255 characters.
-    </span>
-    } @else if (form.get(option.control)?.hasError('pattern')) {
-    <span class="font-light text-xs text-brandPrimary">
-      The format is invalid. Please check the input and try again.
-    </span>
-    } @if (option.control === AuthenticationFormControlNames.REPASSWORD) { @if
-    (form.hasError('passwordMismatch')) {
-    <span class="font-light text-xs text-brandPrimary"
-      >Passwords do not match. Please make sure both fields are identical.</span
-    >
-    } }
+    <ui-form-errors [form]="form" [option]="option"></ui-form-errors>
   </div>
   }
 </form>
