@@ -50,7 +50,11 @@ export default class ValidationUtils {
       const repassword = group.get('repassword');
 
       if (password && repassword && password.value !== repassword.value) {
-        return { passwordMismatch: true };
+        repassword.setErrors({ passwordMismatch: true });
+      } else {
+        if (repassword?.hasError('passwordMismatch')) {
+          repassword.setErrors(null);
+        }
       }
 
       return null;

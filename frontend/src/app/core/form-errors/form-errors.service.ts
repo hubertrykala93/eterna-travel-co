@@ -10,8 +10,8 @@ export class FormErrorsService {
     AuthenticationFormControlNames;
 
   public getErrorMessage(
-    control: AbstractControl | null,
-    controlName: string
+    controlName: string,
+    control?: AbstractControl | null
   ): string | null {
     if (!control || !control.errors) {
       return null;
@@ -47,6 +47,10 @@ export class FormErrorsService {
         default:
           return 'The format is invalid. Please check the input and try again.';
       }
+    }
+
+    if (control.errors['passwordMismatch']) {
+      return "The confirmation password doesn't match the original.";
     }
 
     return null;

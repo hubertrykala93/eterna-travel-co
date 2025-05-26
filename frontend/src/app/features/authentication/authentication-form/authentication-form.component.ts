@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   inject,
   Input,
@@ -31,9 +32,12 @@ import { InputComponent } from './../../../shared/ui/input/input.component';
 })
 export class AuthenticationFormComponent implements OnInit {
   private readonly authenticationService = inject(AuthenticationService);
+  private readonly cdr = inject(ChangeDetectorRef);
 
   @Input({ required: true }) activeTab = 'register';
   @Input({ required: true }) form!: FormGroup<AuthenticationControls>;
+
+  public isPasswordVisible = false;
 
   public formOptions: FormOptions[] =
     this.authenticationService.getFormOptions();
@@ -51,5 +55,10 @@ export class AuthenticationFormComponent implements OnInit {
         );
       });
     }
+  }
+
+  public onShowPassword(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
+    this.cdr.markForCheck();
   }
 }

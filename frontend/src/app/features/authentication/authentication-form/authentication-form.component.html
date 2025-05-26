@@ -14,7 +14,7 @@
     <label
       [for]="option.name"
       class="font-inter font-normal text-heading text-opacity-60"
-      >{{ option.label }}</label
+      >{{ option.label }} *</label
     >
 
     <ui-input
@@ -25,6 +25,12 @@
       [id]="option.name"
       [placeholder]="option.placeholder || ''"
       [type]="option.type || 'text'"
+      [iconPosition]="
+        option.name === AuthenticationFormControlNames.PASSWORD ||
+        option.name === AuthenticationFormControlNames.REPASSWORD
+          ? 'right'
+          : 'left'
+      "
     ></ui-input>
 
     <ui-form-errors [form]="form" [option]="option"></ui-form-errors>

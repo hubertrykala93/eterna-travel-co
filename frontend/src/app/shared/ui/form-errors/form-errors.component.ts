@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -15,7 +16,7 @@ import { FormErrorsService } from './../../../core/form-errors/form-errors.servi
 
 @Component({
   selector: 'ui-form-errors',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './form-errors.component.html',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,7 +32,7 @@ export class FormErrorsComponent implements OnInit, OnDestroy {
   public readonly AuthenticationFormControlNames =
     AuthenticationFormControlNames;
 
-  private control!: AbstractControl | null;
+  public control!: AbstractControl | null;
   private controlStatus!: Subscription;
 
   public ngOnInit(): void {
@@ -42,8 +43,8 @@ export class FormErrorsComponent implements OnInit, OnDestroy {
         .pipe(
           tap(() => {
             this.errorMessage = this.formErrorsService.getErrorMessage(
-              this.control,
-              this.option.name
+              this.option.name,
+              this.control
             );
             this.cdr.markForCheck();
           })
