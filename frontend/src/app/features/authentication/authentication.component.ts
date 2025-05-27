@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { ButtonComponent } from '../../shared/ui/button/button.component';
 import {
   AuthenticationControls,
@@ -22,8 +23,9 @@ import { AuthenticationFormComponent } from './authentication-form/authenticatio
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthenticationComponent {
-  private readonly authenticationService = inject(AuthenticationService);
   public readonly router = inject(Router);
+  private readonly store = inject(Store);
+  private readonly authenticationService = inject(AuthenticationService);
 
   public form: FormGroup<AuthenticationControls> =
     this.authenticationService.getFormGroup();
@@ -37,7 +39,10 @@ export class AuthenticationComponent {
 
   public add(): void {
     const data = this.form.value as UserRequest;
+    console.log(data);
 
-    this.authenticationService.register(data).pipe().subscribe();
+    // this.store.dispatch(register(data));
+
+    // this.authenticationService.register(data).pipe().subscribe();
   }
 }
