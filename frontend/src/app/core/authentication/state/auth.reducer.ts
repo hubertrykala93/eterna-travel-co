@@ -13,11 +13,19 @@ export const initialState: AuthState = {
 
 export const authReducer = createReducer(
   initialState,
-  on(register, (state) => ({
-    ...state,
-    loading: true,
-    error: null,
-  })),
+  on(register, (state) => {
+    console.log('REDUCER: register called');
+    return {
+      ...state,
+      loading: true,
+      error: null,
+    };
+  }),
+  // on(register, (state) => ({
+  //   ...state,
+  //   loading: true,
+  //   error: null,
+  // })),
   on(registerSuccess, (state) => ({
     ...state,
     loading: false,

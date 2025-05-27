@@ -9,6 +9,7 @@ import {
   UserRequest,
 } from './../../core/authentication/authentication.model';
 import { AuthenticationService } from './../../core/authentication/authentication.service';
+import { register } from './../../core/authentication/state/auth.actions';
 import { AuthenticationFormComponent } from './authentication-form/authentication-form.component';
 
 @Component({
@@ -41,7 +42,7 @@ export class AuthenticationComponent {
     const data = this.form.value as UserRequest;
     console.log(data);
 
-    // this.store.dispatch(register(data));
+    this.store.dispatch(register({ user: data }));
 
     // this.authenticationService.register(data).pipe().subscribe();
   }

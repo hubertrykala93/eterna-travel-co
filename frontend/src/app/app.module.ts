@@ -22,7 +22,9 @@ import { PageTitleComponent } from './layout/page-title/page-title.component';
     PageTitleComponent,
     FooterComponent,
     HttpClientModule,
-    StoreModule.forRoot({ auth: authReducer }),
+    StoreModule.forRoot({
+      auth: authReducer,
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
