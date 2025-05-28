@@ -1,8 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router, RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ButtonComponent } from '../../shared/ui/button/button.component';
@@ -14,6 +12,7 @@ import {
 import { AuthenticationService } from './../../core/authentication/authentication.service';
 import { register } from './../../core/authentication/state/auth.actions';
 import { selectAuthLoading } from './../../core/authentication/state/auth.selector';
+import { SpinnerComponent } from './../../shared/ui/spinner/spinner.component';
 import { AuthenticationFormComponent } from './authentication-form/authentication-form.component';
 
 @Component({
@@ -24,10 +23,10 @@ import { AuthenticationFormComponent } from './authentication-form/authenticatio
     AuthenticationFormComponent,
     ReactiveFormsModule,
     AsyncPipe,
-    MatProgressSpinnerModule,
-    BrowserAnimationsModule,
+    SpinnerComponent,
   ],
   templateUrl: './authentication.component.html',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthenticationComponent {

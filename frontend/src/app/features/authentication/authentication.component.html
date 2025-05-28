@@ -24,10 +24,7 @@
   </div>
 
   @if (isLoading$ | async) {
-  <mat-progress-spinner
-    mode="indeterminate"
-    color="primary"
-  ></mat-progress-spinner>
+  <ui-spinner></ui-spinner>
   }
 
   <form
