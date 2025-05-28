@@ -7,8 +7,8 @@ from .models import User
 class AdminUser(admin.ModelAdmin):
     list_display = [
         "id",
-        "created_at",
-        "updated_at",
+        "creation_timestamp",
+        "modification_timestamp",
         "username",
         "email",
         "is_verified",

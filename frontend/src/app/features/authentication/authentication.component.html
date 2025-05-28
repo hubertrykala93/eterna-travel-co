@@ -23,6 +23,13 @@
     ></ui-button>
   </div>
 
+  @if (isLoading$ | async) {
+  <mat-progress-spinner
+    mode="indeterminate"
+    color="primary"
+  ></mat-progress-spinner>
+  }
+
   <form
     class="border px-5 py-8 rounded-md"
     [formGroup]="form"
@@ -38,6 +45,7 @@
     <ui-button
       [cssClass]="'py-3 w-full'"
       [label]="isRegister ? 'Sign Up' : 'Sign In'"
+      [disabled]="form.invalid"
     ></ui-button>
   </form>
 

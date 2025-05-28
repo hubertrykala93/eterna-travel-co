@@ -1,5 +1,8 @@
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router, RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ButtonComponent } from '../../shared/ui/button/button.component';
@@ -10,6 +13,7 @@ import {
 } from './../../core/authentication/authentication.model';
 import { AuthenticationService } from './../../core/authentication/authentication.service';
 import { register } from './../../core/authentication/state/auth.actions';
+import { selectAuthLoading } from './../../core/authentication/state/auth.selector';
 import { AuthenticationFormComponent } from './authentication-form/authentication-form.component';
 
 @Component({
@@ -19,6 +23,9 @@ import { AuthenticationFormComponent } from './authentication-form/authenticatio
     RouterModule,
     AuthenticationFormComponent,
     ReactiveFormsModule,
+    AsyncPipe,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule,
   ],
   templateUrl: './authentication.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -36,14 +43,13 @@ export class AuthenticationComponent {
   );
 
   public readonly AuthenticationTabs = AuthenticationTabs;
-  public readonly socialMediaOptions = ['Facebbok', 'Google', 'Twitter'];
+  public readonly socialMediaOptions = ['Facebook', 'Google', 'Twitter'];
+
+  protected isLoading$ = this.store.select(selectAuthLoading);
 
   public add(): void {
     const data = this.form.value as UserRequest;
-    console.log(data);
 
     this.store.dispatch(register({ user: data }));
-
-    // this.authenticationService.register(data).pipe().subscribe();
   }
 }

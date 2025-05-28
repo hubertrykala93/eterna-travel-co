@@ -1,10 +1,12 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthEffects } from './core/authentication/state/auth.effects';
 import { authReducer } from './core/authentication/state/auth.reducer';
 import { environment } from './environments';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -22,6 +24,7 @@ import { PageTitleComponent } from './layout/page-title/page-title.component';
     PageTitleComponent,
     FooterComponent,
     HttpClientModule,
+    EffectsModule.forRoot([AuthEffects]),
     StoreModule.forRoot({
       auth: authReducer,
     }),

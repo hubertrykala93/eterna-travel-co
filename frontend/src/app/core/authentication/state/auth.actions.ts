@@ -7,7 +7,10 @@ export const register = createAction(
   props<{ user: UserRequest }>()
 );
 
-export const registerSuccess = createAction(AuthActions.REGISTER_SUCCESS);
+export const registerSuccess = createAction(
+  AuthActions.REGISTER_SUCCESS,
+  props<{ message: string }>()
+);
 export const registerFailure = createAction(
   AuthActions.REGISTER_FAILURE,
   props<{ error: string }>()

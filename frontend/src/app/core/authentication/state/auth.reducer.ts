@@ -2,38 +2,33 @@ import { createReducer, on } from '@ngrx/store';
 import { register, registerFailure, registerSuccess } from './auth.actions';
 
 export interface AuthState {
-  loading: boolean;
+  isLoading: boolean;
+  message: string | null;
   error: string | null;
 }
 
 export const initialState: AuthState = {
-  loading: false,
+  isLoading: false,
+  message: null,
   error: null,
 };
 
 export const authReducer = createReducer(
   initialState,
-  on(register, (state) => {
-    console.log('REDUCER: register called');
-    return {
-      ...state,
-      loading: true,
-      error: null,
-    };
-  }),
-  // on(register, (state) => ({
-  //   ...state,
-  //   loading: true,
-  //   error: null,
-  // })),
-  on(registerSuccess, (state) => ({
+  on(register, (state) => ({
     ...state,
-    loading: false,
+    isLoading: true,
+    error: null,
+  })),
+  on(registerSuccess, (state, { message }) => ({
+    ...state,
+    isLoading: false,
+    message: message,
     error: null,
   })),
   on(registerFailure, (state, { error }) => ({
     ...state,
-    loading: false,
+    isLoading: false,
     error: error,
   }))
 );

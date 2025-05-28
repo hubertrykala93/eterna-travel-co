@@ -14,8 +14,8 @@ export default class ValidationUtils {
   static EMAIL_VALIDATOR = Validators.compose([
     Validators.required,
     Validators.minLength(3),
-    Validators.pattern(ValidationUtils.EMAIL_PATTERN),
     Validators.maxLength(255),
+    Validators.pattern(ValidationUtils.EMAIL_PATTERN),
   ]);
 
   static NAME_VALIDATOR = Validators.compose([

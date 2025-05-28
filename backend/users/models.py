@@ -42,8 +42,8 @@ class CustomUserManager(UserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False, unique=True)
-    created_at = models.DateTimeField(default=now, editable=False)
-    updated_at = models.DateTimeField(auto_now=True)
+    creation_timestamp = models.DateTimeField(default=now, editable=False)
+    modification_timestamp = models.DateTimeField(auto_now=True)
     username = models.CharField(max_length=35, unique=True)
     email = models.EmailField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
@@ -59,7 +59,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ["email"]
 
     class Meta:
-        ordering = ["-created_at"]
+        ordering = ["-creation_timestamp"]
         verbose_name = "Account"
         verbose_name_plural = "Accounts"
 

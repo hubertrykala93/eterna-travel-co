@@ -14,8 +14,12 @@ export interface UserRequest {
 }
 
 export interface UserDto extends AuditableDto {
-  username: string;
   email: string;
+  username: string;
+  lastLogin: Date;
+  userPermissions: string[];
+  isActive: boolean;
+  isVerified: boolean;
 }
 
 export interface AuthenticationControls {
