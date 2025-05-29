@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
+import ValidationUtils from 'src/app/core/utils/validation.utils';
 import { ButtonComponent } from '../../shared/ui/button/button.component';
 import {
   AuthenticationControls,
@@ -47,6 +48,11 @@ export class AuthenticationComponent {
   protected isLoading$ = this.store.select(selectAuthLoading);
 
   public add(): void {
+    if (this.form.invalid) {
+      ValidationUtils.fireValidation(this.form);
+      return;
+    }
+
     const data = this.form.value as UserRequest;
 
     this.store.dispatch(register({ user: data }));

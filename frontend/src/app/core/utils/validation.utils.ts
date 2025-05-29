@@ -1,5 +1,6 @@
 import {
   AbstractControl,
+  FormGroup,
   ValidationErrors,
   ValidatorFn,
   Validators,
@@ -59,5 +60,11 @@ export default class ValidationUtils {
 
       return null;
     };
+  }
+
+  static fireValidation(form: FormGroup): void {
+    for (const key in form.controls) {
+      form.get(key)?.markAsTouched();
+    }
   }
 }

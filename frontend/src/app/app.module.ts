@@ -13,6 +13,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { PageTitleComponent } from './layout/page-title/page-title.component';
+import { ToastComponent } from './shared/ui/toast/toast.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +33,7 @@ import { PageTitleComponent } from './layout/page-title/page-title.component';
       maxAge: 25,
       logOnly: environment.production,
     }),
+    ToastComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

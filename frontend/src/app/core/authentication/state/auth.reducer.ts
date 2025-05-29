@@ -29,6 +29,7 @@ export const authReducer = createReducer(
   on(registerFailure, (state, { error }) => ({
     ...state,
     isLoading: false,
+    message: null,
     error: error,
   }))
 );
