@@ -1,135 +1,125 @@
-<section class="footer-section">
-  <footer class="custom-container footer-section footer-spacing">
-    <div class="footer-flex-container">
-      <div class="w-[241px] pr-6">
-        <h4 class="footer-logo-header">Eterna Travel Co.</h4>
+<footer class="footer-section footer-spacing">
+  <div class="custom-container footer-flex-container">
+    <div class="w-[25%] pr-6">
+      <a class="footer-logo-header" [routerLink]="['/']"> Eterna Travel Co. </a>
 
-        <span class="footer-help-label">Need any help?</span>
+      <span class="footer-help-label">Need any help?</span>
 
-        <div class="footer-contact-flex">
-          <h6 class="footer-call-us-label">Call Us:</h6>
-          <h6 class="footer-contact-label">&nbsp;+1(212)5559876</h6>
-        </div>
+      <div>
+        <span class="footer-call-us-label mr-1">Call Us:</span>
+        <span class="footer-contact-label">&nbsp;+1(212)5559876</span>
+      </div>
 
-        <div class="footer-location-container">
-          <span class="footer-location-label mb-2"
-            >123 Madison Ave, New York</span
-          >
+      <div class="footer-location-container">
+        <p class="footer-location-label mb-2">123 Madison Ave, New York</p>
 
-          <span class="footer-location-label">
-            example&commat;eternatravelco.com
-          </span>
-        </div>
+        <p class="footer-location-label">example&commat;eternatravelco.com</p>
+      </div>
 
-        <ul class="footer-icons-container">
-          <li>
-            <a href="https://www.facebook.com/" target="_blank"
-              ><i class="fa-brands fa-facebook footer-icon"></i
-            ></a>
+      <ul class="footer-icons-container">
+        <li>
+          <a href="https://www.facebook.com/" target="_blank"
+            ><i class="fa-brands fa-facebook footer-icon"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.pinterest.com/" target="_blank"
+            ><i class="fa-brands fa-pinterest footer-icon"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.pl.linkedin.com/" target="_blank"
+            ><i class="fa-brands fa-linkedin footer-icon"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex justify-center gap-28 w-[50%]">
+      <div>
+        <h4 class="font-kaushan font-medium text-bodySmall text-white mb-4">
+          Company
+        </h4>
+
+        <ul class="font-inter font-light text-body text-white text-opacity-80">
+          <li class="hover:text-brandPrimary duration-300 mb-3">
+            <a href="">About Us</a>
           </li>
-          <li>
-            <a href="https://www.pinterest.com/" target="_blank"
-              ><i class="fa-brands fa-pinterest footer-icon"></i
-            ></a>
+          <li class="hover:text-brandPrimary duration-300 mb-3">
+            <a href="">Contact Us</a>
           </li>
-          <li>
-            <a href="https://www.pl.linkedin.com/" target="_blank"
-              ><i class="fa-brands fa-linkedin footer-icon"></i
-            ></a>
+          <li class="hover:text-brandPrimary duration-300 mb-3">
+            <a href="">Travel Guides</a>
+          </li>
+          <li class="hover:text-brandPrimary duration-300">
+            <a href="">Data Policy</a>
           </li>
         </ul>
       </div>
 
-      <div class="flex justify-between w-[377px]">
-        <div>
-          <h4 class="font-kaushan font-medium text-bodySmall text-white mb-4">
-            Company
-          </h4>
-
-          <ul
-            class="font-inter font-light text-body text-white text-opacity-80"
-          >
-            <li class="hover:text-brandPrimary duration-300 mb-3">
-              <a href="">About Us</a>
-            </li>
-            <li class="hover:text-brandPrimary duration-300 mb-3">
-              <a href="">Contact Us</a>
-            </li>
-            <li class="hover:text-brandPrimary duration-300 mb-3">
-              <a href="">Travel Guides</a>
-            </li>
-            <li class="hover:text-brandPrimary duration-300">
-              <a href="">Data Policy</a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-kaushan font-medium text-bodySmall text-white mb-4">
-            Top Destination
-          </h4>
-
-          <ul
-            class="font-inter font-light text-body text-white text-opacity-80"
-          >
-            <li class="hover:text-brandPrimary duration-300 mb-3">
-              <a href="">Las Vegas</a>
-            </li>
-
-            <li class="hover:text-brandPrimary duration-300 mb-3">
-              <a href="">New York City</a>
-            </li>
-
-            <li class="hover:text-brandPrimary duration-300 mb-3">
-              <a href="">San Francisco</a>
-            </li>
-
-            <li class="hover:text-brandPrimary duration-300 mb-3">
-              <a href="">Tokyo</a>
-            </li>
-
-            <li class="hover:text-brandPrimary duration-300 mb-3">
-              <a href="">Sydney</a>
-            </li>
-
-            <li class="hover:text-brandPrimary duration-300 mb-3">
-              <a href="">Dubai</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="w-[241px] pl-6">
+      <div>
         <h4 class="font-kaushan font-medium text-bodySmall text-white mb-4">
-          Sign up Newsletter
+          Top Destination
         </h4>
 
-        <form [formGroup]="form">
-          <ui-input
-            formControlName="email"
-            [cssClass]="'w-[205px] h-[40px] px-[36px]'"
-            [placeholder]="'Enter email...'"
-            [icon]="'fa-regular fa-paper-plane'"
-          ></ui-input>
+        <ul class="font-inter font-light text-body text-white text-opacity-80">
+          <li class="hover:text-brandPrimary duration-300 mb-3">
+            <a href="">Las Vegas</a>
+          </li>
 
-          <ui-button
-            [cssClass]="'px-7 py-3 mt-2'"
-            [type]="'submit'"
-            [disabled]="form.invalid"
-            (click)="add()"
-          ></ui-button>
-        </form>
+          <li class="hover:text-brandPrimary duration-300 mb-3">
+            <a href="">New York City</a>
+          </li>
 
-        <span
-          class="block font-inter font-light text-body text-white text-opacity-80 mt-[52px]"
-          >© 2025 Eterna Travel Co.</span
-        >
+          <li class="hover:text-brandPrimary duration-300 mb-3">
+            <a href="">San Francisco</a>
+          </li>
 
-        <span
-          class="block font-inter font-light text-body text-white text-opacity-80"
-          >All Right Reserved</span
-        >
+          <li class="hover:text-brandPrimary duration-300 mb-3">
+            <a href="">Tokyo</a>
+          </li>
+
+          <li class="hover:text-brandPrimary duration-300 mb-3">
+            <a href="">Sydney</a>
+          </li>
+
+          <li class="hover:text-brandPrimary duration-300 mb-3">
+            <a href="">Dubai</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </footer>
-</section>
+
+    <div class="w-[25%] pl-6">
+      <h4 class="font-kaushan font-medium text-bodySmall text-white mb-4">
+        Sign up Newsletter
+      </h4>
+
+      <form [formGroup]="form">
+        <ui-input
+          formControlName="email"
+          [cssClass]="'h-[40px] px-[36px]'"
+          [placeholder]="'Enter email...'"
+          [icon]="'fa-regular fa-paper-plane'"
+        ></ui-input>
+
+        <ui-button
+          [cssClass]="'px-7 py-3 mt-2'"
+          [type]="'submit'"
+          [disabled]="form.invalid"
+          (click)="add()"
+        ></ui-button>
+      </form>
+
+      <p
+        class="font-inter font-light text-body text-white text-opacity-80 mt-[52px]"
+      >
+        © 2025 Eterna Travel Co.
+      </p>
+
+      <p class="font-inter font-light text-body text-white text-opacity-80">
+        All Right Reserved
+      </p>
+    </div>
+  </div>
+</footer>

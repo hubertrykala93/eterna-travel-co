@@ -1,0 +1,59 @@
+@if (toast$ | async; as toast) {
+<div class="toast" role="alert" aria-live="assertive">
+  <div class="toast__content">
+    <div class="toast__icon">
+      <svg
+        [ngClass]="{
+          'text-successColor': toast.type === ToastTypes.SUCCESS,
+          'text-errorColor': toast.type === ToastTypes.ERROR,
+          'text-warningColor': toast.type === ToastTypes.WARNING,
+          'text-infoColor': toast.type === ToastTypes.INFO
+        }"
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        @if (toast.type === ToastTypes.SUCCESS) {
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M5 13l4 4L19 7"
+        />
+        } @else if (toast.type === ToastTypes.ERROR){
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+        } @else if (toast.type === ToastTypes.WARNING) {
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a1 1 0 00.86 1.5h18.64a1 1 0 00.86-1.5L13.71 3.86a1 1 0 00-1.72 0z"
+        />
+        } @else if (toast.type === ToastTypes.INFO) {
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M13 16h-1v-4h-1m1-4h.01"
+        />
+        }
+      </svg>
+    </div>
+    <div class="toast__message">
+      {{ toast.message }}
+    </div>
+  </div>
+  <div
+    [ngClass]="{
+      'bg-successColor': toast.type === ToastTypes.SUCCESS,
+      'bg-errorColor': toast.type === ToastTypes.ERROR,
+      'bg-warningColor': toast.type === ToastTypes.WARNING,
+      'bg-infoColor': toast.type === ToastTypes.INFO,
+    }"
+    class="toast__animation"
+  ></div>
+</div>
+}

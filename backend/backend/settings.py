@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "newsletter",
     "contact_us",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+AUTH_USER_MODEL = "users.User"
 
 ROOT_URLCONF = "backend.urls"
 
@@ -147,4 +150,4 @@ CORS_ALLOWED_ORIGIN = [
 CORS_ALLOW_ALL_ORIGINS = True
 
 # Password Reset
-PASSWORD_RESET_TIMEOUT = int(os.environ.get("PASSWORD_RESET_TIMEOUT"))
+# PASSWORD_RESET_TIMEOUT = int(os.environ.get("PASSWORD_RESET_TIMEOUT"))

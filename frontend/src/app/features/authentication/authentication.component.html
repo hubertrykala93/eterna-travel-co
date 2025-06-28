@@ -1,0 +1,60 @@
+<section
+  class="authentication-container section-block-spacing-top section-block-spacing-bottom"
+>
+  <div class="grid grid-cols-2 gap-3 mb-6">
+    <ui-button
+      [cssClass]="
+        isRegister
+          ? 'py-4 bg-brandYellow !text-heading cursor-default w-full'
+          : 'py-4 w-full'
+      "
+      [label]="'Register'"
+      [routerLink]="['/auth/register']"
+    ></ui-button>
+
+    <ui-button
+      [cssClass]="
+        !isRegister
+          ? 'py-4 bg-brandYellow !text-heading cursor-default w-full'
+          : 'py-4 w-full'
+      "
+      [label]="'Login'"
+      [routerLink]="['/auth/login']"
+    ></ui-button>
+  </div>
+
+  @if (isLoading$ | async) {
+  <ui-spinner></ui-spinner>
+  }
+
+  <form
+    class="border px-5 py-8 rounded-md"
+    [formGroup]="form"
+    (ngSubmit)="add()"
+  >
+    <app-authentication-form
+      [activeTab]="
+        isRegister ? AuthenticationTabs.REGISTER : AuthenticationTabs.LOGIN
+      "
+      [form]="form"
+    ></app-authentication-form>
+
+    <ui-button
+      [cssClass]="'py-3 w-full'"
+      [label]="isRegister ? 'Sign Up' : 'Sign In'"
+    ></ui-button>
+  </form>
+
+  <h4 class="font-medium text-center text-heading my-6">
+    {{ isRegister ? "Or sign up with:" : "Or sign in with:" }}
+  </h4>
+
+  <div class="flex justify-center gap-3">
+    @for (option of socialMediaOptions; track option) {
+    <ui-button
+      [cssClass]="'font-kaushan px-6 py-3'"
+      [label]="option"
+    ></ui-button>
+    }
+  </div>
+</section>

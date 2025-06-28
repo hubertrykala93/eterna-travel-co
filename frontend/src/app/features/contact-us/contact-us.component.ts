@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { tap } from 'rxjs';
 import {
@@ -13,14 +13,13 @@ import { InputComponent } from './../../shared/ui/input/input.component';
   selector: 'app-contact-us',
   imports: [InputComponent, ButtonComponent, ReactiveFormsModule],
   templateUrl: './contact-us.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactUsComponent {
   private readonly contactUsService = inject(ContactUsService);
 
   public form: FormGroup<ContactUsControls> =
     this.contactUsService.getContactUsForm();
-
-  public isSuccess: boolean = false;
 
   public add(): void {
     const data = this.form.value as ContactRequest;

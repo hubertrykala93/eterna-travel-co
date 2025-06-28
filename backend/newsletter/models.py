@@ -5,7 +5,7 @@ from django.utils.timezone import now
 
 
 class Newsletter(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid4, editable=False, unique=True)
     created_at = models.DateTimeField(default=now, editable=False)
     email = models.CharField(max_length=255)
 

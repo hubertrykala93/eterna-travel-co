@@ -1,0 +1,10 @@
+@if (option.name === AuthenticationFormControlNames.REPASSWORD) { @if
+(errorMessage && control?.touched) {
+<span class="font-light text-xs text-brandPrimary">
+  {{ errorMessage }}
+</span>
+} } @else { @if (errorMessage) {
+<span class="font-light text-xs text-brandPrimary">
+  {{ errorMessage }}
+</span>
+} }
