@@ -6,6 +6,7 @@ import { ToastService } from './../../../core/toast/toast.service';
 @Component({
   selector: 'ui-toast',
   imports: [AsyncPipe, CommonModule],
+  styleUrl: './toast.component.scss',
   templateUrl: './toast.component.html',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -4,6 +4,39 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #051036;
+  --color-primary--rgba: 5, 16, 54;
+
+  --color-secondary: #fc5056;
+  --color-secondary--rgba: 252, 80, 86;
+
+  --text-caption--size: 12px;
+  --text-caption--line: 16px;
+
+  --text-body--size: 16px;
+  --text-body--line: 26px;
+
+  --text-subtitle--size: 16px;
+  --text-subtitle--line: 24px;
+
+  --text-lg--size: 18px;
+  --text-lg--line: 28px;
+
+  --text-h5--size: 24px;
+  --text-h5--line: 32px;
+
+  --font-fugaz: "Fugaz One", sans-serif;
+  --font-workSans: "Work Sans", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  font-family: var(--font-inter);
+}
+
 .custom-container {
   @apply w-full max-w-[1270px] mx-auto px-[50px];
 }
@@ -25,67 +58,6 @@
 
 .section-block-spacing-bottom {
   @apply pb-[100px];
-}
-
-/* Header */
-.header-container-info {
-  @apply flex justify-between items-center max-w-[1440px] mx-auto px-[50px] py-[5px] bg-heading bg-opacity-5 text-caption text-heading text-opacity-80;
-}
-
-.header-container-menu {
-  @apply flex justify-between max-w-[1440px] mx-auto px-[50px] py-[20px];
-}
-
-.header-content-container {
-  @apply flex justify-between items-center;
-}
-
-.header-right-content {
-  @apply flex items-center;
-}
-
-.header-icons-content {
-  @apply flex;
-}
-
-.header-icon {
-  @apply text-lg ml-3 opacity-60 hover:text-brandPrimary hover:opacity-100 duration-300;
-}
-
-.header-right-divider {
-  @apply ml-4 mr-3 opacity-60;
-}
-
-.header-currency {
-  @apply mr-1;
-}
-
-.header-logo {
-  @apply font-fugaz text-h5;
-}
-
-.header-menu-right-content {
-  @apply flex items-center gap-4 text-heading text-opacity-80;
-}
-
-.header-icon-list {
-  @apply flex items-center gap-4;
-}
-
-.header-auth {
-  @apply font-workSans text-subtitle font-semibold;
-}
-
-.header-auth-item {
-  @apply hover:text-brandPrimary duration-300;
-}
-
-/* Navbar */
-.navbar-menu {
-  @apply flex gap-6;
-}
-.menu-item {
-  @apply font-inter text-body text-heading font-normal text-opacity-80 hover:text-brandPrimary hover:opacity-100 duration-300;
 }
 
 /* Footer */
@@ -135,38 +107,4 @@
 
 .footer-icon {
   @apply text-2xl;
-}
-
-/* Toast */
-@keyframes slideInOut {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  10%,
-  90% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
-
-.animate-slide-in-out {
-  animation: slideInOut 3s ease-in-out forwards;
-}
-
-@keyframes toastBar {
-  0% {
-    width: 100%;
-  }
-  100% {
-    width: 0%;
-  }
-}
-
-.animate-toast-bar {
-  animation: toastBar 3s linear forwards;
 }

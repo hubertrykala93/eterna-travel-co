@@ -1,0 +1,21 @@
+.navbar {
+  display: flex;
+  gap: 24px;
+
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
+
+  &__menu-item {
+    font-family: var(--text-body--size);
+    line-height: var(--text-body--line);
+    color: rgba(var(--color-primary--rgba), 0.8);
+    font-weight: 400;
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+}

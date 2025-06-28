@@ -1,11 +1,7 @@
 @if (toast$ | async; as toast) {
-<div
-  class="fixed bottom-6 right-6 z-50 w-full max-w-sm overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-black/10 dark:bg-gray-900 dark:ring-white/10 animate-slide-in-out"
-  role="alert"
-  aria-live="assertive"
->
-  <div class="p-4 flex items-center space-x-3">
-    <div class="flex-shrink-0">
+<div class="toast" role="alert" aria-live="assertive">
+  <div class="toast__content">
+    <div class="toast__icon">
       <svg
         [ngClass]="{
           'text-successColor': toast.type === ToastTypes.SUCCESS,
@@ -46,7 +42,7 @@
         }
       </svg>
     </div>
-    <div class="flex-1 text-sm font-medium text-gray-800 dark:text-gray-100">
+    <div class="toast__message">
       {{ toast.message }}
     </div>
   </div>
@@ -57,7 +53,7 @@
       'bg-warningColor': toast.type === ToastTypes.WARNING,
       'bg-infoColor': toast.type === ToastTypes.INFO,
     }"
-    class="h-1 animate-toast-bar"
+    class="toast__animation"
   ></div>
 </div>
 }

@@ -1,60 +1,117 @@
-<header>
-  <div class="header-container-info">
-    <div>
+<header class="header">
+  <div class="header__content">
+    <div class="header__contact-info">
       <span>+1 (212) 555-9876</span>
-      <span> | </span>
-      <span>info&commat;eternatravelco.com</span>
+      <span class="header__contact-info-divider"> | </span>
+      <span class="header__contact-info-email"
+        >info&commat;eternatravelco.com</span
+      >
     </div>
 
-    <div class="header-right-content">
-      <ul class="header-icons-content">
+    <div class="header__social">
+      <ul class="header__social-icons">
         <li>
           <a href="https://www.facebook.com/" target="_blank"
-            ><i class="fa-brands fa-facebook header-icon"></i
+            ><i class="fa-brands fa-facebook header__social-icon"></i
           ></a>
         </li>
         <li>
           <a href="https://www.pinterest.com/" target="_blank"
-            ><i class="fa-brands fa-pinterest header-icon"></i
+            ><i class="fa-brands fa-pinterest header__social-icon"></i
           ></a>
         </li>
         <li>
           <a href="https://www.pl.linkedin.com/" target="_blank"
-            ><i class="fa-brands fa-linkedin header-icon"></i
+            ><i class="fa-brands fa-linkedin header__social-icon"></i
           ></a>
         </li>
       </ul>
 
       <div>
-        <span class="header-right-divider"> | </span>
-        <span class="header-currency">EUR</span>
+        <span class="header__divider"> | </span>
+        <span class="header__currency">EUR</span>
 
         <i class="fa-solid fa-chevron-down"></i>
       </div>
     </div>
   </div>
 
-  <div class="header-container-menu">
+  <div class="header__nav">
     <a [routerLink]="'/'">
-      <h1 class="header-logo">Eterna Travel Co.</h1>
+      <h1 class="header__logo">Eterna Travel Co.</h1>
     </a>
 
-    <app-navbar></app-navbar>
+    <app-navbar class="header__navbar"></app-navbar>
 
-    <div class="header-menu-right-content">
-      <ul class="header-icon-list">
-        <li>
+    <div class="header__auth">
+      <ul class="header__auth-icons">
+        <li class="header__auth-icon">
           <i class="fa-solid fa-magnifying-glass"></i>
         </li>
-        <li>
+        <li
+          class="header__auth-icon header__auth-icon--user"
+          (click)="onAuthMenuOpen()"
+        >
           <i class="fa-solid fa-user"></i>
+        </li>
+
+        <li
+          class="header__auth-icon header__auth-icon--bars"
+          (click)="onMenuOpen()"
+        >
+          <i class="fa-solid fa-bars"></i>
         </li>
       </ul>
 
-      <div class="header-auth">
-        <a class="header-auth-item" [routerLink]="['/auth/login']">Login</a>
+      @if (isAuthMenuOpen) {
+      <ul class="header__menu">
+        <li class="header__menu--item">
+          <a routerLink="/auth/login">Login</a>
+        </li>
+
+        <li>
+          <a routerLink="/auth/register">Register</a>
+        </li>
+      </ul>
+      } @if (isMenuOpen) {
+      <app-navbar class="header__menu"></app-navbar>
+      <!-- <ul class="header__menu">
+        <li class="header__menu--item">
+          <a href="">Home</a>
+        </li>
+
+        <li class="header__menu--item">
+          <a href="">About</a>
+        </li>
+
+        <li class="header__menu--item">
+          <a href="">Tours</a>
+        </li>
+
+        <li class="header__menu--item">
+          <a href="">Destination</a>
+        </li>
+
+        <li class="header__menu--item">
+          <a href="">Blog</a>
+        </li>
+
+        <li class="header__menu--item">
+          <a href="">Pages</a>
+        </li>
+
+        <li class="header__menu--item">
+          <a [routerLink]="['/contact-us']">Contact</a>
+        </li>
+      </ul> -->
+      }
+
+      <div class="header__auth-navigation">
+        <a class="header__auth-item" [routerLink]="['/auth/login']">Login</a>
         <span> / </span>
-        <a class="header-auth-item" [routerLink]="['/auth/register']">Signup</a>
+        <a class="header__auth-item" [routerLink]="['/auth/register']"
+          >Signup</a
+        >
       </div>
     </div>
   </div>
