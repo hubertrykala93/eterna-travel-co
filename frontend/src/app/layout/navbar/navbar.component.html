@@ -1,29 +1,33 @@
 <ul class="navbar">
   <li>
-    <a class="navbar__menu-item" href="">Home</a>
+    <a class="navbar__menu-item" href="">{{ "navbar.home" | translate }}</a>
   </li>
 
   <li>
-    <a class="navbar__menu-item" href="">About</a>
+    <a class="navbar__menu-item" href="">{{ "navbar.about" | translate }}</a>
   </li>
 
   <li>
-    <a class="navbar__menu-item" href="">Tours</a>
+    <a class="navbar__menu-item" href="">{{ "navbar.tours" | translate }}</a>
   </li>
 
   <li>
-    <a class="navbar__menu-item" href="">Destination</a>
+    <a class="navbar__menu-item" href="">{{
+      "navbar.destinations" | translate
+    }}</a>
   </li>
 
   <li>
-    <a class="navbar__menu-item" href="">Blog</a>
+    <a class="navbar__menu-item" href="">{{ "navbar.blog" | translate }}</a>
   </li>
 
   <li>
-    <a class="navbar__menu-item" href="">Pages</a>
+    <a class="navbar__menu-item" href="">{{ "navbar.pages" | translate }}</a>
   </li>
 
   <li>
-    <a class="navbar__menu-item" [routerLink]="['/contact-us']">Contact</a>
+    <a class="navbar__menu-item" [routerLink]="['/contact-us']">{{
+      "navbar.contact" | translate
+    }}</a>
   </li>
 </ul>

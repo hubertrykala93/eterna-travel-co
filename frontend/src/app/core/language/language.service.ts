@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, EMPTY, Observable, switchMap, take, tap } from 'rxjs';
 import { environment } from 'src/app/environments';
+import { TranslationService } from '../translate/translation.service';
 import { Language } from './language.model';
 
 @Injectable({
@@ -9,6 +10,7 @@ import { Language } from './language.model';
 })
 export class LanguageService {
   private readonly http = inject(HttpClient);
+  private readonly translationService = inject(TranslationService);
 
   private readonly initializeLanguage = (() => {
     this.getLanguage()
@@ -21,9 +23,9 @@ export class LanguageService {
             this.isLoadingLanguageSubject.next(false);
             return EMPTY;
           } else {
-            return this.changeLanguage(Language.US).pipe(
+            return this.changeLanguage(Language.EN).pipe(
               tap(() => {
-                this.setLanguage(Language.US);
+                this.setLanguage(Language.EN);
                 this.isLoadingLanguageSubject.next(false);
               })
             );
@@ -35,7 +37,7 @@ export class LanguageService {
   })();
 
   private selectedLanguageSubject: BehaviorSubject<string | null> =
-    new BehaviorSubject<string | null>(Language.US);
+    new BehaviorSubject<string | null>(Language.EN);
 
   private isLoadingLanguageSubject: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(true);
@@ -46,6 +48,10 @@ export class LanguageService {
   private setLanguage(language: string): void {
     sessionStorage.setItem('activeLanguage', language);
     this.selectedLanguageSubject.next(language);
+  }
+
+  public retrieveLanguage(): string | null {
+    return sessionStorage.getItem('activeLanguage') || 'en';
   }
 
   private getLanguage(): Observable<{ language: string }> {
@@ -62,6 +68,11 @@ export class LanguageService {
         { language },
         { withCredentials: true }
       )
-      .pipe(tap(() => this.setLanguage(language)));
+      .pipe(
+        tap(() => {
+          this.setLanguage(language);
+          this.translationService.setTranslations(language);
+        })
+      );
   }
 }

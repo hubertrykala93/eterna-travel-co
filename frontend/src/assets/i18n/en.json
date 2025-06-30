@@ -1,0 +1,17 @@
+{
+  "header": {
+    "english-us": "English (US)",
+    "polish-pl": "Polish",
+    "login": "Login",
+    "register": "Register"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "tours": "Tours",
+    "destinations": "Destinations",
+    "blog": "Blog",
+    "pages": "Pages",
+    "contact": "Contact"
+  }
+}
