@@ -24,9 +24,8 @@
         </li>
       </ul>
 
-      <span> | </span>
-
-      @if (selectedCurrency$ | async; as selectedCurrency) {
+      @if (!(isLoadingCurrency$ | async)) { @if (selectedCurrency$ | async; as
+      selectedCurrency) {
       <div class="header__currency" (click)="onCurrencyMenuOpen()">
         <span>{{ selectedCurrency }}</span>
         <i class="fa-solid fa-chevron-down"></i>
@@ -60,7 +59,56 @@
         </ul>
         }
       </div>
-      }
+      } } @if (!(isLoadingLanguage$ | async)) { @if (selectedLanguage$ | async;
+      as selectedLanguage) {
+      <div class="header__languages" (click)="onLanguageMenuOpen()">
+        <img
+          class="header__flag"
+          [src]="
+            selectedLanguage === Language.US
+              ? 'assets/flags/us-flag.png'
+              : 'assets/flags/poland-flag.png'
+          "
+          [alt]="
+            selectedLanguage === Language.US
+              ? 'United states flag'
+              : 'Poland flag'
+          "
+          (click)="onLanguageMenuOpen()"
+        />
+        <span>{{
+          selectedLanguage == Language.US ? "English (US)" : "Polish"
+        }}</span>
+
+        @if (isLanguageMenuOpen) {
+        <ul class="header__menu">
+          <li
+            class="header__currency-item header__currency-item--flex"
+            (click)="onChangeLanguage(Language.US)"
+          >
+            <img
+              class="header__flag"
+              src="assets/flags/us-flag.png"
+              alt="United states flag"
+            />
+            <span>English (US)</span>
+          </li>
+
+          <li
+            class="header__currency-item header__currency-item--flex"
+            (click)="onChangeLanguage(Language.PL)"
+          >
+            <img
+              class="header__flag"
+              src="assets/flags/poland-flag.png"
+              alt="Poland flag"
+            />
+            <span> Polish </span>
+          </li>
+        </ul>
+        }
+      </div>
+      } }
     </div>
   </div>
 

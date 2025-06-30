@@ -18,10 +18,14 @@ export class CurrencyService {
 
           if (currency) {
             this.setCurrency(currency);
+            this.isLoadingCurrencySubject.next(false);
             return EMPTY;
           } else {
             return this.changeCurrency(Currency.USD).pipe(
-              tap(() => this.setCurrency(Currency.USD))
+              tap(() => {
+                this.setCurrency(Currency.USD);
+                this.isLoadingCurrencySubject.next(false);
+              })
             );
           }
         }),
@@ -33,8 +37,14 @@ export class CurrencyService {
   private selectedCurrencySubject: BehaviorSubject<string | null> =
     new BehaviorSubject<string | null>(Currency.USD);
 
+  private isLoadingCurrencySubject: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(true);
+
   public readonly selectedCurrency$ =
     this.selectedCurrencySubject.asObservable();
+
+  public readonly isLoadingCurrency$ =
+    this.isLoadingCurrencySubject.asObservable();
 
   private setCurrency(currency: string) {
     sessionStorage.setItem('activeCurrency', currency);
@@ -43,7 +53,7 @@ export class CurrencyService {
 
   private getCurrency(): Observable<{ currency: string }> {
     return this.http.get<{ currency: string }>(
-      environment.backendUrl + '/api/v1/currency',
+      environment.backendUrl + '/api/v1/currencies',
       { withCredentials: true }
     );
   }
@@ -51,7 +61,7 @@ export class CurrencyService {
   public changeCurrency(currency: string): Observable<void> {
     return this.http
       .put<void>(
-        environment.backendUrl + '/api/v1/currency',
+        environment.backendUrl + '/api/v1/currencies',
         { currency },
         { withCredentials: true }
       )
