@@ -26,6 +26,7 @@ urlpatterns = [
     path("", include(arg="newsletter.api.urls"), name="newsletter-urls"),
     path("", include(arg="contact_us.api.urls"), name="contact-urls"),
     path("", include(arg="users.api.urls"), name="users-urls"),
+    path("", include(arg="core.api.urls"), name="core-urls")
 ]
 
 if settings.DEBUG:

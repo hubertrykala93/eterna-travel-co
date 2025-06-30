@@ -11,24 +11,46 @@
   --color-secondary: #fc5056;
   --color-secondary--rgba: 252, 80, 86;
 
-  --text-caption--size: 12px;
-  --text-caption--line: 16px;
-
-  --text-body--size: 16px;
-  --text-body--line: 26px;
-
-  --text-subtitle--size: 16px;
-  --text-subtitle--line: 24px;
-
   --text-lg--size: 18px;
   --text-lg--line: 28px;
+
+  --text-h1--size: 56px;
+  --text-h1--line: 64px;
+
+  --text-h2--size: 48px;
+  --text-h2--line: 56px;
+
+  --text-h3--size: 40px;
+  --text-h3--line: 48px;
+
+  --text-h4--size: 32px;
+  --text-h4--line: 40px;
 
   --text-h5--size: 24px;
   --text-h5--line: 32px;
 
+  --text-h6--size: 18px;
+  --text-h6--line: 24px;
+
+  --text-subtitle--size: 16px;
+  --text-subtitle--line: 24px;
+
+  --text-body--size: 16px;
+  --text-body--line: 26px;
+
+  --text-bodySmall--size: 14px;
+  --text-bodySmall--line: 20px;
+
+  --text-action--size: 15px;
+  --text-action--line: 16px;
+
+  --text-caption--size: 12px;
+  --text-caption--line: 16px;
+
   --font-fugaz: "Fugaz One", sans-serif;
   --font-workSans: "Work Sans", sans-serif;
   --font-inter: "Inter", sans-serif;
+  --font-kaushan: "Kaushan", sans-serif;
 }
 
 body {

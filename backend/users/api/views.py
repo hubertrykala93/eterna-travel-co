@@ -36,12 +36,6 @@ class CreateUserAPIView(APIView):
 
             return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
-            # return Response(data={
-            #     "success": True,
-            #     "message": "Successfully created",
-            #     "user": serializer.data,
-            # }, status=status.HTTP_201_CREATED)
-
         else:
             return Response(
                 data={
