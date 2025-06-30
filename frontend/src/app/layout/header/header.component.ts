@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { EMPTY, filter, Subscription, switchMap, tap } from 'rxjs';
+import { filter, Subscription, tap } from 'rxjs';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Currency } from './../../core/currency/currency.model';
 import { CurrencyService } from './../../core/currency/currency.service';
@@ -46,27 +46,6 @@ export class HeaderComponent {
     )
     .subscribe();
 
-  private readonly initialCurrency = this.currencyService
-    .loadCurrency()
-    .pipe(
-      switchMap((response) => {
-        if (response?.currency) {
-          const currency = response.currency;
-          this.currencyService.setCurrency(currency);
-
-          return EMPTY;
-        } else {
-          return this.currencyService.changeCurrency(Currency.USD).pipe(
-            tap(() => {
-              this.currencyService.setCurrency(Currency.USD);
-            })
-          );
-        }
-      }),
-      takeUntilDestroyed(this.destroyRef)
-    )
-    .subscribe();
-
   protected selectedCurrency$ = this.currencyService.selectedCurrency$;
 
   protected onCurrencyMenuOpen(): void {
@@ -84,10 +63,7 @@ export class HeaderComponent {
   protected onChangeCurrency(currency: string): void {
     this.currencyService
       .changeCurrency(currency)
-      .pipe(
-        tap(() => this.currencyService.setCurrency(currency)),
-        takeUntilDestroyed(this.destroyRef)
-      )
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe();
   }
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, switchMap, take, tap } from 'rxjs';
 import { environment } from 'src/app/environments';
 import { Currency } from './currency.model';
 
@@ -10,22 +10,38 @@ import { Currency } from './currency.model';
 export class CurrencyService {
   private readonly http = inject(HttpClient);
 
-  private selectedCurrencySubject = new BehaviorSubject<string>(
-    this.getCurrency() ?? Currency.USD
-  );
+  private readonly initializeCurrency = (() => {
+    this.getCurrency()
+      .pipe(
+        switchMap((response) => {
+          const currency = response.currency;
+
+          if (currency) {
+            this.setCurrency(currency);
+            return EMPTY;
+          } else {
+            return this.changeCurrency(Currency.USD).pipe(
+              tap(() => this.setCurrency(Currency.USD))
+            );
+          }
+        }),
+        take(1)
+      )
+      .subscribe();
+  })();
+
+  private selectedCurrencySubject: BehaviorSubject<string | null> =
+    new BehaviorSubject<string | null>(Currency.USD);
+
   public readonly selectedCurrency$ =
     this.selectedCurrencySubject.asObservable();
 
-  public getCurrency(): string | null {
-    return sessionStorage.getItem('activeCurrency');
-  }
-
-  public setCurrency(currency: string): void {
+  private setCurrency(currency: string) {
     sessionStorage.setItem('activeCurrency', currency);
     this.selectedCurrencySubject.next(currency);
   }
 
-  public loadCurrency(): Observable<{ currency: string }> {
+  private getCurrency(): Observable<{ currency: string }> {
     return this.http.get<{ currency: string }>(
       environment.backendUrl + '/api/v1/currency',
       { withCredentials: true }
@@ -39,6 +55,10 @@ export class CurrencyService {
         { currency },
         { withCredentials: true }
       )
-      .pipe(tap(() => this.setCurrency(currency)));
+      .pipe(
+        tap(() => {
+          this.setCurrency(currency);
+        })
+      );
   }
 }
