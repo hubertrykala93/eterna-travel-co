@@ -5,31 +5,43 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 
-class CurrencyAPIView(APIView):
+class CurrenciesAPIView(APIView):
     authentication_classes = [SessionAuthentication]
     permission_classes = [AllowAny]
 
     def get(self, request, *args, **kwargs):
-        print("Request Session -> ", request.session.items())
-        activeCurrency = request.session.get("activeCurrency", None)
-        print("Active Currency -> ", activeCurrency)
+        active_currency = request.session.get("active_currency", None)
 
         return Response(
             data={
-                "currency": activeCurrency,
+                "currency": active_currency,
             }, status=status.HTTP_200_OK,
         )
 
     def put(self, request, *args, **kwargs):
         currency = request.data.get("currency")
 
-        request.session["activeCurrency"] = currency
+        request.session["active_currency"] = currency
         request.session.modified = True
+
+        return Response(status=status.HTTP_200_OK)
+
+
+class LanguagesAPIView(APIView):
+    def get(self, request, *args, **kwargs):
+        active_language = request.session.get("active_language")
 
         return Response(
             data={
-                "status": True,
-                "message": "Currency changed successfully."
+                "language": active_language,
             },
             status=status.HTTP_200_OK,
         )
+
+    def put(self, request, *args, **kwargs):
+        language = request.data.get("language")
+
+        request.session["active_language"] = language
+        request.session.modified = True
+
+        return Response(status=status.HTTP_200_OK)
