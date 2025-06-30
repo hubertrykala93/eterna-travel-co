@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { filter, Subscription, tap } from 'rxjs';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Currency } from './../../core/currency/currency.model';
@@ -17,7 +18,7 @@ import { LanguageService } from './../../core/language/language.service';
 
 @Component({
   selector: 'app-header',
-  imports: [NavbarComponent, RouterModule, AsyncPipe],
+  imports: [NavbarComponent, RouterModule, AsyncPipe, TranslatePipe],
   styleUrl: './header.component.scss',
   templateUrl: './header.component.html',
   standalone: true,

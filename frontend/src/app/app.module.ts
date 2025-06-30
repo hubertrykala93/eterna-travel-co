@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthEffects } from './core/authentication/state/auth.effects';
 import { authReducer } from './core/authentication/state/auth.reducer';
+import { I18nModule } from './core/i18n/i18n.module';
 import { environment } from './environments';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -18,6 +19,7 @@ import { ToastComponent } from './shared/ui/toast/toast.component';
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    I18nModule,
     BrowserModule,
     AppRoutingModule,
     HeaderComponent,

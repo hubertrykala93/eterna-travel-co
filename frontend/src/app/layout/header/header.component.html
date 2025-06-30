@@ -65,33 +65,35 @@
         <img
           class="header__flag"
           [src]="
-            selectedLanguage === Language.US
+            selectedLanguage === Language.EN
               ? 'assets/flags/us-flag.png'
               : 'assets/flags/poland-flag.png'
           "
           [alt]="
-            selectedLanguage === Language.US
+            selectedLanguage === Language.EN
               ? 'United states flag'
               : 'Poland flag'
           "
           (click)="onLanguageMenuOpen()"
         />
         <span>{{
-          selectedLanguage == Language.US ? "English (US)" : "Polish"
+          selectedLanguage == Language.EN
+            ? ("header.english-us" | translate)
+            : ("header.polish-pl" | translate)
         }}</span>
 
         @if (isLanguageMenuOpen) {
         <ul class="header__menu">
           <li
             class="header__currency-item header__currency-item--flex"
-            (click)="onChangeLanguage(Language.US)"
+            (click)="onChangeLanguage(Language.EN)"
           >
             <img
               class="header__flag"
               src="assets/flags/us-flag.png"
               alt="United states flag"
             />
-            <span>English (US)</span>
+            <span>{{ "header.english-us" | translate }}</span>
           </li>
 
           <li
@@ -103,7 +105,7 @@
               src="assets/flags/poland-flag.png"
               alt="Poland flag"
             />
-            <span> Polish </span>
+            <span> {{ "header.polish-pl" | translate }} </span>
           </li>
         </ul>
         }
@@ -137,11 +139,13 @@
         @if (isAuthMenuOpen) {
         <ul class="header__menu">
           <li>
-            <a routerLink="auth/login">Login</a>
+            <a routerLink="auth/login">{{ "header.login" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="auth/register">Register</a>
+            <a routerLink="auth/register">{{
+              "header.register" | translate
+            }}</a>
           </li>
         </ul>
         }
@@ -159,13 +163,13 @@
 
       <ul class="header__auth-links">
         <li class="header__currency-item">
-          <a routerLink="auth/login">Login</a>
+          <a routerLink="auth/login">{{ "header.login" | translate }}</a>
         </li>
 
         <li>/</li>
 
         <li class="header__currency-item">
-          <a routerLink="auth/register">Register</a>
+          <a routerLink="auth/register">{{ "header.register" | translate }}</a>
         </li>
       </ul>
     </div>

@@ -1,0 +1,17 @@
+{
+  "header": {
+    "english-us": "Angielski (US)",
+    "polish-pl": "Polski",
+    "login": "Zaloguj",
+    "register": "Zarejestruj"
+  },
+  "navbar": {
+    "home": "Strona Główna",
+    "about": "O Nas",
+    "tours": "Wycieczki",
+    "destinations": "Kierunki",
+    "blog": "Blog",
+    "pages": "Strony",
+    "contact": "Kontakt"
+  }
+}
