@@ -1,3 +1,8 @@
+@let isLoadingLanguage = isLoadingLanguage$ | async;
+@let selectedLanguage = selectedLanguage$ | async;
+@let isLoadingCurrency = isLoadingCurrency$ | async;
+@let selectedCurrency = selectedCurrency$ | async;
+
 <header class="header">
   <div class="header__content">
     <div class="header__contact-info">
@@ -24,104 +29,83 @@
         </li>
       </ul>
 
-      @if (!(isLoadingCurrency$ | async)) { @if (selectedCurrency$ | async; as
-      selectedCurrency) {
-      <div class="header__currency" (click)="onCurrencyMenuOpen()">
-        <span>{{ selectedCurrency }}</span>
-        <i class="fa-solid fa-chevron-down"></i>
+      @if (!isLoadingCurrency) {
+        @if (selectedCurrency) {
+          <div class="header__currency" (click)="onCurrencyMenuOpen()">
+            <span>{{ selectedCurrency }}</span>
+            <i class="fa-solid fa-chevron-down"></i>
 
-        @if (isCurrencyMenuOpen) {
-        <ul class="header__menu">
-          <li
-            class="header__currency-item"
-            (click)="onChangeCurrency(Currency.USD)"
-          >
-            {{ Currency.USD }}
-          </li>
-          <li
-            class="header__currency-item"
-            (click)="onChangeCurrency(Currency.EUR)"
-          >
-            {{ Currency.EUR }}
-          </li>
-          <li
-            class="header__currency-item"
-            (click)="onChangeCurrency(Currency.PLN)"
-          >
-            {{ Currency.PLN }}
-          </li>
-          <li
-            class="header__currency-item"
-            (click)="onChangeCurrency(Currency.CHF)"
-          >
-            {{ Currency.CHF }}
-          </li>
-        </ul>
+            @if (isCurrencyMenuOpen()) {
+              <ul class="header__menu">
+                <li class="header__currency-item" (click)="onChangeCurrency(Currency.USD)">
+                  {{ Currency.USD }}
+                </li>
+                <li class="header__currency-item" (click)="onChangeCurrency(Currency.EUR)">
+                  {{ Currency.EUR }}
+                </li>
+                <li class="header__currency-item" (click)="onChangeCurrency(Currency.PLN)">
+                  {{ Currency.PLN }}
+                </li>
+                <li class="header__currency-item" (click)="onChangeCurrency(Currency.CHF)">
+                  {{ Currency.CHF }}
+                </li>
+              </ul>
+            }
+          </div>
         }
-      </div>
-      } } @if (!(isLoadingLanguage$ | async)) { @if (selectedLanguage$ | async;
-      as selectedLanguage) {
-      <div class="header__languages" (click)="onLanguageMenuOpen()">
-        <img
-          class="header__flag"
-          [src]="
-            selectedLanguage === Language.EN
-              ? 'assets/flags/us-flag.png'
-              : 'assets/flags/poland-flag.png'
-          "
-          [alt]="
-            selectedLanguage === Language.EN
-              ? 'United states flag'
-              : 'Poland flag'
-          "
-          (click)="onLanguageMenuOpen()"
-        />
-        <span>{{
-          selectedLanguage == Language.EN
-            ? ("header.english-us" | translate)
-            : ("header.polish-pl" | translate)
-        }}</span>
-
-        @if (isLanguageMenuOpen) {
-        <ul class="header__menu">
-          <li
-            class="header__currency-item header__currency-item--flex"
-            (click)="onChangeLanguage(Language.EN)"
-          >
+      }
+      @if (!isLoadingLanguage) {
+        @if (selectedLanguage) {
+          <div class="header__languages" (click)="onLanguageMenuOpen()">
             <img
               class="header__flag"
-              src="assets/flags/us-flag.png"
-              alt="United states flag"
+              [src]="
+                selectedLanguage === Language.EN
+                  ? 'assets/flags/us-flag.png'
+                  : 'assets/flags/poland-flag.png'
+              "
+              [alt]="selectedLanguage === Language.EN ? 'United states flag' : 'Poland flag'"
+              (click)="onLanguageMenuOpen()"
             />
-            <span>{{ "header.english-us" | translate }}</span>
-          </li>
+            <span>{{
+              selectedLanguage == Language.EN
+                ? ('header.english-us' | translate)
+                : ('header.polish-pl' | translate)
+            }}</span>
 
-          <li
-            class="header__currency-item header__currency-item--flex"
-            (click)="onChangeLanguage(Language.PL)"
-          >
-            <img
-              class="header__flag"
-              src="assets/flags/poland-flag.png"
-              alt="Poland flag"
-            />
-            <span> {{ "header.polish-pl" | translate }} </span>
-          </li>
-        </ul>
+            @if (isLanguageMenuOpen()) {
+              <ul class="header__menu">
+                <li
+                  class="header__currency-item header__currency-item--flex"
+                  (click)="onChangeLanguage(Language.EN)"
+                >
+                  <img
+                    class="header__flag"
+                    src="assets/flags/us-flag.png"
+                    alt="United states flag"
+                  />
+                  <span>{{ 'header.english-us' | translate }}</span>
+                </li>
+
+                <li
+                  class="header__currency-item header__currency-item--flex"
+                  (click)="onChangeLanguage(Language.PL)"
+                >
+                  <img class="header__flag" src="assets/flags/poland-flag.png" alt="Poland flag" />
+                  <span> {{ 'header.polish-pl' | translate }} </span>
+                </li>
+              </ul>
+            }
+          </div>
         }
-      </div>
-      } }
+      }
     </div>
   </div>
 
   <div class="header__nav">
     <div class="header__branding">
       <a class="header__branding-link" routerLink="/">
-        <img
-          class="header__branding-logo"
-          src="assets/logo/eterna-travel-co-logo.png"
-          alt="Logo"
-        />
+        <img class="header__branding-logo" src="assets/logo/eterna-travel-co-logo.png" alt="Logo" />
         <h1 class="header__branding-name">Eterna Travel Co.</h1>
       </a>
     </div>
@@ -136,40 +120,38 @@
           <i class="fa-solid fa-user"></i>
         </li>
 
-        @if (isAuthMenuOpen) {
-        <ul class="header__menu">
-          <li>
-            <a routerLink="auth/login">{{ "header.login" | translate }}</a>
-          </li>
+        @if (isAuthMenuOpen()) {
+          <ul class="header__menu">
+            <li>
+              <a routerLink="auth/login">{{ 'header.login' | translate }}</a>
+            </li>
 
-          <li>
-            <a routerLink="auth/register">{{
-              "header.register" | translate
-            }}</a>
-          </li>
-        </ul>
+            <li>
+              <a routerLink="auth/register">{{ 'header.register' | translate }}</a>
+            </li>
+          </ul>
         }
 
         <li class="header__currency-item" (click)="onMenuOpen()">
           <i class="fa-solid fa-bars"></i>
         </li>
 
-        @if (isMenuOpen) {
-        <div class="header__menu">
-          <app-navbar></app-navbar>
-        </div>
+        @if (isMenuOpen()) {
+          <div class="header__menu">
+            <app-navbar></app-navbar>
+          </div>
         }
       </ul>
 
       <ul class="header__auth-links">
         <li class="header__currency-item">
-          <a routerLink="auth/login">{{ "header.login" | translate }}</a>
+          <a routerLink="auth/login">{{ 'header.login' | translate }}</a>
         </li>
 
         <li>/</li>
 
         <li class="header__currency-item">
-          <a routerLink="auth/register">{{ "header.register" | translate }}</a>
+          <a routerLink="auth/register">{{ 'header.register' | translate }}</a>
         </li>
       </ul>
     </div>

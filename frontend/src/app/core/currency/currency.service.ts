@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, EMPTY, Observable, switchMap, take, tap } from 'rxjs';
 import { environment } from 'src/app/environments';
-import { Currency } from './currency.model';
+import { ACTIVE_CURRENCY } from './currency.const';
+import { Currency, CurrencyDto } from './currency.model';
 
 @Injectable({
   providedIn: 'root',
@@ -25,50 +26,48 @@ export class CurrencyService {
               tap(() => {
                 this.setCurrency(Currency.USD);
                 this.isLoadingCurrencySubject.next(false);
-              })
+              }),
             );
           }
         }),
-        take(1)
+        take(1),
       )
       .subscribe();
   })();
 
-  private selectedCurrencySubject: BehaviorSubject<string | null> =
-    new BehaviorSubject<string | null>(Currency.USD);
+  private selectedCurrencySubject: BehaviorSubject<Currency | null> =
+    new BehaviorSubject<Currency | null>(Currency.USD);
 
-  private isLoadingCurrencySubject: BehaviorSubject<boolean> =
-    new BehaviorSubject<boolean>(true);
+  private isLoadingCurrencySubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
-  public readonly selectedCurrency$ =
+  public readonly selectedCurrency$: Observable<Currency | null> =
     this.selectedCurrencySubject.asObservable();
 
-  public readonly isLoadingCurrency$ =
+  public readonly isLoadingCurrency$: Observable<boolean> =
     this.isLoadingCurrencySubject.asObservable();
 
-  private setCurrency(currency: string) {
-    sessionStorage.setItem('activeCurrency', currency);
+  private setCurrency(currency: Currency): void {
+    sessionStorage.setItem(ACTIVE_CURRENCY, currency);
     this.selectedCurrencySubject.next(currency);
   }
 
-  private getCurrency(): Observable<{ currency: string }> {
-    return this.http.get<{ currency: string }>(
-      environment.backendUrl + '/api/v1/currencies',
-      { withCredentials: true }
-    );
+  private getCurrency(): Observable<CurrencyDto> {
+    return this.http.get<CurrencyDto>(environment.backendUrl + '/api/v1/currencies', {
+      withCredentials: true,
+    });
   }
 
-  public changeCurrency(currency: string): Observable<void> {
+  public changeCurrency(currency: Currency): Observable<void> {
     return this.http
       .put<void>(
         environment.backendUrl + '/api/v1/currencies',
         { currency },
-        { withCredentials: true }
+        { withCredentials: true },
       )
       .pipe(
         tap(() => {
           this.setCurrency(currency);
-        })
+        }),
       );
   }
 }

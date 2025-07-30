@@ -1,15 +1,10 @@
 import { AsyncPipe } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  DestroyRef,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '@angular/core';
+import { WritableSignal } from '@angular/core/chrome_dev_tools_performance.d-DvzAxqBc';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { filter, Subscription, tap } from 'rxjs';
+import { filter, Observable, Subscription, tap } from 'rxjs';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Currency } from './../../core/currency/currency.model';
 import { CurrencyService } from './../../core/currency/currency.service';
@@ -28,13 +23,12 @@ export class HeaderComponent {
   private readonly currencyService = inject(CurrencyService);
   private readonly languageService = inject(LanguageService);
   private readonly router = inject(Router);
-  private readonly cdr = inject(ChangeDetectorRef);
   private readonly destroyRef = inject(DestroyRef);
 
-  protected isCurrencyMenuOpen: boolean = false;
-  protected isLanguageMenuOpen: boolean = false;
-  protected isAuthMenuOpen: boolean = false;
-  protected isMenuOpen: boolean = false;
+  protected readonly isCurrencyMenuOpen: WritableSignal<boolean> = signal(false);
+  protected readonly isLanguageMenuOpen: WritableSignal<boolean> = signal(false);
+  protected readonly isAuthMenuOpen: WritableSignal<boolean> = signal(false);
+  protected readonly isMenuOpen: WritableSignal<boolean> = signal(false);
 
   protected readonly Currency = Currency;
   protected readonly Language = Language;
@@ -43,50 +37,53 @@ export class HeaderComponent {
     .pipe(
       filter((event): event is NavigationEnd => event instanceof NavigationEnd),
       tap(() => {
-        this.isAuthMenuOpen = false;
-        this.isMenuOpen = false;
-        this.isCurrencyMenuOpen = false;
-        this.cdr.markForCheck();
+        this.setMenusState();
       }),
-      takeUntilDestroyed(this.destroyRef)
+      takeUntilDestroyed(this.destroyRef),
     )
     .subscribe();
 
-  protected selectedCurrency$ = this.currencyService.selectedCurrency$;
-  protected selectedLanguage$ = this.languageService.selectedLanguage$;
+  protected selectedCurrency$: Observable<Currency | null> = this.currencyService.selectedCurrency$;
+  protected selectedLanguage$: Observable<Language | null> = this.languageService.selectedLanguage$;
 
-  protected readonly isLoadingCurrency$ =
+  protected readonly isLoadingCurrency$: Observable<boolean> =
     this.currencyService.isLoadingCurrency$;
-  protected readonly isLoadingLanguage$ =
+  protected readonly isLoadingLanguage$: Observable<boolean> =
     this.languageService.isLoadingLanguage$;
 
   protected onCurrencyMenuOpen(): void {
-    this.isCurrencyMenuOpen = !this.isCurrencyMenuOpen;
+    this.isCurrencyMenuOpen.update((isCurrencyMenuOpen) => !isCurrencyMenuOpen);
   }
 
   protected onLanguageMenuOpen(): void {
-    this.isLanguageMenuOpen = !this.isLanguageMenuOpen;
+    this.isLanguageMenuOpen.update((isLanguageMenuOpen) => !isLanguageMenuOpen);
   }
 
   protected onAuthMenuOpen(): void {
-    this.isAuthMenuOpen = !this.isAuthMenuOpen;
+    this.isAuthMenuOpen.update((isAuthMenuOpen) => !isAuthMenuOpen);
   }
 
   protected onMenuOpen(): void {
-    this.isMenuOpen = !this.isMenuOpen;
+    this.isMenuOpen.update((isMenuOpen) => !isMenuOpen);
   }
 
-  protected onChangeLanguage(language: string): void {
+  protected onChangeLanguage(language: Language): void {
     this.languageService
       .changeLanguage(language)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe();
   }
 
-  protected onChangeCurrency(currency: string): void {
+  protected onChangeCurrency(currency: Currency): void {
     this.currencyService
       .changeCurrency(currency)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe();
+  }
+
+  private setMenusState(): void {
+    this.isAuthMenuOpen.set(false);
+    this.isMenuOpen.set(false);
+    this.isCurrencyMenuOpen.set(false);
   }
 }
