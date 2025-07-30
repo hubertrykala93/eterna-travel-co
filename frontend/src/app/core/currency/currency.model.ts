@@ -4,3 +4,7 @@ export enum Currency {
   PLN = 'PLN',
   CHF = 'CHF',
 }
+
+export interface CurrencyDto {
+  currency: Currency;
+}

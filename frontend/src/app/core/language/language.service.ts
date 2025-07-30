@@ -3,7 +3,8 @@ import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, EMPTY, Observable, switchMap, take, tap } from 'rxjs';
 import { environment } from 'src/app/environments';
 import { TranslationService } from '../translate/translation.service';
-import { Language } from './language.model';
+import { ACTIVE_LANGUAGE } from './language.const';
+import { Language, LanguageDto } from './language.model';
 
 @Injectable({
   providedIn: 'root',
@@ -27,52 +28,51 @@ export class LanguageService {
               tap(() => {
                 this.setLanguage(Language.EN);
                 this.isLoadingLanguageSubject.next(false);
-              })
+              }),
             );
           }
         }),
-        take(1)
+        take(1),
       )
       .subscribe();
   })();
 
-  private selectedLanguageSubject: BehaviorSubject<string | null> =
-    new BehaviorSubject<string | null>(Language.EN);
+  private selectedLanguageSubject: BehaviorSubject<Language | null> =
+    new BehaviorSubject<Language | null>(Language.EN);
 
-  private isLoadingLanguageSubject: BehaviorSubject<boolean> =
-    new BehaviorSubject<boolean>(true);
+  private isLoadingLanguageSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
-  public selectedLanguage$ = this.selectedLanguageSubject.asObservable();
-  public isLoadingLanguage$ = this.isLoadingLanguageSubject.asObservable();
+  public selectedLanguage$: Observable<Language | null> =
+    this.selectedLanguageSubject.asObservable();
+  public isLoadingLanguage$: Observable<boolean> = this.isLoadingLanguageSubject.asObservable();
 
-  private setLanguage(language: string): void {
-    sessionStorage.setItem('activeLanguage', language);
+  private setLanguage(language: Language): void {
+    sessionStorage.setItem(ACTIVE_LANGUAGE, language);
     this.selectedLanguageSubject.next(language);
   }
 
   public retrieveLanguage(): string | null {
-    return sessionStorage.getItem('activeLanguage') || 'en';
+    return sessionStorage.getItem(ACTIVE_LANGUAGE) || Language.EN;
   }
 
-  private getLanguage(): Observable<{ language: string }> {
-    return this.http.get<{ language: string }>(
-      environment.backendUrl + '/api/v1/languages',
-      { withCredentials: true }
-    );
+  private getLanguage(): Observable<LanguageDto> {
+    return this.http.get<LanguageDto>(environment.backendUrl + '/api/v1/languages', {
+      withCredentials: true,
+    });
   }
 
-  public changeLanguage(language: string): Observable<void> {
+  public changeLanguage(language: Language): Observable<void> {
     return this.http
       .put<void>(
         environment.backendUrl + '/api/v1/languages',
         { language },
-        { withCredentials: true }
+        { withCredentials: true },
       )
       .pipe(
         tap(() => {
           this.setLanguage(language);
           this.translationService.setTranslations(language);
-        })
+        }),
       );
   }
 }
