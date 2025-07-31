@@ -1,16 +1,8 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  inject,
-  Input,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { Subscription, tap } from 'rxjs';
-import { FormOptions } from 'src/app/core/core.model';
+import { FormOption } from '../../../core/core.model';
 import { AuthenticationFormControlNames } from './../../../core/authentication/authentication.model';
 import { FormErrorsService } from './../../../core/form-errors/form-errors.service';
 
@@ -26,11 +18,10 @@ export class FormErrorsComponent implements OnInit, OnDestroy {
   private readonly cdr = inject(ChangeDetectorRef);
 
   @Input({ required: true }) form!: FormGroup;
-  @Input({ required: true }) option!: FormOptions;
+  @Input({ required: true }) option!: FormOption;
 
   public errorMessage!: string | null;
-  public readonly AuthenticationFormControlNames =
-    AuthenticationFormControlNames;
+  public readonly AuthenticationFormControlNames = AuthenticationFormControlNames;
 
   public control!: AbstractControl | null;
   private controlStatus!: Subscription;
@@ -42,12 +33,9 @@ export class FormErrorsComponent implements OnInit, OnDestroy {
       this.controlStatus = this.control.statusChanges
         .pipe(
           tap(() => {
-            this.errorMessage = this.formErrorsService.getErrorMessage(
-              this.option.name,
-              this.control
-            );
+            this.errorMessage = this.formErrorsService.getErrorMessage(this.option.name, this.control);
             this.cdr.markForCheck();
-          })
+          }),
         )
         .subscribe();
     }

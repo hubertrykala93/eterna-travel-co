@@ -4,7 +4,7 @@ import { BehaviorSubject, EMPTY, Observable, switchMap, take, tap } from 'rxjs';
 import { environment } from 'src/app/environments';
 import { TranslationService } from '../translate/translation.service';
 import { ACTIVE_LANGUAGE } from './language.const';
-import { Language, LanguageDto } from './language.model';
+import { LanguageCode, LanguageDto, LanguageName, LanguageNavigationButton } from './language.model';
 
 @Injectable({
   providedIn: 'root',
@@ -24,9 +24,9 @@ export class LanguageService {
             this.isLoadingLanguageSubject.next(false);
             return EMPTY;
           } else {
-            return this.changeLanguage(Language.EN).pipe(
+            return this.changeLanguage(LanguageCode.EN).pipe(
               tap(() => {
-                this.setLanguage(Language.EN);
+                this.setLanguage(LanguageCode.EN);
                 this.isLoadingLanguageSubject.next(false);
               }),
             );
@@ -37,19 +37,40 @@ export class LanguageService {
       .subscribe();
   })();
 
-  private selectedLanguageSubject: BehaviorSubject<Language | null> = new BehaviorSubject<Language | null>(Language.EN);
+  public getLanguageNavigationButtons(): LanguageNavigationButton[] {
+    return [
+      {
+        src: 'assets/flags/us-flag.png',
+        alt: 'United states flag',
+        code: LanguageCode.EN,
+        textKey: 'header.english-us',
+        defaultText: LanguageName.ENGLISH,
+      },
+      {
+        src: 'assets/flags/poland-flag.png',
+        alt: 'Poland flag',
+        code: LanguageCode.PL,
+        textKey: 'header.polish-pl',
+        defaultText: LanguageName.POLISH,
+      },
+    ];
+  }
+
+  private selectedLanguageSubject: BehaviorSubject<LanguageCode | null> = new BehaviorSubject<LanguageCode | null>(
+    LanguageCode.EN,
+  );
   private isLoadingLanguageSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
-  public selectedLanguage$: Observable<Language | null> = this.selectedLanguageSubject.asObservable();
+  public selectedLanguage$: Observable<LanguageCode | null> = this.selectedLanguageSubject.asObservable();
   public isLoadingLanguage$: Observable<boolean> = this.isLoadingLanguageSubject.asObservable();
 
-  private setLanguage(language: Language): void {
+  private setLanguage(language: LanguageCode): void {
     sessionStorage.setItem(ACTIVE_LANGUAGE, language);
     this.selectedLanguageSubject.next(language);
   }
 
   public retrieveLanguage(): string | null {
-    return sessionStorage.getItem(ACTIVE_LANGUAGE) || Language.EN;
+    return sessionStorage.getItem(ACTIVE_LANGUAGE) || LanguageCode.EN;
   }
 
   private getLanguage(): Observable<LanguageDto> {
@@ -58,7 +79,7 @@ export class LanguageService {
     });
   }
 
-  public changeLanguage(language: Language): Observable<void> {
+  public changeLanguage(language: LanguageCode): Observable<void> {
     return this.http
       .put<void>(environment.backendUrl + '/api/v1/languages', { language }, { withCredentials: true })
       .pipe(

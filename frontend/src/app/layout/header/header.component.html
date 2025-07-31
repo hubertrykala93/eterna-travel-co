@@ -53,25 +53,24 @@
           <div class="header__languages" (click)="onLanguageMenuOpen()">
             <img
               class="header__flag"
-              [src]="selectedLanguage === Language.EN ? 'assets/flags/us-flag.png' : 'assets/flags/poland-flag.png'"
-              [alt]="selectedLanguage === Language.EN ? 'United states flag' : 'Poland flag'"
+              [src]="selectedLanguage === LanguageCode.EN ? 'assets/flags/us-flag.png' : 'assets/flags/poland-flag.png'"
+              [alt]="selectedLanguage === LanguageCode.EN ? 'United states flag' : 'Poland flag'"
               (click)="onLanguageMenuOpen()"
             />
             <span>{{
-              selectedLanguage == Language.EN ? ('header.english-us' | translate) : ('header.polish-pl' | translate)
+              selectedLanguage == LanguageCode.EN
+                ? ('header.english-us' | translate) || 'English (US)'
+                : ('header.polish-pl' | translate) || 'Polish'
             }}</span>
 
             @if (isLanguageMenuOpen()) {
               <ul class="header__menu">
-                <li class="header__currency-item header__currency-item--flex" (click)="onChangeLanguage(Language.EN)">
-                  <img class="header__flag" src="assets/flags/us-flag.png" alt="United states flag" />
-                  <span>{{ 'header.english-us' | translate }}</span>
-                </li>
-
-                <li class="header__currency-item header__currency-item--flex" (click)="onChangeLanguage(Language.PL)">
-                  <img class="header__flag" src="assets/flags/poland-flag.png" alt="Poland flag" />
-                  <span> {{ 'header.polish-pl' | translate }} </span>
-                </li>
+                @for (button of languageNavigationButtons; track $index) {
+                  <li class="header__currency-item header__currency-item--flex" (click)="onChangeLanguage(button.code)">
+                    <img class="header__flag" [src]="button.src" [alt]="button.alt" />
+                    <span>{{ (button.textKey | translate) || button.defaultText }}</span>
+                  </li>
+                }
               </ul>
             }
           </div>
@@ -100,13 +99,11 @@
 
         @if (isAuthMenuOpen()) {
           <ul class="header__menu">
-            <li>
-              <a routerLink="auth/login">{{ 'header.login' | translate }}</a>
-            </li>
-
-            <li>
-              <a routerLink="auth/register">{{ 'header.register' | translate }}</a>
-            </li>
+            @for (button of authNavigationButtons; track $index) {
+              <li class="header__currency-item">
+                <a [routerLink]="button.link">{{ (button.textKey | translate) || button.defaultText }}</a>
+              </li>
+            }
           </ul>
         }
 
@@ -122,15 +119,15 @@
       </ul>
 
       <ul class="header__auth-links">
-        <li class="header__currency-item">
-          <a routerLink="auth/login">{{ 'header.login' | translate }}</a>
-        </li>
+        @for (button of authNavigationButtons; let i = $index; track $index) {
+          <li class="header__currency-item">
+            <a [routerLink]="button.link">{{ (button.textKey | translate) || button.defaultText }}</a>
+          </li>
 
-        <li>/</li>
-
-        <li class="header__currency-item">
-          <a routerLink="auth/register">{{ 'header.register' | translate }}</a>
-        </li>
+          @if (i < authNavigationButtons.length - 1) {
+            <li>/</li>
+          }
+        }
       </ul>
     </div>
   </div>

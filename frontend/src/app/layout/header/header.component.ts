@@ -4,10 +4,13 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { filter, Observable, Subscription, tap } from 'rxjs';
+import { NavigationButtonConfig } from '../../core/core.model';
+import { LayoutService } from '../../core/layout/layout.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Currency } from './../../core/currency/currency.model';
 import { CurrencyService } from './../../core/currency/currency.service';
-import { Language } from './../../core/language/language.model';
+
+import { LanguageCode, LanguageNavigationButton } from '../../core/language/language.model';
 import { LanguageService } from './../../core/language/language.service';
 
 @Component({
@@ -19,6 +22,7 @@ import { LanguageService } from './../../core/language/language.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
+  private readonly layoutService = inject(LayoutService);
   private readonly currencyService = inject(CurrencyService);
   private readonly languageService = inject(LanguageService);
   private readonly router = inject(Router);
@@ -30,7 +34,10 @@ export class HeaderComponent {
   protected readonly isMenuOpen: WritableSignal<boolean> = signal(false);
 
   protected readonly Currency = Currency;
-  protected readonly Language = Language;
+  protected readonly LanguageCode = LanguageCode;
+  protected readonly authNavigationButtons: NavigationButtonConfig[] = this.layoutService.getAuthNavigationButtons();
+  protected readonly languageNavigationButtons: LanguageNavigationButton[] =
+    this.languageService.getLanguageNavigationButtons();
 
   private readonly closeMenuOnNavigation: Subscription = this.router.events
     .pipe(
@@ -43,7 +50,7 @@ export class HeaderComponent {
     .subscribe();
 
   protected selectedCurrency$: Observable<Currency | null> = this.currencyService.selectedCurrency$;
-  protected selectedLanguage$: Observable<Language | null> = this.languageService.selectedLanguage$;
+  protected selectedLanguage$: Observable<LanguageCode | null> = this.languageService.selectedLanguage$;
 
   protected readonly isLoadingCurrency$: Observable<boolean> = this.currencyService.isLoadingCurrency$;
   protected readonly isLoadingLanguage$: Observable<boolean> = this.languageService.isLoadingLanguage$;
@@ -64,7 +71,7 @@ export class HeaderComponent {
     this.isMenuOpen.update((isMenuOpen) => !isMenuOpen);
   }
 
-  protected onChangeLanguage(language: Language): void {
+  protected onChangeLanguage(language: LanguageCode): void {
     this.languageService.changeLanguage(language).pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
   }
 
