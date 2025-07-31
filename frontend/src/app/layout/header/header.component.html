@@ -13,19 +13,13 @@
     <div class="header__social-info">
       <ul class="header__social">
         <li class="header__icon">
-          <a href="https://www.facebook.com/" target="_blank"
-            ><i class="fa-brands fa-facebook"></i
-          ></a>
+          <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
         </li>
         <li class="header__icon">
-          <a href="https://www.pinterest.com/" target="_blank"
-            ><i class="fa-brands fa-pinterest"></i
-          ></a>
+          <a href="https://www.pinterest.com/" target="_blank"><i class="fa-brands fa-pinterest"></i></a>
         </li>
         <li class="header__icon">
-          <a href="https://www.pl.linkedin.com/" target="_blank"
-            ><i class="fa-brands fa-linkedin"></i
-          ></a>
+          <a href="https://www.pl.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
         </li>
       </ul>
 
@@ -33,10 +27,10 @@
         @if (selectedCurrency) {
           <div class="header__currency" (click)="onCurrencyMenuOpen()">
             <span>{{ selectedCurrency }}</span>
-            <i class="fa-solid fa-chevron-down"></i>
+            <i [class]="'fa-solid fa-chevron-' + (isCurrencyMenuOpen() ? 'up' : 'down')"></i>
 
             @if (isCurrencyMenuOpen()) {
-              <ul class="header__menu">
+              <ul #currencyMenu class="header__menu">
                 <li class="header__currency-item" (click)="onChangeCurrency(Currency.USD)">
                   {{ Currency.USD }}
                 </li>
@@ -59,38 +53,22 @@
           <div class="header__languages" (click)="onLanguageMenuOpen()">
             <img
               class="header__flag"
-              [src]="
-                selectedLanguage === Language.EN
-                  ? 'assets/flags/us-flag.png'
-                  : 'assets/flags/poland-flag.png'
-              "
+              [src]="selectedLanguage === Language.EN ? 'assets/flags/us-flag.png' : 'assets/flags/poland-flag.png'"
               [alt]="selectedLanguage === Language.EN ? 'United states flag' : 'Poland flag'"
               (click)="onLanguageMenuOpen()"
             />
             <span>{{
-              selectedLanguage == Language.EN
-                ? ('header.english-us' | translate)
-                : ('header.polish-pl' | translate)
+              selectedLanguage == Language.EN ? ('header.english-us' | translate) : ('header.polish-pl' | translate)
             }}</span>
 
             @if (isLanguageMenuOpen()) {
               <ul class="header__menu">
-                <li
-                  class="header__currency-item header__currency-item--flex"
-                  (click)="onChangeLanguage(Language.EN)"
-                >
-                  <img
-                    class="header__flag"
-                    src="assets/flags/us-flag.png"
-                    alt="United states flag"
-                  />
+                <li class="header__currency-item header__currency-item--flex" (click)="onChangeLanguage(Language.EN)">
+                  <img class="header__flag" src="assets/flags/us-flag.png" alt="United states flag" />
                   <span>{{ 'header.english-us' | translate }}</span>
                 </li>
 
-                <li
-                  class="header__currency-item header__currency-item--flex"
-                  (click)="onChangeLanguage(Language.PL)"
-                >
+                <li class="header__currency-item header__currency-item--flex" (click)="onChangeLanguage(Language.PL)">
                   <img class="header__flag" src="assets/flags/poland-flag.png" alt="Poland flag" />
                   <span> {{ 'header.polish-pl' | translate }} </span>
                 </li>

@@ -1,83 +1,42 @@
-<section
-  class="custom-container section-block-spacing-top section-block-spacing-bottom"
->
-  <section class="grid grid-cols-3 gap-[30px] mb-16">
-    <div class="bg-surface p-10">
-      <img src="assets/icons/contact-us/map-pin.svg" alt="Map pin" />
-
-      <h6 class="font-workSans font-semibold text-subtitle text-heading mt-3">
-        Location
-      </h6>
-      <span class="font-light text-body text-heading text-opacity-60"
-        >123 Madison Ave New York, NY 10016</span
-      >
-    </div>
-
-    <div class="bg-surface p-10">
-      <img src="assets/icons/contact-us/phone-call.svg" alt="Map pin" />
-
-      <h6 class="font-workSans font-semibold text-subtitle text-heading mt-3">
-        Phone
-      </h6>
-      <span class="font-light text-body text-heading text-opacity-60"
-        >+1 (212) 555-9876</span
-      >
-    </div>
-
-    <div class="bg-surface p-10">
-      <img src="assets/icons/contact-us/mail.svg" alt="Map pin" />
-
-      <h6 class="font-workSans font-semibold text-subtitle text-heading mt-3">
-        Email
-      </h6>
-      <span class="font-light text-body text-heading text-opacity-60"
-        >support&commat;eternatravelco.com</span
-      >
+<div class="contact">
+  <section class="section--spacing-bottom">
+    <div class="contact__info">
+      @for (card of contactCards; let i = $index; track $index) {
+        <app-contact-card [card]="card" [isLast]="i === contactCards.length - 1" />
+      }
     </div>
   </section>
 
-  <section class="grid grid-cols-2 gap-[30px]">
-    <div>
-      <h6 class="font-kaushan font-bold text-h6 text-brandPrimary mb-1">
-        Have any question?
-      </h6>
-
-      <h2 class="font-workSans font-bold text-h3 text-heading mb-6">
-        Get in Touch
-      </h2>
+  <section class="contact__touch">
+    <div class="contact__form">
+      <p class="contact__intro">{{ ('contact-us.any-question' | translate) || 'Have any question?' }}</p>
+      <p class="contact__heading">{{ ('contact-us.get-in-touch' | translate) || 'Get in Touch' }}</p>
 
       <form [formGroup]="form">
-        <ui-input
-          formControlName="name"
-          [cssClass]="
-            'h-[58px] p-4 mb-4 border border-text-heading border-opacity-10'
-          "
-          [placeholder]="'Your name...'"
-        ></ui-input>
+        @for (option of contactFormOptions; track $index) {
+          @if (option.type === FormOptionType.TEXT) {
+            <input
+              class="contact__input"
+              [id]="option.formControlName"
+              [formControlName]="option.formControlName"
+              [placeholder]="(option.placeholderKey | translate) || option.defaultPlaceholderText"
+            />
+          } @else {
+            <textarea
+              class="contact__textarea"
+              [id]="option.formControlName"
+              [formControlName]="option.formControlName"
+              [placeholder]="(option.placeholderKey | translate) || option.defaultPlaceholderText"
+            ></textarea>
+          }
+        }
 
-        <ui-input
-          formControlName="email"
-          [cssClass]="
-            'h-[58px] p-4 mb-4 border border-heading border-opacity-10'
-          "
-          [placeholder]="'Email address...'"
-        ></ui-input>
-
-        <ui-input
-          formControlName="message"
-          [cssClass]="'h-[160px] p-4 border border-heading border-opacity-10'"
-          [type]="'textarea'"
-          [placeholder]="'Write something...'"
-        />
-
-        <ui-button
-          [cssClass]="'w-[131px] align-left px-10 py-5 mt-4'"
-          [type]="'submit'"
-          (click)="add()"
-        ></ui-button>
+        <button class="contact__button" type="submit" (click)="add()">
+          <span class="contact__button-label">{{ ('core.send' | translate) || 'Send' }}</span>
+        </button>
       </form>
     </div>
-    <div>
+    <div class="contact__map">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.7578178989106!2d-73.98699532404558!3d40.745354235573096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a7e012f549%3A0x1f4b74f64db7d437!2s123%20Madison%20Ave%2C%20New%20York%2C%20NY%2010016%2C%20Stany%20Zjednoczone!5e0!3m2!1spl!2spl!4v1747402674958!5m2!1spl!2spl"
         class="w-full h-full"
@@ -88,4 +47,4 @@
       ></iframe>
     </div>
   </section>
-</section>
+</div>

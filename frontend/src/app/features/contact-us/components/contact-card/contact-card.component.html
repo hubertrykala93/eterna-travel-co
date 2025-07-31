@@ -1,0 +1,5 @@
+<div class="card" [ngClass]="{ 'card--no-margin': isLast }">
+  <img class="card__icon" [src]="card.icon" [alt]="card.alt" />
+  <span class="card__title">{{ (card.titleKey | translate) || card.defaultText }}</span>
+  <p class="card__subtitle">{{ card.description }}</p>
+</div>

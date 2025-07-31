@@ -4,6 +4,17 @@ export interface AuditableDto {
   updatedAt: Date;
 }
 
+export enum FormOptionType {
+  TEXT = 'text',
+  TEXTAREA = 'textarea',
+}
+
+export enum FormControlName {
+  NAME = 'name',
+  EMAIL = 'email',
+  MESSAGE = 'message',
+}
+
 export interface FormOptions {
   name: string;
   label: string;

@@ -1,4 +1,10 @@
 {
+  "core": {
+    "location": "Lokalizacja",
+    "phone": "Telefon",
+    "email": "Email",
+    "send": "Wyślij"
+  },
   "header": {
     "english-us": "Angielski (US)",
     "polish-pl": "Polski",
@@ -13,5 +19,12 @@
     "blog": "Blog",
     "pages": "Strony",
     "contact": "Kontakt"
+  },
+  "contact-us": {
+    "any-question": "Masz jakieś pytania?",
+    "get-in-touch": "Bądź w kontakcie",
+    "placeholder.name": "Twoje imię...",
+    "placeholder.email": "Twój email...",
+    "placeholder.write-something": "Napisz coś..."
   }
 }
