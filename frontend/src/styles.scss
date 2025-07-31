@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kaushan+Script&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kaushan+Script&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -47,16 +47,69 @@
   --text-caption--size: 12px;
   --text-caption--line: 16px;
 
-  --font-fugaz: "Fugaz One", sans-serif;
-  --font-workSans: "Work Sans", sans-serif;
-  --font-inter: "Inter", sans-serif;
-  --font-kaushan: "Kaushan", sans-serif;
+  --font-fugaz: 'Fugaz One', sans-serif;
+  --font-workSans: 'Work Sans', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-kaushan: 'Kaushan Script', sans-serif;
 }
 
 body {
   width: 100%;
   max-width: 100%;
   font-family: var(--font-inter);
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 40px;
+  margin: 0 auto;
+
+  @media (min-width: 576px) {
+    padding: 60px 80px;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 80px 100px;
+  }
+}
+
+.section {
+  &--spacing-top {
+    margin-top: 40px;
+
+    @media (min-width: 576px) {
+      margin-top: 60px;
+    }
+
+    @media (min-width: 1200px) {
+      margin-bottom: 80px;
+    }
+  }
+
+  &--spacing-bottom {
+    margin-bottom: 40px;
+
+    @media (min-width: 576px) {
+      margin-bottom: 60px;
+    }
+
+    @media (min-width: 1200px) {
+      margin-bottom: 80px;
+    }
+  }
+
+  &--spacing-vertical {
+    margin: 40px 0;
+
+    @media (min-width: 576px) {
+      margin: 60px 0;
+    }
+
+    @media (min-width: 992px) {
+      margin: 80px 0;
+    }
+  }
 }
 
 .custom-container {

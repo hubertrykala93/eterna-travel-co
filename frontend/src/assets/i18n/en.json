@@ -1,4 +1,10 @@
 {
+  "core": {
+    "location": "Location",
+    "phone": "Phone",
+    "email": "Email",
+    "send": "Send"
+  },
   "header": {
     "english-us": "English (US)",
     "polish-pl": "Polish",
@@ -13,5 +19,12 @@
     "blog": "Blog",
     "pages": "Pages",
     "contact": "Contact"
+  },
+  "contact-us": {
+    "any-question": "Have any question?",
+    "get-in-touch": "Get in Touch",
+    "placeholder.name": "Your name...",
+    "placeholder.email": "Your email...",
+    "placeholder.write-something": "Write something..."
   }
 }

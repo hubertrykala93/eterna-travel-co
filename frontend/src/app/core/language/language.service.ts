@@ -37,13 +37,10 @@ export class LanguageService {
       .subscribe();
   })();
 
-  private selectedLanguageSubject: BehaviorSubject<Language | null> =
-    new BehaviorSubject<Language | null>(Language.EN);
-
+  private selectedLanguageSubject: BehaviorSubject<Language | null> = new BehaviorSubject<Language | null>(Language.EN);
   private isLoadingLanguageSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
-  public selectedLanguage$: Observable<Language | null> =
-    this.selectedLanguageSubject.asObservable();
+  public selectedLanguage$: Observable<Language | null> = this.selectedLanguageSubject.asObservable();
   public isLoadingLanguage$: Observable<boolean> = this.isLoadingLanguageSubject.asObservable();
 
   private setLanguage(language: Language): void {
@@ -63,11 +60,7 @@ export class LanguageService {
 
   public changeLanguage(language: Language): Observable<void> {
     return this.http
-      .put<void>(
-        environment.backendUrl + '/api/v1/languages',
-        { language },
-        { withCredentials: true },
-      )
+      .put<void>(environment.backendUrl + '/api/v1/languages', { language }, { withCredentials: true })
       .pipe(
         tap(() => {
           this.setLanguage(language);

@@ -1,12 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DestroyRef,
-  inject,
-  signal,
-  WritableSignal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal, WritableSignal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -31,7 +24,7 @@ export class HeaderComponent {
   private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
 
-  protected readonly isCurrencyMenuOpen: WritableSignal<boolean> = signal(false);
+  protected readonly isCurrencyMenuOpen: WritableSignal<boolean> = signal(true);
   protected readonly isLanguageMenuOpen: WritableSignal<boolean> = signal(false);
   protected readonly isAuthMenuOpen: WritableSignal<boolean> = signal(false);
   protected readonly isMenuOpen: WritableSignal<boolean> = signal(false);
@@ -52,10 +45,8 @@ export class HeaderComponent {
   protected selectedCurrency$: Observable<Currency | null> = this.currencyService.selectedCurrency$;
   protected selectedLanguage$: Observable<Language | null> = this.languageService.selectedLanguage$;
 
-  protected readonly isLoadingCurrency$: Observable<boolean> =
-    this.currencyService.isLoadingCurrency$;
-  protected readonly isLoadingLanguage$: Observable<boolean> =
-    this.languageService.isLoadingLanguage$;
+  protected readonly isLoadingCurrency$: Observable<boolean> = this.currencyService.isLoadingCurrency$;
+  protected readonly isLoadingLanguage$: Observable<boolean> = this.languageService.isLoadingLanguage$;
 
   protected onCurrencyMenuOpen(): void {
     this.isCurrencyMenuOpen.update((isCurrencyMenuOpen) => !isCurrencyMenuOpen);
@@ -74,17 +65,11 @@ export class HeaderComponent {
   }
 
   protected onChangeLanguage(language: Language): void {
-    this.languageService
-      .changeLanguage(language)
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe();
+    this.languageService.changeLanguage(language).pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
   }
 
   protected onChangeCurrency(currency: Currency): void {
-    this.currencyService
-      .changeCurrency(currency)
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe();
+    this.currencyService.changeCurrency(currency).pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
   }
 
   private setMenusState(): void {

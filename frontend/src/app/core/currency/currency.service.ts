@@ -35,16 +35,13 @@ export class CurrencyService {
       .subscribe();
   })();
 
-  private selectedCurrencySubject: BehaviorSubject<Currency | null> =
-    new BehaviorSubject<Currency | null>(Currency.USD);
-
+  private selectedCurrencySubject: BehaviorSubject<Currency | null> = new BehaviorSubject<Currency | null>(
+    Currency.USD,
+  );
   private isLoadingCurrencySubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
-  public readonly selectedCurrency$: Observable<Currency | null> =
-    this.selectedCurrencySubject.asObservable();
-
-  public readonly isLoadingCurrency$: Observable<boolean> =
-    this.isLoadingCurrencySubject.asObservable();
+  public readonly selectedCurrency$: Observable<Currency | null> = this.selectedCurrencySubject.asObservable();
+  public readonly isLoadingCurrency$: Observable<boolean> = this.isLoadingCurrencySubject.asObservable();
 
   private setCurrency(currency: Currency): void {
     sessionStorage.setItem(ACTIVE_CURRENCY, currency);
@@ -59,11 +56,7 @@ export class CurrencyService {
 
   public changeCurrency(currency: Currency): Observable<void> {
     return this.http
-      .put<void>(
-        environment.backendUrl + '/api/v1/currencies',
-        { currency },
-        { withCredentials: true },
-      )
+      .put<void>(environment.backendUrl + '/api/v1/currencies', { currency }, { withCredentials: true })
       .pipe(
         tap(() => {
           this.setCurrency(currency);
