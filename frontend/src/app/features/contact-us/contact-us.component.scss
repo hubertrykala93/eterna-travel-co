@@ -1,54 +1,38 @@
 .contact {
-  &__info {
+  &__info,
+  &__touch {
     @media (min-width: 992px) {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 1;
       gap: 30px;
     }
   }
 
-  &__card {
-    padding: 40px;
-    background-color: #f7f8f9;
-
-    @media (max-width: 992px) {
-      margin-bottom: 30px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  &__icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 12px;
-  }
-
-  &__title {
-    font-family: var(--font-workSans);
-    font-weight: 600;
-    font-size: var(--text-subtitle--size);
-    line-height: var(--text-subtitle--line);
+  &__heading,
+  &__input,
+  &__textarea {
     color: var(--color-primary);
   }
 
-  &__description {
-    font-family: var(--font-workSans);
-    font-weight: 300;
-    font-size: var(--text-body--size);
-    line-height: var(--text-body--line);
-    color: rgba(var(--color-primary--rgba), 0.6);
+  &__input,
+  &__textarea {
+    &::placeholder {
+      font-size: var(--text-body--size);
+      line-height: var(--text-body--line);
+      font-weight: 300;
+      color: rgba(var(--color-primary--rgba), 0.4);
+    }
+  }
+
+  &__info {
+    @media (min-width: 992px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   &__touch {
     @media (min-width: 992px) {
-      display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: 1;
-      gap: 30px;
     }
   }
 
@@ -69,7 +53,6 @@
     font-size: var(--text-h3--size);
     font-weight: 700;
     line-height: var(--text-h3--line);
-    color: var(--color-primary);
     margin-bottom: 24px;
   }
 
@@ -78,18 +61,10 @@
     border: 1px solid rgba(var(--color-primary--rgba), 0.1);
     padding: 16px;
     border-radius: 8px;
-    color: var(--color-primary);
     margin-bottom: 14px;
 
     &:last-child {
       margin-bottom: 0;
-    }
-
-    &::placeholder {
-      font-size: var(--text-body--size);
-      line-height: var(--text-body--line);
-      font-weight: 300;
-      color: rgba(var(--color-primary--rgba), 0.4);
     }
   }
 
@@ -99,15 +74,7 @@
     border: 1px solid rgba(var(--color-primary--rgba), 0.1);
     padding: 16px;
     border-radius: 8px;
-    color: var(--color-primary);
     margin-bottom: 7px;
-
-    &::placeholder {
-      font-size: var(--text-body--size);
-      line-height: var(--text-body--line);
-      font-weight: 300;
-      color: rgba(var(--color-primary--rgba), 0.4);
-    }
   }
 
   &__button {

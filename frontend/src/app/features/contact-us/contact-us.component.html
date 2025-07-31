@@ -1,46 +1,38 @@
 <div class="contact">
   <section class="section--spacing-bottom">
     <div class="contact__info">
-      @for (card of contactCards; track $index) {
-        <div class="contact__card">
-          <img class="contact__icon" [src]="card.icon" [alt]="card.alt" />
-          <span class="contact__title">{{ card.titleKey | translate }}</span>
-          <p class="contact__description">{{ card.description }}</p>
-        </div>
+      @for (card of contactCards; let i = $index; track $index) {
+        <app-contact-card [card]="card" [isLast]="i === contactCards.length - 1" />
       }
     </div>
   </section>
 
   <section class="contact__touch">
     <div class="contact__form">
-      <p class="contact__intro">{{ 'contact-us.any-question' | translate }}</p>
-      <p class="contact__heading">{{ 'contact-us.get-in-touch' | translate }}</p>
+      <p class="contact__intro">{{ ('contact-us.any-question' | translate) || 'Have any question?' }}</p>
+      <p class="contact__heading">{{ ('contact-us.get-in-touch' | translate) || 'Get in Touch' }}</p>
 
       <form [formGroup]="form">
-        <input
-          class="contact__input"
-          id="name"
-          formControlName="name"
-          type="text"
-          [placeholder]="'contact-us.placeholder.name' | translate"
-        />
-        <input
-          class="contact__input"
-          id="email"
-          formControlName="email"
-          type="email"
-          [placeholder]="'contact-us.placeholder.email' | translate"
-        />
-        <textarea
-          class="contact__textarea"
-          id="message"
-          formControlName="message"
-          type="textarea"
-          [placeholder]="'contact-us.placeholder.write-something' | translate"
-        ></textarea>
+        @for (option of contactFormOptions; track $index) {
+          @if (option.type === FormOptionType.TEXT) {
+            <input
+              class="contact__input"
+              [id]="option.formControlName"
+              [formControlName]="option.formControlName"
+              [placeholder]="(option.placeholderKey | translate) || option.defaultPlaceholderText"
+            />
+          } @else {
+            <textarea
+              class="contact__textarea"
+              [id]="option.formControlName"
+              [formControlName]="option.formControlName"
+              [placeholder]="(option.placeholderKey | translate) || option.defaultPlaceholderText"
+            ></textarea>
+          }
+        }
 
         <button class="contact__button" type="submit" (click)="add()">
-          <span class="contact__button-label">{{ 'core.send' | translate }}</span>
+          <span class="contact__button-label">{{ ('core.send' | translate) || 'Send' }}</span>
         </button>
       </form>
     </div>
