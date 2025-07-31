@@ -1,4 +1,4 @@
-export enum Currency {
+export enum CurrencyCode {
   USD = 'USD',
   EUR = 'EUR',
   PLN = 'PLN',
@@ -6,5 +6,10 @@ export enum Currency {
 }
 
 export interface CurrencyDto {
-  currency: Currency;
+  currency: CurrencyCode;
+}
+
+export interface CurrencyNavigationButton {
+  code: CurrencyCode;
+  defaultText: CurrencyCode;
 }

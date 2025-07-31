@@ -7,7 +7,7 @@ import { filter, Observable, Subscription, tap } from 'rxjs';
 import { NavigationButtonConfig } from '../../core/core.model';
 import { LayoutService } from '../../core/layout/layout.service';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { Currency } from './../../core/currency/currency.model';
+import { CurrencyCode, CurrencyNavigationButton } from './../../core/currency/currency.model';
 import { CurrencyService } from './../../core/currency/currency.service';
 
 import { LanguageCode, LanguageNavigationButton } from '../../core/language/language.model';
@@ -33,11 +33,13 @@ export class HeaderComponent {
   protected readonly isAuthMenuOpen: WritableSignal<boolean> = signal(false);
   protected readonly isMenuOpen: WritableSignal<boolean> = signal(false);
 
-  protected readonly Currency = Currency;
+  protected readonly CurrencyCode = CurrencyCode;
   protected readonly LanguageCode = LanguageCode;
   protected readonly authNavigationButtons: NavigationButtonConfig[] = this.layoutService.getAuthNavigationButtons();
   protected readonly languageNavigationButtons: LanguageNavigationButton[] =
     this.languageService.getLanguageNavigationButtons();
+  protected readonly currencyNavigationButtons: CurrencyNavigationButton[] =
+    this.currencyService.getCurrencyNavigationButtons();
 
   private readonly closeMenuOnNavigation: Subscription = this.router.events
     .pipe(
@@ -49,7 +51,7 @@ export class HeaderComponent {
     )
     .subscribe();
 
-  protected selectedCurrency$: Observable<Currency | null> = this.currencyService.selectedCurrency$;
+  protected selectedCurrency$: Observable<CurrencyCode | null> = this.currencyService.selectedCurrency$;
   protected selectedLanguage$: Observable<LanguageCode | null> = this.languageService.selectedLanguage$;
 
   protected readonly isLoadingCurrency$: Observable<boolean> = this.currencyService.isLoadingCurrency$;
@@ -75,7 +77,7 @@ export class HeaderComponent {
     this.languageService.changeLanguage(language).pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
   }
 
-  protected onChangeCurrency(currency: Currency): void {
+  protected onChangeCurrency(currency: CurrencyCode): void {
     this.currencyService.changeCurrency(currency).pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
   }
 

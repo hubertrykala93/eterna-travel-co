@@ -30,19 +30,12 @@
             <i [class]="'fa-solid fa-chevron-' + (isCurrencyMenuOpen() ? 'up' : 'down')"></i>
 
             @if (isCurrencyMenuOpen()) {
-              <ul #currencyMenu class="header__menu">
-                <li class="header__currency-item" (click)="onChangeCurrency(Currency.USD)">
-                  {{ Currency.USD }}
-                </li>
-                <li class="header__currency-item" (click)="onChangeCurrency(Currency.EUR)">
-                  {{ Currency.EUR }}
-                </li>
-                <li class="header__currency-item" (click)="onChangeCurrency(Currency.PLN)">
-                  {{ Currency.PLN }}
-                </li>
-                <li class="header__currency-item" (click)="onChangeCurrency(Currency.CHF)">
-                  {{ Currency.CHF }}
-                </li>
+              <ul class="header__menu">
+                @for (button of currencyNavigationButtons; track $index) {
+                  <li class="header__currency-item" (click)="onChangeCurrency(button.code)">
+                    {{ button.defaultText }}
+                  </li>
+                }
               </ul>
             }
           </div>

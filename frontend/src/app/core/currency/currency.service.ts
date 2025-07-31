@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, EMPTY, Observable, switchMap, take, tap } from 'rxjs';
 import { environment } from 'src/app/environments';
 import { ACTIVE_CURRENCY } from './currency.const';
-import { Currency, CurrencyDto } from './currency.model';
+import { CurrencyCode, CurrencyDto, CurrencyNavigationButton } from './currency.model';
 
 @Injectable({
   providedIn: 'root',
@@ -22,9 +22,9 @@ export class CurrencyService {
             this.isLoadingCurrencySubject.next(false);
             return EMPTY;
           } else {
-            return this.changeCurrency(Currency.USD).pipe(
+            return this.changeCurrency(CurrencyCode.USD).pipe(
               tap(() => {
-                this.setCurrency(Currency.USD);
+                this.setCurrency(CurrencyCode.USD);
                 this.isLoadingCurrencySubject.next(false);
               }),
             );
@@ -35,15 +35,36 @@ export class CurrencyService {
       .subscribe();
   })();
 
-  private selectedCurrencySubject: BehaviorSubject<Currency | null> = new BehaviorSubject<Currency | null>(
-    Currency.USD,
+  public getCurrencyNavigationButtons(): CurrencyNavigationButton[] {
+    return [
+      {
+        code: CurrencyCode.USD,
+        defaultText: CurrencyCode.USD,
+      },
+      {
+        code: CurrencyCode.EUR,
+        defaultText: CurrencyCode.EUR,
+      },
+      {
+        code: CurrencyCode.CHF,
+        defaultText: CurrencyCode.CHF,
+      },
+      {
+        code: CurrencyCode.PLN,
+        defaultText: CurrencyCode.PLN,
+      },
+    ];
+  }
+
+  private selectedCurrencySubject: BehaviorSubject<CurrencyCode | null> = new BehaviorSubject<CurrencyCode | null>(
+    CurrencyCode.USD,
   );
   private isLoadingCurrencySubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
-  public readonly selectedCurrency$: Observable<Currency | null> = this.selectedCurrencySubject.asObservable();
+  public readonly selectedCurrency$: Observable<CurrencyCode | null> = this.selectedCurrencySubject.asObservable();
   public readonly isLoadingCurrency$: Observable<boolean> = this.isLoadingCurrencySubject.asObservable();
 
-  private setCurrency(currency: Currency): void {
+  private setCurrency(currency: CurrencyCode): void {
     sessionStorage.setItem(ACTIVE_CURRENCY, currency);
     this.selectedCurrencySubject.next(currency);
   }
@@ -54,7 +75,7 @@ export class CurrencyService {
     });
   }
 
-  public changeCurrency(currency: Currency): Observable<void> {
+  public changeCurrency(currency: CurrencyCode): Observable<void> {
     return this.http
       .put<void>(environment.backendUrl + '/api/v1/currencies', { currency }, { withCredentials: true })
       .pipe(
