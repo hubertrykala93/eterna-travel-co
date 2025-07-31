@@ -1,12 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  inject,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input, OnInit } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {
   AuthenticationControls,
@@ -14,18 +7,13 @@ import {
   AuthenticationTabs,
 } from './../../../core/authentication/authentication.model';
 import { AuthenticationService } from './../../../core/authentication/authentication.service';
-import { FormOptions } from './../../../core/core.model';
+import { FormOption } from './../../../core/core.model';
 import { FormErrorsComponent } from './../../../shared/ui/form-errors/form-errors.component';
 import { InputComponent } from './../../../shared/ui/input/input.component';
 
 @Component({
   selector: 'app-authentication-form',
-  imports: [
-    InputComponent,
-    CommonModule,
-    ReactiveFormsModule,
-    FormErrorsComponent,
-  ],
+  imports: [InputComponent, CommonModule, ReactiveFormsModule, FormErrorsComponent],
   standalone: true,
   templateUrl: './authentication-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -39,12 +27,10 @@ export class AuthenticationFormComponent implements OnInit {
 
   public isPasswordVisible = false;
 
-  public formOptions: FormOptions[] =
-    this.authenticationService.getFormOptions();
+  public formOptions: FormOption[] = this.authenticationService.getFormOptions();
 
   public readonly AuthenticationTabs = AuthenticationTabs;
-  public readonly AuthenticationFormControlNames =
-    AuthenticationFormControlNames;
+  public readonly AuthenticationFormControlNames = AuthenticationFormControlNames;
 
   public ngOnInit(): void {
     if (this.activeTab === AuthenticationTabs.LOGIN) {

@@ -15,9 +15,15 @@ export enum FormControlName {
   MESSAGE = 'message',
 }
 
-export interface FormOptions {
+export interface FormOption {
   name: string;
   label: string;
   placeholder?: string | undefined;
   type?: string | undefined;
+}
+
+export interface NavigationButtonConfig {
+  link: string;
+  textKey: string;
+  defaultText: string;
 }

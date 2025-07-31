@@ -1,6 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { NavigationButtonConfig } from '../../core/core.model';
+import { LayoutService } from '../../core/layout/layout.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,4 +12,8 @@ import { TranslatePipe } from '@ngx-translate/core';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  private readonly layoutService = inject(LayoutService);
+
+  protected navbarNavigationButtons: NavigationButtonConfig[] = this.layoutService.getNavbarNavigationButton();
+}

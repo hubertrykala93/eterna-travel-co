@@ -1,29 +1,9 @@
 <ul class="navbar">
-  <li>
-    <a class="navbar__menu-item" href="">{{ 'navbar.home' | translate }}</a>
-  </li>
-
-  <li>
-    <a class="navbar__menu-item" href="">{{ 'navbar.about' | translate }}</a>
-  </li>
-
-  <li>
-    <a class="navbar__menu-item" href="">{{ 'navbar.tours' | translate }}</a>
-  </li>
-
-  <li>
-    <a class="navbar__menu-item" href="">{{ 'navbar.destinations' | translate }}</a>
-  </li>
-
-  <li>
-    <a class="navbar__menu-item" href="">{{ 'navbar.blog' | translate }}</a>
-  </li>
-
-  <li>
-    <a class="navbar__menu-item" href="">{{ 'navbar.pages' | translate }}</a>
-  </li>
-
-  <li>
-    <a class="navbar__menu-item" [routerLink]="['/contact-us']">{{ 'navbar.contact' | translate }}</a>
-  </li>
+  @for (button of navbarNavigationButtons; track $index) {
+    <li>
+      <a class="navbar__menu-item" [routerLink]="button.link">{{
+        (button.textKey | translate) || button.defaultText
+      }}</a>
+    </li>
+  }
 </ul>
