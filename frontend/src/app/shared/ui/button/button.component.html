@@ -1,3 +1,7 @@
-<button [ngClass]="[cssClass, styleClass]" [type]="type" [disabled]="disabled">
-  {{ label }}
+<button
+  class="button"
+  type="submit"
+  [ngClass]="['button--' + color, fullWidth ? 'button--fullwidth' : '', 'button--' + size]"
+>
+  <span>{{ (labelKey | translate) || defaultLabel }}</span>
 </button>

@@ -30,10 +30,7 @@
             ></textarea>
           }
         }
-
-        <button class="contact__button" type="submit" (click)="add()">
-          <span class="contact__button-label">{{ ('core.send' | translate) || 'Send' }}</span>
-        </button>
+        <ui-button labelKey="core.send" defaultLabel="'Send'" (click)="add()" />
       </form>
     </div>
     <div class="contact__map">

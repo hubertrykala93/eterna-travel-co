@@ -1,37 +1,22 @@
-import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
+import { ButtonColor, ButtonSize } from './button.model';
 
 @Component({
   selector: 'ui-button',
-  imports: [CommonModule],
   templateUrl: './button.component.html',
+  styleUrl: './button.component.scss',
+  imports: [TranslatePipe, NgClass],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonComponent implements OnChanges {
-  @Input() cssClass = '';
-  @Input() type = 'submit';
+export class ButtonComponent {
+  @Input({ required: true }) labelKey!: string;
+  @Input() defaultLabel?: string;
+  @Input() color: ButtonColor = ButtonColor.SECONDARY;
+  @Input() fullWidth: boolean = false;
+  @Input() size: ButtonSize = ButtonSize.SMALL;
 
-  @Input() label = 'Submit';
-
-  @Input() disabled = false;
-
-  public styleClass = '';
-
-  ngOnChanges(changes: SimpleChanges): void {
-    const baseClass =
-      'font-inter font-normal text-action text-white rounded-md bg-brandPrimary';
-
-    const hoverClass = this.disabled
-      ? 'opacity-50'
-      : 'hover:bg-brandYellow hover:text-heading duration-300';
-
-    this.styleClass = `${baseClass} ${hoverClass}`.trim();
-  }
+  protected readonly ButtonColor = ButtonColor;
 }
