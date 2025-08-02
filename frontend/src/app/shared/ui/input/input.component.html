@@ -1,39 +1,22 @@
-@if (type === 'text' || type === 'password') { @if (icon) {
-<div class="relative">
-  <i [ngClass]="[icon, iconCssClass, iconStyleClass]"></i>
-
+@if (type === FormType.TEXT) {
   <input
-    [ngClass]="[cssClass, styleClass]"
-    [id]="id"
-    [placeholder]="placeholder"
-    [type]="type"
+    class="input"
+    type="text"
     [value]="value"
-    [disabled]="disabled"
     (input)="handleInput($event)"
     (blur)="onTouched()"
+    [placeholder]="(placeholderKey | translate) || defaultPlaceholderText"
+    [ngClass]="[fullWidth ? 'input--fullwidth' : '', 'input--' + size]"
   />
-</div>
+}
 
-} @else {
-<input
-  [ngClass]="[cssClass, styleClass]"
-  [id]="id"
-  [placeholder]="placeholder"
-  [type]="type"
-  [value]="value"
-  [disabled]="disabled"
-  (input)="handleInput($event)"
-  (blur)="onTouched()"
-/>
-} } @if (type === 'textarea') {
-<textarea
-  [ngClass]="[cssClass, styleClass]"
-  [id]="id"
-  [placeholder]="placeholder"
-  [value]="value"
-  [disabled]="disabled"
-  (input)="handleInput($event)"
-  (blur)="onTouched()"
-></textarea>
-
+@if (type === FormType.TEXTAREA) {
+  <textarea
+    class="input input--textarea"
+    [value]="value"
+    (input)="handleInput($event)"
+    (blur)="onTouched()"
+    [placeholder]="(placeholderKey | translate) || defaultPlaceholderText"
+    [ngClass]="[fullWidth ? 'input--fullwidth' : '', 'input--' + size]"
+  ></textarea>
 }

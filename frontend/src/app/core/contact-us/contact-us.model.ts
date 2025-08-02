@@ -1,5 +1,5 @@
 import { FormControl } from '@angular/forms';
-import { FormControlName, FormOptionType } from '../core.model';
+import { FormType } from '../core.model';
 
 export interface ContactCard {
   icon: string;
@@ -28,8 +28,8 @@ export interface ContactUsFormControls {
 }
 
 export interface ContactFormOption {
-  formControlName: FormControlName;
-  type: FormOptionType;
+  formControlName: string;
+  type: FormType;
   placeholderKey: string;
   defaultPlaceholderText: string;
 }

@@ -1,23 +1,19 @@
 @if (form) {
-<form [formGroup]="form">
-  @for (option of formOptions; track option) {
-  <div
-    [ngClass]="
-      (activeTab === AuthenticationTabs.REGISTER &&
-        option.name === AuthenticationFormControlNames.REPASSWORD) ||
-      (activeTab === AuthenticationTabs.LOGIN &&
-        option.name === AuthenticationFormControlNames.PASSWORD)
-        ? 'mb-8'
-        : 'mb-3'
-    "
-  >
-    <label
-      [for]="option.name"
-      class="font-inter font-normal text-heading text-opacity-60"
-      >{{ option.label }} *</label
-    >
+  <form [formGroup]="form">
+    @for (option of formOptions; track option) {
+      <div
+        [ngClass]="
+          (activeTab === AuthenticationTabs.REGISTER && option.name === AuthenticationFormControlNames.REPASSWORD) ||
+          (activeTab === AuthenticationTabs.LOGIN && option.name === AuthenticationFormControlNames.PASSWORD)
+            ? 'mb-8'
+            : 'mb-3'
+        "
+      >
+        <label [for]="option.name" class="font-inter font-normal text-heading text-opacity-60"
+          >{{ option.label }} *</label
+        >
 
-    <ui-input
+        <!-- <ui-input
       [formControlName]="option.name"
       [cssClass]="
         'font-normal text-subtitle py-2 px-5 mt-2 rounded-none border focus:border-red-500 outline-none'
@@ -31,10 +27,10 @@
           ? 'right'
           : 'left'
       "
-    ></ui-input>
+    ></ui-input> -->
 
-    <ui-form-errors [form]="form" [option]="option"></ui-form-errors>
-  </div>
-  }
-</form>
+        <ui-form-errors [form]="form" [option]="option"></ui-form-errors>
+      </div>
+    }
+  </form>
 }

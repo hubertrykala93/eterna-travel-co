@@ -3,9 +3,8 @@ import { inject, Injectable } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { environment } from 'src/app/environments';
-import { FormOptionType } from '../core.model';
+import { FormType } from '../core.model';
 import ValidationUtils from '../utils/validation.utils';
-import { FormControlName } from './../core.model';
 import { ContactCard, ContactDto, ContactFormOption, ContactRequest, ContactUsFormControls } from './contact-us.model';
 
 @Injectable({
@@ -41,20 +40,20 @@ export class ContactUsService {
 
   public readonly contactFormOptions: ContactFormOption[] = [
     {
-      formControlName: FormControlName.NAME,
-      type: FormOptionType.TEXT,
+      formControlName: 'name',
+      type: FormType.TEXT,
       placeholderKey: 'contact-us.placeholder.name',
       defaultPlaceholderText: 'Your name...',
     },
     {
-      formControlName: FormControlName.EMAIL,
-      type: FormOptionType.TEXT,
+      formControlName: 'email',
+      type: FormType.TEXT,
       placeholderKey: 'contact-us.placeholder.email',
       defaultPlaceholderText: 'Your email...',
     },
     {
-      formControlName: FormControlName.MESSAGE,
-      type: FormOptionType.TEXTAREA,
+      formControlName: 'message',
+      type: FormType.TEXTAREA,
       placeholderKey: 'contact-us.placeholder.write-something',
       defaultPlaceholderText: 'Write something...',
     },

@@ -14,22 +14,17 @@
 
       <form [formGroup]="form">
         @for (option of contactFormOptions; track $index) {
-          @if (option.type === FormOptionType.TEXT) {
-            <input
-              class="contact__input"
-              [id]="option.formControlName"
+          <div class="contact__input">
+            <ui-input
+              [placeholderKey]="option.placeholderKey"
+              [defaultPlaceholderText]="option.defaultPlaceholderText"
+              [type]="option.type"
               [formControlName]="option.formControlName"
-              [placeholder]="(option.placeholderKey | translate) || option.defaultPlaceholderText"
+              [fullWidth]="true"
             />
-          } @else {
-            <textarea
-              class="contact__textarea"
-              [id]="option.formControlName"
-              [formControlName]="option.formControlName"
-              [placeholder]="(option.placeholderKey | translate) || option.defaultPlaceholderText"
-            ></textarea>
-          }
+          </div>
         }
+
         <ui-button labelKey="core.send" defaultLabel="'Send'" (click)="add()" />
       </form>
     </div>
