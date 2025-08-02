@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { environment } from 'src/app/environments';
-import { FormOption } from '../core.model';
+import { FormOption, FormType } from '../core.model';
 import ValidationUtils from '../utils/validation.utils';
 import { AuthenticationControls, AuthenticationFormControlNames, UserDto, UserRequest } from './authentication.model';
 
@@ -19,25 +19,25 @@ export class AuthenticationService {
       name: AuthenticationFormControlNames.EMAIL,
       label: 'Email Address',
       placeholder: 'Enter your email...',
-      type: 'text',
+      type: FormType.TEXT,
     },
     {
       name: AuthenticationFormControlNames.USERNAME,
       label: 'Username',
       placeholder: 'Enter your username...',
-      type: 'text',
+      type: FormType.TEXT,
     },
     {
       name: AuthenticationFormControlNames.PASSWORD,
       label: 'Password',
       placeholder: 'Enter your password...',
-      type: 'password',
+      type: FormType.PASSWORD,
     },
     {
       name: AuthenticationFormControlNames.REPASSWORD,
       label: 'Confirm Password',
       placeholder: 'Confirm your password...',
-      type: 'password',
+      type: FormType.PASSWORD,
     },
   ];
 
