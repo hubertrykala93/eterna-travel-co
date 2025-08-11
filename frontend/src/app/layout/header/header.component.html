@@ -1,8 +1,3 @@
-@let isLoadingLanguage = isLoadingLanguage$ | async;
-@let selectedLanguage = selectedLanguage$ | async;
-@let isLoadingCurrency = isLoadingCurrency$ | async;
-@let selectedCurrency = selectedCurrency$ | async;
-
 <header class="header">
   <div class="header__content">
     <div class="header__contact-info">
@@ -23,52 +18,8 @@
         </li>
       </ul>
 
-      @if (!isLoadingCurrency) {
-        @if (selectedCurrency) {
-          <div class="header__currency" (click)="onCurrencyMenuOpen()">
-            <span>{{ selectedCurrency }}</span>
-            <i [class]="'fa-solid fa-chevron-' + (isCurrencyMenuOpen() ? 'up' : 'down')"></i>
-
-            @if (isCurrencyMenuOpen()) {
-              <ul class="header__menu">
-                @for (button of currencyNavigationButtons; track $index) {
-                  <li class="header__currency-item" (click)="onChangeCurrency(button.code)">
-                    {{ button.defaultText }}
-                  </li>
-                }
-              </ul>
-            }
-          </div>
-        }
-      }
-      @if (!isLoadingLanguage) {
-        @if (selectedLanguage) {
-          <div class="header__languages" (click)="onLanguageMenuOpen()">
-            <img
-              class="header__flag"
-              [src]="selectedLanguage === LanguageCode.EN ? 'assets/flags/us-flag.png' : 'assets/flags/poland-flag.png'"
-              [alt]="selectedLanguage === LanguageCode.EN ? 'United states flag' : 'Poland flag'"
-              (click)="onLanguageMenuOpen()"
-            />
-            <span>{{
-              selectedLanguage == LanguageCode.EN
-                ? ('header.english-us' | translate) || 'English (US)'
-                : ('header.polish-pl' | translate) || 'Polish'
-            }}</span>
-
-            @if (isLanguageMenuOpen()) {
-              <ul class="header__menu">
-                @for (button of languageNavigationButtons; track $index) {
-                  <li class="header__currency-item header__currency-item--flex" (click)="onChangeLanguage(button.code)">
-                    <img class="header__flag" [src]="button.src" [alt]="button.alt" />
-                    <span>{{ (button.textKey | translate) || button.defaultText }}</span>
-                  </li>
-                }
-              </ul>
-            }
-          </div>
-        }
-      }
+      <app-dropdown-selector [navigationButtons$]="currencyNavigationButtons$" />
+      <app-dropdown-selector [navigationButtons$]="languageNavigationButtons$" />
     </div>
   </div>
 
@@ -86,21 +37,21 @@
 
     <div class="header__auth">
       <ul class="header__auth-icons">
-        <li class="header__currency-item" (click)="onAuthMenuOpen()">
+        <li (click)="onAuthMenuOpen()">
           <i class="fa-solid fa-user"></i>
         </li>
 
         @if (isAuthMenuOpen()) {
           <ul class="header__menu">
             @for (button of authNavigationButtons; track $index) {
-              <li class="header__currency-item">
+              <li>
                 <a [routerLink]="button.link">{{ (button.textKey | translate) || button.defaultText }}</a>
               </li>
             }
           </ul>
         }
 
-        <li class="header__currency-item" (click)="onMenuOpen()">
+        <li (click)="onMenuOpen()">
           <i class="fa-solid fa-bars"></i>
         </li>
 
@@ -113,7 +64,7 @@
 
       <ul class="header__auth-links">
         @for (button of authNavigationButtons; let i = $index; track $index) {
-          <li class="header__currency-item">
+          <li>
             <a [routerLink]="button.link">{{ (button.textKey | translate) || button.defaultText }}</a>
           </li>
 

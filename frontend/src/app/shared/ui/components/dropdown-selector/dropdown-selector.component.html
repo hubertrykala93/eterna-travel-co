@@ -1,0 +1,22 @@
+@let isLanguageButtons = isLanguageButtons$ | async;
+@let selectedCurrency = selectedCurrency$ | async;
+@let selectedLanguage = selectedLanguage$ | async;
+
+<div class="dropdown" (click)="onMenuOpen()">
+  @if (isLanguageButtons) {
+    @if (selectedLanguage === LanguageCode.EN) {
+      <img class="dropdown__flag" src="assets/flags/us-flag.png" alt="United states flag" />
+      <span>{{ ('header.english-us' | translate) || 'English (US)' }}</span>
+    } @else {
+      <img class="dropdown__flag" src="assets/flags/poland-flag.png" alt="Poland flag" />
+      <span>{{ ('header.polish-pl' | translate) || 'Polish' }}</span>
+    }
+  } @else {
+    <span>{{ selectedCurrency }}</span>
+  }
+  <i [class]="'fa-solid fa-chevron-' + (isMenuOpen() ? 'up' : 'down')"></i>
+
+  @if (isMenuOpen()) {
+    <app-dropdown-menu class="dropdown__menu" [navigationButtons$]="navigationButtons$" />
+  }
+</div>

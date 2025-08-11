@@ -1,0 +1,15 @@
+.dropdown {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 8px;
+  cursor: pointer;
+
+  &__flag {
+    width: 16px;
+  }
+
+  &__menu {
+    position: absolute;
+  }
+}

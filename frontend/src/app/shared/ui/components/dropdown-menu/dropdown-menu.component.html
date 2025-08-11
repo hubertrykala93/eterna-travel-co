@@ -1,0 +1,12 @@
+@let navigationButtons = navigationButtons$ | async;
+
+<ul class="menu">
+  @for (button of navigationButtons; track $index) {
+    <li class="menu__item" (click)="onChange(button.code)">
+      @if (button.src) {
+        <img class="menu__flag" [src]="button.src" [alt]="button.alt" />
+      }
+      <span>{{ button.textKey ? (button.textKey | translate) : button.defaultText }}</span>
+    </li>
+  }
+</ul>
