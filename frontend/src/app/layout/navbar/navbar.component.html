@@ -1,9 +1,12 @@
 <ul class="navbar">
   @for (button of navbarNavigationButtons; track $index) {
     <li>
-      <a class="navbar__menu-item" [routerLink]="button.link">{{
-        (button.textKey | translate) || button.defaultText
-      }}</a>
+      <a
+        class="navbar__menu-item"
+        [ngClass]="{ 'navbar__menu-item--active': router.url === button.link }"
+        [routerLink]="button.link"
+        >{{ (button.textKey | translate) || button.defaultText }}</a
+      >
     </li>
   }
 </ul>

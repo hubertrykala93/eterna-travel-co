@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, EMPTY, Observable, switchMap, take, tap } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, of, switchMap, take, tap } from 'rxjs';
 import { environment } from 'src/app/environments';
 import { TranslationService } from '../translate/translation.service';
 import { ACTIVE_LANGUAGE } from './language.const';
@@ -37,8 +37,8 @@ export class LanguageService {
       .subscribe();
   })();
 
-  public getLanguageNavigationButtons(): LanguageNavigationButton[] {
-    return [
+  public getLanguageNavigationButtons(): Observable<LanguageNavigationButton[]> {
+    return of([
       {
         src: 'assets/flags/us-flag.png',
         alt: 'United states flag',
@@ -53,7 +53,7 @@ export class LanguageService {
         textKey: 'header.polish-pl',
         defaultText: LanguageName.POLISH,
       },
-    ];
+    ]);
   }
 
   private selectedLanguageSubject: BehaviorSubject<LanguageCode | null> = new BehaviorSubject<LanguageCode | null>(

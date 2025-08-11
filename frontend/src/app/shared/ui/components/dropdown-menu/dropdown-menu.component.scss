@@ -1,0 +1,31 @@
+.menu {
+  display: flex;
+  position: absolute;
+  top: 100%;
+  right: -30px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 15px;
+  width: max-content;
+  border-radius: 6px;
+  border: 1px solid rgba(var(--color-primary--rgba), 0.2);
+  background: white;
+  z-index: 1;
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+
+  &__flag {
+    width: 16px;
+  }
+}

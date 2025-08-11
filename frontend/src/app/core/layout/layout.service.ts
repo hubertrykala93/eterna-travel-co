@@ -19,6 +19,7 @@ export class LayoutService {
       },
     ];
   }
+
   public getNavbarNavigationButton(): NavigationButtonConfig[] {
     return [
       {
@@ -45,11 +46,6 @@ export class LayoutService {
         link: '/blog',
         textKey: 'navbar.blog',
         defaultText: 'Blog',
-      },
-      {
-        link: '/pages',
-        textKey: 'navbar.pages',
-        defaultText: 'Pages',
       },
       {
         link: '/contact-us',

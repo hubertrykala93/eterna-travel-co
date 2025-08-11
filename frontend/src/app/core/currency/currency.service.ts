@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, EMPTY, Observable, switchMap, take, tap } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, of, switchMap, take, tap } from 'rxjs';
 import { environment } from 'src/app/environments';
 import { ACTIVE_CURRENCY } from './currency.const';
 import { CurrencyCode, CurrencyDto, CurrencyNavigationButton } from './currency.model';
@@ -19,13 +19,11 @@ export class CurrencyService {
 
           if (currency) {
             this.setCurrency(currency);
-            this.isLoadingCurrencySubject.next(false);
             return EMPTY;
           } else {
             return this.changeCurrency(CurrencyCode.USD).pipe(
               tap(() => {
                 this.setCurrency(CurrencyCode.USD);
-                this.isLoadingCurrencySubject.next(false);
               }),
             );
           }
@@ -35,8 +33,8 @@ export class CurrencyService {
       .subscribe();
   })();
 
-  public getCurrencyNavigationButtons(): CurrencyNavigationButton[] {
-    return [
+  public getCurrencyNavigationButtons(): Observable<CurrencyNavigationButton[]> {
+    return of([
       {
         code: CurrencyCode.USD,
         defaultText: CurrencyCode.USD,
@@ -53,16 +51,14 @@ export class CurrencyService {
         code: CurrencyCode.PLN,
         defaultText: CurrencyCode.PLN,
       },
-    ];
+    ]);
   }
 
   private selectedCurrencySubject: BehaviorSubject<CurrencyCode | null> = new BehaviorSubject<CurrencyCode | null>(
     CurrencyCode.USD,
   );
-  private isLoadingCurrencySubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
   public readonly selectedCurrency$: Observable<CurrencyCode | null> = this.selectedCurrencySubject.asObservable();
-  public readonly isLoadingCurrency$: Observable<boolean> = this.isLoadingCurrencySubject.asObservable();
 
   private setCurrency(currency: CurrencyCode): void {
     sessionStorage.setItem(ACTIVE_CURRENCY, currency);
