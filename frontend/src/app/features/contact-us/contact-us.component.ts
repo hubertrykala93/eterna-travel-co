@@ -29,6 +29,7 @@ export class ContactUsComponent {
   protected readonly FormType = FormType;
 
   protected add(): void {
+    console.log('Form Value -> ', this.form.value)
     const data = this.form.value as ContactRequest;
 
     this.contactUsService
