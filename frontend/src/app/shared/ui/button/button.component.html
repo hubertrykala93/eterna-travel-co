@@ -1,7 +1,7 @@
 <button
   class="button"
   type="submit"
-  [ngClass]="['button--' + color, fullWidth ? 'button--fullwidth' : '', 'button--' + size]"
+  [ngClass]="['button--' + color(), fullWidth() ? 'button--fullwidth' : '', 'button--' + size()]"
 >
-  <span>{{ (labelKey | translate) || defaultLabel }}</span>
+  <span>{{ (labelKey() | translate) || defaultLabel() }}</span>
 </button>
