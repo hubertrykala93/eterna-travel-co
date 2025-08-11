@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, Input, OnInit, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Input, signal, WritableSignal } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { defer, filter, map, Observable, Subscription, switchMap, take, tap } from 'rxjs';
@@ -18,7 +18,7 @@ import { DropdownButton } from './dropdown-selector.model';
   imports: [AsyncPipe, TranslatePipe, DropdownMenuComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DropdownSelectorComponent implements OnInit {
+export class DropdownSelectorComponent {
   private readonly currencyService = inject(CurrencyService);
   private readonly languageService = inject(LanguageService);
   private readonly router = inject(Router);
@@ -48,9 +48,6 @@ export class DropdownSelectorComponent implements OnInit {
     ),
   );
 
-  ngOnInit(): void {
-    this.navigationButtons$.pipe(tap((value) => console.log('Value -> ', value))).subscribe();
-  }
   protected onMenuOpen(): void {
     this.isMenuOpen.update((isMenuOpen) => !isMenuOpen);
   }

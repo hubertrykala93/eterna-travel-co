@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, InputSignal } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ButtonColor, ButtonSize } from './button.model';
 
@@ -12,11 +12,11 @@ import { ButtonColor, ButtonSize } from './button.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  @Input({ required: true }) labelKey!: string;
-  @Input() defaultLabel?: string;
-  @Input() color: ButtonColor = ButtonColor.SECONDARY;
-  @Input() fullWidth: boolean = false;
-  @Input() size: ButtonSize = ButtonSize.SMALL;
+  public readonly labelKey: InputSignal<string> = input.required<string>()
+  public readonly defaultLabel: InputSignal<string> = input<string>('')
+  public readonly color: InputSignal<ButtonColor> = input<ButtonColor>(ButtonColor.SECONDARY)
+  public readonly fullWidth: InputSignal<boolean> = input<boolean>(false)
+  public readonly size: InputSignal<ButtonSize> = input<ButtonSize>(ButtonSize.SMALL)
 
   protected readonly ButtonColor = ButtonColor;
 }
